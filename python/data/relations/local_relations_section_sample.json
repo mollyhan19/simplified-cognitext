@@ -1,0 +1,606 @@
+{
+    "metadata": {
+        "type": "local_relations",
+        "processing_mode": "section",
+        "timestamp": "2025-03-03T16:06:12.606199"
+    },
+    "articles": {
+        "Tardigrade": {
+            "category": "general",
+            "relations": [
+                {
+                    "source": "tardigrades",
+                    "relation_type": "is a type of",
+                    "target": "phylum tardigrada",
+                    "evidence": "Tardigrades are a phylum of eight-legged segmented micro-animals.",
+                    "section_name": "Introduction",
+                    "section_index": 1
+                },
+                {
+                    "source": "tardigrades",
+                    "relation_type": "exhibit",
+                    "target": "resilience",
+                    "evidence": "Tardigrades are among the most resilient animals known, with individual species able to survive extreme conditions.",
+                    "section_name": "Introduction",
+                    "section_index": 1
+                },
+                {
+                    "source": "tardigrades",
+                    "relation_type": "can survive",
+                    "target": "extreme conditions",
+                    "evidence": "Tardigrades are able to survive extreme conditions \u2013 such as exposure to extreme temperatures, extreme pressures (both high and low), air deprivation, radiation, dehydration, and starvation.",
+                    "section_name": "Introduction",
+                    "section_index": 1
+                },
+                {
+                    "source": "phylum tardigrada",
+                    "relation_type": "is part of",
+                    "target": "ecdysozoa",
+                    "evidence": "They are a part of the superphylum Ecdysozoa.",
+                    "section_name": "Introduction",
+                    "section_index": 1
+                },
+                {
+                    "source": "tardigrades",
+                    "relation_type": "have been studied since",
+                    "target": "johann august ephraim goeze",
+                    "evidence": "They were first described by the German zoologist Johann August Ephraim Goeze in 1773.",
+                    "section_name": "Introduction",
+                    "section_index": 1
+                },
+                {
+                    "source": "tardigrades",
+                    "relation_type": "were named by",
+                    "target": "lazzaro spallanzani",
+                    "evidence": "In 1776, the Italian biologist Lazzaro Spallanzani named them Tardigrada.",
+                    "section_name": "Introduction",
+                    "section_index": 1
+                },
+                {
+                    "source": "tardigrades",
+                    "relation_type": "are found in",
+                    "target": "mosses and lichens",
+                    "evidence": "Tardigrades are prevalent in mosses and lichens.",
+                    "section_name": "Introduction",
+                    "section_index": 1
+                },
+                {
+                    "source": "tardigrades",
+                    "relation_type": "inspire",
+                    "target": "science fiction and popular culture",
+                    "evidence": "Their well-known ability to survive life-stopping events have brought them into science fiction and popular culture.",
+                    "section_name": "Introduction",
+                    "section_index": 1
+                },
+                {
+                    "source": "tardigrades",
+                    "relation_type": "have a fossil record dating back to",
+                    "target": "cambrian",
+                    "evidence": "The earliest known fossil is from the Cambrian, some 500 million years ago.",
+                    "section_name": "Introduction",
+                    "section_index": 1
+                },
+                {
+                    "source": "tardigrades",
+                    "relation_type": "lack",
+                    "target": "hox genes",
+                    "evidence": "They lack several of the Hox genes found in arthropods.",
+                    "section_name": "Introduction",
+                    "section_index": 1
+                },
+                {
+                    "source": "tardigrades",
+                    "relation_type": "have body structure",
+                    "target": "haemocoel",
+                    "evidence": "The body cavity is a haemocoel, an open circulatory system, filled with a colourless fluid.",
+                    "section_name": "Description",
+                    "section_index": 2
+                },
+                {
+                    "source": "tardigrades",
+                    "relation_type": "have body covering",
+                    "target": "cuticle",
+                    "evidence": "The body covering is a cuticle that is replaced when the animal moults.",
+                    "section_name": "Description",
+                    "section_index": 2
+                },
+                {
+                    "source": "cuticle",
+                    "relation_type": "facilitates",
+                    "target": "gas exchange",
+                    "evidence": "They rely on diffusion through the cuticle and body cavity for gas exchange.",
+                    "section_name": "Description",
+                    "section_index": 2
+                },
+                {
+                    "source": "tardigrades",
+                    "relation_type": "have",
+                    "target": "nervous system",
+                    "evidence": "The tardigrade nervous system has a pair of ventral nerve cords with a pair of ganglia serving each pair of legs.",
+                    "section_name": "Description",
+                    "section_index": 2
+                },
+                {
+                    "source": "tardigrades",
+                    "relation_type": "can learn through",
+                    "target": "classical conditioning",
+                    "evidence": "The tardigrade Dactylobiotus dispar can be trained by classical conditioning to curl up into the defensive 'tun' state.",
+                    "section_name": "Description",
+                    "section_index": 2
+                },
+                {
+                    "source": "tardigrades",
+                    "relation_type": "use",
+                    "target": "locomotion",
+                    "evidence": "Locomotion does not operate mainly hydrostatically.",
+                    "section_name": "Description",
+                    "section_index": 2
+                },
+                {
+                    "source": "stylets",
+                    "relation_type": "used for",
+                    "target": "feeding",
+                    "evidence": "A pair of stylets pierce the prey; the pharynx muscles then pump the fluids from the prey into the gut.",
+                    "section_name": "Description",
+                    "section_index": 2
+                },
+                {
+                    "source": "tardigrades",
+                    "relation_type": "reproduce through",
+                    "target": "copulation",
+                    "evidence": "Most tardigrades have both male and female animals which copulate by a variety of methods.",
+                    "section_name": "Description",
+                    "section_index": 2
+                },
+                {
+                    "source": "Austeruseus faeroensis",
+                    "relation_type": "produces",
+                    "target": "eggs",
+                    "evidence": "The females lay eggs; those of Austeruseus faeroensis are spherical, 80 \u03bcm in diameter.",
+                    "section_name": "Description",
+                    "section_index": 2
+                },
+                {
+                    "source": "H. annulatus",
+                    "relation_type": "produces",
+                    "target": "eggs",
+                    "evidence": "In other species the eggs can be ovoid, as in Hypsibius annulatus.",
+                    "section_name": "Description",
+                    "section_index": 2
+                },
+                {
+                    "source": "tardigrades",
+                    "relation_type": "can reproduce by",
+                    "target": "parthenogenesis",
+                    "evidence": "Some species appear to have no males, suggesting that parthenogenesis is common.",
+                    "section_name": "Description",
+                    "section_index": 2
+                },
+                {
+                    "source": "gonad",
+                    "relation_type": "is located above",
+                    "target": "intestine",
+                    "evidence": "Both sexes have a single gonad (an ovary or testis) located above the intestine.",
+                    "section_name": "Description",
+                    "section_index": 2
+                },
+                {
+                    "source": "eggs",
+                    "relation_type": "hatch into",
+                    "target": "hatchlings",
+                    "evidence": "The eggs hatch within 14 days, the hatchlings using their stylets to open their egg shells.",
+                    "section_name": "Description",
+                    "section_index": 2
+                },
+                {
+                    "source": "tardigrades",
+                    "relation_type": "are found in",
+                    "target": "terrestrial environments",
+                    "evidence": "With the exception of 62 exclusively freshwater species, all non-marine tardigrades are found in terrestrial environments.",
+                    "section_name": "Ecology and life history",
+                    "section_index": 3
+                },
+                {
+                    "source": "tardigrades",
+                    "relation_type": "are cosmopolitan",
+                    "target": "cosmopolitan",
+                    "evidence": "Tardigrades as a group are cosmopolitan, living in many environments on land, in freshwater, and in the sea.",
+                    "section_name": "Ecology and life history",
+                    "section_index": 3
+                },
+                {
+                    "source": "Echiniscus lineatus",
+                    "relation_type": "has a distribution type",
+                    "target": "pantropical",
+                    "evidence": "Echiniscus lineatus is pantropical.",
+                    "section_name": "Ecology and life history",
+                    "section_index": 3
+                },
+                {
+                    "source": "Halobiotus",
+                    "relation_type": "is restricted to",
+                    "target": "cold Holarctic seas",
+                    "evidence": "Halobiotus is restricted to cold Holarctic seas.",
+                    "section_name": "Ecology and life history",
+                    "section_index": 3
+                },
+                {
+                    "source": "Borealibius",
+                    "relation_type": "has a distribution type",
+                    "target": "discontinuous",
+                    "evidence": "Species such as Borealibius and Echiniscus lapponicus have a discontinuous distribution.",
+                    "section_name": "Ecology and life history",
+                    "section_index": 3
+                },
+                {
+                    "source": "tardigrades",
+                    "relation_type": "are host to",
+                    "target": "microbial symbionts",
+                    "evidence": "Tardigrades are host to many microbial symbionts and parasites.",
+                    "section_name": "Ecology and life history",
+                    "section_index": 3
+                },
+                {
+                    "source": "Flavobacterium, Ferruginibacter, Polaromonas",
+                    "relation_type": "are common in",
+                    "target": "tardigrades' microbiomes",
+                    "evidence": "In glacial environments, the bacterial genera Flavobacterium, Ferruginibacter, and Polaromonas are common in tardigrades' microbiomes.",
+                    "section_name": "Ecology and life history",
+                    "section_index": 3
+                },
+                {
+                    "source": "Milnesium lagniappe",
+                    "relation_type": "includes prey of",
+                    "target": "other tardigrades",
+                    "evidence": "Milnesium lagniappe includes other tardigrades such as Macrobiotus acadianus among its prey.",
+                    "section_name": "Ecology and life history",
+                    "section_index": 3
+                },
+                {
+                    "source": "tardigrades",
+                    "relation_type": "consume",
+                    "target": "prey such as nematodes",
+                    "evidence": "Tardigrades consume prey such as nematodes.",
+                    "section_name": "Ecology and life history",
+                    "section_index": 3
+                },
+                {
+                    "source": "tardigrades",
+                    "relation_type": "are predated upon by",
+                    "target": "soil arthropods",
+                    "evidence": "Tardigrades are themselves predated upon by soil arthropods including mites, spiders and cantharid beetle larvae.",
+                    "section_name": "Ecology and life history",
+                    "section_index": 3
+                },
+                {
+                    "source": "Heterotardigrada",
+                    "relation_type": "is the most ancestral class of",
+                    "target": "marine tardigrades",
+                    "evidence": "Because the majority of the marine species belongs to Heterotardigrada, the most ancestral class, the phylum evidently has a marine origin.",
+                    "section_name": "Ecology and life history",
+                    "section_index": 3
+                },
+                {
+                    "source": "tardigrades",
+                    "relation_type": "capable of",
+                    "target": "cryptobiosis",
+                    "evidence": "Tardigrades are capable of suspending their metabolism, going into a state of cryptobiosis.",
+                    "section_name": "Environmental tolerance",
+                    "section_index": 4
+                },
+                {
+                    "source": "cryptobiosis",
+                    "relation_type": "results in",
+                    "target": "desiccated cyst",
+                    "evidence": "Terrestrial and freshwater tardigrades are able to tolerate long periods when water is not available... by drawing their legs in and forming a desiccated cyst, the cryptobiotic 'tun' state.",
+                    "section_name": "Environmental tolerance",
+                    "section_index": 4
+                },
+                {
+                    "source": "desiccated cyst",
+                    "relation_type": "provides resistance to",
+                    "target": "environmental stresses",
+                    "evidence": "In this state, they can go without food or water for several years... they become highly resistant to environmental stresses.",
+                    "section_name": "Environmental tolerance",
+                    "section_index": 4
+                },
+                {
+                    "source": "tardigrades",
+                    "relation_type": "exhibit",
+                    "target": "cyclomorphosis",
+                    "evidence": "Marine tardigrades such as Halobiotus crispae alternate each year (cyclomorphosis) between an active summer morph and a hibernating winter morph.",
+                    "section_name": "Environmental tolerance",
+                    "section_index": 4
+                },
+                {
+                    "source": "tardigrades",
+                    "relation_type": "survived exposure to",
+                    "target": "space",
+                    "evidence": "Tardigrades have survived exposure to space.",
+                    "section_name": "Environmental tolerance",
+                    "section_index": 4
+                },
+                {
+                    "source": "FOTON-M3 mission",
+                    "relation_type": "involved",
+                    "target": "tardigrades",
+                    "evidence": "In 2007, dehydrated tardigrades were taken on the FOTON-M3 mission and exposed to vacuum.",
+                    "section_name": "Environmental tolerance",
+                    "section_index": 4
+                },
+                {
+                    "source": "Dsup protein",
+                    "relation_type": "protects",
+                    "target": "DNA",
+                    "evidence": "Tardigrade DNA is protected from radiation by the Dsup ('damage suppressor') protein.",
+                    "section_name": "Environmental tolerance",
+                    "section_index": 4
+                },
+                {
+                    "source": "tardigrade specific proteins",
+                    "relation_type": "may protect",
+                    "target": "membranes",
+                    "evidence": "These may protect membranes from damage by associating with the polar heads of lipid molecules.",
+                    "section_name": "Environmental tolerance",
+                    "section_index": 4
+                },
+                {
+                    "source": "anhydrobiosis",
+                    "relation_type": "involves",
+                    "target": "upregulated genes",
+                    "evidence": "Anhydrobiosis in response to desiccation has a complex molecular basis; in Hypsibius exemplaris, 1,422 genes are upregulated during the process.",
+                    "section_name": "Environmental tolerance",
+                    "section_index": 4
+                },
+                {
+                    "source": "Maria Kamilari",
+                    "relation_type": "proposed",
+                    "target": "cold shock protein function",
+                    "evidence": "Maria Kamilari and colleagues propose (2019) that this may serve 'as a RNA-chaperone involved in regulation of translation.'",
+                    "section_name": "Environmental tolerance",
+                    "section_index": 4
+                },
+                {
+                    "source": "Dsup protein",
+                    "relation_type": "confers resistance to",
+                    "target": "ultraviolet-C",
+                    "evidence": "The Dsup protein of R. varieornatus confers resistance to ultraviolet-C by upregulating DNA repair genes.",
+                    "section_name": "Environmental tolerance",
+                    "section_index": 4
+                },
+                {
+                    "source": "tardigrades",
+                    "relation_type": "is a type of",
+                    "target": "phylum tardigrada",
+                    "evidence": "In 1962, Giuseppe Ramazzotti proposed the phylum Tardigrada.",
+                    "section_name": "Taxonomic history",
+                    "section_index": 5
+                },
+                {
+                    "source": "Eutardigrada",
+                    "relation_type": "is a class of",
+                    "target": "phylum tardigrada",
+                    "evidence": "Ferdinand Richters... in 1926 proposed the class Eutardigrada.",
+                    "section_name": "Taxonomic history",
+                    "section_index": 5
+                },
+                {
+                    "source": "Heterotardigrada",
+                    "relation_type": "is a class of",
+                    "target": "phylum tardigrada",
+                    "evidence": "In 1927, Ernst Marcus created the class Heterotardigrada.",
+                    "section_name": "Taxonomic history",
+                    "section_index": 5
+                },
+                {
+                    "source": "Mesotardigrada",
+                    "relation_type": "is a class of",
+                    "target": "phylum tardigrada",
+                    "evidence": "In 1937 Gilbert Rahm... distinguished the class Mesotardigrada.",
+                    "section_name": "Taxonomic history",
+                    "section_index": 5
+                },
+                {
+                    "source": "Apotardigrada",
+                    "relation_type": "is a class of",
+                    "target": "phylum tardigrada",
+                    "evidence": "In 2019, Noemi Guil and colleagues proposed to promote the order Apochela to the new class Apotardigrada.",
+                    "section_name": "Taxonomic history",
+                    "section_index": 5
+                },
+                {
+                    "source": "1,488 described species",
+                    "relation_type": "is a characteristic of",
+                    "target": "tardigrades",
+                    "evidence": "There are some 1,488 described species of tardigrades.",
+                    "section_name": "Taxonomic history",
+                    "section_index": 5
+                },
+                {
+                    "source": "taxonomy of tardigrades",
+                    "relation_type": "is studied by",
+                    "target": "Ferdinand Richters",
+                    "evidence": "Ferdinand Richters worked on the taxonomy of tardigrades from 1900 to 1913.",
+                    "section_name": "Taxonomic history",
+                    "section_index": 5
+                },
+                {
+                    "source": "memoire sur les tardigrades",
+                    "relation_type": "is a significant work in",
+                    "target": "tardigradology",
+                    "evidence": "Greven describes Doy\u00e8re's 1842 dissertation Memoire sur les Tardigrades as an indisputable milestone in tardigradology.",
+                    "section_name": "Taxonomic history",
+                    "section_index": 5
+                },
+                {
+                    "source": "tardigradum",
+                    "relation_type": "is a name meaning",
+                    "target": "slow walker",
+                    "evidence": "The name Tardigradum means 'slow walker' and was given by Lazzaro Spallanzani in 1776.",
+                    "section_name": "Taxonomic history",
+                    "section_index": 5
+                },
+                {
+                    "source": "Kleiner Wasserb\u00e4r",
+                    "relation_type": "is a common name for",
+                    "target": "tardigrades",
+                    "evidence": "In 1773, Johann August Ephraim Goeze named the tardigrade Kleiner Wasserb\u00e4r, meaning 'little water-bear' in German.",
+                    "section_name": "Taxonomic history",
+                    "section_index": 5
+                },
+                {
+                    "source": "tardigrade fossils",
+                    "relation_type": "are found in",
+                    "target": "mid-cambrian deposits",
+                    "evidence": "The only known specimens are those from mid-Cambrian deposits in Siberia.",
+                    "section_name": "Evolution",
+                    "section_index": 6
+                },
+                {
+                    "source": "tardigrade fossils",
+                    "relation_type": "represent",
+                    "target": "stem group",
+                    "evidence": "Scientists think they represent a stem group of living tardigrades.",
+                    "section_name": "Evolution",
+                    "section_index": 6
+                },
+                {
+                    "source": "lobopodian",
+                    "relation_type": "is a likely ancestor of",
+                    "target": "tardigrades",
+                    "evidence": "Multiple lines of evidence show that tardigrades are secondarily miniaturised from a larger ancestor, probably a lobopodian.",
+                    "section_name": "Evolution",
+                    "section_index": 6
+                },
+                {
+                    "source": "Aysheaia",
+                    "relation_type": "is related to",
+                    "target": "tardigrade lineage",
+                    "evidence": "perhaps resembling the mid-Cambrian Aysheaia, which many analyses place close to the divergence of the tardigrade lineage.",
+                    "section_name": "Evolution",
+                    "section_index": 6
+                },
+                {
+                    "source": "Tactopoda hypothesis",
+                    "relation_type": "suggests relationship between",
+                    "target": "Tardigrada and Arthropoda",
+                    "evidence": "The Tactopoda hypothesis holds that Tardigrada are sister to Arthropoda.",
+                    "section_name": "Evolution",
+                    "section_index": 6
+                },
+                {
+                    "source": "hypsibius exemplaris",
+                    "relation_type": "has genome size of",
+                    "target": "100 megabase pairs",
+                    "evidence": "Hypsibius exemplaris has a compact genome of 100 megabase pairs.",
+                    "section_name": "Evolution",
+                    "section_index": 6
+                },
+                {
+                    "source": "horizontal gene transfer",
+                    "relation_type": "affects",
+                    "target": "genome size variation",
+                    "evidence": "About 1.6% of its genes are the result of horizontal gene transfer from other species.",
+                    "section_name": "Evolution",
+                    "section_index": 6
+                },
+                {
+                    "source": "phylogeny of the phylum",
+                    "relation_type": "was studied using",
+                    "target": "molecular markers",
+                    "evidence": "In 2012, the phylogeny of the phylum was studied using molecular markers (ribosomal RNA).",
+                    "section_name": "Evolution",
+                    "section_index": 6
+                },
+                {
+                    "source": "Heterotardigrada",
+                    "relation_type": "is an accepted clade",
+                    "target": "Heterotardigrada and Arthrotardigrada",
+                    "evidence": "the Heterotardigrada is an accepted clade.",
+                    "section_name": "Evolution",
+                    "section_index": 6
+                },
+                {
+                    "source": "tardigrades",
+                    "relation_type": "appear in",
+                    "target": "Bathybia",
+                    "evidence": "Possibly the first time that tardigrades appear in non-scientific literature is in the short-story 'Bathybia' by the geologist and explorer Douglas Mawson.",
+                    "section_name": "In culture and society",
+                    "section_index": 7
+                },
+                {
+                    "source": "Douglas Mawson",
+                    "relation_type": "wrote",
+                    "target": "Bathybia",
+                    "evidence": "the short-story 'Bathybia' by the geologist and explorer Douglas Mawson.",
+                    "section_name": "In culture and society",
+                    "section_index": 7
+                },
+                {
+                    "source": "tardigrades",
+                    "relation_type": "survive",
+                    "target": "extreme conditions",
+                    "evidence": "The tardigrades' traits, including their ability to survive extreme conditions, have earned them a place in science fiction and other pop culture.",
+                    "section_name": "In culture and society",
+                    "section_index": 7
+                },
+                {
+                    "source": "Spallanzani",
+                    "relation_type": "resuscitated",
+                    "target": "tardigrades",
+                    "evidence": "they have been famous for their ability to survive life-stopping events such as being dried out since Spallanzani first resuscitated them from some dry sediment.",
+                    "section_name": "In culture and society",
+                    "section_index": 7
+                },
+                {
+                    "source": "tardigrade song",
+                    "relation_type": "features",
+                    "target": "tardigrades",
+                    "evidence": "The musician Cosmo Sheldrake imagines himself as a robust tardigrade in his 2015 'Tardigrade Song'.",
+                    "section_name": "In culture and society",
+                    "section_index": 7
+                },
+                {
+                    "source": "Harbinger Down",
+                    "relation_type": "features",
+                    "target": "tardigrades",
+                    "evidence": "the protagonists have to deal with tardigrades that have mutated through Cold War experiments into intelligent and deadly shapeshifters.",
+                    "section_name": "In culture and society",
+                    "section_index": 7
+                },
+                {
+                    "source": "Ripper",
+                    "relation_type": "is a version of",
+                    "target": "tardigrades",
+                    "evidence": "the alien 'Ripper' creature is a huge but generally recognisable version of a terrestrial tardigrade.",
+                    "section_name": "In culture and society",
+                    "section_index": 7
+                },
+                {
+                    "source": "Ripper",
+                    "relation_type": "incorporates",
+                    "target": "horizontal gene transfer",
+                    "evidence": "the Ripper can 'incorporate foreign DNA into its own genome via horizontal gene transfer.'",
+                    "section_name": "In culture and society",
+                    "section_index": 7
+                },
+                {
+                    "source": "Lisa Meinecke",
+                    "relation_type": "analyzes",
+                    "target": "Ripper",
+                    "evidence": "The scholar of science in popular culture Lisa Meinecke... writes that the animal shares some of the real tardigrade's characteristics.",
+                    "section_name": "In culture and society",
+                    "section_index": 7
+                },
+                {
+                    "source": "tardigrades",
+                    "relation_type": "are popular in",
+                    "target": "pop culture",
+                    "evidence": "their traits... have earned them a place in science fiction and other pop culture.",
+                    "section_name": "In culture and society",
+                    "section_index": 7
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,8 @@
+streamlit
+networkx
+matplotlib
+openai
+python-dotenv
+wikipediaapi
+beautifulsoup4
+requests

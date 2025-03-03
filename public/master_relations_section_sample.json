@@ -1,0 +1,473 @@
+{
+    "articles": {
+        "Garden path sentence": {
+            "category": "linguistics",
+            "relations": [
+                {
+                    "source": "disambiguating information",
+                    "relation_type": "facilitates",
+                    "target": "re-analysis of sentences",
+                    "evidence": "Disambiguating information is essential for the re-analysis of sentences, allowing readers to correct their initial interpretations and understand the intended meaning.",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "sentence parsing",
+                    "relation_type": "can use",
+                    "target": "parallel parsing",
+                    "evidence": "Two debated parsing strategies that humans are thought to use are serial and parallel parsing.",
+                    "section_name": "Parsing",
+                    "section_index": 3
+                },
+                {
+                    "source": "systematic revision failure",
+                    "relation_type": "is indicated by",
+                    "target": "similar error rates in L2 learners and native speaking children",
+                    "evidence": "indicating systematic revision failure.",
+                    "section_name": "Reanalysis of a garden-path sentence",
+                    "section_index": 4
+                },
+                {
+                    "source": "complex houses married",
+                    "relation_type": "exemplifies",
+                    "target": "syntactically non-standard",
+                    "evidence": "The phrase 'complex houses married' serves as an example of syntactically non-standard constructions that challenge conventional parsing strategies.",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "sentence processing",
+                    "relation_type": "is influenced by",
+                    "target": "competing syntactic representations",
+                    "evidence": "Lingering misinterpretations of garden path sentences arise from competing syntactic representations",
+                    "section_name": "Further reading",
+                    "section_index": 8
+                },
+                {
+                    "source": "initial misunderstanding",
+                    "relation_type": "is caused by",
+                    "target": "re-analysis of sentences",
+                    "evidence": "one explanation for the initial misunderstanding by the reader is that a sequence of words or phrases tends to be analyzed in terms of a frequent pattern.",
+                    "section_name": "Examples",
+                    "section_index": 2
+                },
+                {
+                    "source": "passive participle",
+                    "relation_type": "is a type of",
+                    "target": "sentence structure",
+                    "evidence": "The passive participle is a specific type of sentence structure that can complicate parsing and lead to ambiguity if not clearly contextualized.",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "sentence parsing",
+                    "relation_type": "can use",
+                    "target": "serial parsing",
+                    "evidence": "Two debated parsing strategies that humans are thought to use are serial and parallel parsing.",
+                    "section_name": "Parsing",
+                    "section_index": 3
+                },
+                {
+                    "source": "psycholinguistic research",
+                    "relation_type": "provides insights into",
+                    "target": "sentence processing",
+                    "evidence": "Psycholinguistic research explores how individuals process sentences, shedding light on the cognitive mechanisms involved in understanding language.",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "re-analysis of sentences",
+                    "relation_type": "is necessary for",
+                    "target": "disambiguating information",
+                    "evidence": "When faced with ambiguous sentences, readers often engage in re-analysis to extract disambiguating information that clarifies the intended meaning.",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "sentence parsing",
+                    "relation_type": "is influenced by",
+                    "target": "pragmatics",
+                    "evidence": "The sentence may be parsed and interpreted in different ways due to the influence of pragmatics, semantics, or other factors describing the extralinguistic context.",
+                    "section_name": "Parsing",
+                    "section_index": 3
+                },
+                {
+                    "source": "sentence processing",
+                    "relation_type": "is affected by",
+                    "target": "temporal context",
+                    "evidence": "Implications for Models of Sentence Processing and Reanalysis",
+                    "section_name": "Further reading",
+                    "section_index": 8
+                },
+                {
+                    "source": "discourse and referential information",
+                    "relation_type": "enhances",
+                    "target": "sentence structure understanding",
+                    "evidence": "Incorporating discourse and referential information helps readers better understand sentence structure by providing context that aids in interpretation.",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "initial parsing",
+                    "relation_type": "is revised during",
+                    "target": "processing of garden-path sentences",
+                    "evidence": "the reader has an initial parse of the sentence, but often has to revise their parse because it is incorrect.",
+                    "section_name": "Reanalysis of a garden-path sentence",
+                    "section_index": 4
+                },
+                {
+                    "source": "sentence parsing",
+                    "relation_type": "involves",
+                    "target": "sentence structure",
+                    "evidence": "readers will analyze the words and phrases they see and make inferences about the sentence\u2019s grammatical structure and meaning in a process called parsing.",
+                    "section_name": "Parsing",
+                    "section_index": 3
+                },
+                {
+                    "source": "l2 learners",
+                    "relation_type": "exhibit difficulty in",
+                    "target": "revision of garden-path sentences",
+                    "evidence": "Adult L2 learners also exhibit difficulty in revisions, but the difficulties cannot be attributed to underdeveloped executive functioning like in children.",
+                    "section_name": "Reanalysis of a garden-path sentence",
+                    "section_index": 4
+                },
+                {
+                    "source": "garden-path sentence",
+                    "relation_type": "causes confusion",
+                    "target": "ambiguous interpretation",
+                    "evidence": "Garden-path sentences often lead to initial misunderstandings due to their misleading structure, which requires readers to re-analyze the sentence to arrive at the correct interpretation.",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "garden-path sentence",
+                    "relation_type": "leads to",
+                    "target": "false scent",
+                    "evidence": "In A Dictionary of Modern English Usage (1926), Fowler describes such sentences as unwittingly laying a 'false scent'.",
+                    "section_name": "Introduction",
+                    "section_index": 1
+                },
+                {
+                    "source": "parallel parsing",
+                    "relation_type": "contrasts with",
+                    "target": "serial parsing",
+                    "evidence": "Parallel parsing and serial parsing represent two different approaches to sentence processing, with parallel parsing allowing for simultaneous interpretation of multiple sentence elements, while serial parsing processes them sequentially.",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "ambiguous interpretation",
+                    "relation_type": "affects",
+                    "target": "sentence parsing",
+                    "evidence": "Differences in parsing strategies can be seen from the effects of a reader attempting to parse a part of a sentence that is ambiguous in its syntax or meaning.",
+                    "section_name": "Parsing",
+                    "section_index": 3
+                },
+                {
+                    "source": "garden-path sentence",
+                    "relation_type": "is exemplified by",
+                    "target": "complex houses married",
+                    "evidence": "This frequently used, classic example of a garden-path sentence is attributed to Thomas Bever.",
+                    "section_name": "Examples",
+                    "section_index": 2
+                },
+                {
+                    "source": "garden-path sentence",
+                    "relation_type": "is",
+                    "target": "syntactically non-standard",
+                    "evidence": "Though these sentences are grammatically correct, such sentences are syntactically non-standard.",
+                    "section_name": "Introduction",
+                    "section_index": 1
+                },
+                {
+                    "source": "garden-path sentence",
+                    "relation_type": "is studied in",
+                    "target": "psycholinguistic research",
+                    "evidence": "Misinterpretations of Garden-Path Sentences: Implications for Models of Sentence Processing and Reanalysis",
+                    "section_name": "Further reading",
+                    "section_index": 8
+                },
+                {
+                    "source": "psycholinguistic research",
+                    "relation_type": "includes",
+                    "target": "case study",
+                    "evidence": "Misinterpretations of Garden-Path Sentences: Implications for Models of Sentence Processing and Reanalysis",
+                    "section_name": "Further reading",
+                    "section_index": 8
+                },
+                {
+                    "source": "determiner \u2013 adjective \u2013 noun pattern",
+                    "relation_type": "is a frequent pattern in",
+                    "target": "sentence parsing",
+                    "evidence": "the phrase the old man is to be interpreted as determiner \u2013 adjective \u2013 noun.",
+                    "section_name": "Examples",
+                    "section_index": 2
+                },
+                {
+                    "source": "garden-path sentence",
+                    "relation_type": "is studied in relation to",
+                    "target": "selective reanalysis process",
+                    "evidence": "They proposed that people use two strategies, both of which are consistent with the selective reanalysis process described by Frazier and Rayner in 1982.",
+                    "section_name": "Reanalysis of a garden-path sentence",
+                    "section_index": 4
+                },
+                {
+                    "source": "sentence parsing",
+                    "relation_type": "influences understanding",
+                    "target": "communication clarity",
+                    "evidence": "Effective sentence parsing is crucial for achieving communication clarity, as it allows readers to accurately interpret the intended meaning of sentences.",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "pragmatics",
+                    "relation_type": "interacts with",
+                    "target": "semantics",
+                    "evidence": "Pragmatics and semantics interact closely in sentence interpretation, as the meaning derived from sentence structure (semantics) is often influenced by the context and speaker intentions (pragmatics).",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "garden-path sentence",
+                    "relation_type": "is not desirable for",
+                    "target": "communication clarity",
+                    "evidence": "Garden path sentences are not usually desirable in writing that intends to communicate clearly.",
+                    "section_name": "Introduction",
+                    "section_index": 1
+                },
+                {
+                    "source": "parallel parsing",
+                    "relation_type": "requires",
+                    "target": "disambiguating information",
+                    "evidence": "the reader recognizes and generates multiple interpretations of the sentence and stores them until disambiguating information is given.",
+                    "section_name": "Parsing",
+                    "section_index": 3
+                },
+                {
+                    "source": "authors",
+                    "relation_type": "conduct research on",
+                    "target": "garden-path sentence",
+                    "evidence": "Ferreira, Fernanda; Kiel Christianson, Andrew Hollingworth; Slattery, T. J., Sturt, P., Christianson, K., Yoshida, M., & Ferreira, F.",
+                    "section_name": "Further reading",
+                    "section_index": 8
+                },
+                {
+                    "source": "serial parsing",
+                    "relation_type": "requires",
+                    "target": "disambiguating information",
+                    "evidence": "The reader will continue to use the initial interpretation as reference for future parsing until disambiguating information is given.",
+                    "section_name": "Parsing",
+                    "section_index": 3
+                },
+                {
+                    "source": "ambiguous interpretation",
+                    "relation_type": "results from",
+                    "target": "syntactically non-standard",
+                    "evidence": "Syntactically non-standard constructions often lead to ambiguous interpretations, as they deviate from expected patterns, complicating the parsing process.",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "act-out errors",
+                    "relation_type": "were used to measure",
+                    "target": "revision difficulties",
+                    "evidence": "Adult L2 learners were shown garden-path sentences... and then asked to act out the sentence.",
+                    "section_name": "Reanalysis of a garden-path sentence",
+                    "section_index": 4
+                },
+                {
+                    "source": "agent \u2013 action \u2013 patient pattern",
+                    "relation_type": "is a frequent pattern in",
+                    "target": "sentence parsing",
+                    "evidence": "one explanation for the initial misunderstanding by the reader is that a sequence of phrases tends to be analyzed in terms of the frequent pattern: agent \u2013 action \u2013 patient.",
+                    "section_name": "Examples",
+                    "section_index": 2
+                },
+                {
+                    "source": "garden-path sentence",
+                    "relation_type": "requires",
+                    "target": "re-analysis of sentences",
+                    "evidence": "Lingering misinterpretations of garden path sentences arise from competing syntactic representations",
+                    "section_name": "Further reading",
+                    "section_index": 8
+                },
+                {
+                    "source": "reduced relative clause",
+                    "relation_type": "can lead to",
+                    "target": "initial misunderstanding",
+                    "evidence": "Such examples of initial ambiguity resulting from a 'reduced relative with [a] potentially intransitive verb' can be contrasted with the lack of ambiguity for a non-reduced relative.",
+                    "section_name": "Examples",
+                    "section_index": 2
+                },
+                {
+                    "source": "Frazier and Rayner (1982)",
+                    "relation_type": "contributes to",
+                    "target": "understanding of sentence processing",
+                    "evidence": "The findings from Frazier and Rayner's research provide foundational knowledge that enhances our understanding of how sentence processing occurs in real-time.",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "historical context of sentence parsing",
+                    "relation_type": "informs",
+                    "target": "psycholinguistic research",
+                    "evidence": "This is a common example that has been the subject of psycholinguistic research and has been used to test the capabilities of artificial intelligence efforts.",
+                    "section_name": "Examples",
+                    "section_index": 2
+                },
+                {
+                    "source": "2015 study",
+                    "relation_type": "compared",
+                    "target": "adult L2 learners and native speakers",
+                    "evidence": "In a 2015 study, adult L2 learners were compared to adult native speakers and native speaking children in revision and processing of garden-path sentences.",
+                    "section_name": "Reanalysis of a garden-path sentence",
+                    "section_index": 4
+                },
+                {
+                    "source": "psycholinguistic research",
+                    "relation_type": "supports",
+                    "target": "historical context of sentence parsing",
+                    "evidence": "Psycholinguistic research provides insights into how sentence parsing has evolved over time, highlighting the cognitive processes involved in understanding language.",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "initial parsing",
+                    "relation_type": "leads to",
+                    "target": "initial misunderstanding",
+                    "evidence": "The initial parsing of a sentence can result in misunderstandings, particularly when the sentence structure is complex or non-standard.",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "garden-path sentence",
+                    "relation_type": "creates",
+                    "target": "ambiguous interpretation",
+                    "evidence": "It is a special type of sentence that creates a momentarily ambiguous interpretation because it contains a word or phrase that can be interpreted in multiple ways.",
+                    "section_name": "Introduction",
+                    "section_index": 1
+                },
+                {
+                    "source": "temporal context",
+                    "relation_type": "influences",
+                    "target": "sentence parsing strategies",
+                    "evidence": "Temporal context can significantly influence the strategies employed during sentence parsing, as it provides cues that guide readers in interpreting sentence meaning.",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "psycholinguistic research",
+                    "relation_type": "studies",
+                    "target": "sentence parsing",
+                    "evidence": "This is a common example that has been the subject of psycholinguistic research.",
+                    "section_name": "Examples",
+                    "section_index": 2
+                },
+                {
+                    "source": "passive participle",
+                    "relation_type": "is involved in",
+                    "target": "garden-path sentence",
+                    "evidence": "the reader initially interprets raced as the main verb in the simple past, but when the reader encounters fell, they are forced to re-analyze the sentence, concluding that raced is being used as a passive participle.",
+                    "section_name": "Examples",
+                    "section_index": 2
+                },
+                {
+                    "source": "sentence parsing",
+                    "relation_type": "influences",
+                    "target": "communication clarity",
+                    "evidence": "Effective sentence parsing is crucial for achieving communication clarity, as it allows readers to accurately interpret the intended meaning of sentences.",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "false scent",
+                    "relation_type": "contributes to",
+                    "target": "garden-path sentence",
+                    "evidence": "The concept of false scent contributes to the phenomenon of garden-path sentences, where misleading cues lead readers down an incorrect path of interpretation.",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "garden-path sentence",
+                    "relation_type": "leads to",
+                    "target": "initial misunderstanding",
+                    "evidence": "Garden-path sentences are structured in a way that initially misleads the reader, causing an initial misunderstanding that requires re-reading and careful parsing to resolve.",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "executive functioning",
+                    "relation_type": "impacts the ability to",
+                    "target": "revise initial parsing",
+                    "evidence": "Executive functioning skills are utilized when the initial parsing of a sentence needs to be discarded for a revised parsing.",
+                    "section_name": "Reanalysis of a garden-path sentence",
+                    "section_index": 4
+                },
+                {
+                    "source": "garden-path sentence",
+                    "relation_type": "is a type of",
+                    "target": "grammatically correct",
+                    "evidence": "A garden-path sentence is a grammatically correct sentence that starts in such a way that a reader's most likely interpretation will be incorrect.",
+                    "section_name": "Introduction",
+                    "section_index": 1
+                },
+                {
+                    "source": "executive functioning",
+                    "relation_type": "affects",
+                    "target": "re-reading and careful parsing",
+                    "evidence": "Effective executive functioning is essential for managing cognitive resources during re-reading and careful parsing, which are necessary for resolving ambiguities in sentence interpretation.",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "determiner \u2013 adjective \u2013 noun pattern",
+                    "relation_type": "is an example of",
+                    "target": "sentence structure",
+                    "evidence": "The determiner \u2013 adjective \u2013 noun pattern exemplifies a common sentence structure that aids in the clarity and comprehension of English sentences.",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "garden-path sentence",
+                    "relation_type": "causes confusion in",
+                    "target": "ambiguous interpretation",
+                    "evidence": "The garden-path sentence effect occurs when the sentence has a phrase or word with an ambiguous meaning that the reader interprets in a certain way...",
+                    "section_name": "Parsing",
+                    "section_index": 3
+                },
+                {
+                    "source": "discourse and referential information",
+                    "relation_type": "aid in",
+                    "target": "processing of garden-path sentences",
+                    "evidence": "Adult L2 speakers and native adult speakers were able to use discourse and referential information to aid in their processing of the garden-path sentences.",
+                    "section_name": "Reanalysis of a garden-path sentence",
+                    "section_index": 4
+                },
+                {
+                    "source": "complex houses married",
+                    "relation_type": "illustrates",
+                    "target": "garden-path sentence",
+                    "evidence": "The phrase 'complex houses married' serves as a classic example of a garden-path sentence, demonstrating how unexpected structures can lead to confusion in interpretation.",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "eye movements",
+                    "relation_type": "are observed during",
+                    "target": "recovery from garden-path sentences",
+                    "evidence": "intensive eye movements are observed when people are recovering from a mild garden-path sentence.",
+                    "section_name": "Reanalysis of a garden-path sentence",
+                    "section_index": 4
+                },
+                {
+                    "source": "garden-path sentence",
+                    "relation_type": "requires",
+                    "target": "re-reading and careful parsing",
+                    "evidence": "often requires rereading so that its meaning may be fully understood after careful parsing.",
+                    "section_name": "Introduction",
+                    "section_index": 1
+                }
+            ]
+        }
+    }
+}

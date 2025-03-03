@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Concept Map Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Enhanced Concept Map Generator</h1>
+        
+        <div class="alert alert-info">
+            This tool uses an LLM to analyze your concept relationships and generate meaningful visualizations.
+        </div>
+
+        <div class="section">
+            <div class="section-title">Input Concept Data Files</div>
+
+            <!-- Separate file inputs for entity and relation files -->
+            <div class="file-inputs-container">
+                <div class="file-input-group">
+                    <label>Entity File:</label>
+                    <input type="file" id="entityFileInput" accept=".json" style="display: none;" />
+                    <button id="loadEntityFileButton">Upload Entity File</button>
+                    <span id="entityFileName" class="file-name"></span>
+                </div>
+
+                <div class="file-input-group">
+                    <label>Relations File:</label>
+                    <input type="file" id="relationsFileInput" accept=".json" style="display: none;" />
+                    <button id="loadRelationsFileButton">Upload Relations File</button>
+                    <span id="relationsFileName" class="file-name"></span>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button id="sampleDataButton">Load Sample Data</button>
+                <select id="detailLevelSelect">
+                    <option value="summary">Summary View</option>
+                    <option value="intermediate">Intermediate View</option>
+                    <option value="detailed" selected>Detailed View</option>
+                </select>
+            </div>
+
+            <p class="help-text">Upload both entity and relations files, or click "Load Sample Data" to use demo files.</p>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">Visualization Options</div>
+            <div class="visualization-options">
+                <div class="map-type-selector">
+                    <label>Map Type:</label>
+                    <div class="toggle-buttons">
+                        <button id="cyclicModeButton" class="toggle-button active">Cyclic</button>
+                        <button id="hierarchicalModeButton" class="toggle-button">Hierarchical</button>
+                    </div>
+                </div>
+                
+                <div id="cyclicOptions" class="mode-options">
+                    <p>Cyclic maps show concept constellations with interconnected relationships.</p>
+                </div>
+                
+                <div id="hierarchicalOptions" class="mode-options" style="display: none;">
+                    <p>Hierarchical maps show concepts in a tree-like structure.</p>
+                    <div class="input-group">
+                        <label for="rootConceptInput">Root Concept:</label>
+                        <input type="text" id="rootConceptInput" placeholder="Enter root concept (optional)">
+                    </div>
+                </div>
+            </div>
+            
+            <button id="generateButton">Generate Concept Maps</button>
+            <div id="loadingIndicator" class="loading-indicator">
+                <div class="spinner"></div>
+                <span>Processing... This may take a minute...</span>
+            </div>
+            <p id="status"></p>
+        </div>
+
+
+        
+        <!-- Cyclic Map View -->
+        <div id="constellation-container" class="map-container" style="display: none;">
+            <div class="constellation-title" id="constellation-title"></div>
+            <div class="constellation-description" id="constellation-description"></div>
+            
+            <div id="canvas-container">
+                <canvas id="conceptMapCanvas" width="1000" height="600"></canvas>
+            </div>
+            
+            <div class="navigation">
+                <button id="prevButton" disabled>&laquo; Previous</button>
+                <span class="page-indicator" id="pageIndicator">Constellation 1 of 1</span>
+                <button id="nextButton" disabled>Next &raquo;</button>
+            </div>
+        </div>
+        
+        <!-- Hierarchical Map View -->
+        <div id="hierarchical-container" class="map-container" style="display: none;">
+            <div class="hierarchical-title">Hierarchical Concept Map</div>
+            <div id="hierarchical-view">
+                <iframe id="hierarchicalFrame" width="100%" height="650" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load JavaScript modules -->
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
