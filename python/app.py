@@ -17,6 +17,8 @@ from fetch_wiki import fetch_article_content
 from entity_extraction import OptimizedEntityExtractor, TextChunk, RelationTracker
 from entity_linking_main import process_article_by_sections, process_article_by_paragraphs, save_entity_results, save_relation_results
 from cyclic_generator import CyclicConceptMapGenerator
+from network_generator import NetworkConceptMapGenerator
+
 
 # Get the directory of the current script
 script_dir = Path(__file__).parent.absolute()
@@ -78,7 +80,14 @@ if "last_displayed_idx" not in st.session_state:
 if "selected_concept" not in st.session_state:
     st.session_state.selected_concept = None
 
+if "network_fig" not in st.session_state:
+    st.session_state.network_fig = None
+
+if "selected_focus_concept" not in st.session_state:
+    st.session_state.selected_focus_concept = None
+
 cyclic_generator = CyclicConceptMapGenerator(api_key=openai_api_key, output_dir=output_dir)
+network_generator = NetworkConceptMapGenerator(api_key=openai_api_key, output_dir=output_dir)
 
 
 def check_url_params():
@@ -326,6 +335,23 @@ with col1:
             else:
                 st.info("No cyclic concept map data is available.")
 
+
+
+        elif st.session_state.map_data["map_type"] == "network":
+            st.subheader(f"Network Concept Map for {st.session_state.map_data['title']}")
+            network_generator.display_network_map(st.session_state.map_data)
+
+            # Provide download link
+            buffer = io.StringIO()
+            buffer.write(st.session_state.map_data["html_content"])
+            html_bytes = buffer.getvalue().encode()
+            st.download_button(
+                label="Download Network Map (HTML)",
+                data=html_bytes,
+                file_name=f"network_{st.session_state.map_data['title']}_{st.session_state.map_data.get('detail_level', 'detailed')}.html",
+                mime="text/html"
+            )
+
         # Add a divider to separate the existing map from the new map form
         st.divider()
 
@@ -338,7 +364,7 @@ with col1:
                                        ["section", "paragraph (pruned)"],
                                        help="Section mode processes entire sections at once. Paragraph mode processes individual paragraphs with pruning for better results.")
     with col1_options2:
-        map_type = st.selectbox("Select Concept Map Structure", ["Hierarchical", "Cyclic"])
+        map_type = st.selectbox("Select Concept Map Structure", ["Hierarchical", "Cyclic", "Network"])
 
     # Optional root concept input for hierarchical maps
     if map_type == "Hierarchical":
@@ -495,7 +521,7 @@ with col1:
             relations = [
                 {
                     "source": rel.source,
-                    "relation_type": rel.relation_type,
+                    "type": rel.relation_type,
                     "target": rel.target,
                     "evidence": rel.evidence,
                     "section_name": rel.section_name,
@@ -678,6 +704,44 @@ with col1:
                         else:
 
                             st.error("Failed to generate concept constellations.")
+
+
+
+                elif map_type == "Network":
+                    with st.spinner("Generating network concept map..."):
+
+                        # Get detail level
+                        detail_level = processing_mode.split()[
+                            0].lower() if "pruned" not in processing_mode else "intermediate"
+                        # Generate the network map
+                        map_data = network_generator.generate_network_map(
+                            title=title,
+                            entities=entities,
+                            relations=relations,
+                            detail_level=detail_level
+                        )
+                        # Store map data in session state
+                        st.session_state.map_data = {
+                            "map_type": "network",
+                            "title": title,
+                            "entities": entities,
+                            "relations": relations,
+                            "detail_level": detail_level,
+                            "html_content": map_data["html_content"]
+                        }
+                        # Display the network map
+                        st.subheader(f"Network Concept Map: {title}")
+                        network_generator.display_network_map(map_data)
+                        # Provide download link for HTML
+                        buffer = io.StringIO()
+                        buffer.write(map_data["html_content"])
+                        html_bytes = buffer.getvalue().encode()
+                        st.download_button(
+                            label="Download Network Map (HTML)",
+                            data=html_bytes,
+                            file_name=f"network_{title}_{detail_level}.html",
+                            mime="text/html"
+                        )
 
             # Display concepts and relations in expandable sections
             with st.expander("View Extracted Concepts", expanded=False):
