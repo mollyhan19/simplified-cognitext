@@ -379,16 +379,16 @@ class NetworkConceptMapGenerator:
                     transition: all 0.3s ease;
                 }}
                 .node--priority circle {{
-                    stroke: #004d00;
+                    stroke: #7E57C2;
                 }}
                 .node--secondary circle {{
-                    stroke: #267326;
+                    stroke: #6596B5;
                 }}
                 .node--tertiary circle {{
-                    stroke: #4db84d;
+                    stroke: #8FC2B9;
                 }}
                 .hidden-connections-highlight {{
-                    stroke: #FF0000 !important;
+                    stroke: #FF8A65 !important;
                     stroke-width: 3px !important;
                 }}
                 .node--expanded circle {{
@@ -400,13 +400,13 @@ class NetworkConceptMapGenerator:
                 }}
                 .link {{
                     fill: none;
-                    stroke: #ccc;
+                    stroke: #BDBDBD;
                     stroke-width: 1.5px;
                     cursor: pointer;
                     transition: stroke 0.3s ease;
                 }}
                 .link:hover {{
-                    stroke: #666;
+                    stroke: #7986CB;
                     stroke-width: 2.5px;
                 }}
                 .link-label {{
@@ -452,16 +452,16 @@ class NetworkConceptMapGenerator:
                     margin-right: 8px;
                 }}
                 .priority-color {{
-                    background-color: #006400;
-                    border: 1.5px solid #004d00;
+                    background-color: #9575CD;
+                    border: 1.5px solid #7E57C2;
                 }}
                 .secondary-color {{
-                    background-color: #339933;
-                    border: 1.5px solid #267326;
+                    background-color: #97C0DB;
+                    border: 1.5px solid #6596B5;
                 }}
                 .tertiary-color {{
-                    background-color: #66c266;
-                    border: 1.5px solid #4db84d;
+                    background-color: #D1EDE8;
+                    border: 1.5px solid #ABD9D1;
                 }}
                 @keyframes pulse-{unique_id} {{
                     0% {{ transform: scale(1); opacity: 0.5; }}
@@ -519,7 +519,7 @@ class NetworkConceptMapGenerator:
                     <span>Tertiary Concepts</span>
                 </div>
                 <div class="legend-item">
-                    <div style="width:15px; height:15px; margin-right:8px; border:1.5px solid #FF0000; border-radius:50%; background-color: rgba(255, 0, 0, 0.3);" class="pulse-{unique_id}"></div>
+                    <div style="width:15px; height:15px; margin-right:8px; border:1.5px solid #FF8A65; border-radius:50%; background-color: rgba(255, 0, 0, 0.3);" class="pulse-{unique_id}"></div>
                     <span>Has Hidden Connections</span>
                 </div>
             </div>
@@ -542,7 +542,7 @@ class NetworkConceptMapGenerator:
 
                 // Color scheme - shades of green from lightest to darkest
                 const colorScheme = [
-                    "#e6f5e6", "#ccebcc", "#99d699", "#66c266", "#4db84d", "#339933", "#267326", "#194d19", "#006400"
+                    "#D1EDE8", "#ABD9D1", "#97C0DB", "#6596B5", "#9C82DE", "#9575CD"
                 ];
 
                 // Set up SVG and tooltips
@@ -620,14 +620,14 @@ class NetworkConceptMapGenerator:
                     let baseIntensity;
                     switch(node.layer) {{
                         case 'priority':
-                            baseIntensity = 8; // Darkest shade
+                            baseIntensity = 5; // Darkest shade
                             break;
                         case 'secondary':
-                            baseIntensity = 5; // Medium shade
+                            baseIntensity = 2; // Medium shade
                             break;
                         case 'tertiary':
                         default:
-                            baseIntensity = 2; // Lightest shade
+                            baseIntensity = 0; // Lightest shade
                     }}
 
                     const score = calculateImportanceScore(node);
@@ -823,7 +823,7 @@ class NetworkConceptMapGenerator:
                         .data(links)
                         .join("line")
                         .attr("class", "link")
-                        .attr("stroke", "#999")
+                        .attr("stroke", "#BDBDBD")
                         .attr("stroke-opacity", 0.6)
                         .attr("stroke-width", function(d) {{
                             const sourceNode = nodes.find(n => n.id === String(d.source));
@@ -833,7 +833,7 @@ class NetworkConceptMapGenerator:
                         .on("mouseover", function(event, d) {{
                             // Highlight the line on hover
                             d3.select(this)
-                                .attr("stroke", "#333")
+                                .attr("stroke", "#7986CB")
                                 .attr("stroke-width", 3);
 
                             // Get source and target node objects
@@ -870,7 +870,7 @@ class NetworkConceptMapGenerator:
                         .on("mouseout", function() {{
                             // Restore original line style
                             d3.select(this)
-                                .attr("stroke", "#999")
+                                .attr("stroke", "#BDBDBD")
                                 .attr("stroke-width", function(d) {{
                                     const sourceNode = nodes.find(n => n.id === String(d.source));
                                     const targetNode = nodes.find(n => n.id === String(d.target));
@@ -939,7 +939,7 @@ class NetworkConceptMapGenerator:
                     const nodeCircles = node.append("circle")
                         .attr("r", function(d) {{ return getNodeSize(d); }})
                         .attr("fill", function(d) {{ return getNodeColor(d); }})  // Use color for fill
-                        .attr("stroke", "#FFFFFF");  // White stroke by default
+                        .attr("stroke", "#7E57C2");  // White stroke by default
 
                     // Apply RED highlight to nodes with hidden connections
                     nodeCircles.filter(function(d) {{ return nodesWithHidden.has(d.id); }})
@@ -950,7 +950,7 @@ class NetworkConceptMapGenerator:
                         .append("circle")
                         .attr("r", function(d) {{ return getNodeSize(d); }})
                         .attr("fill", "none")
-                        .attr("stroke", "#FF0000")  // RED pulse animation
+                        .attr("stroke", "#FF8A65")  // soft coral pulse animation
                         .attr("stroke-width", 2)
                         .attr("opacity", 0.5)
                         .attr("class", "pulse-{unique_id}");
@@ -978,7 +978,7 @@ class NetworkConceptMapGenerator:
                         .append("circle")
                         .attr("r", function(d) {{ return getNodeSize(d) + 5; }})
                         .attr("fill", "none")
-                        .attr("stroke", "#000000")
+                        .attr("stroke", "#5D32A8")
                         .attr("stroke-width", 1.5)
                         .attr("opacity", 0.5);
 
