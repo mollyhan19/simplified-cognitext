@@ -367,9 +367,6 @@ class NetworkConceptMapGenerator:
         <head>
             <meta charset="utf-8">
             <title>{title}</title>
-            <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
-            <meta http-equiv="pragma" content="no-cache">
-            <meta http-equiv="expires" content="0">
             <script src="https://d3js.org/d3.v7.min.js"></script>
             <style>
                 body {{

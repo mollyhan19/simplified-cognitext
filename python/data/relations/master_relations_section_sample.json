@@ -2,1043 +2,443 @@
     "metadata": {
         "type": "master_relations",
         "processing_mode": "section",
-        "timestamp": "2025-03-03T16:06:12.606199"
+        "timestamp": "2025-03-05T16:58:31.230752"
     },
     "articles": {
-        "Tardigrade": {
-            "category": "general",
+        "Garden path sentence": {
+            "category": "linguistics",
             "relations": [
                 {
-                    "source": "hypsibius exemplaris",
-                    "relation_type": "has genome size of",
-                    "target": "100 megabase pairs",
-                    "evidence": "Hypsibius exemplaris has a compact genome of 100 megabase pairs.",
-                    "section_name": "Evolution",
-                    "section_index": 6
+                    "source": "garden-path sentence",
+                    "relation_type": "leads to",
+                    "target": "re-analysis",
+                    "evidence": "Lingering misinterpretations of garden path sentences arise from competing syntactic representations",
+                    "section_name": "Further reading",
+                    "section_index": 8
                 },
                 {
-                    "source": "cryptobiosis",
-                    "relation_type": "results in",
-                    "target": "desiccated cyst",
-                    "evidence": "Terrestrial and freshwater tardigrades are able to tolerate long periods when water is not available... by drawing their legs in and forming a desiccated cyst, the cryptobiotic 'tun' state.",
-                    "section_name": "Environmental tolerance",
+                    "source": "discourse and referential information",
+                    "relation_type": "enhances",
+                    "target": "communication clarity",
+                    "evidence": "Incorporating discourse and referential information helps to clarify communication by providing context that aids in the interpretation of sentences.",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "garden-path sentence",
+                    "relation_type": "is",
+                    "target": "syntactically non-standard",
+                    "evidence": "Though these sentences are grammatically correct, such sentences are syntactically non-standard (or incorrect) as evidenced by the need for re-reading and careful parsing.",
+                    "section_name": "Introduction",
+                    "section_index": 1
+                },
+                {
+                    "source": "executive functioning",
+                    "relation_type": "is underdeveloped in",
+                    "target": "children",
+                    "evidence": "this difficulty in revision is attributed to the underdeveloped executive functioning of children",
+                    "section_name": "Reanalysis of a garden-path sentence",
                     "section_index": 4
                 },
                 {
-                    "source": "parthenogenesis",
-                    "relation_type": "alternative reproductive strategy to",
-                    "target": "copulation",
-                    "evidence": "Parthenogenesis serves as an alternative reproductive strategy to copulation in tardigrades, showcasing the diversity of reproductive methods within the phylum.",
-                    "section_name": "global",
-                    "section_index": -1
+                    "source": "semantics",
+                    "relation_type": "influences",
+                    "target": "parsing",
+                    "evidence": "The sentence may be parsed and interpreted in different ways due to the influence of pragmatics, semantics, or other factors describing the extralinguistic context.",
+                    "section_name": "Parsing",
+                    "section_index": 3
                 },
                 {
-                    "source": "hox genes",
-                    "relation_type": "related to",
-                    "target": "ecdysozoa",
-                    "evidence": "Hox genes play a crucial role in the developmental processes of ecdysozoans, including tardigrades, influencing their body plan and segmentation.",
-                    "section_name": "global",
-                    "section_index": -1
+                    "source": "communication clarity",
+                    "relation_type": "is hindered by",
+                    "target": "garden-path sentence",
+                    "evidence": "Garden path sentences are not usually desirable in writing that intends to communicate clearly.",
+                    "section_name": "Introduction",
+                    "section_index": 1
                 },
                 {
-                    "source": "lazzaro spallanzani",
-                    "relation_type": "contributor to",
-                    "target": "understanding of resilience",
-                    "evidence": "Lazzaro Spallanzani's experiments contributed to the understanding of resilience in microscopic life forms, including tardigrades, emphasizing the scientific exploration of life's limits.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "ecdysozoa",
+                    "source": "psycholinguistic research",
                     "relation_type": "includes",
-                    "target": "phylum tardigrada",
-                    "evidence": "Tardigrades belong to the clade Ecdysozoa, indicating their evolutionary relationship with other molting animals and highlighting their place in the broader tree of life.",
+                    "target": "case studies",
+                    "evidence": "Misinterpretations of Garden-Path Sentences: Implications for Models of Sentence Processing and Reanalysis",
+                    "section_name": "Further reading",
+                    "section_index": 8
+                },
+                {
+                    "source": "Fowler's description",
+                    "relation_type": "provides insight into",
+                    "target": "communication clarity",
+                    "evidence": "Fowler's description of language usage emphasizes the importance of clarity in communication, which is essential for effective understanding and interpretation.",
                     "section_name": "global",
                     "section_index": -1
                 },
                 {
-                    "source": "Aysheaia",
-                    "relation_type": "is related to",
-                    "target": "tardigrade lineage",
-                    "evidence": "perhaps resembling the mid-Cambrian Aysheaia, which many analyses place close to the divergence of the tardigrade lineage.",
-                    "section_name": "Evolution",
-                    "section_index": 6
-                },
-                {
-                    "source": "Tactopoda hypothesis",
-                    "relation_type": "suggests relationship between",
-                    "target": "Tardigrada and Arthropoda",
-                    "evidence": "The Tactopoda hypothesis holds that Tardigrada are sister to Arthropoda.",
-                    "section_name": "Evolution",
-                    "section_index": 6
-                },
-                {
-                    "source": "tardigrade song",
-                    "relation_type": "features",
-                    "target": "tardigrades",
-                    "evidence": "The musician Cosmo Sheldrake imagines himself as a robust tardigrade in his 2015 'Tardigrade Song'.",
-                    "section_name": "In culture and society",
-                    "section_index": 7
-                },
-                {
-                    "source": "foton-m3 mission",
-                    "relation_type": "research on",
-                    "target": "tardigrades",
-                    "evidence": "The Foton-M3 mission provided insights into the resilience of tardigrades in space, demonstrating their ability to withstand extreme conditions beyond Earth.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "science fiction and popular culture",
-                    "relation_type": "inspired by",
-                    "target": "tardigrades",
-                    "evidence": "The unique characteristics of tardigrades have inspired various representations in science fiction and popular culture, reflecting their intriguing biological traits.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "hox genes",
-                    "relation_type": "related to",
-                    "target": "phylogeny of the phylum",
-                    "evidence": "Hox genes play a crucial role in the development and evolutionary relationships within the phylum Tardigrada, linking genetic factors to their phylogenetic classification.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "tardigrades",
-                    "relation_type": "are found in",
-                    "target": "mosses and lichens",
-                    "evidence": "Tardigrades are prevalent in mosses and lichens.",
-                    "section_name": "Introduction",
-                    "section_index": 1
-                },
-                {
-                    "source": "tardigrade specific proteins",
-                    "relation_type": "facilitate",
-                    "target": "cryptobiosis",
-                    "evidence": "Tardigrade specific proteins are essential for the process of cryptobiosis, linking molecular biology to the organism's ability to endure extreme environments.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "tardigrades",
-                    "relation_type": "reproduce through",
-                    "target": "copulation",
-                    "evidence": "Most tardigrades have both male and female animals which copulate by a variety of methods.",
-                    "section_name": "Description",
-                    "section_index": 2
-                },
-                {
-                    "source": "Heterotardigrada",
-                    "relation_type": "is an accepted clade",
-                    "target": "Heterotardigrada and Arthrotardigrada",
-                    "evidence": "the Heterotardigrada is an accepted clade.",
-                    "section_name": "Evolution",
-                    "section_index": 6
-                },
-                {
-                    "source": "tardigrades",
-                    "relation_type": "is a member of",
-                    "target": "phylum tardigrada",
-                    "evidence": "Tardigrades are classified within the phylum Tardigrada, which encompasses all species of these resilient micro-animals.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "tardigrade specific proteins",
-                    "relation_type": "may protect",
-                    "target": "membranes",
-                    "evidence": "These may protect membranes from damage by associating with the polar heads of lipid molecules.",
-                    "section_name": "Environmental tolerance",
+                    "source": "garden-path sentence",
+                    "relation_type": "causes difficulty in",
+                    "target": "initial parsing",
+                    "evidence": "the reader has an initial parse of the sentence, but often has to revise their parse because it is incorrect",
+                    "section_name": "Reanalysis of a garden-path sentence",
                     "section_index": 4
                 },
                 {
-                    "source": "tardigradum",
-                    "relation_type": "is a name meaning",
-                    "target": "slow walker",
-                    "evidence": "The name Tardigradum means 'slow walker' and was given by Lazzaro Spallanzani in 1776.",
-                    "section_name": "Taxonomic history",
-                    "section_index": 5
-                },
-                {
-                    "source": "extreme conditions",
-                    "relation_type": "influence",
-                    "target": "cryptobiosis",
-                    "evidence": "The ability of tardigrades to enter a state of cryptobiosis is a direct response to extreme environmental stresses, allowing them to survive desiccation and other harsh conditions.",
+                    "source": "garden-path sentence",
+                    "relation_type": "causes confusion",
+                    "target": "ambiguity",
+                    "evidence": "Garden-path sentences often lead to initial misinterpretations due to their syntactically non-standard structure, which creates ambiguity in understanding the intended meaning.",
                     "section_name": "global",
                     "section_index": -1
                 },
                 {
-                    "source": "science fiction and popular culture",
-                    "relation_type": "references",
-                    "target": "tardigrades",
-                    "evidence": "The unique characteristics of tardigrades have made them a subject of interest in science fiction and popular culture, reflecting how scientific discoveries can influence cultural narratives.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "international space station sts-134",
-                    "relation_type": "demonstrated",
-                    "target": "tardigrades' resilience",
-                    "evidence": "The Foton-M3 mission and subsequent experiments on the International Space Station STS-134 showcased the resilience of tardigrades to the harsh conditions of space, further emphasizing their adaptability.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "desiccated cyst",
-                    "relation_type": "provides resistance to",
-                    "target": "environmental stresses",
-                    "evidence": "In this state, they can go without food or water for several years... they become highly resistant to environmental stresses.",
-                    "section_name": "Environmental tolerance",
-                    "section_index": 4
-                },
-                {
-                    "source": "science fiction and popular culture",
-                    "relation_type": "draws inspiration from",
-                    "target": "tardigrades",
-                    "evidence": "The extraordinary survival abilities of tardigrades have inspired various representations in science fiction and popular culture, highlighting their unique biological traits.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "tardigrades",
-                    "relation_type": "survive",
-                    "target": "extreme conditions",
-                    "evidence": "The tardigrades' traits, including their ability to survive extreme conditions, have earned them a place in science fiction and other pop culture.",
-                    "section_name": "In culture and society",
-                    "section_index": 7
-                },
-                {
-                    "source": "tardigrades",
-                    "relation_type": "use",
-                    "target": "locomotion",
-                    "evidence": "Locomotion does not operate mainly hydrostatically.",
-                    "section_name": "Description",
+                    "source": "thomas bever",
+                    "relation_type": "attributed to",
+                    "target": "garden-path sentence",
+                    "evidence": "This frequently used, classic example of a garden-path sentence is attributed to Thomas Bever.",
+                    "section_name": "Examples",
                     "section_index": 2
                 },
                 {
-                    "source": "tardigrades",
-                    "relation_type": "consume",
-                    "target": "prey such as nematodes",
-                    "evidence": "Tardigrades consume prey such as nematodes.",
-                    "section_name": "Ecology and life history",
+                    "source": "initial parsing",
+                    "relation_type": "influences understanding",
+                    "target": "reader's interpretation",
+                    "evidence": "The way a reader initially parses a sentence can significantly affect their interpretation, especially in cases of syntactically non-standard constructions.",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "parallel parsing",
+                    "relation_type": "is a strategy of",
+                    "target": "interpreting ambiguity",
+                    "evidence": "Parallel parsing is where the reader recognizes and generates multiple interpretations of the sentence and stores them until disambiguating information is given.",
+                    "section_name": "Parsing",
                     "section_index": 3
                 },
                 {
-                    "source": "tardigrade fossils",
-                    "relation_type": "are found in",
-                    "target": "mid-cambrian deposits",
-                    "evidence": "The only known specimens are those from mid-Cambrian deposits in Siberia.",
-                    "section_name": "Evolution",
-                    "section_index": 6
-                },
-                {
-                    "source": "Maria Kamilari",
-                    "relation_type": "proposed",
-                    "target": "cold shock protein function",
-                    "evidence": "Maria Kamilari and colleagues propose (2019) that this may serve 'as a RNA-chaperone involved in regulation of translation.'",
-                    "section_name": "Environmental tolerance",
-                    "section_index": 4
-                },
-                {
-                    "source": "resilience",
-                    "relation_type": "characteristic of",
-                    "target": "tardigrades",
-                    "evidence": "Tardigrades are known for their remarkable resilience to extreme conditions, showcasing their ability to survive in harsh environments.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "environmental stresses",
-                    "relation_type": "trigger",
-                    "target": "egg hatching",
-                    "evidence": "Environmental stresses can influence the timing and success of egg hatching in tardigrades, demonstrating the interplay between external conditions and reproductive strategies.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "tardigrades",
-                    "relation_type": "appear in",
-                    "target": "Bathybia",
-                    "evidence": "Possibly the first time that tardigrades appear in non-scientific literature is in the short-story 'Bathybia' by the geologist and explorer Douglas Mawson.",
-                    "section_name": "In culture and society",
-                    "section_index": 7
-                },
-                {
-                    "source": "Flavobacterium, Ferruginibacter, Polaromonas",
-                    "relation_type": "are common in",
-                    "target": "tardigrades' microbiomes",
-                    "evidence": "In glacial environments, the bacterial genera Flavobacterium, Ferruginibacter, and Polaromonas are common in tardigrades' microbiomes.",
-                    "section_name": "Ecology and life history",
-                    "section_index": 3
-                },
-                {
-                    "source": "resilience",
-                    "relation_type": "is a characteristic of",
-                    "target": "tardigrades",
-                    "evidence": "Tardigrades are renowned for their resilience, enabling them to survive extreme conditions such as desiccation and radiation.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "anhydrobiosis",
-                    "relation_type": "involves",
-                    "target": "upregulated genes",
-                    "evidence": "Anhydrobiosis in response to desiccation has a complex molecular basis; in Hypsibius exemplaris, 1,422 genes are upregulated during the process.",
-                    "section_name": "Environmental tolerance",
-                    "section_index": 4
-                },
-                {
-                    "source": "mosses and lichens",
-                    "relation_type": "habitat for",
-                    "target": "tardigrades",
-                    "evidence": "Tardigrades are often found in mosses and lichens, illustrating their ecological niche and the interdependence of species within these habitats.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "horizontal gene transfer",
-                    "relation_type": "affects",
-                    "target": "genome size variation",
-                    "evidence": "About 1.6% of its genes are the result of horizontal gene transfer from other species.",
-                    "section_name": "Evolution",
-                    "section_index": 6
-                },
-                {
-                    "source": "phylum tardigrada",
-                    "relation_type": "is part of",
-                    "target": "ecdysozoa",
-                    "evidence": "They are a part of the superphylum Ecdysozoa.",
-                    "section_name": "Introduction",
-                    "section_index": 1
-                },
-                {
-                    "source": "cambrian",
-                    "relation_type": "historical context for",
-                    "target": "phylum tardigrada",
-                    "evidence": "The Cambrian period provides a historical context for the evolution of the phylum Tardigrada, indicating the long-standing presence and adaptation of these organisms in Earth's history.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "gonad",
-                    "relation_type": "is located above",
-                    "target": "intestine",
-                    "evidence": "Both sexes have a single gonad (an ovary or testis) located above the intestine.",
-                    "section_name": "Description",
-                    "section_index": 2
-                },
-                {
-                    "source": "tardigrades",
-                    "relation_type": "are popular in",
-                    "target": "pop culture",
-                    "evidence": "their traits... have earned them a place in science fiction and other pop culture.",
-                    "section_name": "In culture and society",
-                    "section_index": 7
-                },
-                {
-                    "source": "mosses and lichens",
-                    "relation_type": "are habitats for",
-                    "target": "tardigrades",
-                    "evidence": "Tardigrades are often found in mosses and lichens, which provide a suitable environment for their survival and reproduction.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "phylogeny of the phylum",
-                    "relation_type": "was studied using",
-                    "target": "molecular markers",
-                    "evidence": "In 2012, the phylogeny of the phylum was studied using molecular markers (ribosomal RNA).",
-                    "section_name": "Evolution",
-                    "section_index": 6
-                },
-                {
-                    "source": "tardigrade specific proteins",
-                    "relation_type": "function in",
-                    "target": "anhydrobiosis",
-                    "evidence": "Tardigrade specific proteins, such as the dsup protein, are essential for their ability to undergo anhydrobiosis, protecting their cellular structures during desiccation.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "H. annulatus",
-                    "relation_type": "produces",
-                    "target": "eggs",
-                    "evidence": "In other species the eggs can be ovoid, as in Hypsibius annulatus.",
-                    "section_name": "Description",
-                    "section_index": 2
-                },
-                {
-                    "source": "science fiction and popular culture",
-                    "relation_type": "inspiration from",
-                    "target": "tardigrades",
-                    "evidence": "Tardigrades have inspired themes in science fiction and popular culture due to their unique survival abilities, reflecting how scientific discoveries can influence creative narratives.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "tardigrade specific proteins",
-                    "relation_type": "are crucial for",
-                    "target": "resilience",
-                    "evidence": "The unique proteins found in tardigrades are essential for their resilience, particularly in extreme environmental conditions.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "cuticle",
-                    "relation_type": "facilitates",
-                    "target": "gas exchange",
-                    "evidence": "They rely on diffusion through the cuticle and body cavity for gas exchange.",
-                    "section_name": "Description",
-                    "section_index": 2
-                },
-                {
-                    "source": "tardigrades",
-                    "relation_type": "are predated upon by",
-                    "target": "soil arthropods",
-                    "evidence": "Tardigrades are themselves predated upon by soil arthropods including mites, spiders and cantharid beetle larvae.",
-                    "section_name": "Ecology and life history",
-                    "section_index": 3
-                },
-                {
-                    "source": "Halobiotus",
-                    "relation_type": "is restricted to",
-                    "target": "cold Holarctic seas",
-                    "evidence": "Halobiotus is restricted to cold Holarctic seas.",
-                    "section_name": "Ecology and life history",
-                    "section_index": 3
-                },
-                {
-                    "source": "Eutardigrada",
-                    "relation_type": "is a class of",
-                    "target": "phylum tardigrada",
-                    "evidence": "Ferdinand Richters... in 1926 proposed the class Eutardigrada.",
-                    "section_name": "Taxonomic history",
-                    "section_index": 5
-                },
-                {
-                    "source": "tardigrades",
-                    "relation_type": "were named by",
-                    "target": "lazzaro spallanzani",
-                    "evidence": "In 1776, the Italian biologist Lazzaro Spallanzani named them Tardigrada.",
-                    "section_name": "Introduction",
-                    "section_index": 1
-                },
-                {
-                    "source": "ecdysozoa",
-                    "relation_type": "classification of",
-                    "target": "phylum tardigrada",
-                    "evidence": "Tardigrades belong to the clade Ecdysozoa, which groups them with other molting animals, indicating their evolutionary relationships and shared characteristics with other phyla.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "taxonomy of tardigrades",
-                    "relation_type": "classification of",
-                    "target": "1,488 described species",
-                    "evidence": "The taxonomy of tardigrades includes 1,488 described species, illustrating the diversity and complexity of this phylum.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "lobopodian",
-                    "relation_type": "is a likely ancestor of",
-                    "target": "tardigrades",
-                    "evidence": "Multiple lines of evidence show that tardigrades are secondarily miniaturised from a larger ancestor, probably a lobopodian.",
-                    "section_name": "Evolution",
-                    "section_index": 6
-                },
-                {
-                    "source": "hox genes",
-                    "relation_type": "influence on",
-                    "target": "nervous system",
-                    "evidence": "Hox genes play a crucial role in the development of the nervous system, indicating a genetic basis for the complexity of neural structures in various organisms, including tardigrades.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "tardigrades",
-                    "relation_type": "lack",
-                    "target": "hox genes",
-                    "evidence": "They lack several of the Hox genes found in arthropods.",
-                    "section_name": "Introduction",
-                    "section_index": 1
-                },
-                {
-                    "source": "Spallanzani",
-                    "relation_type": "resuscitated",
-                    "target": "tardigrades",
-                    "evidence": "they have been famous for their ability to survive life-stopping events such as being dried out since Spallanzani first resuscitated them from some dry sediment.",
-                    "section_name": "In culture and society",
-                    "section_index": 7
-                },
-                {
-                    "source": "memoire sur les tardigrades",
-                    "relation_type": "is a significant work in",
-                    "target": "tardigradology",
-                    "evidence": "Greven describes Doy\u00e8re's 1842 dissertation Memoire sur les Tardigrades as an indisputable milestone in tardigradology.",
-                    "section_name": "Taxonomic history",
-                    "section_index": 5
-                },
-                {
-                    "source": "Echiniscus lineatus",
-                    "relation_type": "has a distribution type",
-                    "target": "pantropical",
-                    "evidence": "Echiniscus lineatus is pantropical.",
-                    "section_name": "Ecology and life history",
-                    "section_index": 3
-                },
-                {
-                    "source": "microbial symbionts",
-                    "relation_type": "associated with",
-                    "target": "tardigrades",
-                    "evidence": "Certain tardigrades have been found to host microbial symbionts, which may play a role in their nutrition and resilience to environmental stresses.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "tardigrades",
+                    "source": "garden-path sentence",
                     "relation_type": "is a type of",
-                    "target": "phylum tardigrada",
-                    "evidence": "Tardigrades are a phylum of eight-legged segmented micro-animals.",
+                    "target": "grammatically correct",
+                    "evidence": "A garden-path sentence is a grammatically correct sentence that starts in such a way that a reader's most likely interpretation will be incorrect.",
                     "section_name": "Introduction",
                     "section_index": 1
                 },
                 {
-                    "source": "tardigrades",
-                    "relation_type": "exemplifies",
-                    "target": "resilience",
-                    "evidence": "Tardigrades are known for their extraordinary resilience, allowing them to survive extreme conditions such as high radiation, extreme temperatures, and even the vacuum of space. This showcases the concept of resilience in a biological context.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "cryptobiosis",
-                    "relation_type": "is a mechanism for",
-                    "target": "anhydrobiosis",
-                    "evidence": "Cryptobiosis includes anhydrobiosis, a specific form of survival that allows tardigrades to endure extreme dehydration.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "1,488 described species",
-                    "relation_type": "is a characteristic of",
-                    "target": "tardigrades",
-                    "evidence": "There are some 1,488 described species of tardigrades.",
-                    "section_name": "Taxonomic history",
-                    "section_index": 5
-                },
-                {
-                    "source": "tardigrades",
-                    "relation_type": "have body structure",
-                    "target": "haemocoel",
-                    "evidence": "The body cavity is a haemocoel, an open circulatory system, filled with a colourless fluid.",
-                    "section_name": "Description",
-                    "section_index": 2
-                },
-                {
-                    "source": "extreme conditions",
-                    "relation_type": "are survived through",
-                    "target": "cryptobiosis",
-                    "evidence": "Tardigrades enter a state of cryptobiosis to withstand extreme conditions, showcasing their unique survival strategies.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "hox genes",
-                    "relation_type": "influence on",
-                    "target": "phylum tardigrada",
-                    "evidence": "Hox genes play a crucial role in the developmental processes of organisms, including tardigrades, influencing their body plan and segmentation, which is significant for understanding evolutionary biology.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "phylum tardigrada",
-                    "relation_type": "belongs to",
-                    "target": "ecdysozoa",
-                    "evidence": "Tardigrades are classified under the phylum Tardigrada, which is part of the larger clade Ecdysozoa, indicating their evolutionary relationships with other similar organisms.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "tardigrades",
-                    "relation_type": "can learn through",
-                    "target": "classical conditioning",
-                    "evidence": "The tardigrade Dactylobiotus dispar can be trained by classical conditioning to curl up into the defensive 'tun' state.",
-                    "section_name": "Description",
-                    "section_index": 2
-                },
-                {
-                    "source": "Douglas Mawson",
-                    "relation_type": "wrote",
-                    "target": "Bathybia",
-                    "evidence": "the short-story 'Bathybia' by the geologist and explorer Douglas Mawson.",
-                    "section_name": "In culture and society",
-                    "section_index": 7
-                },
-                {
-                    "source": "tardigrades",
-                    "relation_type": "have",
-                    "target": "nervous system",
-                    "evidence": "The tardigrade nervous system has a pair of ventral nerve cords with a pair of ganglia serving each pair of legs.",
-                    "section_name": "Description",
-                    "section_index": 2
-                },
-                {
-                    "source": "parthenogenesis",
-                    "relation_type": "is a reproductive strategy of",
-                    "target": "tardigrades",
-                    "evidence": "Some tardigrade species reproduce through parthenogenesis, allowing for population growth without the need for male fertilization.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "taxonomy of tardigrades",
-                    "relation_type": "is studied by",
-                    "target": "Ferdinand Richters",
-                    "evidence": "Ferdinand Richters worked on the taxonomy of tardigrades from 1900 to 1913.",
-                    "section_name": "Taxonomic history",
-                    "section_index": 5
-                },
-                {
-                    "source": "Harbinger Down",
-                    "relation_type": "features",
-                    "target": "tardigrades",
-                    "evidence": "the protagonists have to deal with tardigrades that have mutated through Cold War experiments into intelligent and deadly shapeshifters.",
-                    "section_name": "In culture and society",
-                    "section_index": 7
-                },
-                {
-                    "source": "copulation",
-                    "relation_type": "reproductive method involving",
-                    "target": "gonad",
-                    "evidence": "Copulation in tardigrades involves the gonad, linking reproductive strategies to anatomical features and their evolutionary significance.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "cambrian",
-                    "relation_type": "period of",
-                    "target": "phylum tardigrada",
-                    "evidence": "The Cambrian period is notable for the rapid diversification of life, during which the phylum Tardigrada emerged, linking their evolutionary history to significant geological and biological events.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "microbial symbionts",
-                    "relation_type": "are associated with",
-                    "target": "tardigrades",
-                    "evidence": "Tardigrades often have microbial symbionts that may contribute to their resilience and ability to thrive in various environments.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "tardigrades",
-                    "relation_type": "inspire",
-                    "target": "science fiction and popular culture",
-                    "evidence": "Their well-known ability to survive life-stopping events have brought them into science fiction and popular culture.",
-                    "section_name": "Introduction",
-                    "section_index": 1
-                },
-                {
-                    "source": "Lisa Meinecke",
-                    "relation_type": "analyzes",
-                    "target": "Ripper",
-                    "evidence": "The scholar of science in popular culture Lisa Meinecke... writes that the animal shares some of the real tardigrade's characteristics.",
-                    "section_name": "In culture and society",
-                    "section_index": 7
-                },
-                {
-                    "source": "horizontal gene transfer",
-                    "relation_type": "is a factor in",
-                    "target": "genome size variation",
-                    "evidence": "Horizontal gene transfer contributes to the genome size variation observed in tardigrades, influencing their evolutionary adaptability.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "tardigrades",
-                    "relation_type": "are found in",
-                    "target": "terrestrial environments",
-                    "evidence": "With the exception of 62 exclusively freshwater species, all non-marine tardigrades are found in terrestrial environments.",
-                    "section_name": "Ecology and life history",
-                    "section_index": 3
-                },
-                {
-                    "source": "cryptobiosis",
-                    "relation_type": "mechanism for",
-                    "target": "anhydrobiosis",
-                    "evidence": "Cryptobiosis encompasses various forms of dormancy, including anhydrobiosis, which is specifically the state of surviving extreme desiccation, a key survival strategy for tardigrades.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "Austeruseus faeroensis",
-                    "relation_type": "produces",
-                    "target": "eggs",
-                    "evidence": "The females lay eggs; those of Austeruseus faeroensis are spherical, 80 \u03bcm in diameter.",
-                    "section_name": "Description",
-                    "section_index": 2
-                },
-                {
-                    "source": "copulation",
-                    "relation_type": "process of",
-                    "target": "parthenogenesis",
-                    "evidence": "In some tardigrade species, copulation is a reproductive strategy that can coexist with parthenogenesis, highlighting the flexibility of their reproductive methods.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "FOTON-M3 mission",
-                    "relation_type": "involved",
-                    "target": "tardigrades",
-                    "evidence": "In 2007, dehydrated tardigrades were taken on the FOTON-M3 mission and exposed to vacuum.",
-                    "section_name": "Environmental tolerance",
+                    "source": "meseguer, carreiras and clifton (2002)",
+                    "relation_type": "proposed that",
+                    "target": "selective reanalysis process",
+                    "evidence": "They proposed that people use two strategies, both of which are consistent with the selective reanalysis process described by Frazier and Rayner in 1982",
+                    "section_name": "Reanalysis of a garden-path sentence",
                     "section_index": 4
                 },
                 {
-                    "source": "Ripper",
-                    "relation_type": "is a version of",
-                    "target": "tardigrades",
-                    "evidence": "the alien 'Ripper' creature is a huge but generally recognisable version of a terrestrial tardigrade.",
-                    "section_name": "In culture and society",
-                    "section_index": 7
+                    "source": "serial parsing",
+                    "relation_type": "contrasts with",
+                    "target": "parallel parsing",
+                    "evidence": "Serial parsing processes one interpretation at a time, while parallel parsing allows for multiple interpretations, showcasing different strategies readers use to make sense of complex sentences.",
+                    "section_name": "global",
+                    "section_index": -1
                 },
                 {
-                    "source": "tardigrades",
-                    "relation_type": "capable of",
-                    "target": "cryptobiosis",
-                    "evidence": "Tardigrades are capable of suspending their metabolism, going into a state of cryptobiosis.",
-                    "section_name": "Environmental tolerance",
+                    "source": "act-out errors",
+                    "relation_type": "used to measure",
+                    "target": "revision and processing of garden-path sentences",
+                    "evidence": "adult L2 learners were compared to adult native speakers and native speaking children in revision and processing of garden-path sentences using act-out errors",
+                    "section_name": "Reanalysis of a garden-path sentence",
                     "section_index": 4
                 },
                 {
-                    "source": "microbial symbionts",
-                    "relation_type": "interacts with",
-                    "target": "tardigrades",
-                    "evidence": "Microbial symbionts such as Flavobacterium and Polaromonas interact with tardigrades, influencing their survival and adaptation in various environments, thus highlighting the ecological relationships within their habitats.",
+                    "source": "l2 learners",
+                    "relation_type": "experience difficulties with",
+                    "target": "grammatically correct",
+                    "evidence": "L2 learners often struggle with understanding grammatically correct sentences due to their reliance on different parsing strategies compared to native speakers.",
                     "section_name": "global",
                     "section_index": -1
                 },
                 {
-                    "source": "tardigrades",
-                    "relation_type": "have a fossil record dating back to",
-                    "target": "cambrian",
-                    "evidence": "The earliest known fossil is from the Cambrian, some 500 million years ago.",
-                    "section_name": "Introduction",
-                    "section_index": 1
-                },
-                {
-                    "source": "international space station sts-134",
-                    "relation_type": "study of",
-                    "target": "tardigrades",
-                    "evidence": "Research conducted on the International Space Station STS-134 further explored the survival capabilities of tardigrades in microgravity, contributing to our understanding of their resilience.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "tardigrades",
-                    "relation_type": "are host to",
-                    "target": "microbial symbionts",
-                    "evidence": "Tardigrades are host to many microbial symbionts and parasites.",
-                    "section_name": "Ecology and life history",
-                    "section_index": 3
-                },
-                {
-                    "source": "tardigrades",
-                    "relation_type": "have body covering",
-                    "target": "cuticle",
-                    "evidence": "The body covering is a cuticle that is replaced when the animal moults.",
-                    "section_name": "Description",
+                    "source": "semantic sense",
+                    "relation_type": "is affected by",
+                    "target": "initial parsing",
+                    "evidence": "the complex houses married does not make semantic sense.",
+                    "section_name": "Examples",
                     "section_index": 2
                 },
                 {
-                    "source": "Heterotardigrada",
-                    "relation_type": "is the most ancestral class of",
-                    "target": "marine tardigrades",
-                    "evidence": "Because the majority of the marine species belongs to Heterotardigrada, the most ancestral class, the phylum evidently has a marine origin.",
-                    "section_name": "Ecology and life history",
-                    "section_index": 3
-                },
-                {
-                    "source": "Dsup protein",
-                    "relation_type": "confers resistance to",
-                    "target": "ultraviolet-C",
-                    "evidence": "The Dsup protein of R. varieornatus confers resistance to ultraviolet-C by upregulating DNA repair genes.",
-                    "section_name": "Environmental tolerance",
-                    "section_index": 4
-                },
-                {
-                    "source": "hox genes",
-                    "relation_type": "influences",
-                    "target": "nervous system",
-                    "evidence": "Hox genes play a crucial role in the development of the nervous system in various organisms, including tardigrades, highlighting the genetic basis for their complex biological structures.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "Ripper",
-                    "relation_type": "incorporates",
-                    "target": "horizontal gene transfer",
-                    "evidence": "the Ripper can 'incorporate foreign DNA into its own genome via horizontal gene transfer.'",
-                    "section_name": "In culture and society",
-                    "section_index": 7
-                },
-                {
-                    "source": "copulation",
-                    "relation_type": "related to",
-                    "target": "parthenogenesis",
-                    "evidence": "In tardigrades, both copulation and parthenogenesis are reproductive strategies, showcasing the diversity of reproductive methods within the phylum Tardigrada.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "extreme conditions",
-                    "relation_type": "context for",
-                    "target": "phylum tardigrada",
-                    "evidence": "The phylum Tardigrada includes organisms that thrive in extreme conditions, highlighting their unique adaptations and evolutionary significance within the broader context of life on Earth.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "johann august ephraim goeze",
-                    "relation_type": "historical figure related to",
-                    "target": "tardigrades",
-                    "evidence": "Johann August Ephraim Goeze was one of the first to describe tardigrades, establishing a historical connection that highlights the development of biological sciences and taxonomy.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "Apotardigrada",
-                    "relation_type": "is a class of",
-                    "target": "phylum tardigrada",
-                    "evidence": "In 2019, Noemi Guil and colleagues proposed to promote the order Apochela to the new class Apotardigrada.",
-                    "section_name": "Taxonomic history",
-                    "section_index": 5
-                },
-                {
-                    "source": "extreme conditions",
+                    "source": "ambiguity",
                     "relation_type": "affects",
-                    "target": "gas exchange",
-                    "evidence": "The ability of tardigrades to survive extreme conditions influences their physiological adaptations, including methods of gas exchange that allow them to thrive in environments with limited resources.",
+                    "target": "parsing strategies",
+                    "evidence": "Differences in parsing strategies can be seen from the effects of a reader attempting to parse a part of a sentence that is ambiguous in its syntax or meaning.",
+                    "section_name": "Parsing",
+                    "section_index": 3
+                },
+                {
+                    "source": "temporal context",
+                    "relation_type": "affects",
+                    "target": "sentence processing",
+                    "evidence": "Implications for Models of Sentence Processing and Reanalysis",
+                    "section_name": "Further reading",
+                    "section_index": 8
+                },
+                {
+                    "source": "initial parsing",
+                    "relation_type": "leads to",
+                    "target": "re-analysis",
+                    "evidence": "When readers encounter another the following the supposed noun man, they are forced to re-analyze the sentence.",
+                    "section_name": "Examples",
+                    "section_index": 2
+                },
+                {
+                    "source": "frequent pattern",
+                    "relation_type": "facilitates",
+                    "target": "sentence processing",
+                    "evidence": "Frequent patterns in language can facilitate sentence processing by allowing readers to quickly recognize and interpret familiar structures.",
                     "section_name": "global",
                     "section_index": -1
                 },
                 {
-                    "source": "tardigrades",
-                    "relation_type": "exhibit",
-                    "target": "resilience",
-                    "evidence": "Tardigrades are among the most resilient animals known, with individual species able to survive extreme conditions.",
+                    "source": "reduced relative clause",
+                    "relation_type": "is contrasted with",
+                    "target": "non-reduced relative clause",
+                    "evidence": "Such examples of initial ambiguity resulting from a 'reduced relative with [a] potentially intransitive verb' can be contrasted with the lack of ambiguity for a non-reduced relative.",
+                    "section_name": "Examples",
+                    "section_index": 2
+                },
+                {
+                    "source": "reader's interpretation",
+                    "relation_type": "is affected by",
+                    "target": "garden-path sentence",
+                    "evidence": "the reader's most likely interpretation will be incorrect; the reader is lured into a parse that turns out to be a dead end.",
                     "section_name": "Introduction",
                     "section_index": 1
                 },
                 {
-                    "source": "tardigrades",
-                    "relation_type": "can reproduce by",
-                    "target": "parthenogenesis",
-                    "evidence": "Some species appear to have no males, suggesting that parthenogenesis is common.",
-                    "section_name": "Description",
-                    "section_index": 2
+                    "source": "garden-path sentence",
+                    "relation_type": "creates",
+                    "target": "ambiguity",
+                    "evidence": "It creates a momentarily ambiguous interpretation because it contains a word or phrase that can be interpreted in multiple ways.",
+                    "section_name": "Introduction",
+                    "section_index": 1
                 },
                 {
-                    "source": "tardigrades",
-                    "relation_type": "are cosmopolitan",
-                    "target": "cosmopolitan",
-                    "evidence": "Tardigrades as a group are cosmopolitan, living in many environments on land, in freshwater, and in the sea.",
-                    "section_name": "Ecology and life history",
-                    "section_index": 3
-                },
-                {
-                    "source": "egg hatching",
-                    "relation_type": "outcome of",
-                    "target": "copulation and parthenogenesis",
-                    "evidence": "Both copulation and parthenogenesis lead to egg hatching in tardigrades, illustrating the connection between reproductive strategies and life cycle outcomes.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "hox genes",
-                    "relation_type": "are involved in",
-                    "target": "phylogeny of the phylum",
-                    "evidence": "Hox genes play a crucial role in the developmental processes that inform the phylogenetic relationships within the phylum Tardigrada.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "stylets",
-                    "relation_type": "used for",
-                    "target": "feeding",
-                    "evidence": "A pair of stylets pierce the prey; the pharynx muscles then pump the fluids from the prey into the gut.",
-                    "section_name": "Description",
-                    "section_index": 2
-                },
-                {
-                    "source": "cryptobiosis",
-                    "relation_type": "mechanism of",
-                    "target": "resilience",
-                    "evidence": "The ability of tardigrades to enter a state of cryptobiosis allows them to withstand extreme environmental stresses, directly linking this mechanism to their overall resilience.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "phylum tardigrada",
-                    "relation_type": "includes",
-                    "target": "heterotardigrada",
-                    "evidence": "Heterotardigrada is a class within the phylum Tardigrada, showcasing the diversity of this group in terms of morphology and ecological niches.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "tardigrades",
-                    "relation_type": "exhibit",
-                    "target": "cyclomorphosis",
-                    "evidence": "Marine tardigrades such as Halobiotus crispae alternate each year (cyclomorphosis) between an active summer morph and a hibernating winter morph.",
-                    "section_name": "Environmental tolerance",
+                    "source": "initial parsing",
+                    "relation_type": "requires",
+                    "target": "executive functioning",
+                    "evidence": "Executive functioning skills are utilized when the initial parsing of a sentence needs to be discarded for a revised parsing",
+                    "section_name": "Reanalysis of a garden-path sentence",
                     "section_index": 4
                 },
                 {
-                    "source": "horizontal gene transfer",
+                    "source": "non-reduced relative clause",
+                    "relation_type": "compared to",
+                    "target": "reduced relative clause",
+                    "evidence": "Non-reduced relative clauses provide more explicit information compared to reduced relative clauses, which can impact the clarity and complexity of sentence interpretation.",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "psycholinguistic research",
+                    "relation_type": "supports theories",
+                    "target": "sentence processing",
+                    "evidence": "Psycholinguistic research provides empirical evidence for how sentence processing occurs, including the mechanisms behind initial parsing and re-analysis.",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "garden-path sentence",
+                    "relation_type": "is an example of",
+                    "target": "psycholinguistic research",
+                    "evidence": "This is a common example that has been the subject of psycholinguistic research.",
+                    "section_name": "Examples",
+                    "section_index": 2
+                },
+                {
+                    "source": "garden-path sentence",
+                    "relation_type": "is described by",
+                    "target": "fowler's description",
+                    "evidence": "In A Dictionary of Modern English Usage (1926), Fowler describes such sentences as unwittingly laying a 'false scent'.",
+                    "section_name": "Introduction",
+                    "section_index": 1
+                },
+                {
+                    "source": "L2 learners",
+                    "relation_type": "exhibit difficulty in",
+                    "target": "revision of initial parsing",
+                    "evidence": "adult L2 learners also exhibit difficulty in revisions",
+                    "section_name": "Reanalysis of a garden-path sentence",
+                    "section_index": 4
+                },
+                {
+                    "source": "competing syntactic representations",
+                    "relation_type": "creates challenges in",
+                    "target": "initial parsing",
+                    "evidence": "When multiple syntactic representations compete for interpretation, it complicates the initial parsing process, leading to potential misinterpretations.",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "initial parsing",
+                    "relation_type": "is based on",
+                    "target": "frequent pattern",
+                    "evidence": "one explanation for the initial misunderstanding by the reader is that a sequence of words or phrases tends to be analyzed in terms of a frequent pattern.",
+                    "section_name": "Examples",
+                    "section_index": 2
+                },
+                {
+                    "source": "adult L2 learners",
+                    "relation_type": "have similar error rates to",
+                    "target": "native speaking children",
+                    "evidence": "adult L2 learners and native speaking children had similar error rates for garden-path sentences with no reference information",
+                    "section_name": "Reanalysis of a garden-path sentence",
+                    "section_index": 4
+                },
+                {
+                    "source": "garden-path sentence",
+                    "relation_type": "causes confusion due to",
+                    "target": "ambiguity",
+                    "evidence": "The garden-path sentence effect occurs when the sentence has a phrase or word with an ambiguous meaning that the reader interprets in a certain way.",
+                    "section_name": "Parsing",
+                    "section_index": 3
+                },
+                {
+                    "source": "garden-path sentence",
+                    "relation_type": "is studied in",
+                    "target": "psycholinguistic research",
+                    "evidence": "Misinterpretations of Garden-Path Sentences: Implications for Models of Sentence Processing and Reanalysis",
+                    "section_name": "Further reading",
+                    "section_index": 8
+                },
+                {
+                    "source": "re-analysis",
+                    "relation_type": "is influenced by",
+                    "target": "eye movements",
+                    "evidence": "intensive eye movements are observed when people are recovering from a mild garden-path sentence",
+                    "section_name": "Reanalysis of a garden-path sentence",
+                    "section_index": 4
+                },
+                {
+                    "source": "children",
+                    "relation_type": "have difficulty revising",
+                    "target": "initial parsing",
+                    "evidence": "children tend to have difficulty revising their first parsing of the sentence",
+                    "section_name": "Reanalysis of a garden-path sentence",
+                    "section_index": 4
+                },
+                {
+                    "source": "semantic sense",
+                    "relation_type": "interacts with",
+                    "target": "pragmatics",
+                    "evidence": "Understanding the semantic sense of a sentence is crucial for effective communication, as it interacts with pragmatic elements to clarify meaning.",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "parsing",
+                    "relation_type": "is a process of",
+                    "target": "interpreting meaning",
+                    "evidence": "When reading a sentence, readers will analyze the words and phrases they see and make inferences about the sentence\u2019s grammatical structure and meaning in a process called parsing.",
+                    "section_name": "Parsing",
+                    "section_index": 3
+                },
+                {
+                    "source": "executive functioning",
+                    "relation_type": "affects",
+                    "target": "eye movements",
+                    "evidence": "Executive functioning plays a role in how individuals control their eye movements during reading, impacting their ability to parse sentences and resolve ambiguities.",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "pragmatics",
                     "relation_type": "influences",
-                    "target": "genome size variation",
-                    "evidence": "Horizontal gene transfer can contribute to variations in genome size among tardigrades, indicating a relationship between genetic adaptability and evolutionary success.",
-                    "section_name": "global",
-                    "section_index": -1
+                    "target": "parsing",
+                    "evidence": "The sentence may be parsed and interpreted in different ways due to the influence of pragmatics, semantics, or other factors describing the extralinguistic context.",
+                    "section_name": "Parsing",
+                    "section_index": 3
                 },
                 {
-                    "source": "haemocoel",
-                    "relation_type": "function in",
-                    "target": "locomotion",
-                    "evidence": "The haemocoel in tardigrades serves as a hydrostatic skeleton, facilitating locomotion and demonstrating the relationship between anatomy and movement.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "Kleiner Wasserb\u00e4r",
-                    "relation_type": "is a common name for",
-                    "target": "tardigrades",
-                    "evidence": "In 1773, Johann August Ephraim Goeze named the tardigrade Kleiner Wasserb\u00e4r, meaning 'little water-bear' in German.",
-                    "section_name": "Taxonomic history",
-                    "section_index": 5
-                },
-                {
-                    "source": "tardigrades",
-                    "relation_type": "belong to",
-                    "target": "phylum tardigrada",
-                    "evidence": "Tardigrades are classified under the phylum Tardigrada, which encompasses all species within this group, highlighting their biological classification.",
-                    "section_name": "global",
-                    "section_index": -1
-                },
-                {
-                    "source": "Dsup protein",
-                    "relation_type": "protects",
-                    "target": "DNA",
-                    "evidence": "Tardigrade DNA is protected from radiation by the Dsup ('damage suppressor') protein.",
-                    "section_name": "Environmental tolerance",
+                    "source": "discourse and referential information",
+                    "relation_type": "aids in",
+                    "target": "processing of garden-path sentences",
+                    "evidence": "Adult L2 speakers and native adult speakers were able to use discourse and referential information to aid in their processing of the garden-path sentences",
+                    "section_name": "Reanalysis of a garden-path sentence",
                     "section_index": 4
                 },
                 {
-                    "source": "tardigrades",
-                    "relation_type": "can survive",
-                    "target": "extreme conditions",
-                    "evidence": "Tardigrades are able to survive extreme conditions \u2013 such as exposure to extreme temperatures, extreme pressures (both high and low), air deprivation, radiation, dehydration, and starvation.",
-                    "section_name": "Introduction",
-                    "section_index": 1
-                },
-                {
-                    "source": "Heterotardigrada",
-                    "relation_type": "is a class of",
-                    "target": "phylum tardigrada",
-                    "evidence": "In 1927, Ernst Marcus created the class Heterotardigrada.",
-                    "section_name": "Taxonomic history",
-                    "section_index": 5
-                },
-                {
-                    "source": "Borealibius",
-                    "relation_type": "has a distribution type",
-                    "target": "discontinuous",
-                    "evidence": "Species such as Borealibius and Echiniscus lapponicus have a discontinuous distribution.",
-                    "section_name": "Ecology and life history",
+                    "source": "serial parsing",
+                    "relation_type": "is a strategy of",
+                    "target": "interpreting ambiguity",
+                    "evidence": "Serial parsing is where the reader makes one interpretation of the ambiguity and continues to parse the sentence in the context of that interpretation.",
+                    "section_name": "Parsing",
                     "section_index": 3
                 },
                 {
-                    "source": "tardigrades",
-                    "relation_type": "have been studied since",
-                    "target": "johann august ephraim goeze",
-                    "evidence": "They were first described by the German zoologist Johann August Ephraim Goeze in 1773.",
-                    "section_name": "Introduction",
-                    "section_index": 1
-                },
-                {
-                    "source": "tardigrade fossils",
-                    "relation_type": "represent",
-                    "target": "stem group",
-                    "evidence": "Scientists think they represent a stem group of living tardigrades.",
-                    "section_name": "Evolution",
-                    "section_index": 6
-                },
-                {
-                    "source": "Mesotardigrada",
-                    "relation_type": "is a class of",
-                    "target": "phylum tardigrada",
-                    "evidence": "In 1937 Gilbert Rahm... distinguished the class Mesotardigrada.",
-                    "section_name": "Taxonomic history",
-                    "section_index": 5
-                },
-                {
-                    "source": "fossils",
-                    "relation_type": "provide evidence for",
-                    "target": "phylogeny of the phylum",
-                    "evidence": "Tardigrade fossils, particularly from mid-Cambrian deposits, provide critical evidence for understanding the evolutionary history and phylogeny of the phylum.",
+                    "source": "frequent pattern",
+                    "relation_type": "facilitates",
+                    "target": "parallel parsing",
+                    "evidence": "Frequent patterns in language can facilitate parallel parsing, allowing readers to process multiple interpretations simultaneously, which can enhance comprehension.",
                     "section_name": "global",
                     "section_index": -1
                 },
                 {
-                    "source": "Milnesium lagniappe",
-                    "relation_type": "includes prey of",
-                    "target": "other tardigrades",
-                    "evidence": "Milnesium lagniappe includes other tardigrades such as Macrobiotus acadianus among its prey.",
-                    "section_name": "Ecology and life history",
-                    "section_index": 3
-                },
-                {
-                    "source": "desiccated cyst",
-                    "relation_type": "result of",
-                    "target": "anhydrobiosis",
-                    "evidence": "The formation of desiccated cysts is a direct result of anhydrobiosis, demonstrating a biological adaptation that enhances survival in extreme conditions.",
+                    "source": "semantic sense",
+                    "relation_type": "is affected by",
+                    "target": "grammatically correct",
+                    "evidence": "The semantic sense of a sentence is contingent upon its grammatical correctness; if a sentence is grammatically incorrect, it may lead to confusion regarding its meaning.",
                     "section_name": "global",
                     "section_index": -1
                 },
                 {
-                    "source": "egg hatching",
-                    "relation_type": "follows",
-                    "target": "gonad",
-                    "evidence": "The process of egg hatching in tardigrades is directly linked to the functioning of their gonads, illustrating the biological processes that govern reproduction and development.",
+                    "source": "reader's interpretation",
+                    "relation_type": "influences clarity",
+                    "target": "communication clarity",
+                    "evidence": "The way a reader interprets a sentence can significantly affect the clarity of communication, as different interpretations can lead to misunderstandings.",
                     "section_name": "global",
                     "section_index": -1
                 },
                 {
-                    "source": "cuticle",
-                    "relation_type": "protective role for",
-                    "target": "gas exchange",
-                    "evidence": "The cuticle of tardigrades plays a protective role that impacts gas exchange, highlighting the interplay between structure and physiological function.",
+                    "source": "pragmatics",
+                    "relation_type": "interacts with",
+                    "target": "semantics",
+                    "evidence": "Pragmatics and semantics interact closely, as the meaning derived from a sentence (semantics) can be influenced by the context in which it is used (pragmatics), affecting overall understanding.",
                     "section_name": "global",
                     "section_index": -1
                 },
                 {
-                    "source": "eggs",
-                    "relation_type": "hatch into",
-                    "target": "hatchlings",
-                    "evidence": "The eggs hatch within 14 days, the hatchlings using their stylets to open their egg shells.",
-                    "section_name": "Description",
+                    "source": "psycholinguistic research",
+                    "relation_type": "informs understanding",
+                    "target": "initial parsing",
+                    "evidence": "Psycholinguistic research provides insights into how readers perform initial parsing of sentences, which is crucial for understanding sentence structure and meaning.",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "agent \u2013 action \u2013 patient",
+                    "relation_type": "framework for",
+                    "target": "parsing",
+                    "evidence": "The agent \u2013 action \u2013 patient structure serves as a fundamental framework for parsing sentences, guiding readers in understanding the roles of different components within a sentence.",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "frequent pattern",
+                    "relation_type": "includes",
+                    "target": "agent \u2013 action \u2013 patient",
+                    "evidence": "the sequence of phrases tends to be analyzed in terms of the frequent pattern: agent \u2013 action \u2013 patient.",
+                    "section_name": "Examples",
                     "section_index": 2
                 },
                 {
-                    "source": "tardigrades",
-                    "relation_type": "survived exposure to",
-                    "target": "space",
-                    "evidence": "Tardigrades have survived exposure to space.",
-                    "section_name": "Environmental tolerance",
-                    "section_index": 4
+                    "source": "reduced relative clause",
+                    "relation_type": "complicates",
+                    "target": "initial parsing",
+                    "evidence": "Reduced relative clauses can complicate initial parsing because they often omit elements that are crucial for understanding the sentence structure.",
+                    "section_name": "global",
+                    "section_index": -1
+                },
+                {
+                    "source": "sentence processing",
+                    "relation_type": "is influenced by",
+                    "target": "competing syntactic representations",
+                    "evidence": "Lingering misinterpretations of garden path sentences arise from competing syntactic representations",
+                    "section_name": "Further reading",
+                    "section_index": 8
                 }
             ]
         }

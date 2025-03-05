@@ -168,7 +168,7 @@ class OptimizedEntityExtractor:
             model="gpt-4o-mini",
             messages=[{"role": "user", "content": prompt},
                       {"role": "system", "content": "You are an expert at analyzing text and extracting meaningful concepts and relationships between them, with a special focus on making complex information more understandable. "}],
-            temperature=0.1
+            temperature=0
         )
         return response.choices[0].message.content
 

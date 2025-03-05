@@ -1,0 +1,1038 @@
+{
+    "metadata": {
+        "processing_mode": "section",
+        "timestamp": "2025-03-05T16:46:15.603596"
+    },
+    "Tardigrade": {
+        "category": "general",
+        "total_entities": 57,
+        "entities": [
+            {
+                "id": "tardigrades",
+                "frequency": 6,
+                "section_count": 6,
+                "variants": [
+                    "tardigrades",
+                    "tardigrade"
+                ],
+                "appearances": [
+                    {
+                        "section": "Introduction",
+                        "section_index": 1,
+                        "variant": "tardigrades",
+                        "evidence": "Tardigrades are a unique group of micro-animals known for their resilience and ability to survive extreme environmental conditions. They are significant in biological research due to their unique adaptations and evolutionary history."
+                    },
+                    {
+                        "section": "Description",
+                        "section_index": 2,
+                        "variant": "tardigrades",
+                        "evidence": "Tardigrades are microscopic, water-dwelling animals known for their resilience and unique body structure. They typically measure between 0.1 to 1.3 mm in length and possess a body cavity called a haemocoel, which is filled with fluid and serves as an open circulatory system. Understanding tardigrades is important in biology due to their extreme survival capabilities and unique physiological traits."
+                    },
+                    {
+                        "section": "Ecology and life history",
+                        "section_index": 3,
+                        "variant": "tardigrades",
+                        "evidence": "Tardigrades are microscopic, water-dwelling animals known for their resilience and ability to survive in extreme conditions. They inhabit a variety of environments, including terrestrial, freshwater, and marine ecosystems, making them a significant subject of study in ecology and evolutionary biology."
+                    },
+                    {
+                        "section": "Environmental tolerance",
+                        "section_index": 4,
+                        "variant": "tardigrades",
+                        "evidence": "Tardigrades are microscopic organisms known for their resilience to extreme environmental conditions. They are significant in studies of extremophiles, as they can survive harsh environments but do not thrive in them like true extremophiles."
+                    },
+                    {
+                        "section": "Taxonomic history",
+                        "section_index": 5,
+                        "variant": "tardigrade",
+                        "evidence": "Tardigrades, commonly known as water bears, are microscopic, water-dwelling animals known for their resilience and ability to survive extreme conditions. They are significant in biological research due to their unique adaptations and evolutionary history."
+                    },
+                    {
+                        "section": "In culture and society",
+                        "section_index": 7,
+                        "variant": "tardigrades",
+                        "evidence": "Tardigrades, also known as water bears, are microscopic organisms known for their resilience and ability to survive extreme conditions. They are often found in mosses and lichens, making them accessible for study by students and amateur scientists, which highlights their significance in biological research and education."
+                    }
+                ],
+                "layer": "priority"
+            },
+            {
+                "id": "resilience",
+                "frequency": 2,
+                "section_count": 2,
+                "variants": [
+                    "resistant life-cycle stages",
+                    "resilience"
+                ],
+                "appearances": [
+                    {
+                        "section": "Introduction",
+                        "section_index": 1,
+                        "variant": "resilience",
+                        "evidence": "Resilience refers to the ability of organisms to withstand extreme environmental stressors, such as temperature fluctuations and radiation. Tardigrades exemplify this trait, making them a focal point in studies of survival mechanisms in biology."
+                    },
+                    {
+                        "section": "Ecology and life history",
+                        "section_index": 3,
+                        "variant": "resistant life-cycle stages",
+                        "evidence": "Tardigrades have unique life-cycle stages, such as cysts and tuns, which allow them to endure harsh conditions and facilitate their dispersal across various environments. This adaptability is crucial for their survival and distribution."
+                    }
+                ],
+                "layer": "priority"
+            },
+            {
+                "id": "johann august ephraim goeze",
+                "frequency": 2,
+                "section_count": 2,
+                "variants": [
+                    "kleiner wasserbär",
+                    "johann august ephraim goeze"
+                ],
+                "appearances": [
+                    {
+                        "section": "Introduction",
+                        "section_index": 1,
+                        "variant": "johann august ephraim goeze",
+                        "evidence": "Johann August Ephraim Goeze was the first to describe tardigrades, contributing to the scientific understanding of these organisms. His work laid the foundation for future research in zoology and taxonomy."
+                    },
+                    {
+                        "section": "Taxonomic history",
+                        "section_index": 5,
+                        "variant": "kleiner wasserbär",
+                        "evidence": "The term 'Kleiner Wasserbär' reflects the appearance and movement of tardigrades, which resemble bears in their gait. This name highlights the cultural significance and initial observations that led to the study of these organisms."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "heterotardigrada",
+                "frequency": 2,
+                "section_count": 2,
+                "variants": [
+                    "heterotardigrada"
+                ],
+                "appearances": [
+                    {
+                        "section": "Ecology and life history",
+                        "section_index": 3,
+                        "variant": "heterotardigrada",
+                        "evidence": "Heterotardigrada is a class within the phylum Tardigrada that includes many marine species. Its classification as the most ancestral class suggests that tardigrades likely evolved from marine ancestors, providing insights into their evolutionary history."
+                    },
+                    {
+                        "section": "Taxonomic history",
+                        "section_index": 5,
+                        "variant": "heterotardigrada",
+                        "evidence": "Heterotardigrada is another class within the phylum Tardigrada, distinguished by specific morphological traits. This classification helps researchers categorize and study the vast diversity of tardigrade species."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "horizontal gene transfer",
+                "frequency": 2,
+                "section_count": 2,
+                "variants": [
+                    "horizontal gene transfer"
+                ],
+                "appearances": [
+                    {
+                        "section": "Evolution",
+                        "section_index": 6,
+                        "variant": "horizontal gene transfer",
+                        "evidence": "Horizontal gene transfer is a process where genes are transferred between organisms in a manner other than traditional reproduction. In tardigrades, this phenomenon may contribute to their adaptability and resilience in extreme environments."
+                    },
+                    {
+                        "section": "In culture and society",
+                        "section_index": 7,
+                        "variant": "horizontal gene transfer",
+                        "evidence": "Horizontal gene transfer is a process where an organism incorporates genetic material from another organism without being its offspring. This concept is crucial in understanding genetic diversity and evolution, and it is illustrated in the fictional context of 'Star Trek: Discovery' through the character of Ripper, which reflects real biological processes."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "phylum tardigrada",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "phylum tardigrada"
+                ],
+                "appearances": [
+                    {
+                        "section": "Introduction",
+                        "section_index": 1,
+                        "variant": "phylum tardigrada",
+                        "evidence": "The phylum Tardigrada encompasses a diverse group of species that share common characteristics, such as their segmented bodies and ability to withstand extreme conditions. Understanding this phylum helps in studying evolutionary biology and resilience in life forms."
+                    }
+                ],
+                "layer": "priority"
+            },
+            {
+                "id": "extreme conditions",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "extreme conditions"
+                ],
+                "appearances": [
+                    {
+                        "section": "Introduction",
+                        "section_index": 1,
+                        "variant": "extreme conditions",
+                        "evidence": "Extreme conditions include environmental factors that can be detrimental to most life forms. Tardigrades' ability to survive these conditions provides insights into potential life in extreme environments, including other planets."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "lazzaro spallanzani",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "lazzaro spallanzani"
+                ],
+                "appearances": [
+                    {
+                        "section": "Introduction",
+                        "section_index": 1,
+                        "variant": "lazzaro spallanzani",
+                        "evidence": "Lazzaro Spallanzani's naming of Tardigrada reflects the characteristics of these organisms. His contributions are significant in the field of biology, particularly in the classification of species."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "ecdysozoa",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "ecdysozoa"
+                ],
+                "appearances": [
+                    {
+                        "section": "Introduction",
+                        "section_index": 1,
+                        "variant": "ecdysozoa",
+                        "evidence": "Ecdysozoa is a superphylum that includes animals that undergo molting. Understanding Tardigrades' place within this group helps in studying evolutionary relationships among various animal phyla."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "mosses and lichens",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "mosses and lichens"
+                ],
+                "appearances": [
+                    {
+                        "section": "Introduction",
+                        "section_index": 1,
+                        "variant": "mosses and lichens",
+                        "evidence": "Mosses and lichens serve as common habitats for tardigrades, making them accessible for study. This ecological context is important for understanding their distribution and role in ecosystems."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "historical context",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "historical context"
+                ],
+                "appearances": [
+                    {
+                        "section": "Introduction",
+                        "section_index": 1,
+                        "variant": "historical context",
+                        "evidence": "The historical context of tardigrades, including their fossil record, provides insights into their evolutionary history and the environmental conditions of ancient Earth."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "haemocoel",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "haemocoel"
+                ],
+                "appearances": [
+                    {
+                        "section": "Description",
+                        "section_index": 2,
+                        "variant": "haemocoel",
+                        "evidence": "The haemocoel is a type of body cavity found in certain invertebrates, including tardigrades, that functions as an open circulatory system. This means that the fluid within the haemocoel circulates freely, allowing for the distribution of nutrients and gases throughout the organism. It is crucial for understanding how tardigrades manage their physiological processes without traditional blood vessels."
+                    }
+                ],
+                "layer": "priority"
+            },
+            {
+                "id": "cuticle",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "cuticle"
+                ],
+                "appearances": [
+                    {
+                        "section": "Description",
+                        "section_index": 2,
+                        "variant": "cuticle",
+                        "evidence": "The cuticle is a protective outer layer that provides structural support and prevents desiccation in tardigrades. It is composed of proteins and chitin, which contribute to its flexibility and durability. The cuticle's role in the life cycle of tardigrades, particularly during moulting, is essential for their growth and adaptation to various environments."
+                    }
+                ],
+                "layer": "priority"
+            },
+            {
+                "id": "nervous system",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "nervous system"
+                ],
+                "appearances": [
+                    {
+                        "section": "Description",
+                        "section_index": 2,
+                        "variant": "nervous system",
+                        "evidence": "The nervous system of tardigrades consists of ventral nerve cords and ganglia, which coordinate movement and sensory processing. This simple yet effective nervous system allows tardigrades to respond to their environment and perform essential functions, highlighting their evolutionary adaptations."
+                    }
+                ],
+                "layer": "priority"
+            },
+            {
+                "id": "classical conditioning",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "classical conditioning"
+                ],
+                "appearances": [
+                    {
+                        "section": "Description",
+                        "section_index": 2,
+                        "variant": "classical conditioning",
+                        "evidence": "Classical conditioning is a learning process where an organism learns to associate a neutral stimulus with a significant event. In the case of tardigrades, this demonstrates their capacity for learning and adaptation, which is significant for understanding animal behavior and cognition in simple organisms."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "locomotion",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "locomotion"
+                ],
+                "appearances": [
+                    {
+                        "section": "Description",
+                        "section_index": 2,
+                        "variant": "locomotion",
+                        "evidence": "Locomotion in tardigrades involves the coordinated action of muscles that work in pairs to move their legs. This mechanism is similar to that of arthropods and is essential for their movement and interaction with the environment. Understanding their locomotion provides insights into the evolutionary adaptations of small invertebrates."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "feeding mechanism",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "feeding mechanism"
+                ],
+                "appearances": [
+                    {
+                        "section": "Description",
+                        "section_index": 2,
+                        "variant": "feeding mechanism",
+                        "evidence": "Tardigrades utilize a specialized feeding mechanism involving stylets to pierce their prey and extract fluids. This method of feeding is crucial for their survival and ecological role, as it allows them to thrive in various environments by consuming different types of organic matter."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "reproductive strategies",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "reproductive strategies"
+                ],
+                "appearances": [
+                    {
+                        "section": "Description",
+                        "section_index": 2,
+                        "variant": "reproductive strategies",
+                        "evidence": "Tardigrades exhibit diverse reproductive strategies, including copulation and parthenogenesis. Understanding these strategies is important for studying their population dynamics and evolutionary biology, as they can adapt to different environmental conditions."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "egg development",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "egg development"
+                ],
+                "appearances": [
+                    {
+                        "section": "Description",
+                        "section_index": 2,
+                        "variant": "egg development",
+                        "evidence": "The reproductive output of tardigrades varies by species, with some laying up to 30 eggs. The development of these eggs, including their drought-resistant shells, is significant for the survival of the species in fluctuating environments. This aspect of their biology is crucial for understanding their life cycle and resilience."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "dactylobiotus dispar",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "dactylobiotus dispar"
+                ],
+                "appearances": [
+                    {
+                        "section": "Description",
+                        "section_index": 2,
+                        "variant": "dactylobiotus dispar",
+                        "evidence": "Dactylobiotus dispar is a specific species of tardigrade known for its ability to learn through classical conditioning. This species serves as a model organism for studying learning and memory in simple nervous systems, contributing to our understanding of animal behavior."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "austeruseus faeroensis",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "austeruseus faeroensis"
+                ],
+                "appearances": [
+                    {
+                        "section": "Description",
+                        "section_index": 2,
+                        "variant": "austeruseus faeroensis",
+                        "evidence": "Austeruseus faeroensis is a species of tardigrade notable for its unique egg morphology. Studying this species helps illustrate the diversity of reproductive adaptations in tardigrades and their ecological implications."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "habitat specialization",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "habitat specialization"
+                ],
+                "appearances": [
+                    {
+                        "section": "Ecology and life history",
+                        "section_index": 3,
+                        "variant": "habitat specialization",
+                        "evidence": "Some tardigrade species exhibit habitat specialization, meaning they thrive in specific environments, such as mountainous regions. This specialization can influence their ecological roles and interactions within those habitats."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "cosmopolitan distribution",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "cosmopolitan distribution"
+                ],
+                "appearances": [
+                    {
+                        "section": "Ecology and life history",
+                        "section_index": 3,
+                        "variant": "cosmopolitan distribution",
+                        "evidence": "Cosmopolitan species are those that have a widespread distribution across various geographic regions. In the context of tardigrades, this term highlights the adaptability and resilience of certain species to thrive in diverse environments."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "microbial symbionts",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "microbial symbionts"
+                ],
+                "appearances": [
+                    {
+                        "section": "Ecology and life history",
+                        "section_index": 3,
+                        "variant": "microbial symbionts",
+                        "evidence": "Microbial symbionts are microorganisms that live in association with tardigrades, often providing benefits such as enhanced nutrient acquisition. Understanding these relationships is important for studying the ecology and evolution of tardigrades."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "predation",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "predation"
+                ],
+                "appearances": [
+                    {
+                        "section": "Ecology and life history",
+                        "section_index": 3,
+                        "variant": "predation",
+                        "evidence": "Predation in tardigrades refers to their role as predators in the ecosystem, where they consume other small organisms. This behavior is significant for understanding their ecological interactions and the dynamics of their habitats."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "flavobacterium, ferruginibacter, polaromonas",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "flavobacterium, ferruginibacter, polaromonas"
+                ],
+                "appearances": [
+                    {
+                        "section": "Ecology and life history",
+                        "section_index": 3,
+                        "variant": "flavobacterium, ferruginibacter, polaromonas",
+                        "evidence": "These bacterial genera are significant components of the microbiomes found in tardigrades, particularly in glacial habitats. Their presence can influence the health and ecological roles of tardigrades in these environments."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "echiniscus lineatus",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "echiniscus lineatus"
+                ],
+                "appearances": [
+                    {
+                        "section": "Ecology and life history",
+                        "section_index": 3,
+                        "variant": "echiniscus lineatus",
+                        "evidence": "Echiniscus lineatus is a specific species of tardigrade known for its wide distribution across tropical regions. Studying such species helps in understanding the ecological adaptability of tardigrades."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "borealibius and echiniscus lapponicus",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "borealibius and echiniscus lapponicus"
+                ],
+                "appearances": [
+                    {
+                        "section": "Ecology and life history",
+                        "section_index": 3,
+                        "variant": "borealibius and echiniscus lapponicus",
+                        "evidence": "These species exemplify the diverse distribution patterns of tardigrades, which can be influenced by historical climate changes and current environmental conditions."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "density in habitats",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "density in habitats"
+                ],
+                "appearances": [
+                    {
+                        "section": "Ecology and life history",
+                        "section_index": 3,
+                        "variant": "density in habitats",
+                        "evidence": "The density of tardigrades in various habitats, such as soil and mosses, indicates their ecological success and adaptability. High densities can impact nutrient cycling and ecosystem dynamics."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "cryptobiosis",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "cryptobiosis"
+                ],
+                "appearances": [
+                    {
+                        "section": "Environmental tolerance",
+                        "section_index": 4,
+                        "variant": "cryptobiosis",
+                        "evidence": "Cryptobiosis is a state in which an organism's metabolic processes are effectively halted, allowing it to survive extreme conditions. This ability is crucial for tardigrades, enabling them to endure long periods without water or food."
+                    }
+                ],
+                "layer": "priority"
+            },
+            {
+                "id": "desiccated cyst",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "desiccated cyst"
+                ],
+                "appearances": [
+                    {
+                        "section": "Environmental tolerance",
+                        "section_index": 4,
+                        "variant": "desiccated cyst",
+                        "evidence": "The desiccated cyst, or 'tun' state, is a protective form that tardigrades assume during cryptobiosis. This adaptation allows them to survive extreme dehydration and environmental stressors."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "cyclomorphosis",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "cyclomorphosis"
+                ],
+                "appearances": [
+                    {
+                        "section": "Environmental tolerance",
+                        "section_index": 4,
+                        "variant": "cyclomorphosis",
+                        "evidence": "Cyclomorphosis refers to the seasonal morphological changes in certain organisms, such as tardigrades. This process allows them to adapt to varying environmental conditions throughout the year."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "dsup protein",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "dsup protein"
+                ],
+                "appearances": [
+                    {
+                        "section": "Environmental tolerance",
+                        "section_index": 4,
+                        "variant": "dsup protein",
+                        "evidence": "The Dsup protein is crucial for protecting tardigrade DNA from damage caused by radiation. Its function in binding to nucleosomes helps maintain genomic integrity under stress."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "trehalose",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "trehalose"
+                ],
+                "appearances": [
+                    {
+                        "section": "Environmental tolerance",
+                        "section_index": 4,
+                        "variant": "trehalose",
+                        "evidence": "Trehalose is a sugar that many organisms use to survive desiccation. However, tardigrades do not rely on trehalose for this purpose, which highlights their unique biochemical adaptations."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "maria kamilari",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "maria kamilari"
+                ],
+                "appearances": [
+                    {
+                        "section": "Environmental tolerance",
+                        "section_index": 4,
+                        "variant": "maria kamilari",
+                        "evidence": "Maria Kamilari is a researcher who has contributed to the understanding of tardigrade biology, particularly in relation to cold shock proteins and their role in RNA regulation during freezing conditions."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "foton-m3 mission",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "foton-m3 mission"
+                ],
+                "appearances": [
+                    {
+                        "section": "Environmental tolerance",
+                        "section_index": 4,
+                        "variant": "foton-m3 mission",
+                        "evidence": "The FOTON-M3 mission was significant for studying the resilience of tardigrades in space conditions, demonstrating their ability to survive extreme environments beyond Earth."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "anhydrobiosis",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "anhydrobiosis"
+                ],
+                "appearances": [
+                    {
+                        "section": "Environmental tolerance",
+                        "section_index": 4,
+                        "variant": "anhydrobiosis",
+                        "evidence": "Anhydrobiosis is a form of cryptobiosis specifically triggered by dehydration. It involves extensive genetic regulation, allowing tardigrades to survive extreme desiccation."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "biomedical research",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "biomedical research"
+                ],
+                "appearances": [
+                    {
+                        "section": "Environmental tolerance",
+                        "section_index": 4,
+                        "variant": "biomedical research",
+                        "evidence": "The unique proteins produced by tardigrades, such as Dsup and CAHS, are being studied for their potential applications in biomedical research, particularly in protecting cells from damage."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "eutardigrada",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "eutardigrada"
+                ],
+                "appearances": [
+                    {
+                        "section": "Taxonomic history",
+                        "section_index": 5,
+                        "variant": "eutardigrada",
+                        "evidence": "Eutardigrada is a class within the phylum Tardigrada that includes many well-known species. This classification is important for understanding the diversity and evolutionary relationships among tardigrades."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "apotardigrada",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "apotardigrada"
+                ],
+                "appearances": [
+                    {
+                        "section": "Taxonomic history",
+                        "section_index": 5,
+                        "variant": "apotardigrada",
+                        "evidence": "Apotardigrada represents a recent classification that reflects ongoing research and understanding of tardigrade taxonomy. This change underscores the dynamic nature of biological classification as new discoveries are made."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "memoire sur les tardigrades",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "memoire sur les tardigrades"
+                ],
+                "appearances": [
+                    {
+                        "section": "Taxonomic history",
+                        "section_index": 5,
+                        "variant": "memoire sur les tardigrades",
+                        "evidence": "This dissertation is considered a foundational work in the study of tardigrades, providing essential descriptions and classifications that have influenced subsequent research in the field."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "thermozodium esakii",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "thermozodium esakii"
+                ],
+                "appearances": [
+                    {
+                        "section": "Taxonomic history",
+                        "section_index": 5,
+                        "variant": "thermozodium esakii",
+                        "evidence": "Thermozodium esakii is a species that was once classified under Mesotardigrada, illustrating the complexities and challenges in the classification of tardigrades as new information emerges."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "1,488 described species",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "1,488 described species"
+                ],
+                "appearances": [
+                    {
+                        "section": "Taxonomic history",
+                        "section_index": 5,
+                        "variant": "1,488 described species",
+                        "evidence": "The large number of described tardigrade species highlights the diversity within this phylum and the importance of ongoing research to understand their ecological roles and evolutionary history."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "tardigrade fossils",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "tardigrade fossils"
+                ],
+                "appearances": [
+                    {
+                        "section": "Evolution",
+                        "section_index": 6,
+                        "variant": "tardigrade fossils",
+                        "evidence": "Tardigrade fossils are significant as they provide insight into the evolutionary history of tardigrades, showcasing their ancient forms and adaptations. The rarity of these fossils highlights the challenges in studying the evolutionary lineage of this unique group of organisms."
+                    }
+                ],
+                "layer": "priority"
+            },
+            {
+                "id": "mid-cambrian deposits",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "mid-cambrian deposits"
+                ],
+                "appearances": [
+                    {
+                        "section": "Evolution",
+                        "section_index": 6,
+                        "variant": "mid-cambrian deposits",
+                        "evidence": "Mid-Cambrian deposits are crucial for understanding the early evolution of life on Earth, particularly for groups like tardigrades. These deposits contain some of the oldest known fossils, which help scientists trace the lineage and morphological changes of tardigrades over time."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "stem group",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "stem group"
+                ],
+                "appearances": [
+                    {
+                        "section": "Evolution",
+                        "section_index": 6,
+                        "variant": "stem group",
+                        "evidence": "A stem group refers to a lineage that diverged before the last common ancestor of a group of organisms. In the context of tardigrades, identifying them as a stem group helps researchers understand the evolutionary relationships and characteristics that led to the modern forms of tardigrades."
+                    }
+                ],
+                "layer": "priority"
+            },
+            {
+                "id": "lobopodian ancestor",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "lobopodian ancestor"
+                ],
+                "appearances": [
+                    {
+                        "section": "Evolution",
+                        "section_index": 6,
+                        "variant": "lobopodian ancestor",
+                        "evidence": "The lobopodian ancestor is significant as it suggests that tardigrades evolved from larger, more complex organisms. This evolutionary transition to miniaturization is important for understanding the adaptations and survival strategies of tardigrades in various environments."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "tactopoda hypothesis",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "tactopoda hypothesis"
+                ],
+                "appearances": [
+                    {
+                        "section": "Evolution",
+                        "section_index": 6,
+                        "variant": "tactopoda hypothesis",
+                        "evidence": "The Tactopoda hypothesis is a theoretical framework that proposes a close evolutionary relationship between tardigrades and arthropods. Understanding this relationship is essential for reconstructing the evolutionary history of these groups and their shared characteristics."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "genomic studies",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "genomic studies"
+                ],
+                "appearances": [
+                    {
+                        "section": "Evolution",
+                        "section_index": 6,
+                        "variant": "genomic studies",
+                        "evidence": "Genomic studies are vital for understanding the genetic diversity and evolutionary adaptations of tardigrades. They provide insights into how tardigrades have evolved over time and how their genomes relate to other ecdysozoans."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "hox genes",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "hox genes"
+                ],
+                "appearances": [
+                    {
+                        "section": "Evolution",
+                        "section_index": 6,
+                        "variant": "hox genes",
+                        "evidence": "Hox genes are critical for body plan development in many organisms, including arthropods. The absence of certain Hox genes in tardigrades suggests a unique evolutionary path and provides clues about their body structure and evolutionary history."
+                    }
+                ],
+                "layer": "priority"
+            },
+            {
+                "id": "phylogeny of the phylum",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "phylogeny of the phylum"
+                ],
+                "appearances": [
+                    {
+                        "section": "Evolution",
+                        "section_index": 6,
+                        "variant": "phylogeny of the phylum",
+                        "evidence": "Studying the phylogeny of the phylum helps clarify the evolutionary relationships among different groups of tardigrades. This research is essential for understanding how these organisms are classified and how they relate to other ecdysozoans."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "milnesium swolenskyi",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "milnesium swolenskyi"
+                ],
+                "appearances": [
+                    {
+                        "section": "Evolution",
+                        "section_index": 6,
+                        "variant": "milnesium swolenskyi",
+                        "evidence": "Milnesium swolenskyi is significant as it represents one of the earliest known modern tardigrades, providing insights into the evolutionary history and adaptations of this group during the Late Cretaceous period."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "survival traits",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "survival traits"
+                ],
+                "appearances": [
+                    {
+                        "section": "In culture and society",
+                        "section_index": 7,
+                        "variant": "survival traits",
+                        "evidence": "Tardigrades possess unique survival traits that allow them to endure extreme environmental conditions, such as desiccation and radiation. These traits have not only made them a subject of scientific interest but have also inspired their representation in science fiction and popular culture, illustrating their broader cultural significance."
+                    }
+                ],
+                "layer": "priority"
+            },
+            {
+                "id": "douglas mawson",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "douglas mawson"
+                ],
+                "appearances": [
+                    {
+                        "section": "In culture and society",
+                        "section_index": 7,
+                        "variant": "douglas mawson",
+                        "evidence": "Douglas Mawson was a geologist and explorer whose work contributed to the early representation of tardigrades in literature. His short story 'Bathybia' marks a significant cultural moment where scientific concepts intersect with creative storytelling, showcasing the influence of science on literature."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "pop culture representation",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "pop culture representation"
+                ],
+                "appearances": [
+                    {
+                        "section": "In culture and society",
+                        "section_index": 7,
+                        "variant": "pop culture representation",
+                        "evidence": "The representation of tardigrades in pop culture, such as in films and music, highlights their appeal beyond scientific circles. This phenomenon illustrates how scientific concepts can permeate popular media, influencing public perception and interest in biology."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "american name society's name of the year award",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "american name society's name of the year award"
+                ],
+                "appearances": [
+                    {
+                        "section": "In culture and society",
+                        "section_index": 7,
+                        "variant": "american name society's name of the year award",
+                        "evidence": "The nomination of tardigrades for the American Name Society's Name of the Year Award signifies their cultural impact and recognition in contemporary discourse. This reflects how scientific entities can gain prominence in societal discussions, emphasizing their relevance in both science and culture."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "symbiosis",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "symbiosis"
+                ],
+                "appearances": [
+                    {
+                        "section": "In culture and society",
+                        "section_index": 7,
+                        "variant": "symbiosis",
+                        "evidence": "Symbiosis refers to the interaction between different organisms, which can be mutually beneficial. In the context of tardigrades, their role in various ecosystems and their interactions with other species highlight the importance of understanding ecological relationships and their implications for biodiversity."
+                    }
+                ],
+                "layer": "secondary"
+            }
+        ]
+    }
+}

@@ -1,0 +1,663 @@
+{
+    "metadata": {
+        "processing_mode": "section",
+        "timestamp": "2025-03-05T15:41:38.616444"
+    },
+    "Garden path sentence": {
+        "category": "linguistics",
+        "total_entities": 36,
+        "entities": [
+            {
+                "id": "garden-path sentence",
+                "frequency": 4,
+                "section_count": 4,
+                "variants": [
+                    "garden-path sentence effect",
+                    "garden-path sentence"
+                ],
+                "appearances": [
+                    {
+                        "section": "Introduction",
+                        "section_index": 1,
+                        "variant": "garden-path sentence",
+                        "evidence": "A garden-path sentence is a type of grammatically correct sentence that misleads readers into an incorrect interpretation. This concept is significant because it highlights the complexities of language processing and the challenges of achieving clarity in communication."
+                    },
+                    {
+                        "section": "Examples",
+                        "section_index": 2,
+                        "variant": "garden-path sentence",
+                        "evidence": "A garden-path sentence is a grammatically correct sentence that initially leads the reader to interpret it incorrectly, causing confusion. Understanding garden-path sentences is important in psycholinguistics as it reveals how readers process language and the expectations they form while reading."
+                    },
+                    {
+                        "section": "Parsing",
+                        "section_index": 3,
+                        "variant": "garden-path sentence effect",
+                        "evidence": "The garden-path sentence effect highlights how ambiguity in language can lead to misinterpretation. This phenomenon is significant in understanding the challenges readers face when parsing sentences, as it illustrates the need for reevaluation of meaning based on new information."
+                    },
+                    {
+                        "section": "Reanalysis of a garden-path sentence",
+                        "section_index": 4,
+                        "variant": "garden-path sentence",
+                        "evidence": "A garden-path sentence is a grammatically correct sentence that initially leads the reader to interpret it in a way that turns out to be incorrect. Understanding garden-path sentences is crucial in psycholinguistics as they reveal how readers process language and the cognitive mechanisms involved in sentence parsing."
+                    }
+                ],
+                "layer": "priority"
+            },
+            {
+                "id": "ambiguity",
+                "frequency": 2,
+                "section_count": 2,
+                "variants": [
+                    "ambiguity"
+                ],
+                "appearances": [
+                    {
+                        "section": "Introduction",
+                        "section_index": 1,
+                        "variant": "ambiguity",
+                        "evidence": "Ambiguity in language refers to situations where a word or phrase can have multiple meanings. In garden-path sentences, this ambiguity is central to the reader's misinterpretation, making it a critical concept in understanding language processing."
+                    },
+                    {
+                        "section": "Parsing",
+                        "section_index": 3,
+                        "variant": "ambiguity",
+                        "evidence": "Ambiguity in language refers to situations where a word or phrase can have multiple meanings. Understanding ambiguity is crucial for comprehending how readers interpret sentences and the strategies they employ to resolve confusion."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "initial parsing",
+                "frequency": 2,
+                "section_count": 2,
+                "variants": [
+                    "initial parse",
+                    "initial parsing"
+                ],
+                "appearances": [
+                    {
+                        "section": "Examples",
+                        "section_index": 2,
+                        "variant": "initial parsing",
+                        "evidence": "Initial parsing refers to the first interpretation a reader makes when encountering a sentence. It is significant because it can lead to misunderstandings, especially in complex sentences where the expected structure is not followed."
+                    },
+                    {
+                        "section": "Reanalysis of a garden-path sentence",
+                        "section_index": 4,
+                        "variant": "initial parse",
+                        "evidence": "The initial parse is the first interpretation a reader makes when encountering a sentence. Understanding this concept is vital as it highlights the cognitive challenges faced during reading and the need for revision when the initial understanding is flawed."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "re-analysis",
+                "frequency": 2,
+                "section_count": 2,
+                "variants": [
+                    "re-analysis",
+                    "selective reanalysis process"
+                ],
+                "appearances": [
+                    {
+                        "section": "Examples",
+                        "section_index": 2,
+                        "variant": "re-analysis",
+                        "evidence": "Re-analysis is the process of reevaluating an initial interpretation of a sentence when new information contradicts it. This process is crucial in understanding how readers navigate complex sentence structures and resolve ambiguities."
+                    },
+                    {
+                        "section": "Reanalysis of a garden-path sentence",
+                        "section_index": 4,
+                        "variant": "selective reanalysis process",
+                        "evidence": "The selective reanalysis process refers to the cognitive strategies that readers employ to reinterpret sentences when their initial understanding proves incorrect. This concept is important for understanding how readers navigate complex sentence structures and recover from misinterpretations."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "grammatically correct",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "grammatically correct"
+                ],
+                "appearances": [
+                    {
+                        "section": "Introduction",
+                        "section_index": 1,
+                        "variant": "grammatically correct",
+                        "evidence": "The term 'grammatically correct' refers to sentences that adhere to the rules of grammar. In the context of garden-path sentences, it emphasizes the paradox that these sentences can be correct yet still lead to confusion, illustrating the intricacies of language comprehension."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "false scent",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "false scent"
+                ],
+                "appearances": [
+                    {
+                        "section": "Introduction",
+                        "section_index": 1,
+                        "variant": "false scent",
+                        "evidence": "The phrase 'false scent' refers to misleading cues that lead readers to incorrect interpretations. This concept is important as it encapsulates the essence of garden-path sentences, where initial impressions can mislead understanding."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "fowler",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "fowler"
+                ],
+                "appearances": [
+                    {
+                        "section": "Introduction",
+                        "section_index": 1,
+                        "variant": "fowler",
+                        "evidence": "Fowler is a notable figure in the study of English usage, and his contributions help define the characteristics of garden-path sentences. His insights are valuable for understanding how language can mislead readers."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "re-reading",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "re-reading"
+                ],
+                "appearances": [
+                    {
+                        "section": "Introduction",
+                        "section_index": 1,
+                        "variant": "re-reading",
+                        "evidence": "Re-reading is a process that readers often engage in when encountering garden-path sentences. This concept is significant as it highlights the cognitive effort required to resolve ambiguity and achieve comprehension."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "clarity in communication",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "clarity in communication"
+                ],
+                "appearances": [
+                    {
+                        "section": "Introduction",
+                        "section_index": 1,
+                        "variant": "clarity in communication",
+                        "evidence": "Clarity in communication refers to the effectiveness of conveying a message without confusion. Understanding garden-path sentences is crucial for writers who aim to communicate their ideas clearly and avoid misleading their audience."
+                    }
+                ],
+                "layer": "priority"
+            },
+            {
+                "id": "psycholinguistic research",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "psycholinguistic research"
+                ],
+                "appearances": [
+                    {
+                        "section": "Examples",
+                        "section_index": 2,
+                        "variant": "psycholinguistic research",
+                        "evidence": "Psycholinguistic research studies the relationship between linguistic and psychological processes, particularly how people understand and produce language. This field is crucial for developing AI that can effectively process human language."
+                    }
+                ],
+                "layer": "priority"
+            },
+            {
+                "id": "semantic sense",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "semantic sense"
+                ],
+                "appearances": [
+                    {
+                        "section": "Examples",
+                        "section_index": 2,
+                        "variant": "semantic sense",
+                        "evidence": "Semantic sense refers to the logical meaning of a phrase or sentence. Understanding semantic sense is essential for effective communication, as it helps readers and listeners make sense of the information being conveyed."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "thomas bever",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "thomas bever"
+                ],
+                "appearances": [
+                    {
+                        "section": "Examples",
+                        "section_index": 2,
+                        "variant": "thomas bever",
+                        "evidence": "Thomas Bever is a notable figure in psycholinguistics known for his work on sentence processing and garden-path sentences. His contributions help illuminate the cognitive processes involved in language comprehension."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "complex houses married",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "complex houses married"
+                ],
+                "appearances": [
+                    {
+                        "section": "Examples",
+                        "section_index": 2,
+                        "variant": "complex houses married",
+                        "evidence": "The phrase 'complex houses married' serves as an example of how initial parsing can lead to confusion due to semantic inconsistencies. It highlights the importance of context in understanding sentence structure."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "agent – action – patient",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "agent – action – patient"
+                ],
+                "appearances": [
+                    {
+                        "section": "Examples",
+                        "section_index": 2,
+                        "variant": "agent – action – patient",
+                        "evidence": "The agent – action – patient structure is a common framework used to analyze sentence components. Recognizing this pattern helps in understanding how readers expect sentences to be constructed and can clarify why certain sentences lead to confusion."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "reduced relative clause",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "reduced relative clause"
+                ],
+                "appearances": [
+                    {
+                        "section": "Examples",
+                        "section_index": 2,
+                        "variant": "reduced relative clause",
+                        "evidence": "A reduced relative clause is a shortened form of a relative clause that can lead to ambiguity in sentence interpretation. Understanding this concept is important for analyzing complex sentences and improving clarity in writing."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "parsing",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "parsing"
+                ],
+                "appearances": [
+                    {
+                        "section": "Parsing",
+                        "section_index": 3,
+                        "variant": "parsing",
+                        "evidence": "Parsing is the process by which readers analyze the grammatical structure and meaning of sentences. It is crucial for understanding how sentences are constructed and interpreted, allowing readers to derive meaning from text effectively."
+                    }
+                ],
+                "layer": "priority"
+            },
+            {
+                "id": "serial parsing",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "serial parsing"
+                ],
+                "appearances": [
+                    {
+                        "section": "Parsing",
+                        "section_index": 3,
+                        "variant": "serial parsing",
+                        "evidence": "Serial parsing is a strategy where readers focus on a single interpretation of ambiguous elements in a sentence. This method is important for understanding how readers navigate complex sentences and the potential pitfalls of relying on initial interpretations."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "parallel parsing",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "parallel parsing"
+                ],
+                "appearances": [
+                    {
+                        "section": "Parsing",
+                        "section_index": 3,
+                        "variant": "parallel parsing",
+                        "evidence": "Parallel parsing allows readers to consider multiple meanings simultaneously, which can enhance comprehension when faced with ambiguity. This strategy is essential for understanding the cognitive processes involved in sentence interpretation."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "pragmatics",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "pragmatics"
+                ],
+                "appearances": [
+                    {
+                        "section": "Parsing",
+                        "section_index": 3,
+                        "variant": "pragmatics",
+                        "evidence": "Pragmatics involves the study of how context influences the interpretation of meaning in language. It is important for understanding how readers derive meaning beyond the literal words, considering factors such as tone, context, and social cues."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "semantics",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "semantics"
+                ],
+                "appearances": [
+                    {
+                        "section": "Parsing",
+                        "section_index": 3,
+                        "variant": "semantics",
+                        "evidence": "Semantics is the branch of linguistics that deals with meaning. It plays a critical role in parsing as it helps readers understand the meanings of words and phrases, which is essential for accurate sentence interpretation."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "eye movements",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "eye movements"
+                ],
+                "appearances": [
+                    {
+                        "section": "Reanalysis of a garden-path sentence",
+                        "section_index": 4,
+                        "variant": "eye movements",
+                        "evidence": "Eye movements are a key indicator of cognitive processing during reading. They provide insights into how readers navigate through sentences, particularly when faced with ambiguities or misinterpretations, making them essential for studying language processing."
+                    }
+                ],
+                "layer": "priority"
+            },
+            {
+                "id": "executive functioning",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "executive functioning"
+                ],
+                "appearances": [
+                    {
+                        "section": "Reanalysis of a garden-path sentence",
+                        "section_index": 4,
+                        "variant": "executive functioning",
+                        "evidence": "Executive functioning refers to a set of cognitive processes that enable individuals to plan, focus attention, remember instructions, and juggle multiple tasks. It plays a crucial role in revising initial interpretations of sentences, particularly in children and L2 learners."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "l2 learners",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "l2 learners"
+                ],
+                "appearances": [
+                    {
+                        "section": "Reanalysis of a garden-path sentence",
+                        "section_index": 4,
+                        "variant": "l2 learners",
+                        "evidence": "L2 learners are individuals who are learning a second language. Their study is significant in understanding how language processing differs between native speakers and non-native speakers, particularly in the context of sentence parsing and revision."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "act-out errors",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "act-out errors"
+                ],
+                "appearances": [
+                    {
+                        "section": "Reanalysis of a garden-path sentence",
+                        "section_index": 4,
+                        "variant": "act-out errors",
+                        "evidence": "Act-out errors occur when individuals misinterpret or incorrectly respond to a sentence's meaning during a task. Analyzing these errors helps researchers understand the cognitive processes involved in language comprehension and the effectiveness of parsing strategies."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "discourse and referential information",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "discourse and referential information"
+                ],
+                "appearances": [
+                    {
+                        "section": "Reanalysis of a garden-path sentence",
+                        "section_index": 4,
+                        "variant": "discourse and referential information",
+                        "evidence": "Discourse and referential information are contextual clues that help readers make sense of sentences. Their use is crucial for effective sentence processing, particularly in complex structures like garden-path sentences, and highlights the role of context in language comprehension."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "meseguer, carreiras and clifton (2002)",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "meseguer, carreiras and clifton (2002)"
+                ],
+                "appearances": [
+                    {
+                        "section": "Reanalysis of a garden-path sentence",
+                        "section_index": 4,
+                        "variant": "meseguer, carreiras and clifton (2002)",
+                        "evidence": "This research paper contributes to the understanding of cognitive processes involved in sentence parsing and recovery from misinterpretations, providing empirical evidence for theories related to garden-path sentences."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "frazier and rayner (1982)",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "frazier and rayner (1982)"
+                ],
+                "appearances": [
+                    {
+                        "section": "Reanalysis of a garden-path sentence",
+                        "section_index": 4,
+                        "variant": "frazier and rayner (1982)",
+                        "evidence": "Frazier and Rayner's work laid foundational theories in psycholinguistics regarding sentence processing and reanalysis, influencing subsequent research on garden-path sentences and cognitive strategies in reading."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "2015 study",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "2015 study"
+                ],
+                "appearances": [
+                    {
+                        "section": "Reanalysis of a garden-path sentence",
+                        "section_index": 4,
+                        "variant": "2015 study",
+                        "evidence": "This study provides insights into the differences in sentence processing between various groups, highlighting the challenges faced by L2 learners and contributing to the broader understanding of language acquisition and cognitive processing."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "garden-path sentences",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "garden-path sentences"
+                ],
+                "appearances": [
+                    {
+                        "section": "Further reading",
+                        "section_index": 8,
+                        "variant": "garden-path sentences",
+                        "evidence": "Garden-path sentences are sentences that initially lead the reader to interpret them in one way, but require reanalysis to understand their correct meaning. They are significant in psycholinguistics as they reveal how sentence processing can be influenced by syntactic structures and the cognitive mechanisms involved in reanalysis."
+                    }
+                ],
+                "layer": "priority"
+            },
+            {
+                "id": "sentence processing",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "sentence processing"
+                ],
+                "appearances": [
+                    {
+                        "section": "Further reading",
+                        "section_index": 8,
+                        "variant": "sentence processing",
+                        "evidence": "Sentence processing refers to the cognitive processes involved in understanding and interpreting sentences as they are read or heard. This concept is crucial for understanding how individuals construct meaning from language and how misinterpretations can occur, particularly in complex sentence structures."
+                    }
+                ],
+                "layer": "priority"
+            },
+            {
+                "id": "reanalysis",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "reanalysis"
+                ],
+                "appearances": [
+                    {
+                        "section": "Further reading",
+                        "section_index": 8,
+                        "variant": "reanalysis",
+                        "evidence": "Reanalysis is the process by which a reader or listener revises their initial interpretation of a sentence upon encountering new information. This concept is important because it highlights the dynamic nature of language comprehension and the cognitive flexibility required to adapt to unexpected syntactic structures."
+                    }
+                ],
+                "layer": "priority"
+            },
+            {
+                "id": "competing syntactic representations",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "competing syntactic representations"
+                ],
+                "appearances": [
+                    {
+                        "section": "Further reading",
+                        "section_index": 8,
+                        "variant": "competing syntactic representations",
+                        "evidence": "Competing syntactic representations refer to the different interpretations that can arise from the same sentence structure, leading to confusion or misinterpretation. This concept is relevant in understanding how multiple potential meanings can coexist during sentence processing, affecting comprehension."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "psycholinguistic research",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "psycholinguistic research"
+                ],
+                "appearances": [
+                    {
+                        "section": "Further reading",
+                        "section_index": 8,
+                        "variant": "psycholinguistic research",
+                        "evidence": "Psycholinguistic research is the study of how language is processed in the brain and how it affects cognition. This field is essential for exploring the mechanisms behind language understanding and the implications of misinterpretations in communication."
+                    }
+                ],
+                "layer": "secondary"
+            },
+            {
+                "id": "authors and contributions",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "authors and contributions"
+                ],
+                "appearances": [
+                    {
+                        "section": "Further reading",
+                        "section_index": 8,
+                        "variant": "authors and contributions",
+                        "evidence": "The authors Ferreira, Christianson, and Hollingworth have contributed significantly to the understanding of sentence processing and misinterpretations in language. Their work provides insights into the cognitive processes involved in language comprehension and the challenges posed by complex sentence structures."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "case studies",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "case studies"
+                ],
+                "appearances": [
+                    {
+                        "section": "Further reading",
+                        "section_index": 8,
+                        "variant": "case studies",
+                        "evidence": "Case studies in psycholinguistics often involve specific examples of garden-path sentences to illustrate how misinterpretations occur. These studies are important for demonstrating the practical implications of theoretical concepts in real-world language use."
+                    }
+                ],
+                "layer": "tertiary"
+            },
+            {
+                "id": "historical context",
+                "frequency": 1,
+                "section_count": 1,
+                "variants": [
+                    "historical context"
+                ],
+                "appearances": [
+                    {
+                        "section": "Further reading",
+                        "section_index": 8,
+                        "variant": "historical context",
+                        "evidence": "The historical context of research on sentence processing includes the evolution of theories regarding how language is understood and the cognitive challenges faced by individuals when interpreting complex sentences. Understanding this context helps to appreciate the development of current models in psycholinguistics."
+                    }
+                ],
+                "layer": "tertiary"
+            }
+        ]
+    }
+}
