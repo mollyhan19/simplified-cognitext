@@ -10,7 +10,6 @@ from pathlib import Path
 from fetch_wiki import fetch_article_content
 from entity_extraction import OptimizedEntityExtractor, TextChunk, RelationTracker
 from entity_linking_main import process_article_by_sections, process_article_by_paragraphs
-from hierarchical_generator import create_hierarchical_structure, generate_html_visualization
 
 class ConceptMapProcessor:
     """Central controller for concept map generation pipeline."""
