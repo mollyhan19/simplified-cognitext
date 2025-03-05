@@ -68,11 +68,15 @@ class NetworkConceptMapGenerator:
                 formatted_entities, formatted_relations
             )
 
+        entity_degrees = self._calculate_entity_degrees(formatted_entities, formatted_relations)
+        for entity in formatted_entities:
+            entity_id = entity.get("id", "")
+            if entity_id in entity_degrees:
+                # Make sure the degree is set in the entity
+                entity["degree"] = entity_degrees[entity_id]
+
         # Generate HTML for the D3 visualization
         html_content = self._generate_html(title, formatted_entities, formatted_relations)
-
-        # Calculate entity degree (for information purposes)
-        entity_degrees = self._calculate_entity_degrees(formatted_entities, formatted_relations)
 
         # Prepare result
         timestamp = title.replace(" ", "_").lower() + "_" + detail_level
@@ -167,12 +171,6 @@ class NetworkConceptMapGenerator:
     def _format_entities(self, entities: List[Dict]) -> List[Dict]:
         """
         Format entities for the network map visualization.
-
-        Args:
-            entities: Entities from extracted_data
-
-        Returns:
-            Formatted entities for D3 visualization
         """
         formatted_entities = []
 
@@ -198,15 +196,11 @@ class NetworkConceptMapGenerator:
                             evidence = appearance["context"]
                             break
 
-            # Calculate initial degree (estimate)
-            degree = len(entity.get("variants", [])) + section_count
-
-            # Format for network map
             formatted_entity = {
                 "id": entity_id,
                 "name": entity_id,
                 "frequency": frequency,
-                "degree": degree,
+                "degree": 0,
                 "layer": layer,
                 "evidence": evidence
             }
@@ -1054,9 +1048,7 @@ class NetworkConceptMapGenerator:
                             // Get the evidence for this concept
                             const nodeData = networkData.nodes.find(n => n.id === d.id);
                             const evidence = nodeData.evidence || "No explanation available for this concept.";
-                            
-                            console.log(`Displaying evidence for ${{d.id}}:`, evidence);
-                            
+                                                        
                             // Create or update the explanation panel
                             if (!d3.select("#explanation-panel").size()) {{
                                 d3.select("body").append("div")
@@ -1372,39 +1364,71 @@ class NetworkConceptMapGenerator:
                 }});
                 
                 d3.select("#expand-all-btn").on("click", function() {{
-                    // Expand all nodes with hidden connections
+                    // Get nodes with hidden connections
                     const nodesWithHidden = getNodesWithHiddenConnections();
+                    console.log("Nodes with hidden connections:", nodesWithHidden);
+                    
+                    // Expand all nodes with hidden connections
                     nodesWithHidden.forEach(function(nodeId) {{
                         expandedNodes.add(nodeId);
                     }});
+                    
+                    // Update the visualization immediately (don't wait for Streamlit response)
                     updateVisualization();
-                    sendMessageToStreamlit(Array.from(expandedNodes));
+                    
+                    // Try to send message to Streamlit (but continue even if it fails)
+                    const expandedNodesArray = Array.from(expandedNodes);
+                    console.log("Expanded nodes to send:", expandedNodesArray);
+                    safelySendMessageToStreamlit({{expandedNodes: expandedNodesArray}});
                 }});
                 
-                d3.select("#recenter-btn").on("click", function() {{
-                    // Reset zoom and center the view
-                    svg.transition().duration(750).call(
-                        zoom.transform,
-                        d3.zoomIdentity.translate(0, 0).scale(1)
-                    );
+                d3.select("#reset-btn").on("click", function() {{
+                    expandedNodes.clear();
+                    updateVisualization();
+                    safelySendMessageToStreamlit({{expandedNodes: []}});
                 }});
                 
                 // Function to communicate with Streamlit
-                function sendMessageToStreamlit(message) {{
-                    // Log what we're sending
-                    console.log("Sending message to Streamlit:", message);
+                function safelySendMessageToStreamlit(message) {{
+                    console.log("Attempting to send message to Streamlit:", message);
                     
-                    // Send message to Streamlit component
-                    if (window.Streamlit) {{
-                        try {{
+                    try {{
+                        // Check if Streamlit is available
+                        if (window.Streamlit) {{
                             window.Streamlit.setComponentValue(message);
-                            console.log("Message sent successfully");
-                        }} catch (error) {{
-                            console.error("Error sending message to Streamlit:", error);
+                            console.log("Message sent successfully to Streamlit");
+                            return true;
+                        }} else {{
+                            console.warn("Streamlit object not available yet. Will retry in 500ms");
+                            
+                            // Retry after a short delay
+                            setTimeout(() => {{
+                                if (window.Streamlit) {{
+                                    window.Streamlit.setComponentValue(message);
+                                    console.log("Message sent successfully to Streamlit on retry");
+                                }} else {{
+                                    console.error("Streamlit object still not available after retry");
+                                    
+                                    // Fall back to direct update if Streamlit communication fails
+                                    try {{
+                                        expandedNodes = new Set(message.expandedNodes || []);
+                                        updateVisualization();
+                                        console.log("Applied changes locally since Streamlit communication failed");
+                                    }} catch (localError) {{
+                                        console.error("Error applying local changes:", localError);
+                                    }}
+                                }}
+                            }}, 500);
+                            return false;
                         }}
-                    }} else {{
-                        console.error("Streamlit object not available");
+                    }} catch (error) {{
+                        console.error("Error sending message to Streamlit:", error);
+                        return false;
                     }}
+                }}
+                
+                function sendMessageToStreamlit(message) {{
+                    return safelySendMessageToStreamlit(message);
                 }}
                 
                 // Initial visualization

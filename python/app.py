@@ -9,7 +9,6 @@ import pandas as pd
 import base64
 import subprocess
 import time
-import plotly.graph_objects as go
 import io
 
 # Import the needed modules for entity extraction
@@ -290,6 +289,10 @@ with col1:
             # Fetch the article content
             article_data = fetch_article_content(url)
 
+            if not article_data:
+                status_placeholder.error(f"Failed to fetch article from {url}. Please check the URL and try again.")
+                st.stop()
+
             # Extract the title and create an articles dictionary
             title = article_data.get("title", "Untitled")
             category = article_data.get("category", "General")
@@ -299,7 +302,6 @@ with col1:
 
             # Create a new placeholder for processing status
             process_placeholder = st.empty()
-            process_placeholder.info(f"Extracting concepts and relations ({processing_mode} mode)...")
 
             # Create progress bar
             progress_bar = st.progress(0)
@@ -309,29 +311,52 @@ with col1:
             st.session_state.extractor.relation_tracker = RelationTracker()
             st.session_state.extractor.relation_tracker.periodic_extraction_threshold = 3
 
-            # Determine actual processing mode - convert UI selection to internal mode
-            actual_processing_mode = "section"
+            try:
+                # Temporary fix for pickle error with Relation objects
+                # Just disable caching for relations during this run
+                original_cache_relations = st.session_state.extractor.cache_manager.cache_relations
+                original_get_cached = st.session_state.extractor.cache_manager.get_cached_relations
 
-            if actual_processing_mode == "section":
-                # Process by sections
+                def no_op_cache(*args, **kwargs):
+                    # Do nothing - don't try to cache relations
+                    pass
+
+                def no_op_get(*args, **kwargs):
+                    # Always return None to force re-computation
+                    return None
+
+                # Replace with no-op functions
+                st.session_state.extractor.cache_manager.cache_relations = no_op_cache
+                st.session_state.extractor.cache_manager.get_cached_relations = no_op_get
+            except Exception as e:
+                st.warning(f"Note: Relation caching disabled due to: {str(e)}")
+
+            # Section processing with progress updates
+            sections = article_data.get('sections', [])
+            sections_to_skip = {"See also", "Notes", "References", "Works cited", "External links"}
+            total_sections = len([s for s in sections if s.get('section_title', '') not in sections_to_skip])
+
+            # Setup progress tracking
+            processed_sections = 0
+
+            # Process using the existing entity_linking_main.py implementation
+            with st.spinner("Processing article..."):
+                # We're calling the existing function but tracking progress manually
                 sections_label = st.empty()
-                sections_label.info("Processing article by sections...")
 
-                # Count the total number of sections to process
-                sections = article_data.get('sections', [])
-                sections_to_skip = {"See also", "Notes", "References", "Works cited", "External links"}
-                total_sections = len([s for s in sections if s.get('section_title', '') not in sections_to_skip])
-
-                # Process each section and update progress
-                processed_sections = 0
-
-                # Modified version of process_article_by_sections
+                # Custom progress tracking for the UI
                 for section_idx, section in enumerate(sections, 1):
                     section_title = section.get('section_title', '')
 
                     if section_title in sections_to_skip:
                         continue
 
+                    # Update progress display before processing the section
+                    processed_sections += 1
+                    progress_bar.progress(processed_sections / total_sections)
+                    sections_label.info(f"Processing section {processed_sections}/{total_sections}: {section_title}")
+
+                    # Let the existing processing happen through process_article_by_sections
                     section_text = []
                     main_content = section.get('content', [])
                     section_text.extend(main_content)
@@ -349,27 +374,30 @@ with col1:
                             section_text=section_text,
                             section_index=section_idx
                         )
+                        # This will handle both entity and relation extraction
                         st.session_state.extractor.process_section(chunk)
 
-                        # Update progress
-                        processed_sections += 1
-                        progress_bar.progress(processed_sections / total_sections)
-
+                # Get entities after processing is done
                 entities = st.session_state.extractor.get_sorted_entities()
 
-            # Set progress to 100% when done
-            progress_bar.progress(1.0)
-            process_placeholder.success("Concept extraction complete!")
+                # Final global relation extraction
+                process_placeholder.info("Final global relationships extraction...")
+                final_global_relations = st.session_state.extractor.extract_global_relations(entities)
+                st.session_state.extractor.relation_tracker.add_global_relations(final_global_relations)
+                st.session_state.extractor.relation_tracker.merge_relations()
 
-            # Final global relation extraction
-            final_global_relations = st.session_state.extractor.extract_global_relations(entities)
-            st.session_state.extractor.relation_tracker.add_global_relations(final_global_relations)
+                # Restore original caching functions if they were temporarily replaced
+                try:
+                    st.session_state.extractor.cache_manager.cache_relations = original_cache_relations
+                    st.session_state.extractor.cache_manager.get_cached_relations = original_get_cached
+                except:
+                    pass
 
-            # Format relations for use
+            # Format relations for use in the app
             relations = [
                 {
                     "source": rel.source,
-                    "type": rel.relation_type,
+                    "relation_type": rel.relation_type,
                     "target": rel.target,
                     "evidence": rel.evidence,
                     "section_name": rel.section_name,
@@ -384,7 +412,7 @@ with col1:
             relation_file = os.path.join(output_dir, f"relations_{title}_{timestamp}.json")
 
             # Save entity results
-            save_entity_results(entities, entity_file, actual_processing_mode, title, category)
+            save_entity_results(entities, entity_file, processing_mode, title, category)
 
             # Get and save relation results
             all_relations = {
@@ -398,7 +426,7 @@ with col1:
                 }
             }
 
-            save_relation_results(all_relations, articles_data, actual_processing_mode)
+            save_relation_results(all_relations, articles_data, processing_mode)
 
             # Store extracted data in session state for chatbot
             st.session_state.extracted_data = {
@@ -408,7 +436,7 @@ with col1:
                 "category": category
             }
 
-            st.success(f"Extracted {len(entities)} concepts and {len(relations)} relations")
+            process_placeholder.success(f"Extracted {len(entities)} concepts and {len(relations)} relations")
 
             # Generate concept map based on selected type
             with st.spinner("Generating network concept map..."):

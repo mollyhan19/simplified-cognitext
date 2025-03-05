@@ -259,7 +259,7 @@ def main(processing_mode='section'):
         data = json.load(f)  # Load the entire JSON
         articles = data.get('articles', {})  # Access the 'articles' key
 
-    output_path = f"//Users/mollyhan/Desktop/cognitext-chatbot/python/data/entity_analysis_{processing_mode}_results.json"  # Define output path
+    output_path = f"/Users/mollyhan/Desktop/simplified-cognitext-chatbot/python/data/entity_analysis_{processing_mode}_results.json"  # Define output path
 
     all_relation_results = {}
     articles_data = {}
