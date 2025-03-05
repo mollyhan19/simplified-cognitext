@@ -694,58 +694,104 @@ class NetworkConceptMapGenerator:
 
                 // Function to get visible data based on expanded nodes
                 function getVisibleData() {{
+                    console.log("Getting visible data with expanded nodes:", Array.from(expandedNodes));
+                    
                     // Priority nodes are always visible
                     const visibleNodeIds = new Set(
                         networkData.nodes
                             .filter(node => node.layer === "priority" || expandedNodes.has(node.id))
                             .map(node => node.id)
                     );
-
+                    
+                    console.log(`Initial visible nodes (priority + expanded): ${{visibleNodeIds.size}}`);
+                    
+                    // Keep track of how many nodes we add in this expansion pass
+                    let nodesAdded = 0;
+                    
                     // Find all nodes connected to expanded nodes
                     expandedNodes.forEach(expandedId => {{
                         networkData.links.forEach(link => {{
-                            const sourceId = String(link.source);
-                            const targetId = String(link.target);
-
+                            let sourceId, targetId;
+                            
+                            // Handle both string and object formats
+                            if (typeof link.source === 'object') {{
+                                sourceId = link.source.id;
+                            }} else {{
+                                sourceId = String(link.source);
+                            }}
+                            
+                            if (typeof link.target === 'object') {{
+                                targetId = link.target.id;
+                            }} else {{
+                                targetId = String(link.target);
+                            }}
+                            
                             if (sourceId === expandedId && !visibleNodeIds.has(targetId)) {{
                                 visibleNodeIds.add(targetId);
+                                nodesAdded++;
                             }}
+                            
                             if (targetId === expandedId && !visibleNodeIds.has(sourceId)) {{
                                 visibleNodeIds.add(sourceId);
+                                nodesAdded++;
                             }}
                         }});
                     }});
-
+                    
+                    console.log(`Added ${{nodesAdded}} connected nodes to visible set`);
+                    console.log(`Total visible nodes: ${{visibleNodeIds.size}}`);
+                    
                     // Get visible nodes
                     const visibleNodes = networkData.nodes.filter(node => 
                         visibleNodeIds.has(node.id)
                     );
-
+                    
                     // Get visible links
                     const visibleLinks = networkData.links.filter(link => {{
-                        const sourceId = String(link.source);
-                        const targetId = String(link.target);
+                        let sourceId, targetId;
+                        
+                        // Handle both string and object formats
+                        if (typeof link.source === 'object') {{
+                            sourceId = link.source.id;
+                        }} else {{
+                            sourceId = String(link.source);
+                        }}
+                        
+                        if (typeof link.target === 'object') {{
+                            targetId = link.target.id;
+                        }} else {{
+                            targetId = String(link.target);
+                        }}
+                        
                         return visibleNodeIds.has(sourceId) && visibleNodeIds.has(targetId);
                     }});
-
+                    
+                    console.log(`Visible nodes: ${{visibleNodes.length}}, Visible links: ${{visibleLinks.length}}`);
+                    
                     return {{ nodes: visibleNodes, links: visibleLinks }};
                 }}
 
                 // Function to find nodes with hidden connections
-                function getNodesWithHiddenConnections() {{
+                function getAllNodesWithHiddenConnections() {{
+                    // Get all nodes
+                    const allNodeIds = new Set(networkData.nodes.map(n => n.id));
+                    
+                    // Get currently visible nodes
                     const visibleData = getVisibleData();
                     const visibleNodeIds = new Set(visibleData.nodes.map(n => n.id));
+                    
+                    // Build a map of all connections
                     const allConnections = new Map();
                     
                     // Initialize map with all nodes
-                    networkData.nodes.forEach(node => {{
-                        allConnections.set(node.id, []);
+                    allNodeIds.forEach(nodeId => {{
+                        allConnections.set(nodeId, []);
                     }});
                     
                     // Add all connections
                     networkData.links.forEach(link => {{
-                        const sourceId = String(link.source);
-                        const targetId = String(link.target);
+                        const sourceId = typeof link.source === 'object' ? link.source.id : String(link.source);
+                        const targetId = typeof link.target === 'object' ? link.target.id : String(link.target);
                         
                         if (allConnections.has(sourceId)) {{
                             allConnections.get(sourceId).push(targetId);
@@ -756,16 +802,23 @@ class NetworkConceptMapGenerator:
                         }}
                     }});
                     
-                    // Find nodes with hidden connections
+                    // Find all nodes that have hidden connections
                     const nodesWithHidden = new Set();
                     
+                    // Check each visible node
                     visibleNodeIds.forEach(nodeId => {{
                         const connections = allConnections.get(nodeId) || [];
+
+                        // If any connection is to a non-visible node, this node has hidden connections
                         if (connections.some(connId => !visibleNodeIds.has(connId))) {{
                             nodesWithHidden.add(nodeId);
                         }}
                     }});
-                    
+
+                    // Print debug info
+                    console.log(`Found ${{nodesWithHidden.size}} nodes with hidden connections`);
+                    console.log("Nodes with hidden connections:", Array.from(nodesWithHidden));
+
                     return nodesWithHidden;
                 }}
 
@@ -815,7 +868,7 @@ class NetworkConceptMapGenerator:
                 function updateVisualization() {{
                     // Get current data
                     const {{ nodes, links }} = getVisibleData();
-                    const nodesWithHidden = getNodesWithHiddenConnections();
+                    const nodesWithHidden = getAllNodesWithHiddenConnections();
 
                     // Find central node
                     const centralNode = findCentralNode(nodes);
@@ -1364,28 +1417,62 @@ class NetworkConceptMapGenerator:
                 }});
                 
                 d3.select("#expand-all-btn").on("click", function() {{
-                    // Get nodes with hidden connections
-                    const nodesWithHidden = getNodesWithHiddenConnections();
-                    console.log("Nodes with hidden connections:", nodesWithHidden);
+                    console.log("Expand All button clicked");
                     
-                    // Expand all nodes with hidden connections
-                    nodesWithHidden.forEach(function(nodeId) {{
-                        expandedNodes.add(nodeId);
+                    // First get all nodes with hidden connections
+                    const nodesWithHidden = getAllNodesWithHiddenConnections();
+                    
+                    // Expand them all at once
+                    let expansionsAdded = 0;
+                    nodesWithHidden.forEach(nodeId => {{
+                        if (!expandedNodes.has(nodeId)) {{
+                            expandedNodes.add(nodeId);
+                            expansionsAdded++;
+                        }}
                     }});
                     
-                    // Update the visualization immediately (don't wait for Streamlit response)
+                    console.log(`Added ${{expansionsAdded}} nodes to expanded set`);
+                    console.log("Expanded nodes:", Array.from(expandedNodes));
+                    
+                    // Update visualization with the new expanded set
                     updateVisualization();
                     
-                    // Try to send message to Streamlit (but continue even if it fails)
-                    const expandedNodesArray = Array.from(expandedNodes);
-                    console.log("Expanded nodes to send:", expandedNodesArray);
-                    safelySendMessageToStreamlit({{expandedNodes: expandedNodesArray}});
+                    // Try to communicate with Streamlit if available
+                    if (window.Streamlit) {{
+                        try {{
+                            window.Streamlit.setComponentValue({{expandedNodes: Array.from(expandedNodes)}});
+                            console.log("Sent expanded nodes to Streamlit");
+                        }} catch (e) {{
+                            console.error("Error sending to Streamlit:", e);
+                        }}
+                    }} else {{
+                        console.warn("Streamlit object not available");
+                    }}
                 }});
                 
                 d3.select("#reset-btn").on("click", function() {{
+                    console.log("Reset button clicked");
+                    
+                    // Clear expanded nodes
+                    const previousCount = expandedNodes.size;
                     expandedNodes.clear();
+                    
+                    console.log(`Cleared ${{previousCount}} expanded nodes`);
+                    
+                    // Update visualization
                     updateVisualization();
-                    safelySendMessageToStreamlit({{expandedNodes: []}});
+                    
+                    // Try to communicate with Streamlit if available
+                    if (window.Streamlit) {{
+                        try {{
+                            window.Streamlit.setComponentValue({{expandedNodes: []}});
+                            console.log("Sent empty expanded nodes to Streamlit");
+                        }} catch (e) {{
+                            console.error("Error sending to Streamlit:", e);
+                        }}
+                    }} else {{
+                        console.warn("Streamlit object not available");
+                    }}
                 }});
                 
                 // Function to communicate with Streamlit
