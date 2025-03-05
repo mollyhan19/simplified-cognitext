@@ -12,6 +12,7 @@ import time
 import streamlit as st
 import streamlit.components.v1 as components
 from typing import List, Dict, Any, Optional, Set
+from custom_component import custom_html
 
 
 class NetworkConceptMapGenerator:
@@ -119,7 +120,7 @@ class NetworkConceptMapGenerator:
                     expanded_text += f" (+{len(st.session_state.network_expanded_nodes) - 3} more)"
                 st.info(f"Expanded concepts: {expanded_text}")
             else:
-                st.info("Click on nodes with red outlines to expand hidden connections")
+                st.info("Click on nodes with coral outlines to expand hidden connections")
 
         with col2:
             # Reset button
@@ -127,13 +128,12 @@ class NetworkConceptMapGenerator:
                 st.session_state.network_expanded_nodes = []
                 st.rerun()
 
-        # Make sure expanded nodes are included in the HTML
         updated_html = self._inject_expanded_nodes(
             map_data["html_content"],
             st.session_state.network_expanded_nodes
         )
 
-        # Display using Streamlit component
+        # Use our custom HTML component instead of the standard one
         component_value = components.html(
             updated_html,
             height=height,
@@ -184,16 +184,10 @@ class NetworkConceptMapGenerator:
             frequency = entity.get("frequency", 0)
             section_count = entity.get("section_count", 0)
             layer = entity.get("layer", "tertiary")
+            evidence = entity.get("evidence", {})
 
             # Calculate initial degree (estimate)
             degree = len(entity.get("variants", [])) + section_count
-
-            # Build snippet from appearance contexts
-            snippet = ""
-            appearances = entity.get("appearances", [])
-            if appearances and len(appearances) > 0:
-                # Use the first appearance context as snippet
-                snippet = appearances[0].get("context", "")
 
             # Format for network map
             formatted_entity = {
@@ -202,7 +196,7 @@ class NetworkConceptMapGenerator:
                 "frequency": frequency,
                 "degree": degree,
                 "layer": layer,
-                "snippet": snippet
+                "evidence": evidence
             }
 
             formatted_entities.append(formatted_entity)
@@ -963,21 +957,49 @@ class NetworkConceptMapGenerator:
                             return "node node--" + (d.layer || "tertiary") + 
                                    (expandedNodes.has(d.id) ? " node--expanded" : "") +
                                    (d.isCenter ? " center-node" : "");
-                        }})
+                        }});
+                    
+                    node
+                        // Left-click for expanding/collapsing hidden connections
                         .on("click", function(event, d) {{
                             event.stopPropagation();
-
-                            if (expandedNodes.has(d.id)) {{
-                                expandedNodes.delete(d.id);
-                            }} else {{
-                                expandedNodes.add(d.id);
+                    
+                            // Only toggle expansion if the node has hidden connections
+                            if (nodesWithHidden.has(d.id)) {{
+                                if (expandedNodes.has(d.id)) {{
+                                    expandedNodes.delete(d.id);
+                                }} else {{
+                                    expandedNodes.add(d.id);
+                                }}
+                                
+                                updateVisualization();
+                                sendMessageToStreamlit({{
+                                    expandedNodes: Array.from(expandedNodes)
+                                }});
                             }}
-
-                            updateVisualization();
-                            sendMessageToStreamlit(Array.from(expandedNodes));
+                        }})
+                        // Right-click (contextmenu) for concept explanation
+                        .on("contextmenu", function(event, d) {{
+                            // Prevent the default context menu
+                            event.preventDefault();
+                            
+                            // Send the selected concept for explanation
+                            sendMessageToStreamlit({{
+                                expandedNodes: Array.from(expandedNodes),
+                                selectedConcept: d.name || d.id
+                            }});
+                            
+                            // Visual feedback for right-click
+                            d3.select(this).select("circle")
+                                .transition()
+                                .duration(200)
+                                .attr("r", function(d) {{ return getNodeSize(d) * 1.2; }})
+                                .transition()
+                                .duration(200)
+                                .attr("r", function(d) {{ return getNodeSize(d); }});
                         }})
                         .on("mouseover", function(event, d) {{
-                            // Show basic node info on hover (without the snippet)
+                            // Show basic node info on hover with updated instructions
                             tooltip
                                 .style("display", "block")
                                 .style("left", (event.pageX + 10) + "px")
@@ -985,7 +1007,11 @@ class NetworkConceptMapGenerator:
                                 .html("<strong>" + (d.name || d.id) + "</strong><br>" +
                                       "<em>Level: " + (d.layer || "unknown") + "</em><br>" +
                                       "<em>Frequency: " + (d.frequency || 0) + "</em><br>" +
-                                      "<em>Connections: " + (d.degree || 0) + "</em>");
+                                      "<em>Connections: " + (d.degree || 0) + "</em>" +
+                                      (nodesWithHidden.has(d.id)
+                                          ? "<br><span style='color:#FF8A65'><em>Click to expand connections</em></span>"
+                                          : "") +
+                                      "<br><span style='color:#2196F3'><em>Right-click for explanation</em></span>");
                         }})
                         .on("mouseout", function() {{
                             tooltip.style("display", "none");
@@ -1244,13 +1270,20 @@ class NetworkConceptMapGenerator:
                 }});
                 
                 // Function to communicate with Streamlit
-                function sendMessageToStreamlit(expandedNodes) {{
+                function sendMessageToStreamlit(message) {{
+                    // Log what we're sending
+                    console.log("Sending message to Streamlit:", message);
+                    
                     // Send message to Streamlit component
                     if (window.Streamlit) {{
-                        const message = {{
-                            expandedNodes: expandedNodes
-                        }};
-                        window.Streamlit.setComponentValue(message);
+                        try {{
+                            window.Streamlit.setComponentValue(message);
+                            console.log("Message sent successfully");
+                        }} catch (error) {{
+                            console.error("Error sending message to Streamlit:", error);
+                        }}
+                    }} else {{
+                        console.error("Streamlit object not available");
                     }}
                 }}
                 

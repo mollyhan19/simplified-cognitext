@@ -335,7 +335,7 @@ class OptimizedEntityExtractor:
             {{
             "entity": "main_form",
             "context": "The exact sentence where this concept appeared", 
-            "evidence: "Why this concept is essential for understanding the topic",
+            "evidence": "Explain the concept in 2-3 sentences that would be suitable for an average undergraduate with moderate prior knowledge. Focus on what the concept is and why it matters in this context.",
             "layer": "priority/secondary/tertiary" # Must be exactly one of these values
             }}
         ]

@@ -144,7 +144,7 @@ def explain_concept(concept_name):
     # Generate a prompt for concept explanation
     prompt = f"""
     Please explain the concept "{concept_name}" in the context of {st.session_state.extracted_data['title']}.
-    Keep it concise (2-3 sentences) but informative.
+    Keep it concise (2-3 sentences) but informative. Your explanation should be suitable for an average undergraduate with moderate prior knowledge. 
     """
 
     # Add user "question" to chat history
@@ -164,6 +164,7 @@ def explain_concept(concept_name):
         "role": "assistant",
         "content": explanation
     })
+
 
 def generate_context(focus_concept=None):
     """Generate context for LLM, optionally focused on a specific concept."""
@@ -334,11 +335,28 @@ with col1:
             else:
                 st.info("No cyclic concept map data is available.")
 
-
-
         elif st.session_state.map_data["map_type"] == "network":
             st.subheader(f"Network Concept Map for {st.session_state.map_data['title']}")
-            network_generator.display_network_map(st.session_state.map_data)
+
+            component_value = network_generator.display_network_map(st.session_state.map_data)
+
+            with st.expander("Explore Concepts", expanded=False):
+                # Get all concepts in the map
+                all_concepts = [entity["id"] for entity in st.session_state.extracted_data["entities"]]
+
+                # Create a searchable dropdown
+                selected_concept = st.selectbox(
+                    "Select a concept to explain:",
+                    all_concepts,
+                    index=0,
+                    key="network_concept_selector"
+                )
+
+                # Add an explain button
+                if st.button("Explain Selected Concept", key="explain_network_concept"):
+                    with st.spinner(f"Generating explanation for '{selected_concept}'..."):
+                        explain_concept(selected_concept)
+                    st.rerun()
 
             # Provide download link
             buffer = io.StringIO()
@@ -703,8 +721,6 @@ with col1:
                         else:
 
                             st.error("Failed to generate concept constellations.")
-
-
 
                 elif map_type == "Network":
                     with st.spinner("Generating network concept map..."):
