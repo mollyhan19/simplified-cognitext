@@ -32,15 +32,16 @@ if not openai_api_key:
     st.error("OpenAI API key not found. Please set the OPENAI_API_KEY environment variable.")
     st.stop()
 
-# Initialize the entity extractor with your API key
-extractor = OptimizedEntityExtractor(api_key=openai_api_key, cache_version="1.0")
-
 # Initialize OpenAI client for chatbot
 openai_client = openai.OpenAI(api_key=openai_api_key)
 
 # Define output directory
 output_dir = os.path.join(script_dir, "output")
 os.makedirs(output_dir, exist_ok=True)
+
+if "extractor" not in st.session_state:
+    st.session_state.extractor = OptimizedEntityExtractor(api_key=openai_api_key, cache_version="1.0")
+
 
 # Create session state for chat history
 if "chat_history" not in st.session_state:
@@ -221,8 +222,22 @@ def generate_context(focus_concept=None):
 # Streamlit layout
 st.set_page_config(layout="wide", page_title="Concept Map Generator")
 
-st.title("Enhanced Concept Map Generator")
-st.markdown("Generate concept maps from Wikipedia articles and chat with the knowledge graph")
+st.title("Cognitext: Enhanced Concept Map Generator")
+st.markdown("""
+Transform Wikipedia articles into interactive network concept maps that visualize knowledge relationships. This tool extracts key concepts and their interconnections, organizing them into an intuitive visual format.
+
+**Key features:**
+- **Node sizes** represent concept importance (based on frequency and total connections)
+- **Color coding** distinguishes between priority, secondary, and tertiary concept layers
+- **Default view** shows only priority concepts for clarity
+- **Glowing nodes** indicate hidden connections to secondary or tertiary concepts
+
+**Tips for exploration:**
+1. Start by examining the central nodes (largest nodes)
+2. Explore relationships between priority concepts first
+3. Click on glowing nodes to reveal hidden connections
+4. Use the chat panel to ask questions about any concept
+""")
 
 check_url_params()
 # Create columns layout
@@ -414,9 +429,9 @@ with col1:
             progress_bar = st.progress(0)
 
             # Reset extractor for new article
-            extractor.reset_tracking()
-            extractor.relation_tracker = RelationTracker()
-            extractor.relation_tracker.periodic_extraction_threshold = 1  # Extract global relations after each section
+            st.session_state.extractor.reset_tracking()
+            st.session_state.extractor.relation_tracker = RelationTracker()
+            st.session_state.extractor.relation_tracker.periodic_extraction_threshold = 3
 
             # Determine actual processing mode - convert UI selection to internal mode
             actual_processing_mode = "section" if processing_mode == "section" else "paragraph"
@@ -458,13 +473,13 @@ with col1:
                             section_text=section_text,
                             section_index=section_idx
                         )
-                        extractor.process_section(chunk)
+                        st.session_state.extractor.process_section(chunk)
 
                         # Update progress
                         processed_sections += 1
                         progress_bar.progress(processed_sections / total_sections)
 
-                entities = extractor.get_sorted_entities()
+                entities = st.session_state.extractor.get_sorted_entities()
 
             else:
                 # Process by paragraphs with pruning
@@ -500,7 +515,7 @@ with col1:
                             section_index=section_idx,
                             paragraph_index=para_idx
                         )
-                        extractor.process_paragraph(chunk)
+                        st.session_state.extractor.process_paragraph(chunk)
 
                         # Update progress
                         processed_paragraphs += 1
@@ -518,21 +533,21 @@ with col1:
                                 section_index=section_idx,
                                 paragraph_index=para_idx
                             )
-                            extractor.process_paragraph(chunk)
+                            st.session_state.extractor.process_paragraph(chunk)
 
                             # Update progress
                             processed_paragraphs += 1
                             progress_bar.progress(processed_paragraphs / total_paragraphs)
 
-                entities = extractor.get_sorted_entities()
+                entities = st.session_state.extractor.get_sorted_entities()
 
             # Set progress to 100% when done
             progress_bar.progress(1.0)
             process_placeholder.success("Concept extraction complete!")
 
             # Final global relation extraction
-            final_global_relations = extractor.extract_global_relations(entities)
-            extractor.relation_tracker.add_global_relations(final_global_relations)
+            final_global_relations = st.session_state.extractor.extract_global_relations(entities)
+            st.session_state.extractor.relation_tracker.add_global_relations(final_global_relations)
 
             # Format relations for use
             relations = [
@@ -544,7 +559,7 @@ with col1:
                     "section_name": rel.section_name,
                     "section_index": rel.section_index
                 }
-                for rel in extractor.relation_tracker.master_relations
+                for rel in st.session_state.extractor.relation_tracker.master_relations
             ]
 
             # Save results
@@ -557,7 +572,7 @@ with col1:
 
             # Get and save relation results
             all_relations = {
-                title: extractor.get_all_relations()
+                title: st.session_state.extractor.get_all_relations()
             }
 
             # Format article data for relation saving
