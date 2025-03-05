@@ -148,9 +148,6 @@ def save_relations(self, output_path: str, processing_mode: str, title: str):
 
 def save_entity_results(results: List[Dict], output_path: str, processing_mode: str, article_title: str, category: str):
     """Save results to file and print summary."""
-    print("\nFinal Results for Article:", article_title)
-    print("=" * 50)
-
     # Load existing results if the file already exists
     if os.path.exists(output_path):
         with open(output_path, 'r', encoding='utf-8') as f:
@@ -168,6 +165,9 @@ def save_entity_results(results: List[Dict], output_path: str, processing_mode: 
     # Save updated results to file
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(existing_data, f, indent=4, ensure_ascii=False)
+
+    print(f"\nSaved entities results to:")
+    print(f"- Entities: {output_path}")
 
 def save_relation_results(all_articles_relations: Dict[str, Dict], articles_data: Dict, processing_mode: str):
     """Save local, global and master relations to separate files."""
@@ -251,7 +251,7 @@ def main(processing_mode='section'):
     # Initialize the entity extractor with your actual API key
     extractor = OptimizedEntityExtractor(
         api_key=api_key,
-        cache_version="14.0"
+        cache_version="1.0"
     )
     
     # Load your articles
@@ -259,7 +259,7 @@ def main(processing_mode='section'):
         data = json.load(f)  # Load the entire JSON
         articles = data.get('articles', {})  # Access the 'articles' key
 
-    output_path = f"/Users/mollyhan/PycharmProjects/Cognitext/data/sample_entity_analysis_{processing_mode}_results.json"  # Define output path
+    output_path = f"//Users/mollyhan/Desktop/cognitext-chatbot/python/data/entity_analysis_{processing_mode}_results.json"  # Define output path
 
     all_relation_results = {}
     articles_data = {}

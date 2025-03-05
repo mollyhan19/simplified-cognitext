@@ -184,7 +184,21 @@ class NetworkConceptMapGenerator:
             frequency = entity.get("frequency", 0)
             section_count = entity.get("section_count", 0)
             layer = entity.get("layer", "tertiary")
-            evidence = entity.get("evidence", {})
+
+            evidence = ""
+            if entity.get("appearances"):
+                for appearance in entity.get("appearances"):
+                    # First try evidence field
+                    if "evidence" in appearance and appearance["evidence"]:
+                        evidence = appearance["evidence"]
+                        break
+
+                # If no evidence found, fall back to context
+                if not evidence:
+                    for appearance in entity.get("appearances"):
+                        if "context" in appearance and appearance["context"]:
+                            evidence = appearance["context"]
+                            break
 
             # Calculate initial degree (estimate)
             degree = len(entity.get("variants", [])) + section_count
@@ -365,12 +379,65 @@ class NetworkConceptMapGenerator:
                     margin: 0;
                     overflow: hidden;
                 }}
+                .explanation-panel {{
+                    position: absolute;
+                    padding: 15px;
+                    background: white;
+                    border: 1px solid #ccc;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+                    max-width: 300px;
+                    z-index: 1000;
+                    font-size: 14px;
+                    line-height: 1.4;
+                    opacity: 0;
+                    transition: opacity 0.3s;
+                    pointer-events: auto;
+                }}
+                
+                .explanation-panel.visible {{
+                    opacity: 1;
+                }}
+                
+                .explanation-title {{
+                    margin-top: 0;
+                    margin-bottom: 10px;
+                    color: #2196F3;
+                    font-size: 16px;
+                    font-weight: bold;
+                }}
+                
+                .explanation-content {{
+                    margin-bottom: 10px;
+                }}
+                
+                .explanation-footer {{
+                    display: block;
+                    margin-top: 8px;
+                    font-style: italic;
+                    color: #666;
+                    font-size: 12px;
+                }}
+                
+                .close-explanation {{
+                    position: absolute;
+                    top: 5px;
+                    right: 5px;
+                    background: none;
+                    border: none;
+                    font-size: 16px;
+                    cursor: pointer;
+                    color: #666;
+                }}
                 .node {{
                     cursor: pointer;
                 }}
                 .node circle {{
                     stroke-width: 2px;
                     transition: all 0.3s ease;
+                }}
+                .node.has-explanation circle {{
+                    stroke-dasharray: 3, 3;
                 }}
                 .node--priority circle {{
                     stroke: #7E57C2;
@@ -423,6 +490,12 @@ class NetworkConceptMapGenerator:
                 .evidence-tooltip {{
                     max-width: 350px;
                     line-height: 1.4;
+                }}
+                .tooltip .right-click-instruction {{
+                    display: block;
+                    margin-top: 5px;
+                    font-style: italic;
+                    color: #2196F3;
                 }}
                 .legend {{
                     position: absolute;
@@ -983,12 +1056,64 @@ class NetworkConceptMapGenerator:
                             // Prevent the default context menu
                             event.preventDefault();
                             
-                            // Send the selected concept for explanation
-                            sendMessageToStreamlit({{
-                                expandedNodes: Array.from(expandedNodes),
-                                selectedConcept: d.name || d.id
-                            }});
+                            // Get the evidence for this concept
+                            const nodeData = networkData.nodes.find(n => n.id === d.id);
+                            const evidence = nodeData.evidence || "No explanation available for this concept.";
                             
+                            console.log(`Displaying evidence for ${{d.id}}:`, evidence);
+                            
+                            // Create or update the explanation panel
+                            if (!d3.select("#explanation-panel").size()) {{
+                                d3.select("body").append("div")
+                                    .attr("id", "explanation-panel")
+                                    .style("position", "absolute")
+                                    .style("padding", "15px")
+                                    .style("background", "white")
+                                    .style("border", "1px solid #ccc")
+                                    .style("border-radius", "8px")
+                                    .style("box-shadow", "0 2px 10px rgba(0,0,0,0.2)")
+                                    .style("max-width", "300px")
+                                    .style("z-index", "1000")
+                                    .style("font-size", "14px")
+                                    .style("line-height", "1.4");
+                                    
+                                // Add close button
+                                d3.select("#explanation-panel")
+                                    .append("button")
+                                    .attr("class", "close-explanation")
+                                    .style("position", "absolute")
+                                    .style("top", "5px")
+                                    .style("right", "5px")
+                                    .style("background", "none")
+                                    .style("border", "none")
+                                    .style("font-size", "16px")
+                                    .style("cursor", "pointer")
+                                    .style("color", "#666")
+                                    .html("&times;")
+                                    .on("click", function() {{
+                                        d3.select("#explanation-panel").style("display", "none");
+                                    }});
+                            }}
+                            
+                            // Update and position the explanation panel
+                            d3.select("#explanation-panel")
+                                .style("display", "block")
+                                .style("left", (event.pageX + 10) + "px")
+                                .style("top", (event.pageY - 10) + "px")
+                                .html(`
+                                    <button class="close-explanation" style="position:absolute;top:5px;right:5px;background:none;border:none;font-size:16px;cursor:pointer;color:#666;">&times;</button>
+                                    <div style="margin-top: 5px;">
+                                        <h3 style="margin-top:0;margin-bottom:10px;color:#2196F3;">${{d.name || d.id}}</h3>
+                                        <p>${{evidence}}</p>
+                                        <span style="display:block;margin-top:8px;font-style:italic;color:#666;font-size:12px;">Layer: ${{d.layer || "unknown"}}</span>
+                                    </div>
+                                `);
+                                
+                            // Handle close button click
+                            d3.select(".close-explanation").on("click", function() {{
+                                d3.select("#explanation-panel").style("display", "none");
+                            }});
+                                
                             // Visual feedback for right-click
                             d3.select(this).select("circle")
                                 .transition()
@@ -1289,6 +1414,19 @@ class NetworkConceptMapGenerator:
                 
                 // Initial visualization
                 updateVisualization();
+                
+                document.addEventListener('click', function(event) {{
+                    // Check if the click is outside the explanation panel and nodes
+                    const explanationPanel = document.getElementById('explanation-panel');
+                    const isClickOutsidePanel = explanationPanel && 
+                                                !explanationPanel.contains(event.target) && 
+                                                !event.target.closest('.node');
+                    
+                    if (isClickOutsidePanel) {{
+                        // Hide the explanation panel
+                        d3.select("#explanation-panel").style("display", "none");
+                    }}
+                }});
             }});
             </script>
         </body>

@@ -33,7 +33,7 @@ if not openai_api_key:
     st.stop()
 
 # Initialize the entity extractor with your API key
-extractor = OptimizedEntityExtractor(api_key=openai_api_key, cache_version="14.0")
+extractor = OptimizedEntityExtractor(api_key=openai_api_key, cache_version="1.0")
 
 # Initialize OpenAI client for chatbot
 openai_client = openai.OpenAI(api_key=openai_api_key)

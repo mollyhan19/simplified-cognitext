@@ -53,11 +53,17 @@ class Entity:
             self.sections_seen.add(section)
         
         # Add appearance
-        self.appearances.append({
+        appearance_to_add = {
             **appearance,
-            "variant": variant,
-            "evidence": appearance.get("evidence", "")
-        })
+            "variant": variant
+        }
+
+        # Make sure evidence is included if it exists in the original appearance
+        if "evidence" in appearance and appearance["evidence"]:
+            appearance_to_add["evidence"] = appearance["evidence"]
+
+        # Add appearance
+        self.appearances.append(appearance_to_add)
 
     def get_layer_priority(self, layer: str) -> int:
         """Get numeric priority of layer (higher number = higher priority)"""
@@ -145,7 +151,7 @@ class RelationTracker:
         self.master_relations = list(all_relations)
     
 class OptimizedEntityExtractor:
-    def __init__(self, api_key: str, cache_version: str = "14.0"):
+    def __init__(self, api_key: str, cache_version: str = "1.0"):
         self.client = OpenAI(api_key=api_key)
         self.cache_manager = CacheManager(version=cache_version)
         self.memory_cache = {}
@@ -691,6 +697,10 @@ class OptimizedEntityExtractor:
                             "context": new_entity.get("context", "")
                         }
 
+                        # Add evidence if it exists
+                        if "evidence" in new_entity:
+                            appearance["evidence"] = new_entity["evidence"]
+
                         if entity_id in matches:
                             existing_id = matches[entity_id]
                             print(f"\nMerging '{entity_id}' into existing concept '{existing_id}'")
@@ -699,18 +709,54 @@ class OptimizedEntityExtractor:
                             actual_key = entities_lookup.get(existing_id.lower())
                             
                             if actual_key:
+                                appearance = {
+                                    "section": chunk.section_name,
+                                    "section_index": chunk.section_index,
+                                    "heading_level": chunk.heading_level,
+                                    "variant": entity_id,
+                                    "context": new_entity.get("context", "")
+                                }
+
+                                # Add evidence if it exists
+                                if "evidence" in new_entity:
+                                    appearance["evidence"] = new_entity["evidence"]
+
                                 self.entities[actual_key].add_appearance(appearance, entity_id)
                                 print(f"Successfully merged '{entity_id}' as variant")
                             else:
                                 # If no match found, create new entity
                                 print(f"Creating new entity for '{entity_id}' with layer '{layer}'")
                                 new_entity_obj = Entity(id=entity_id, layer=layer)
+                                appearance = {
+                                    "section": chunk.section_name,
+                                    "section_index": chunk.section_index,
+                                    "heading_level": chunk.heading_level,
+                                    "variant": entity_id,
+                                    "context": new_entity.get("context", "")
+                                }
+
+                                # Add evidence if it exists
+                                if "evidence" in new_entity:
+                                    appearance["evidence"] = new_entity["evidence"]
+
                                 new_entity_obj.add_appearance(appearance, entity_id)
                                 self.entities[entity_id] = new_entity_obj
                         else:
                             # Create new entity
                             print(f"\nCreating new entity '{entity_id}' with layer '{layer}'")
                             new_entity_obj = Entity(id=entity_id, layer=layer)
+                            appearance = {
+                                "section": chunk.section_name,
+                                "section_index": chunk.section_index,
+                                "heading_level": chunk.heading_level,
+                                "variant": entity_id,
+                                "context": new_entity.get("context", "")
+                            }
+
+                            # Add evidence if it exists
+                            if "evidence" in new_entity:
+                                appearance["evidence"] = new_entity["evidence"]
+
                             new_entity_obj.add_appearance(appearance, entity_id)
                             self.entities[entity_id] = new_entity_obj
                             print(f"Successfully created new entity")
@@ -885,7 +931,7 @@ class OptimizedEntityExtractor:
                     "section": app["section"],
                     "section_index": app["section_index"],
                     "variant": app["variant"],
-                    "context": app.get("context", "")
+                    "evidence": app.get("evidence", "")
                 }
                 for app in entity.appearances
             ],
