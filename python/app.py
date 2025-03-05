@@ -27,13 +27,7 @@ env_path = script_dir.parent / '.env'
 # Load the .env file
 load_dotenv(dotenv_path=env_path)
 
-# Load API key
-try:
-    openai_api_key = st.secrets["OPENAI_API_KEY"]
-except:
-    # Fall back to environment variable
-    openai_api_key = os.getenv("OPENAI_API_KEY")
-
+openai_api_key = os.getenv("OPENAI_API_KEY")
 if not openai_api_key:
     st.error("OpenAI API key not found. Please set the OPENAI_API_KEY environment variable.")
     st.stop()

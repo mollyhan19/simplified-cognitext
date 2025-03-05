@@ -881,20 +881,6 @@ class NetworkConceptMapGenerator:
                             evidenceTooltip.style("display", "none");
                         }});
 
-                    // Create link labels (only for important links)
-                    const linkText = g.selectAll(".link-label")
-                        .data(links.filter(d => {{
-                            const sourceNode = nodes.find(n => n.id === String(d.source));
-                            const targetNode = nodes.find(n => n.id === String(d.target));
-                            return (sourceNode?.layer === "priority" && targetNode?.layer === "priority") || 
-                                   (sourceNode?.isCenter || targetNode?.isCenter);
-                        }}))
-                        .join("text")
-                        .attr("class", "link-label")
-                        .attr("dy", -5)
-                        .attr("text-anchor", "middle")
-                        .text(d => d.type || "");
-
                     // Create node groups
                     const node = g.selectAll(".node")
                         .data(nodes)
@@ -957,7 +943,7 @@ class NetworkConceptMapGenerator:
 
                     // Add text labels to nodes
                     node.append("text")
-                        .attr("dy", function(d) {{ return getNodeSize(d) + 10; }})
+                        .attr("class", "node-label")
                         .attr("text-anchor", "middle")
                         .attr("font-size", function(d) {{ 
                             if (d.isCenter) return "14px";
@@ -965,13 +951,26 @@ class NetworkConceptMapGenerator:
                         }})
                         .attr("font-weight", function(d) {{ 
                             if (d.isCenter) return "bold";
-                            return d.layer === "priority" ? "bold" : "normal"; 
+                            return d.layer === "priority" ? "bold" : "normal";
                         }})
-                        .attr("fill", "#000000")  // Black text for better contrast
-                        .text(function(d) {{ 
-                            const name = d.name || d.id;
-                            return name.length > 20 ? name.substring(0, 18) + "..." : name;
+                        .attr("fill", "#000000")
+                        .attr("opacity", function(d) {{
+                            // Show all labels for priority nodes, but fewer labels for other layers
+                            return d.layer === "priority" ? 1 : 0.7;
+                        }})
+                        .text(function(d) {{
+                            return d.name || d.id;
+                        }})
+                        .each(function(d) {{
+                            // Get label width to improve positioning
+                            const bbox = this.getBBox();
+                            d.labelWidth = bbox.width;
+                            d.labelHeight = bbox.height;
                         }});
+                    
+                    simulation.force("label-collision", d3.forceCollide().radius(function(d) {{
+                        return getNodeSize(d) + (d.labelWidth ? (d.labelWidth / 2) + 5 : 15);
+                    }}).strength(0.5));
 
                     // Add visual indicator for central node
                     node.filter(d => d.isCenter)
@@ -1035,22 +1034,70 @@ class NetworkConceptMapGenerator:
                                 const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
                                 return target ? target.y : 0; 
                             }});
-
-                        linkText
-                            .attr("x", function(d) {{ 
-                                const source = typeof d.source === 'object' ? d.source : nodeById.get(String(d.source));
-                                const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
-                                return (source && target) ? (source.x + target.x) / 2 : 0; 
-                            }})
-                            .attr("y", function(d) {{ 
-                                const source = typeof d.source === 'object' ? d.source : nodeById.get(String(d.source));
-                                const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
-                                return (source && target) ? (source.y + target.y) / 2 : 0;  
-                            }});
                         
                         node.attr("transform", function(d) {{
                             return "translate(" + d.x + "," + d.y + ")";
                         }});
+                        
+                        node.select("text")
+                            .attr("dy", function(d) {{
+                                // Position based on node location
+                                const distanceFromCenter = Math.sqrt(
+                                    Math.pow(d.x - centerX, 2) + Math.pow(d.y - centerY, 2)
+                                );
+                                const angle = Math.atan2(d.y - centerY, d.x - centerX);
+                                
+                                // Position label based on angle from center
+                                if (angle > -Math.PI/4 && angle < Math.PI/4) {{
+                                    // Right side
+                                    return "0.35em"; // Center vertically
+                                }} else if (angle >= Math.PI/4 && angle < 3*Math.PI/4) {{
+                                    // Bottom
+                                    return getNodeSize(d) + 15; // Below node
+                                }} else if (angle >= 3*Math.PI/4 || angle <= -3*Math.PI/4) {{
+                                    // Left side
+                                    return "0.35em"; // Center vertically
+                                }} else {{
+                                    // Top
+                                    return -getNodeSize(d) - 5; // Above node
+                                }}
+                            }})
+                            .attr("dx", function(d) {{
+                                // Position based on node location
+                                const distanceFromCenter = Math.sqrt(
+                                    Math.pow(d.x - centerX, 2) + Math.pow(d.y - centerY, 2)
+                                );
+                                const angle = Math.atan2(d.y - centerY, d.x - centerX);
+                                
+                                // Position label based on angle from center
+                                if (angle > -Math.PI/4 && angle < Math.PI/4) {{
+                                    // Right side
+                                    return getNodeSize(d) + 5; // To the right
+                                }} else if (angle >= Math.PI/4 && angle < 3*Math.PI/4) {{
+                                    // Bottom
+                                    return 0; // Centered horizontally
+                                }} else if (angle >= 3*Math.PI/4 || angle <= -3*Math.PI/4) {{
+                                    // Left side
+                                    return -getNodeSize(d) - 5; // To the left
+                                }} else {{
+                                    // Top
+                                    return 0; // Centered horizontally
+                                }}
+                            }})
+                            .attr("text-anchor", function(d) {{
+                                const angle = Math.atan2(d.y - centerY, d.x - centerX);
+
+                                // Set text anchor based on angle
+                                if (angle > -Math.PI/4 && angle < Math.PI/4) {{
+                                    return "start"; // Right side
+                                }} else if (angle >= Math.PI/4 && angle < 3*Math.PI/4) {{
+                                    return "middle"; // Bottom
+                                }} else if (angle >= 3*Math.PI/4 || angle <= -3*Math.PI/4) {{
+                                    return "end"; // Left side
+                                }} else {{
+                                    return "middle"; // Top
+                                }}
+                            }});
                     }}); 
                     
                     // Drag functions

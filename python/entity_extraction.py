@@ -625,6 +625,10 @@ class OptimizedEntityExtractor:
             response = self._cached_api_call(prompt)
             matches = json.loads(self.clean_markdown_json(response))
 
+            # Store in memory cache
+            self.memory_cache[cache_key] = matches
+            # Store in file cache
+            self.cache_manager.cache_comparison(list1, list2, matches)
 
             original_case_matches = {}
             for new_entity in list2:
