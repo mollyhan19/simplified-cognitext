@@ -400,14 +400,13 @@ class NetworkConceptMapGenerator:
                 }}
                 .link {{
                     fill: none;
-                    stroke: #BDBDBD;
                     stroke-width: 1.5px;
                     cursor: pointer;
                     transition: stroke 0.3s ease;
                 }}
                 .link:hover {{
-                    stroke: #7986CB;
                     stroke-width: 2.5px;
+                    stroke-opacity: 0.9 !important;
                 }}
                 .link-label {{
                     font-size: 10px;
@@ -785,18 +784,32 @@ class NetworkConceptMapGenerator:
                                 evidence: link.evidence
                             }})))
                             .distance(d => {{
-                                // Adjust distance based on layer
+                                // Adjust distance based on layer and node size
                                 const source = typeof d.source === 'object' ? d.source : nodeById.get(String(d.source));
                                 const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
-
-                                if (!source || !target) return 100;
-
-                                // Shorter links for priority connections
-                                if (source.layer === "priority" && target.layer === "priority") return 80;
-                                if (source.layer === "priority" || target.layer === "priority") return 100;
-
-                                return 150;
-                            }}))
+                        
+                                if (!source || !target) return 120;
+                        
+                                // Get sizes of source and target nodes
+                                const sourceSize = getNodeSize(source);
+                                const targetSize = getNodeSize(target);
+                                
+                                // Base distance on node sizes + a minimum distance
+                                const baseDistance = sourceSize + targetSize + 30;
+                                
+                                // Layer-based adjustments
+                                if (source.layer === "priority" && target.layer === "priority") {{
+                                    // Priority-to-priority connections are slightly closer
+                                    return baseDistance * 1.2;
+                                }} else if (source.layer === "priority" || target.layer === "priority") {{
+                                    // Priority-to-other connections at medium distance
+                                    return baseDistance * 1.5;
+                                }}
+                                
+                                // Other connections have more space
+                                return baseDistance * 2.0;
+                            }})
+                            .strength(0.3))
                         .force("charge", d3.forceManyBody().strength(d => {{
                             // Stronger repulsion for larger nodes
                             return d.isCenter ? -500 : -300;
@@ -816,25 +829,67 @@ class NetworkConceptMapGenerator:
                             if (d.layer === "priority") return 0.1;
                             if (d.layer === "secondary") return 0.05;
                             return 0.01;
-                        }}));
+                        }}))
+                        .force("link-repulsion", d3.forceManyBody()
+                            .strength(-10)
+                            .distanceMax(150)
+                            .distanceMin(25))
 
                     // Create links with hover effects
                     const link = g.selectAll(".link")
                         .data(links)
-                        .join("line")
+                        .join("path")
                         .attr("class", "link")
-                        .attr("stroke", "#BDBDBD")
+                        .attr("stroke", function(d) {{
+                            // Get the target node
+                            const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
+                            
+                            if (!target) return "#BDBDBD"; // Default gray
+                            
+                            // Color based on target's layer
+                            switch(target.layer) {{
+                                case "priority":
+                                    return "#B39DDB"; // Purple for priority
+                                case "secondary":
+                                    return "#90CAF9"; // Blue for secondary
+                                case "tertiary":
+                                    return "#B2DFDB"; // Light blue/green for tertiary
+                                default:
+                                    return "#BDBDBD"; // Default gray
+                            }}
+                        }})
                         .attr("stroke-opacity", 0.6)
                         .attr("stroke-width", function(d) {{
                             const sourceNode = nodes.find(n => n.id === String(d.source));
                             const targetNode = nodes.find(n => n.id === String(d.target));
                             return (sourceNode?.layer === "priority" && targetNode?.layer === "priority") ? 3 : 1.5;
                         }})
+                        .attr("fill", "none")
                         .on("mouseover", function(event, d) {{
                             // Highlight the line on hover
+                            const currentColor = d3.select(this).attr("stroke");
                             d3.select(this)
-                                .attr("stroke", "#7986CB")
-                                .attr("stroke-width", 3);
+                                .attr("stroke-opacity", 1)
+                                .attr("stroke-width", function() {{
+                                    return parseFloat(d3.select(this).attr("stroke-width")) + 1;
+                                }})
+                                .attr("stroke", function() {{
+                                    // Darken the current color for hover effect
+                                    const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
+                                    
+                                    if (!target) return "#999";
+                                    
+                                    switch(target.layer) {{
+                                        case "priority":
+                                            return "#9575CD"; // Slightly darker purple
+                                        case "secondary":
+                                            return "#64B5F6"; // Slightly darker blue
+                                        case "tertiary":
+                                            return "#80CBC4"; // Slightly darker teal
+                                        default:
+                                            return "#999"; // Darker gray
+                                    }}
+                                }});
 
                             // Get source and target node objects
                             const sourceNode = typeof d.source === 'object' ? d.source : nodeById.get(String(d.source));
@@ -868,14 +923,33 @@ class NetworkConceptMapGenerator:
                             }}
                         }})
                         .on("mouseout", function() {{
-                            // Restore original line style
+                            // Restore original line style                            
                             d3.select(this)
-                                .attr("stroke", "#BDBDBD")
-                                .attr("stroke-width", function(d) {{
-                                    const sourceNode = nodes.find(n => n.id === String(d.source));
-                                    const targetNode = nodes.find(n => n.id === String(d.target));
-                                    return (sourceNode?.layer === "priority" && targetNode?.layer === "priority") ? 3 : 1.5;
-                                }});
+                                    .attr("stroke-opacity", 0.6)
+                                    .attr("stroke-width", function(d) {{
+                                        const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
+                                        
+                                        if (target && target.layer === "priority") return 2;
+                                        if (target && target.layer === "secondary") return 1.8;
+                                        return 1.5;
+                                    }})
+                                    .attr("stroke", function(d) {{
+                                        // Restore original color
+                                        const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
+                                        
+                                        if (!target) return "#BDBDBD";
+                                        
+                                        switch(target.layer) {{
+                                            case "priority":
+                                                return "#B39DDB"; // Light purple
+                                            case "secondary":
+                                                return "#90CAF9"; // Light blue
+                                            case "tertiary":
+                                                return "#B2DFDB"; // Light teal
+                                            default:
+                                                return "#BDBDBD";
+                                        }}
+                                    }});
 
                             // Hide the evidence tooltip
                             evidenceTooltip.style("display", "none");
@@ -1017,23 +1091,45 @@ class NetworkConceptMapGenerator:
                             }}
                         }});
 
-                        link
-                            .attr("x1", function(d) {{ 
-                                const source = typeof d.source === 'object' ? d.source : nodeById.get(String(d.source));
-                                return source ? source.x : 0; 
-                            }})
-                            .attr("y1", function(d) {{ 
-                                const source = typeof d.source === 'object' ? d.source : nodeById.get(String(d.source));
-                                return source ? source.y : 0; 
-                            }})
-                            .attr("x2", function(d) {{ 
-                                const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
-                                return target ? target.x : 0; 
-                            }})
-                            .attr("y2", function(d) {{ 
-                                const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
-                                return target ? target.y : 0; 
-                            }});
+                        link.attr("d", function(d) {{
+                            const source = typeof d.source === 'object' ? d.source : nodeById.get(String(d.source));
+                            const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
+                            
+                            if (!source || !target) return "";
+                            
+                            // Calculate midpoint
+                            const midX = (source.x + target.x) / 2;
+                            const midY = (source.y + target.y) / 2;
+                            
+                            // Calculate normal vector for curve control point
+                            const dx = target.x - source.x;
+                            const dy = target.y - source.y;
+                            const normalX = -dy;
+                            const normalY = dx;
+                            
+                            // Normalize and scale for curvature
+                            const len = Math.sqrt(normalX * normalX + normalY * normalY);
+                            let curvature = 0;
+                            
+                            // Determine curvature based on link context
+                            if (len > 0) {{
+                                // Add more curvature for links between nodes that have many connections
+                                curvature = 20 + Math.min(source.degree + target.degree, 20);
+                                
+                                // If this is a bidirectional link, curve it more
+                                const isBidirectional = links.some(l => 
+                                    (l.source.id === target.id && l.target.id === source.id) ||
+                                    (l.source === target.id && l.target === source.id)
+                                );
+                                if (isBidirectional) curvature = curvature * 1.5;
+                            }}
+                            
+                            const controlX = midX + (normalX / len) * curvature;
+                            const controlY = midY + (normalY / len) * curvature;
+                            
+                            // Quadratic curve path
+                            return `M${{source.x}},${{source.y}} Q${{controlX}},${{controlY}} ${{target.x}},${{target.y}}`;
+                        }});
                         
                         node.attr("transform", function(d) {{
                             return "translate(" + d.x + "," + d.y + ")";
