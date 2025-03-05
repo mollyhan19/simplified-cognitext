@@ -12,8 +12,6 @@ import time
 import streamlit as st
 import streamlit.components.v1 as components
 from typing import List, Dict, Any, Optional, Set
-from custom_component import custom_html
-
 
 class NetworkConceptMapGenerator:
     """
