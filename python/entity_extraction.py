@@ -629,7 +629,9 @@ class OptimizedEntityExtractor:
 
         try:
             response = self._cached_api_call(prompt)
+            print(f"\nModel response for comparison: {response}")
             matches = json.loads(self.clean_markdown_json(response))
+            print(f"\nParsed matches: {json.dumps(matches, indent=2)}")
 
             # Store in memory cache
             self.memory_cache[cache_key] = matches
@@ -722,25 +724,39 @@ class OptimizedEntityExtractor:
                                     appearance["evidence"] = new_entity["evidence"]
 
                                 self.entities[actual_key].add_appearance(appearance, entity_id)
+                                if self.entities[actual_key].get_layer_priority(layer) > self.entities[
+                                    actual_key].get_layer_priority(self.entities[actual_key].layer):
+                                    self.entities[actual_key].layer = layer
+
                                 print(f"Successfully merged '{entity_id}' as variant")
                             else:
-                                # If no match found, create new entity
-                                print(f"Creating new entity for '{entity_id}' with layer '{layer}'")
-                                new_entity_obj = Entity(id=entity_id, layer=layer)
-                                appearance = {
-                                    "section": chunk.section_name,
-                                    "section_index": chunk.section_index,
-                                    "heading_level": chunk.heading_level,
-                                    "variant": entity_id,
-                                    "context": new_entity.get("context", "")
-                                }
+                                print(f"Warning: Match found but key missing in lookup. Fixing and creating entity.")
+                                matched_entity = None
+                                for k, v in self.entities.items():
+                                    if k.lower() == existing_id.lower():
+                                        matched_entity = v
+                                        break
 
-                                # Add evidence if it exists
-                                if "evidence" in new_entity:
-                                    appearance["evidence"] = new_entity["evidence"]
+                                if matched_entity:
+                                    # Found it with different casing, use that entity
+                                    appearance = {
+                                        "section": chunk.section_name,
+                                        "section_index": chunk.section_index,
+                                        "heading_level": chunk.heading_level,
+                                        "variant": entity_id,
+                                        "context": new_entity.get("context", "")
+                                    }
+                                    if "evidence" in new_entity:
+                                        appearance["evidence"] = new_entity["evidence"]
 
-                                new_entity_obj.add_appearance(appearance, entity_id)
-                                self.entities[entity_id] = new_entity_obj
+                                    matched_entity.add_appearance(appearance, entity_id)
+                                    print(f"Successfully merged '{entity_id}' after fixing lookup issue")
+                                else:
+                                    # Still couldn't find it, create new
+                                    print(f"Creating new entity for '{entity_id}' with layer '{layer}'")
+                                    new_entity_obj = Entity(id=entity_id, layer=layer)
+                                    new_entity_obj.add_appearance(appearance, entity_id)
+                                    self.entities[entity_id] = new_entity_obj
                         else:
                             # Create new entity
                             print(f"\nCreating new entity '{entity_id}' with layer '{layer}'")
@@ -752,8 +768,6 @@ class OptimizedEntityExtractor:
                                 "variant": entity_id,
                                 "context": new_entity.get("context", "")
                             }
-
-                            # Add evidence if it exists
                             if "evidence" in new_entity:
                                 appearance["evidence"] = new_entity["evidence"]
 
@@ -911,31 +925,101 @@ class OptimizedEntityExtractor:
 
         except Exception as e:
             print(f"Error in paragraph processing: {str(e)}")
+
+    def merge_duplicate_entities(self, entities_list):
+        """
+        Check for and merge entities with identical IDs in the entities list.
+
+        Args:
+            entities_list: List of entity dictionaries
+
+        Returns:
+            A deduplicated list of entities with merged attributes
+        """
+        # Create a dictionary to hold merged entities
+        merged_entities = {}
+
+        # First pass: Group entities by ID (case-insensitive)
+        for entity in entities_list:
+            entity_id = entity.get("id", "").lower()
+
+            if entity_id in merged_entities:
+                # Add to existing entity
+                existing_entity = merged_entities[entity_id]
+
+                # Merge variants
+                existing_variants = set(existing_entity.get("variants", []))
+                new_variants = set(entity.get("variants", []))
+                merged_variants = existing_variants.union(new_variants)
+
+                # Add the original ID as a variant if it doesn't match the case of the key
+                if entity.get("id") != existing_entity.get("id"):
+                    merged_variants.add(entity.get("id"))
+
+                # Update frequency and section_count
+                existing_entity["frequency"] = existing_entity.get("frequency", 0) + entity.get("frequency", 0)
+                existing_entity["section_count"] = max(
+                    existing_entity.get("section_count", 0),
+                    entity.get("section_count", 0)
+                )
+
+                # Merge appearances
+                existing_appearances = existing_entity.get("appearances", [])
+                new_appearances = entity.get("appearances", [])
+                merged_appearances = existing_appearances + new_appearances
+
+                # Update with merged data
+                existing_entity["variants"] = list(merged_variants)
+                existing_entity["appearances"] = merged_appearances
+
+                # Choose the layer with the highest priority
+                layer_priority = {"priority": 3, "secondary": 2, "tertiary": 1}
+                existing_layer = existing_entity.get("layer", "tertiary")
+                new_layer = entity.get("layer", "tertiary")
+
+                if layer_priority.get(new_layer, 0) > layer_priority.get(existing_layer, 0):
+                    existing_entity["layer"] = new_layer
+
+                # Use the most detailed evidence if available
+                if (len(entity.get("evidence", "")) > len(existing_entity.get("evidence", ""))):
+                    existing_entity["evidence"] = entity.get("evidence", "")
+
+            else:
+                # Create new entry
+                merged_entities[entity_id] = entity.copy()
+                merged_entities[entity_id]["variants"] = list(set(entity.get("variants", [])))
+
+        # Return as a list
+        return list(merged_entities.values())
     
     def get_sorted_entities(self) -> List[Dict]:
-        """Return entities sorted by frequency."""
+        entities_list = [
+            {
+                "id": entity.id,
+                "frequency": entity.frequency,
+                "section_count": entity.section_count,
+                "variants": list(entity.variants),
+                "appearances": [
+                    {
+                        "section": app["section"],
+                        "section_index": app["section_index"],
+                        "variant": app["variant"],
+                        "evidence": app.get("evidence", "")
+                    }
+                    for app in entity.appearances
+                ],
+                "layer": entity.layer
+            }
+            for entity in self.entities.values()
+        ]
+
+        merged_entities = self.merge_duplicate_entities(entities_list)
+
+        # Sort the merged entities
         sorted_entities = sorted(
-            self.entities.values(), 
-            key=lambda x: (x.section_count, x.frequency), 
+            merged_entities,
+            key=lambda x: (x.get("section_count", 0), x.get("frequency", 0)),
             reverse=True
         )
 
-        return [
-        {
-            "id": entity.id,
-            "frequency": entity.frequency,
-            "section_count": entity.section_count,
-            "variants": list(entity.variants),
-            "appearances": [
-                {
-                    "section": app["section"],
-                    "section_index": app["section_index"],
-                    "variant": app["variant"],
-                    "evidence": app.get("evidence", "")
-                }
-                for app in entity.appearances
-            ],
-            "layer": entity.layer
-        }
-        for entity in sorted_entities
-    ]
+        return sorted_entities

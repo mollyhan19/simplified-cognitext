@@ -14,7 +14,7 @@ import io
 # Import the needed modules for entity extraction
 from fetch_wiki import fetch_article_content
 from entity_extraction import OptimizedEntityExtractor, TextChunk, RelationTracker
-from entity_linking_main import process_article_by_sections, save_entity_results, save_relation_results
+from entity_linking_main import process_article_by_subsections, save_entity_results, save_relation_results
 from network_generator import NetworkConceptMapGenerator
 
 # Get the directory of the current script
@@ -35,6 +35,42 @@ openai_client = openai.OpenAI(api_key=openai_api_key)
 # Define output directory
 output_dir = os.path.join(script_dir, "output")
 os.makedirs(output_dir, exist_ok=True)
+
+# Define pregenerated content directory
+pregenerated_dir = os.path.join(script_dir, "pregenerated")
+os.makedirs(pregenerated_dir, exist_ok=True)
+
+# Define the pre-generated content URLs and their corresponding files
+PREGENERATED_CONTENT = {
+    "https://en.wikipedia.org/wiki/Microchimerism" :{
+        "title": "Microchimerism",
+        "html_file": os.path.join(pregenerated_dir, "microchimerism_network.html"),
+        "entity_file": os.path.join(pregenerated_dir, "microchimerism_entities.json"),
+        "relation_file": os.path.join(pregenerated_dir, "microchimerism_relations.json"),
+        "detail_level": "detailed"
+    },
+    "https://en.wikipedia.org/wiki/Speech_perception": {
+        "title": "Speech perception",
+        "html_file": os.path.join(pregenerated_dir, "speech_perception_network.html"),
+        "entity_file": os.path.join(pregenerated_dir, "speech_perception_entities.json"),
+        "relation_file": os.path.join(pregenerated_dir, "speech_perception_relations.json"),
+        "detail_level": "detailed"
+    },
+    "https://en.wikipedia.org/wiki/Quantum_supremacy":{
+        "title": "Quantum supremacy",
+        "html_file": os.path.join(pregenerated_dir, "quantum_supremacy_network.html"),
+        "entity_file": os.path.join(pregenerated_dir, "quantum_supremacy_entities.json"),
+        "relation_file": os.path.join(pregenerated_dir, "quantum_supremacy_relations.json"),
+        "detail_level": "detailed"
+    },
+   "https://en.wikipedia.org/wiki/Grammaticalization": {
+       "title": "Grammaticalization",
+       "html_file": os.path.join(pregenerated_dir, "grammaticalization_network.html"),
+       "entity_file": os.path.join(pregenerated_dir, "grammaticalization_entities.json"),
+       "relation_file": os.path.join(pregenerated_dir, "grammaticalization_relations.json"),
+       "detail_level": "detailed"
+   }
+}
 
 if "extractor" not in st.session_state:
     st.session_state.extractor = OptimizedEntityExtractor(api_key=openai_api_key, cache_version="1.0")
@@ -93,6 +129,84 @@ def check_url_params():
 
         # Update the query parameters
         st.query_params.update(**new_params)
+
+
+def load_pregenerated_content(url_data):
+    """Load pre-generated content for a specific URL."""
+    status_placeholder = st.empty()
+    status_placeholder.info(f"Loading pre-generated content for {url_data['title']}...")
+
+    try:
+        # Load HTML content
+        if os.path.exists(url_data['html_file']):
+            with open(url_data['html_file'], 'r', encoding='utf-8') as f:
+                html_content = f.read()
+        else:
+            status_placeholder.error(f"Pre-generated HTML file not found: {url_data['html_file']}")
+            return False
+
+        # Load entities
+        if os.path.exists(url_data['entity_file']):
+            with open(url_data['entity_file'], 'r', encoding='utf-8') as f:
+                entity_data = json.load(f)
+
+                # Extract entities from the file structure
+                if url_data['title'] in entity_data:
+                    entities = entity_data[url_data['title']].get('entities', [])
+                else:
+                    # Look in different structures (might need adjustment based on your actual file format)
+                    entities = []
+                    for article_title in entity_data:
+                        if isinstance(entity_data[article_title], dict) and 'entities' in entity_data[article_title]:
+                            entities = entity_data[article_title]['entities']
+                            break
+                    if not entities and 'entities' in entity_data:
+                        entities = entity_data['entities']
+        else:
+            status_placeholder.error(f"Pre-generated entity file not found: {url_data['entity_file']}")
+            return False
+
+        # Load relations
+        if os.path.exists(url_data['relation_file']):
+            with open(url_data['relation_file'], 'r', encoding='utf-8') as f:
+                relation_data = json.load(f)
+
+                # Extract relations from the file structure (might need adjustment)
+                if 'articles' in relation_data and url_data['title'] in relation_data['articles']:
+                    relations = relation_data['articles'][url_data['title']].get('relations', [])
+                elif 'relations' in relation_data:
+                    relations = relation_data['relations']
+                else:
+                    relations = []
+        else:
+            status_placeholder.error(f"Pre-generated relation file not found: {url_data['relation_file']}")
+            return False
+
+        # Update session state
+        st.session_state.extracted_data = {
+            "entities": entities,
+            "relations": relations,
+            "title": url_data['title'],
+            "category": "Pre-generated"
+        }
+
+        st.session_state.map_data = {
+            "map_type": "network",
+            "title": url_data['title'],
+            "html_content": html_content,
+            "detail_level": url_data['detail_level'],
+            "entities": entities,
+            "relations": relations
+        }
+
+        status_placeholder.success(f"Successfully loaded pre-generated content for {url_data['title']}")
+        return True
+
+    except Exception as e:
+        status_placeholder.error(f"Error loading pre-generated content: {str(e)}")
+        import traceback
+        st.error(traceback.format_exc())
+        return False
 
 # Function to query LLM with context
 def query_llm(question, context):
@@ -237,24 +351,6 @@ with col1:
 
             component_value = network_generator.display_network_map(st.session_state.map_data)
 
-            with st.expander("Explore Concepts", expanded=False):
-                # Get all concepts in the map
-                all_concepts = [entity["id"] for entity in st.session_state.extracted_data["entities"]]
-
-                # Create a searchable dropdown
-                selected_concept = st.selectbox(
-                    "Select a concept to explain:",
-                    all_concepts,
-                    index=0,
-                    key="network_concept_selector"
-                )
-
-                # Add an explain button
-                if st.button("Explain Selected Concept", key="explain_network_concept"):
-                    with st.spinner(f"Generating explanation for '{selected_concept}'..."):
-                        explain_concept(selected_concept)
-                    st.rerun()
-
             # Provide download link
             buffer = io.StringIO()
             buffer.write(st.session_state.map_data["html_content"])
@@ -281,268 +377,320 @@ with col1:
         map_type = st.selectbox("Select Concept Map Structure", ["Network"])
 
     if st.button("Generate from Wikipedia"):
-        # Create a placeholder for status messages
-        status_placeholder = st.empty()
-        status_placeholder.info("Fetching article...")
+        if not url:
+            st.error("Please enter a Wikipedia URL.")
+            st.stop()
 
-        try:
-            # Fetch the article content
-            article_data = fetch_article_content(url)
+        # Check if this is a pre-generated URL
+        is_pregenerated = False
+        for pregenerated_url, url_data in PREGENERATED_CONTENT.items():
+            if pregenerated_url == url:
+                is_pregenerated = True
+                success = load_pregenerated_content(url_data)
+                if success:
+                    st.success("Pre-generated content loaded successfully! You can explore the concept map now.")
+                    st.rerun()
+                else:
+                    st.error("Failed to load pre-generated content. Falling back to real-time processing.")
+                    is_pregenerated = False
+                    break
 
-            if not article_data:
-                status_placeholder.error(f"Failed to fetch article from {url}. Please check the URL and try again.")
-                st.stop()
-
-            # Extract the title and create an articles dictionary
-            title = article_data.get("title", "Untitled")
-            category = article_data.get("category", "General")
-
-            # Update status message to success
-            status_placeholder.success(f"Successfully fetched article: {title}")
-
-            # Create a new placeholder for processing status
-            process_placeholder = st.empty()
-
-            # Create progress bar
-            progress_bar = st.progress(0)
-
-            # Reset extractor for new article
-            st.session_state.extractor.reset_tracking()
-            st.session_state.extractor.relation_tracker = RelationTracker()
-            st.session_state.extractor.relation_tracker.periodic_extraction_threshold = 3
+        # If not pre-generated or loading failed, process in real-time
+        if not is_pregenerated:
+            status_placeholder = st.empty()
+            status_placeholder.info("Fetching article...")
 
             try:
-                # Temporary fix for pickle error with Relation objects
-                # Just disable caching for relations during this run
-                original_cache_relations = st.session_state.extractor.cache_manager.cache_relations
-                original_get_cached = st.session_state.extractor.cache_manager.get_cached_relations
+                # Fetch the article content
+                article_data = fetch_article_content(url)
 
-                def no_op_cache(*args, **kwargs):
-                    # Do nothing - don't try to cache relations
-                    pass
+                if not article_data:
+                    status_placeholder.error(f"Failed to fetch article from {url}. Please check the URL and try again.")
+                    st.stop()
 
-                def no_op_get(*args, **kwargs):
-                    # Always return None to force re-computation
-                    return None
+                # Extract the title and create an articles dictionary
+                title = article_data.get("title", "Untitled")
+                category = article_data.get("category", "General")
 
-                # Replace with no-op functions
-                st.session_state.extractor.cache_manager.cache_relations = no_op_cache
-                st.session_state.extractor.cache_manager.get_cached_relations = no_op_get
-            except Exception as e:
-                st.warning(f"Note: Relation caching disabled due to: {str(e)}")
+                # Update status message to success
+                status_placeholder.success(f"Successfully fetched article: {title}")
 
-            # Section processing with progress updates
-            sections = article_data.get('sections', [])
-            sections_to_skip = {"See also", "Notes", "References", "Works cited", "External links"}
-            total_sections = len([s for s in sections if s.get('section_title', '') not in sections_to_skip])
+                # Create a new placeholder for processing status
+                process_placeholder = st.empty()
 
-            # Setup progress tracking
-            processed_sections = 0
+                # Create progress bar
+                progress_bar = st.progress(0)
 
-            # Process using the existing entity_linking_main.py implementation
-            with st.spinner("Processing article..."):
-                # We're calling the existing function but tracking progress manually
-                sections_label = st.empty()
+                # Reset extractor for new article
+                st.session_state.extractor.reset_tracking()
+                st.session_state.extractor.relation_tracker = RelationTracker()
+                st.session_state.extractor.relation_tracker.periodic_extraction_threshold = 3
 
-                # Custom progress tracking for the UI
-                for section_idx, section in enumerate(sections, 1):
+                try:
+                    # Temporary fix for pickle error with Relation objects
+                    # Just disable caching for relations during this run
+                    original_cache_relations = st.session_state.extractor.cache_manager.cache_relations
+                    original_get_cached = st.session_state.extractor.cache_manager.get_cached_relations
+
+                    def no_op_cache(*args, **kwargs):
+                        # Do nothing - don't try to cache relations
+                        pass
+
+                    def no_op_get(*args, **kwargs):
+                        # Always return None to force re-computation
+                        return None
+
+                    # Replace with no-op functions
+                    st.session_state.extractor.cache_manager.cache_relations = no_op_cache
+                    st.session_state.extractor.cache_manager.get_cached_relations = no_op_get
+                except Exception as e:
+                    st.warning(f"Note: Relation caching disabled due to: {str(e)}")
+
+                # Section processing with progress updates
+                sections = article_data.get('sections', [])
+                sections_to_skip = {"See also", "Notes", "References", "Works cited", "External links"}
+
+                total_units = 0
+                for section in sections:
                     section_title = section.get('section_title', '')
-
                     if section_title in sections_to_skip:
                         continue
 
-                    # Update progress display before processing the section
-                    processed_sections += 1
-                    progress_bar.progress(processed_sections / total_sections)
-                    sections_label.info(f"Processing section {processed_sections}/{total_sections}: {section_title}")
+                    subsections = section.get('subsections', [])
+                    if not subsections:
+                        # Count section with no subsections as one unit
+                        total_units += 1
+                    else:
+                        # Count each subsection as one unit
+                        total_units += len(subsections)
 
-                    # Let the existing processing happen through process_article_by_sections
-                    section_text = []
-                    main_content = section.get('content', [])
-                    section_text.extend(main_content)
+                # Track processed units
+                processed_units = 0
 
-                    # Add subsection content
-                    for subsection in section.get('subsections', []):
-                        section_text.extend(subsection.get('content', []))
+                # Process using subsection approach
+                with st.spinner("Processing article..."):
+                    units_label = st.empty()
 
-                    if section_text:
-                        combined_text = "\n".join(section_text)
-                        chunk = TextChunk(
-                            content=combined_text,
-                            section_name=section_title,
-                            heading_level="main",
-                            section_text=section_text,
-                            section_index=section_idx
-                        )
-                        # This will handle both entity and relation extraction
-                        st.session_state.extractor.process_section(chunk)
+                    # Process each section/subsection
+                    for section_idx, section in enumerate(sections, 1):
+                        section_title = section.get('section_title', '')
 
-                # Get entities after processing is done
-                entities = st.session_state.extractor.get_sorted_entities()
+                        if section_title in sections_to_skip:
+                            continue
 
-                # Final global relation extraction
-                process_placeholder.info("Final global relationships extraction...")
-                final_global_relations = st.session_state.extractor.extract_global_relations(entities)
-                st.session_state.extractor.relation_tracker.add_global_relations(final_global_relations)
-                st.session_state.extractor.relation_tracker.merge_relations()
+                        # Get subsections
+                        subsections = section.get('subsections', [])
 
-                # Restore original caching functions if they were temporarily replaced
-                try:
-                    st.session_state.extractor.cache_manager.cache_relations = original_cache_relations
-                    st.session_state.extractor.cache_manager.get_cached_relations = original_get_cached
-                except:
-                    pass
+                        if not subsections:
+                            # Process section as a single unit if it has no subsections
+                            processed_units += 1
+                            progress_bar.progress(processed_units / total_units)
+                            units_label.info(
+                                f"Processing unit {processed_units}/{total_units}: Section '{section_title}'")
 
-            # Format relations for use in the app
-            relations = [
-                {
-                    "source": rel.source,
-                    "relation_type": rel.relation_type,
-                    "target": rel.target,
-                    "evidence": rel.evidence,
-                    "section_name": rel.section_name,
-                    "section_index": rel.section_index
+                            # Get section content
+                            section_text = section.get('content', [])
+                            if section_text:
+                                combined_text = "\n".join(section_text)
+                                chunk = TextChunk(
+                                    content=combined_text,
+                                    section_name=section_title,
+                                    heading_level="main",
+                                    section_text=section_text,
+                                    section_index=section_idx
+                                )
+                                st.session_state.extractor.process_section(chunk)
+                        else:
+                            # Process each subsection separately
+                            for subsection_idx, subsection in enumerate(subsections, 1):
+                                processed_units += 1
+                                subsection_title = subsection.get('section_title', '')
+                                full_title = f"{section_title} - {subsection_title}"
+
+                                progress_bar.progress(processed_units / total_units)
+                                units_label.info(
+                                    f"Processing unit {processed_units}/{total_units}: Subsection '{full_title}'")
+
+                                # Get subsection content
+                                subsection_text = subsection.get('content', [])
+                                if subsection_text:
+                                    combined_text = "\n".join(subsection_text)
+                                    chunk = TextChunk(
+                                        content=combined_text,
+                                        section_name=full_title,
+                                        heading_level="sub",
+                                        section_text=subsection_text,
+                                        section_index=section_idx,
+                                        paragraph_index=subsection_idx
+                                    )
+                                    st.session_state.extractor.process_section(chunk)
+
+                    # Get entities after processing is done
+                    entities = st.session_state.extractor.get_sorted_entities()
+
+                    # Final global relation extraction
+                    process_placeholder.info("Final global relationships extraction...")
+                    final_global_relations = st.session_state.extractor.extract_global_relations(entities)
+                    st.session_state.extractor.relation_tracker.add_global_relations(final_global_relations)
+                    st.session_state.extractor.relation_tracker.merge_relations()
+
+                    # Restore original caching functions if they were temporarily replaced
+                    try:
+                        st.session_state.extractor.cache_manager.cache_relations = original_cache_relations
+                        st.session_state.extractor.cache_manager.get_cached_relations = original_get_cached
+                    except:
+                        pass
+
+                # Format relations for use in the app
+                relations = [
+                    {
+                        "source": rel.source,
+                        "relation_type": rel.relation_type,
+                        "target": rel.target,
+                        "evidence": rel.evidence,
+                        "section_name": rel.section_name,
+                        "section_index": rel.section_index
+                    }
+                    for rel in st.session_state.extractor.relation_tracker.master_relations
+                ]
+
+                # Save results
+                timestamp = datetime.now().isoformat().replace(":", "-")
+                entity_file = os.path.join(output_dir, f"entity_analysis_{title}_{timestamp}.json")
+                relation_file = os.path.join(output_dir, f"relations_{title}_{timestamp}.json")
+
+                # Save entity results
+                save_entity_results(entities, entity_file, processing_mode, title, category)
+
+                # Get and save relation results
+                all_relations = {
+                    title: st.session_state.extractor.get_all_relations()
                 }
-                for rel in st.session_state.extractor.relation_tracker.master_relations
-            ]
 
-            # Save results
-            timestamp = datetime.now().isoformat().replace(":", "-")
-            entity_file = os.path.join(output_dir, f"entity_analysis_{title}_{timestamp}.json")
-            relation_file = os.path.join(output_dir, f"relations_{title}_{timestamp}.json")
-
-            # Save entity results
-            save_entity_results(entities, entity_file, processing_mode, title, category)
-
-            # Get and save relation results
-            all_relations = {
-                title: st.session_state.extractor.get_all_relations()
-            }
-
-            # Format article data for relation saving
-            articles_data = {
-                title: {
-                    "category": category
+                # Format article data for relation saving
+                articles_data = {
+                    title: {
+                        "category": category
+                    }
                 }
-            }
 
-            save_relation_results(all_relations, articles_data, processing_mode)
+                save_relation_results(all_relations, articles_data, processing_mode)
 
-            # Store extracted data in session state for chatbot
-            st.session_state.extracted_data = {
-                "entities": entities,
-                "relations": relations,
-                "title": title,
-                "category": category
-            }
-
-            process_placeholder.success(f"Extracted {len(entities)} concepts and {len(relations)} relations")
-
-            # Generate concept map based on selected type
-            with st.spinner("Generating network concept map..."):
-
-                # Get detail level
-                detail_level = processing_mode.split()[
-                    0].lower() if "pruned" not in processing_mode else "intermediate"
-                # Generate the network map
-                map_data = network_generator.generate_network_map(
-                    title=title,
-                    entities=entities,
-                    relations=relations,
-                    detail_level=detail_level
-                )
-                # Store map data in session state
-                st.session_state.map_data = {
-                    "map_type": "network",
-                    "title": title,
+                # Store extracted data in session state for chatbot
+                st.session_state.extracted_data = {
                     "entities": entities,
                     "relations": relations,
-                    "detail_level": detail_level,
-                    "html_content": map_data["html_content"]
+                    "title": title,
+                    "category": category
                 }
-                # Display the network map
-                st.subheader(f"Network Concept Map: {title}")
-                network_generator.display_network_map(map_data)
-                # Provide download link for HTML
-                buffer = io.StringIO()
-                buffer.write(map_data["html_content"])
-                html_bytes = buffer.getvalue().encode()
-                st.download_button(
-                    label="Download Network Map (HTML)",
-                    data=html_bytes,
-                    file_name=f"network_{title}_{detail_level}.html",
-                    mime="text/html"
-                )
 
-            # Display concepts and relations in expandable sections
-            with st.expander("View Extracted Concepts", expanded=False):
-                # Show top concepts
-                st.subheader("Top Concepts")
+                process_placeholder.success(f"Extracted {len(entities)} concepts and {len(relations)} relations")
 
-                # Get top concepts by frequency
-                top_concepts = sorted(
-                    entities,
-                    key=lambda x: x.get("frequency", 0),
-                    reverse=True
-                )[:10]
+                # Generate concept map based on selected type
+                with st.spinner("Generating network concept map..."):
 
-                concepts_df = pd.DataFrame([
-                    {
-                        "Concept": entity.get("id", ""),
-                        "Layer": entity.get("layer", ""),
-                        "Frequency": entity.get("frequency", 0),
-                        "Sections": entity.get("section_count", 0)
+                    # Get detail level
+                    detail_level = processing_mode.split()[
+                        0].lower() if "pruned" not in processing_mode else "intermediate"
+                    # Generate the network map
+                    map_data = network_generator.generate_network_map(
+                        title=title,
+                        entities=entities,
+                        relations=relations,
+                        detail_level=detail_level
+                    )
+                    # Store map data in session state
+                    st.session_state.map_data = {
+                        "map_type": "network",
+                        "title": title,
+                        "entities": entities,
+                        "relations": relations,
+                        "detail_level": detail_level,
+                        "html_content": map_data["html_content"]
                     }
-                    for entity in top_concepts
-                ])
+                    # Display the network map
+                    st.subheader(f"Network Concept Map: {title}")
+                    network_generator.display_network_map(map_data)
+                    # Provide download link for HTML
+                    buffer = io.StringIO()
+                    buffer.write(map_data["html_content"])
+                    html_bytes = buffer.getvalue().encode()
+                    st.download_button(
+                        label="Download Network Map (HTML)",
+                        data=html_bytes,
+                        file_name=f"network_{title}_{detail_level}.html",
+                        mime="text/html"
+                    )
 
-                st.dataframe(concepts_df)
+                # Display concepts and relations in expandable sections
+                with st.expander("View Extracted Concepts", expanded=False):
+                    # Show top concepts
+                    st.subheader("Top Concepts")
 
-            with st.expander("View Extracted Relations", expanded=False):
-                st.subheader("Key Relations")
+                    # Get top concepts by frequency
+                    top_concepts = sorted(
+                        entities,
+                        key=lambda x: x.get("frequency", 0),
+                        reverse=True
+                    )[:10]
 
-                # Create a DataFrame for relations
-                relations_df = pd.DataFrame([
-                    {
-                        "Source": rel.get("source", ""),
-                        "Relation": rel.get("relation_type", ""),
-                        "Target": rel.get("target", ""),
-                        "Section": rel.get("section_name", "")
-                    }
-                    for rel in relations[:20]  # Display top 20 relations
-                ])
+                    concepts_df = pd.DataFrame([
+                        {
+                            "Concept": entity.get("id", ""),
+                            "Layer": entity.get("layer", ""),
+                            "Frequency": entity.get("frequency", 0),
+                            "Sections": entity.get("section_count", 0)
+                        }
+                        for entity in top_concepts
+                    ])
 
-                st.dataframe(relations_df)
+                    st.dataframe(concepts_df)
 
-            # Provide download links for raw entity and relation data
-            st.subheader("Download Results")
-            col_download1, col_download2 = st.columns(2)
+                with st.expander("View Extracted Relations", expanded=False):
+                    st.subheader("Key Relations")
 
-            with col_download1:
-                if os.path.exists(entity_file):
-                    with open(entity_file, "rb") as file:
-                        st.download_button(
-                            label="Download Entities (JSON)",
-                            data=file,
-                            file_name=f"entities_{title}.json",
-                            mime="application/json"
-                        )
+                    # Create a DataFrame for relations
+                    relations_df = pd.DataFrame([
+                        {
+                            "Source": rel.get("source", ""),
+                            "Relation": rel.get("relation_type", ""),
+                            "Target": rel.get("target", ""),
+                            "Section": rel.get("section_name", "")
+                        }
+                        for rel in relations[:20]  # Display top 20 relations
+                    ])
 
-            with col_download2:
-                if os.path.exists(relation_file):
-                    with open(relation_file, "rb") as file:
-                        st.download_button(
-                            label="Download Relations (JSON)",
-                            data=file,
-                            file_name=f"relations_{title}.json",
-                            mime="application/json"
-                        )
+                    st.dataframe(relations_df)
 
-        except Exception as e:
-            st.error(f"Error processing article: {str(e)}")
-            import traceback
+                # Provide download links for raw entity and relation data
+                st.subheader("Download Results")
+                col_download1, col_download2 = st.columns(2)
 
-            st.error(traceback.format_exc())
+                with col_download1:
+                    if os.path.exists(entity_file):
+                        with open(entity_file, "rb") as file:
+                            st.download_button(
+                                label="Download Entities (JSON)",
+                                data=file,
+                                file_name=f"entities_{title}.json",
+                                mime="application/json"
+                            )
+
+                with col_download2:
+                    if os.path.exists(relation_file):
+                        with open(relation_file, "rb") as file:
+                            st.download_button(
+                                label="Download Relations (JSON)",
+                                data=file,
+                                file_name=f"relations_{title}.json",
+                                mime="application/json"
+                            )
+
+            except Exception as e:
+                st.error(f"Error processing article: {str(e)}")
+                import traceback
+
+                st.error(traceback.format_exc())
 
 # Right column: Chatbot
 with col2:

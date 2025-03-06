@@ -883,7 +883,7 @@ class NetworkConceptMapGenerator:
                     assignInitialPositions(nodes, centralNode.id);
 
                     // Set up the simulation with proper node references and forces
-                    const simulation = d3.forceSimulation(nodes)
+                     const simulation = d3.forceSimulation(nodes)
                         .force("link", d3.forceLink()
                             .id(d => d.id)
                             .links(links.map(link => ({{
@@ -943,6 +943,7 @@ class NetworkConceptMapGenerator:
                             .strength(-10)
                             .distanceMax(150)
                             .distanceMin(25))
+                        .alphaDecay(0.02);
 
                     // Create links with hover effects
                     const link = g.selectAll(".link")
@@ -1078,16 +1079,59 @@ class NetworkConceptMapGenerator:
                         // Left-click for expanding/collapsing hidden connections
                         .on("click", function(event, d) {{
                             event.stopPropagation();
-                    
+                        
                             // Only toggle expansion if the node has hidden connections
                             if (nodesWithHidden.has(d.id)) {{
+                                // Store current positions of all nodes before expanding
+                                const nodePositions = new Map();
+                                nodes.forEach(node => {{
+                                    nodePositions.set(node.id, {{x: node.x, y: node.y}});
+                                }});
+
+                                // Toggle expansion state
                                 if (expandedNodes.has(d.id)) {{
                                     expandedNodes.delete(d.id);
                                 }} else {{
                                     expandedNodes.add(d.id);
                                 }}
-                                
+
+                                // Update visualization
                                 updateVisualization();
+
+                                // After updating, fix positions of all previously visible nodes
+                                // We need to wait for the nodes to be created in the DOM
+                                setTimeout(() => {{
+                                    g.selectAll(".node").each(function(node) {{
+                                        const oldPos = nodePositions.get(node.id);
+                                        if (oldPos) {{
+                                            // Fix this node at its previous position
+                                            node.fx = oldPos.x;
+                                            node.fy = oldPos.y;
+
+                                            // For newly added nodes, don't fix position
+                                            // so they can find a good position via simulation
+                                        }}
+                                    }});
+
+                                    // Run the simulation with low alpha to stabilize new nodes
+                                    simulation.alpha(0.1).restart();
+
+                                    // Release fixed positions after a short time
+                                    // This allows for smooth transitions while maintaining stability
+                                    setTimeout(() => {{
+                                        g.selectAll(".node").each(function(node) {{
+                                            // Release all nodes except the central node
+                                            if (!node.isCenter) {{
+                                                node.fx = null;
+                                                node.fy = null;
+                                            }}
+                                        }});
+
+                                        // Restart with very low alpha for minimal movement
+                                        simulation.alpha(0.05).restart();
+                                    }}, 1500); // 1.5 seconds should be enough for initial positioning
+                                }}, 50);
+
                                 sendMessageToStreamlit({{
                                     expandedNodes: Array.from(expandedNodes)
                                 }});
@@ -1204,7 +1248,7 @@ class NetworkConceptMapGenerator:
                         .attr("stroke", "#FF8A65")  // soft coral pulse animation
                         .attr("stroke-width", 2)
                         .attr("opacity", 0.5)
-                        .attr("class", "pulse-{unique_id}");
+                        .attr("class", "pulse-{{unique_id}}");
 
                     // Add text labels to nodes
                     node.append("text")
@@ -1250,7 +1294,6 @@ class NetworkConceptMapGenerator:
                     simulation.alpha(1).restart(); // Full restart for better layout
 
                     simulation.on("tick", function() {{
-                        // Keep central node fixed
                         nodes.forEach(d => {{
                             if (d.isCenter) {{
                                 d.x = centerX;

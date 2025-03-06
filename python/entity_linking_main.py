@@ -131,6 +131,95 @@ def process_article_by_sections(title, article, extractor):
     
     return extractor.get_sorted_entities()  # Get final merged entities
 
+def process_article_by_subsections(title: str, article: Dict, extractor: OptimizedEntityExtractor):
+    """Process article by subsections, treating sections without subsections as single units."""
+    print(f"Processing article by subsections: {title}")
+
+    sections = article.get('sections', [])
+    print(f"Total sections to process: {len(sections)}")
+
+    # Reset entity tracking for new article
+    extractor.reset_tracking()
+
+    sections_to_skip = {"See also", "Notes", "References", "Works cited", "External links"}
+
+    processed_units = 0
+    total_units = 0  # Will be calculated by counting sections and subsections
+
+    # Count total processing units (sections without subsections + individual subsections)
+    for section in sections:
+        section_title = section.get('section_title', '')
+        if section_title in sections_to_skip:
+            continue
+
+        subsections = section.get('subsections', [])
+        if not subsections:
+            # Count section with no subsections as one unit
+            total_units += 1
+        else:
+            # Count each subsection as one unit
+            total_units += len(subsections)
+
+    print(f"Total processing units: {total_units}")
+
+    for section_idx, section in enumerate(sections, 1):
+        try:
+            section_title = section.get('section_title', '')
+            if section_title in sections_to_skip:
+                continue
+
+            # Get subsections
+            subsections = section.get('subsections', [])
+
+            if not subsections:
+                # Process section as a single unit if it has no subsections
+                processed_units += 1
+                print(f"\nProcessing unit {processed_units}/{total_units}: Section '{section_title}'")
+
+                # Get section content
+                section_text = section.get('content', [])
+                if section_text:
+                    combined_text = "\n".join(section_text)
+                    chunk = TextChunk(
+                        content=combined_text,
+                        section_name=section_title,
+                        heading_level="main",
+                        section_text=section_text,
+                        section_index=section_idx
+                    )
+                    extractor.process_section(chunk)
+            else:
+                # Process each subsection separately
+                for subsection_idx, subsection in enumerate(subsections, 1):
+                    processed_units += 1
+                    subsection_title = subsection.get('section_title', '')
+                    full_title = f"{section_title} - {subsection_title}"
+
+                    print(f"\nProcessing unit {processed_units}/{total_units}: Subsection '{full_title}'")
+
+                    # Get subsection content
+                    subsection_text = subsection.get('content', [])
+                    if subsection_text:
+                        combined_text = "\n".join(subsection_text)
+                        chunk = TextChunk(
+                            content=combined_text,
+                            section_name=full_title,
+                            heading_level="sub",
+                            section_text=subsection_text,
+                            section_index=section_idx,
+                            paragraph_index=subsection_idx  # Use subsection index as paragraph index
+                        )
+                        extractor.process_section(chunk)
+
+            print(f"Current unique entities after unit {processed_units}: "
+                  f"{len(extractor.get_sorted_entities())}")
+
+        except Exception as e:
+            print(f"Error processing section/subsection: {str(e)}")
+            continue
+
+    return extractor.get_sorted_entities()
+
 def save_relations(self, output_path: str, processing_mode: str, title: str):
     """Save relations to a JSON file."""
     summary = {
