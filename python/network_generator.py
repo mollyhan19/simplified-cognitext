@@ -453,6 +453,25 @@ class NetworkConceptMapGenerator:
                     font: 12px sans-serif;
                     pointer-events: none;
                 }}
+                .node.faded circle {{
+                    opacity: 0.2;
+                    transition: opacity 0.3s ease;
+                }}
+                
+                .node.faded text {{
+                    opacity: 0.1;
+                    transition: opacity 0.3s ease;
+                }}
+                
+                .link.faded {{
+                    opacity: 0.1;
+                    transition: opacity 0.3s ease;
+                }}
+                
+                .node.focused circle {{
+                    stroke-width: 4px;
+                    stroke: #FF5252;
+                }}
                 .link {{
                     fill: none;
                     stroke-width: 1.5px;
@@ -599,6 +618,8 @@ class NetworkConceptMapGenerator:
                 
                 let currentSimulation = null;
                 let currentNodes = [];
+                
+                let focusedNodeId = null;
 
                 const width = 800;
                 const height = 600;
@@ -1128,6 +1149,12 @@ class NetworkConceptMapGenerator:
                                     d.fx = null;
                                     d.fy = null;
                                     d3.select(this).classed("node--pinned", false);
+                                    
+                                    // Remove focus if this was the focused node
+                                    if (focusedNodeId === d.id) {{
+                                        focusedNodeId = null;
+                                        resetFocus();
+                                    }}
                                 }} else {{
                                     expandedNodes.add(d.id);
                                     pinnedNodes.add(d.id);
@@ -1136,6 +1163,8 @@ class NetworkConceptMapGenerator:
                                     console.log("Pinned node at position:", d.x, d.y);
                                     // Add visual indicator
                                     d3.select(this).classed("node--pinned", true);
+                                    
+                                    focusedNodeId = d.id;
                                 }}
                     
                                 // Update visualization
@@ -1149,6 +1178,9 @@ class NetworkConceptMapGenerator:
                                             console.log("Should be pinned:", node.id, "fx:", node.fx, "fy:", node.fy);
                                         }}
                                     }});
+                                    if (focusedNodeId) {{
+                                        applyFocus(focusedNodeId);
+                                    }}
                                 }}, 500);
                         
                                 sendMessageToStreamlit({{
@@ -1535,6 +1567,49 @@ class NetworkConceptMapGenerator:
                     }}
                 }}
                 
+                function applyFocus(nodeId) {{
+                    console.log("Applying focus to node:", nodeId);
+                    
+                    // Get the focused node and its direct connections
+                    const connectedNodeIds = new Set();
+                    connectedNodeIds.add(nodeId); // Add the focused node
+                    
+                    // Find all nodes directly connected to the focused node
+                    g.selectAll(".link").each(function(link) {{
+                        const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
+                        const targetId = typeof link.target === 'object' ? link.target.id : link.target;
+
+                        if (sourceId === nodeId) {{
+                            connectedNodeIds.add(targetId);
+                        }}
+                        if (targetId === nodeId) {{
+                            connectedNodeIds.add(sourceId);
+                        }}
+                    }});
+
+                    console.log("Connected nodes:", Array.from(connectedNodeIds));
+
+                    // Fade out non-connected nodes and links
+                    g.selectAll(".node").classed("faded", function(d) {{
+                        return !connectedNodeIds.has(d.id);
+                    }});
+
+                    g.selectAll(".link").classed("faded", function(d) {{
+                        const sourceId = typeof d.source === 'object' ? d.source.id : d.source;
+                        const targetId = typeof d.target === 'object' ? d.target.id : d.target;
+                        return !(connectedNodeIds.has(sourceId) && connectedNodeIds.has(targetId));
+                    }});
+
+                    // Highlight the focused node
+                    g.selectAll(".node").filter(d => d.id === nodeId).classed("focused", true);
+                }}
+
+                function resetFocus() {{
+                    console.log("Resetting focus");
+                    g.selectAll(".node").classed("faded", false).classed("focused", false);
+                    g.selectAll(".link").classed("faded", false);
+                }}
+                
                 // Button click handlers
                 d3.select("#reset-btn").on("click", function() {{
                     expandedNodes.clear();
@@ -1692,6 +1767,9 @@ class NetworkConceptMapGenerator:
                     // Ignore if the click was on a node or a control
                     if (event.target.closest(".node") || event.target.closest(".controls")) 
                         return;
+                        
+                    focusedNodeId = null;
+                    resetFocus();
                     
                     // Unpin all nodes
                     if (pinnedNodes.size > 0) {{
