@@ -327,10 +327,10 @@ Transform Wikipedia articles into interactive network concept maps that visualiz
 2. Click any node for a closer look; Right-click a node to peek at its concept explanation; Click glowing nodes to reveal secret relationships.
 3. Hover over links to uncover connections with evidence from the text. 
 4. Feel free to drag nodes around and make the map your own.
-4. Use the chat panel to ask questions about any concept. 
-(Psst: This map was pre-generated to keep things zippy. Feel free to tryout your own wiki article pick, but might take a bit longer to map out.)
-""")
+5. Use the chat panel to ask questions about any concept.
 
+(Psst: This map was pre-generated to keep things zippy. Feel free to tryout your own wiki article favorites, but might take a bit longer to map out.)
+""")
 
 check_url_params()
 # Create columns layout
