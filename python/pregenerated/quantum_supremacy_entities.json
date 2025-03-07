@@ -1,7 +1,7 @@
 {
   "metadata": {
     "processing_mode": "subsection",
-    "timestamp": "2025-03-07T00:56:30.000000"
+    "timestamp": "2025-03-07T11:44:46.000000"
   },
   "Quantum supremacy": {
     "category": "general",
@@ -91,29 +91,6 @@
         "layer": "priority"
       },
       {
-        "id": "john preskill",
-        "frequency": 2,
-        "section_count": 2,
-        "variants": [
-          "john preskill"
-        ],
-        "appearances": [
-          {
-            "section": "Introduction",
-            "section_index": 1,
-            "variant": "john preskill",
-            "evidence": "John Preskill is a prominent physicist who introduced the term 'quantum supremacy' in 2011. His work has been influential in framing the goals and challenges of quantum computing, making him a key figure in this field."
-          },
-          {
-            "section": "Criticisms - Criticism of the name",
-            "section_index": 5,
-            "variant": "john preskill",
-            "evidence": "John Preskill is a prominent theoretical physicist known for coining the term 'quantum supremacy.' His contributions are crucial in defining the capabilities of quantum computers and distinguishing them from classical computers, thereby shaping the discourse around quantum computing."
-          }
-        ],
-        "layer": "tertiary"
-      },
-      {
         "id": "quantum random circuit sampling",
         "frequency": 2,
         "section_count": 2,
@@ -142,8 +119,8 @@
         "frequency": 2,
         "section_count": 2,
         "variants": [
-          "classical computers",
-          "classical computer"
+          "classical computer",
+          "classical computers"
         ],
         "appearances": [
           {
@@ -185,29 +162,6 @@
         "layer": "priority"
       },
       {
-        "id": "shor's algorithm",
-        "frequency": 2,
-        "section_count": 2,
-        "variants": [
-          "shor's algorithm"
-        ],
-        "appearances": [
-          {
-            "section": "Background - Quantum advantage in the 20th century",
-            "section_index": 2,
-            "variant": "shor's algorithm",
-            "evidence": "Shor's algorithm is a quantum algorithm that efficiently factors large integers, which has significant implications for cryptography. It demonstrates the potential of quantum computers to outperform classical computers in specific tasks, particularly in breaking widely used encryption methods."
-          },
-          {
-            "section": "Proposed experiments - Shor's algorithm for factoring integers",
-            "section_index": 4,
-            "variant": "shor's algorithm",
-            "evidence": "Shor's algorithm is a quantum algorithm designed for integer factorization, which can solve this problem in polynomial time, unlike classical algorithms. Its significance lies in its potential to break widely used cryptographic systems, making it a cornerstone of quantum computing research."
-          }
-        ],
-        "layer": "priority"
-      },
-      {
         "id": "qubits",
         "frequency": 2,
         "section_count": 2,
@@ -229,6 +183,23 @@
           }
         ],
         "layer": "priority"
+      },
+      {
+        "id": "john preskill",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "john preskill"
+        ],
+        "appearances": [
+          {
+            "section": "Criticisms - Criticism of the name",
+            "section_index": 5,
+            "variant": "john preskill",
+            "evidence": "John Preskill is a prominent theoretical physicist known for coining the term 'quantum supremacy.' His contributions are crucial in defining the capabilities of quantum computers and distinguishing them from classical computers, thereby shaping the discourse around quantum computing."
+          }
+        ],
+        "layer": "tertiary"
       },
       {
         "id": "yuri manin",
@@ -345,6 +316,23 @@
             "section_index": 2,
             "variant": "turing machine",
             "evidence": "A Turing machine is a theoretical construct that defines a simple abstract computational device capable of performing any computation that can be algorithmically defined. It is fundamental in the field of computer science as it provides a model for understanding the limits of what can be computed."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "shor's algorithm",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "shor's algorithm"
+        ],
+        "appearances": [
+          {
+            "section": "Proposed experiments - Shor's algorithm for factoring integers",
+            "section_index": 4,
+            "variant": "shor's algorithm",
+            "evidence": "Shor's algorithm is a quantum algorithm designed for integer factorization, which can solve this problem in polynomial time, unlike classical algorithms. Its significance lies in its potential to break widely used cryptographic systems, making it a cornerstone of quantum computing research."
           }
         ],
         "layer": "priority"

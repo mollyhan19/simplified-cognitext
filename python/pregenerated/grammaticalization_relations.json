@@ -2,99 +2,27 @@
   "metadata": {
     "type": "master_relations",
     "processing_mode": "subsection",
-    "timestamp": "2025-03-07T00:56:20.000000"
+    "timestamp": "2025-03-07T11:44:46.000000"
   },
   "articles": {
     "Grammaticalization": {
       "category": "general",
       "relations": [
         {
-          "source": "metonymic reasoning",
-          "relation_type": "is a mechanism for",
-          "target": "grammaticalization",
-          "evidence": "Metonymic reasoning serves as a cognitive mechanism that facilitates grammaticalization, allowing speakers to create new grammatical forms based on existing semantic relationships.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "grammaticalization",
-          "relation_type": "defined by",
-          "target": "Christian Lehmann",
-          "evidence": "Lehmann states that grammaticalization is a process leading from lexemes to grammatical formatives.",
-          "section_name": "Views on grammaticalization",
-          "section_index": 6
-        },
-        {
-          "source": "reconstruction of older states of a language",
-          "relation_type": "supports",
-          "target": "future language development",
-          "evidence": "The reconstruction of older states of a language supports future language development by providing insights into historical changes that can inform predictions about ongoing linguistic evolution.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "grammaticalization",
-          "relation_type": "is studied in",
-          "target": "historical syntax",
-          "evidence": "Campbell, Lyle, & Alice C. Harris. Historical syntax in cross-linguistic perspective.",
-          "section_name": "Sources",
-          "section_index": 8
-        },
-        {
-          "source": "proto-germanic etymon",
-          "relation_type": "is foundational for",
-          "target": "content words",
-          "evidence": "The proto-germanic etymon provides a foundational basis for many content words in modern languages, illustrating the historical depth of linguistic evolution.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "try eating (it) and see",
-          "relation_type": "illustrates the use of",
-          "target": "grammaticalization",
-          "evidence": "as in 'try eating (it) and see' (食べてみる, tabetemiru)",
-          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Japanese compound verbs",
-          "section_index": 4
-        },
-        {
-          "source": "cline of grammaticalization",
-          "relation_type": "represents a path",
-          "target": "changes of word forms",
-          "evidence": "clines represent a natural path along which forms or words change over time",
-          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Historical linguistics",
-          "section_index": 4
-        },
-        {
-          "source": "case markers",
-          "relation_type": "are developed from",
-          "target": "content words",
-          "evidence": "Where grammaticalization takes place... develop over time into grammatical items such as auxiliaries, case markers, inflections.",
-          "section_name": "Introduction",
-          "section_index": 1
-        },
-        {
-          "source": "phonetic reduction",
-          "relation_type": "related to",
-          "target": "loss of phonetic segments",
-          "evidence": "Phonetic reduction is a phenomenon that often results in the loss of phonetic segments, illustrating how pronunciation evolves in language over time.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "japanese compound verbs",
-          "relation_type": "example of",
-          "target": "example of compound verb",
-          "evidence": "Many Japanese words are formed by connecting two verbs, as in 'go and ask (listen)' (行って聞く, ittekiku)",
-          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Japanese compound verbs",
-          "section_index": 4
-        },
-        {
-          "source": "morpheme",
-          "relation_type": "signals",
-          "target": "grammatical category of number",
-          "evidence": "the suffix -mente in this usage is interpretable by today's native speakers only as a morpheme signaling 'adverb'.",
-          "section_name": "Mechanisms - Phonetic erosion",
+          "source": "Janda",
+          "relation_type": "criticizes",
+          "target": "theory of grammaticalization",
+          "evidence": "Janda, for example, wrote that 'given that even writers on grammaticalization themselves freely acknowledge the involvement of several distinct processes in the larger set of phenomena...'",
+          "section_name": "Mechanisms - Obligatorification",
           "section_index": 3
+        },
+        {
+          "source": "see",
+          "relation_type": "base verb for",
+          "target": "inflectional suffix",
+          "evidence": "'try out, see' (〜みる, -miru), from 'see' (見る, miru)",
+          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Japanese compound verbs",
+          "section_index": 4
         },
         {
           "source": "Hopper and Traugott (1993)",
@@ -105,138 +33,10 @@
           "section_index": 5
         },
         {
-          "source": "example of 'let's'",
-          "relation_type": "illustrates",
-          "target": "auxiliary verbs",
-          "evidence": "The phrase 'let's' serves as an example of how auxiliary verbs can emerge from imperative constructions, showcasing the dynamic nature of language.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "evolutionary language",
-          "relation_type": "is influenced by",
-          "target": "grammaticalization",
-          "evidence": "The concept of evolutionary language is influenced by grammaticalization, as it reflects the dynamic nature of language change and adaptation over time.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "grammaticalization",
-          "relation_type": "defined as",
-          "target": "parameters of grammaticality",
-          "evidence": "Lehmann also invented a set of 'parameters', a method along which grammaticality could be measured both synchronically and diachronically.",
-          "section_name": "History",
-          "section_index": 2
-        },
-        {
-          "source": "case markers",
-          "relation_type": "are influenced by",
-          "target": "grammatical category of number",
-          "evidence": "Case markers often reflect the grammatical category of number, demonstrating how grammatical features interact within a language system.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "John Haiman",
-          "relation_type": "describes",
-          "target": "semantic reduction",
-          "evidence": "John Haiman wrote that 'semantic reduction, or bleaching, occurs as a morpheme loses its intention...'",
-          "section_name": "Mechanisms - Semantic bleaching",
-          "section_index": 3
-        },
-        {
-          "source": "grammaticalization",
-          "relation_type": "is seen as",
-          "target": "an epiphenomenal telescoping",
-          "evidence": "it may involve certain typical 'path(way)s', but the latter seem to be built out of separate stepping-stones.",
-          "section_name": "Mechanisms - Obligatorification",
-          "section_index": 3
-        },
-        {
-          "source": "grammaticalization",
-          "relation_type": "observed in",
-          "target": "serbo-croatian",
-          "evidence": "the Old Church Slavonic verb xъtěti ('to want/to wish') has gone from a content word to an auxiliary verb in phonetically reduced form",
-          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Examples developing a future tense",
-          "section_index": 4
-        },
-        {
-          "source": "discourse analysis",
-          "relation_type": "utilizes",
-          "target": "evidentiality",
-          "evidence": "Discourse analysis often incorporates the concept of evidentiality to understand how speakers convey knowledge and belief, linking linguistic structures to broader communicative practices.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "historical context of grammaticalization",
-          "relation_type": "provides background for",
-          "target": "stages of grammatical development",
-          "evidence": "Understanding the historical context of grammaticalization helps to elucidate the various stages of grammatical development observed in languages.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "old english willan",
-          "relation_type": "evolves into",
-          "target": "auxiliary verbs",
-          "evidence": "the change from the Old English (OE) verb willan ('to want/to wish') to an auxiliary verb signifying intention in Middle English (ME)",
-          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Examples developing a future tense",
-          "section_index": 4
-        },
-        {
-          "source": "metonymic reasoning",
-          "relation_type": "is used to connect",
-          "target": "body or shape and abstract property of likeness",
-          "evidence": "One could make the connection between the body or shape of a physical being and the abstract property of likeness or similarity, but only through metonymic reasoning.",
-          "section_name": "Mechanisms - Semantic bleaching",
-          "section_index": 3
-        },
-        {
-          "source": "grammaticalization",
-          "relation_type": "approaches summarized by",
-          "target": "Olga Fischer & Anette Rosenbach",
-          "evidence": "Fischer and Rosenbach summarize recent approaches to grammaticalization in their book.",
-          "section_name": "Views on grammaticalization",
-          "section_index": 6
-        },
-        {
-          "source": "grammaticalization",
-          "relation_type": "is associated with",
-          "target": "phonetic reduction",
-          "evidence": "He saw this as one of the two kinds of change that are always associated with grammaticalization (the other being phonetic reduction).",
-          "section_name": "Mechanisms - Semantic bleaching",
-          "section_index": 3
-        },
-        {
-          "source": "case studies",
-          "relation_type": "illustrate concepts of",
-          "target": "grammaticalization",
-          "evidence": "Fischer, Olga, & Anette Rosenbach. 'Introduction' in Pathways of Change: Grammaticalization in English.",
-          "section_name": "Sources",
-          "section_index": 8
-        },
-        {
-          "source": "diachronic implications",
-          "relation_type": "contrast with",
-          "target": "synchronic implications",
-          "evidence": "Diachronic implications contrast with synchronic implications by focusing on language change over time versus the analysis of language at a specific point, highlighting different perspectives in linguistic study.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "neo-grammarians",
-          "relation_type": "rejected",
-          "target": "stages of grammatical development",
-          "evidence": "neo-grammarians like Brugmann rejected the separation of language into distinct 'stages' in favour of uniformitarian assumptions.",
-          "section_name": "History",
-          "section_index": 2
-        },
-        {
-          "source": "phonetic reduction",
-          "relation_type": "is associated with",
-          "target": "grammaticalization",
-          "evidence": "Phonetic reduction is frequently observed in the process of grammaticalization, where the pronunciation of words becomes less distinct as they transition into grammatical markers.",
+          "source": "christian lehmann",
+          "relation_type": "is a key figure in",
+          "target": "grammaticalization studies",
+          "evidence": "Christian Lehmann is recognized as a key figure in grammaticalization studies, contributing significantly to the theoretical frameworks that explain the phenomenon.",
           "section_name": "global",
           "section_index": -1
         },
@@ -249,106 +49,74 @@
           "section_index": -1
         },
         {
-          "source": "grammaticalization",
-          "relation_type": "coined by",
-          "target": "christian lehmann",
-          "evidence": "A greatly influential work in the domain was Christian Lehmann's Thoughts on Grammaticalization (1982).",
-          "section_name": "History",
-          "section_index": 2
-        },
-        {
-          "source": "recurrent clines",
-          "relation_type": "enables",
-          "target": "general laws of grammaticalization",
-          "evidence": "The studying and documentation of recurrent clines enable linguists to form general laws of grammaticalization",
-          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Historical linguistics",
-          "section_index": 4
-        },
-        {
-          "source": "historical context of grammaticalization",
-          "relation_type": "contextualizes",
-          "target": "stages of grammatical development",
-          "evidence": "Understanding the historical context of grammaticalization provides insight into the various stages of grammatical development, highlighting how past linguistic changes inform current language structures.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "james matisoff",
-          "relation_type": "contributes to",
-          "target": "understanding of grammaticalization",
-          "evidence": "James Matisoff's work contributes to the understanding of grammaticalization by examining its effects in various linguistic contexts, particularly in lesser-studied languages.",
-          "section_name": "global",
-          "section_index": -1
+          "source": "counterexamples",
+          "relation_type": "challenge",
+          "target": "unidirectionality",
+          "evidence": "the possibility of counterexamples, coupled with their rarity, is given as evidence for the general operating principle of unidirectionality.",
+          "section_name": "Unidirectionality hypothesis - Counterexamples (degrammaticalization)",
+          "section_index": 5
         },
         {
           "source": "semantic bleaching",
-          "relation_type": "occurs in",
-          "target": "grammaticalized morphemic role",
-          "evidence": "This example also illustrates that semantic bleaching of a form in its grammaticalized morphemic role does not necessarily imply bleaching of its lexical source.",
-          "section_name": "Mechanisms - Phonetic erosion",
-          "section_index": 3
-        },
-        {
-          "source": "unidirectionality",
-          "relation_type": "is a principle of",
-          "target": "grammaticalization",
-          "evidence": "Unidirectionality is a principle of grammaticalization that posits that linguistic forms tend to evolve in a specific direction, from more concrete to more abstract meanings.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "grammaticalization",
-          "relation_type": "influences",
-          "target": "auxiliary verbs",
-          "evidence": "Grammaticalization processes often lead to the development of auxiliary verbs from lexical items, illustrating how grammaticalization shapes the structure of language.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "Bybee et al. (1994)",
-          "relation_type": "acknowledge that",
-          "target": "parameters of grammaticalization",
-          "evidence": "linguists such as Bybee et al. (1994) have acknowledged that independently, they are not essential to grammaticalization.",
-          "section_name": "Mechanisms - Obligatorification",
-          "section_index": 3
-        },
-        {
-          "source": "example of 'let's'",
-          "relation_type": "illustrates the process of",
-          "target": "grammaticalization",
-          "evidence": "A well-known example of grammaticalization is that of the process in which the lexical cluster let us... is reduced to let's.",
-          "section_name": "Introduction",
-          "section_index": 1
-        },
-        {
-          "source": "morpheme",
-          "relation_type": "loses",
-          "target": "semantic features",
-          "evidence": "the partial effacement of a morpheme's semantic features, the stripping away of some of its precise content...",
+          "relation_type": "describes",
+          "target": "loss of semantic content",
+          "evidence": "It can be described as the loss of semantic content.",
           "section_name": "Mechanisms - Semantic bleaching",
           "section_index": 3
         },
         {
-          "source": "function words",
-          "relation_type": "are a type of",
-          "target": "grammatical items",
-          "evidence": "grammatical items or function words, which serve mainly to express grammatical relationships.",
-          "section_name": "Introduction",
-          "section_index": 1
+          "source": "phonetic simplification",
+          "relation_type": "leads to",
+          "target": "phonetic erosion",
+          "evidence": "Phonetic simplification leads to phonetic erosion, as the simplification of sounds often results in the gradual loss of distinct phonetic features.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "john haiman",
+          "relation_type": "explores",
+          "target": "grammaticalization",
+          "evidence": "John Haiman explores the implications of grammaticalization in his research, shedding light on how language reflects social and cognitive processes.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "phonetic reduction",
+          "relation_type": "is associated with",
+          "target": "grammaticalization",
+          "evidence": "Phonetic reduction is frequently observed in the process of grammaticalization, where the pronunciation of words becomes less distinct as they transition into grammatical markers.",
+          "section_name": "global",
+          "section_index": -1
         },
         {
           "source": "grammaticalization",
-          "relation_type": "applies to",
-          "target": "inflectional suffix",
-          "evidence": "some suffixes have become grammaticalized, and are written in hiragana",
-          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Japanese compound verbs",
+          "relation_type": "is associated with",
+          "target": "phonetic reduction",
+          "evidence": "He saw this as one of the two kinds of change that are always associated with grammaticalization (the other being phonetic reduction).",
+          "section_name": "Mechanisms - Semantic bleaching",
+          "section_index": 3
+        },
+        {
+          "source": "grammaticalization",
+          "relation_type": "historical process defined by",
+          "target": "František Lichtenberk",
+          "evidence": "František Lichtenberk (1991) described grammaticalization as a historical process that affects morphosyntactic categories and grammar.",
+          "section_name": "Views on grammaticalization",
+          "section_index": 6
+        },
+        {
+          "source": "cline of grammaticalization",
+          "relation_type": "represents a path",
+          "target": "changes of word forms",
+          "evidence": "clines represent a natural path along which forms or words change over time",
+          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Historical linguistics",
           "section_index": 4
         },
         {
-          "source": "case markers",
-          "relation_type": "demonstrate",
-          "target": "grammaticalization",
-          "evidence": "Case markers demonstrate grammaticalization by evolving from independent lexical items to grammatical elements that indicate syntactic relationships within sentences.",
+          "source": "example of 'let's'",
+          "relation_type": "illustrates",
+          "target": "loss of semantic content",
+          "evidence": "The example of 'let's' illustrates the loss of semantic content as it becomes a formulaic expression used for suggesting actions rather than conveying specific meanings.",
           "section_name": "global",
           "section_index": -1
         },
@@ -361,586 +129,10 @@
           "section_index": -1
         },
         {
-          "source": "future language development",
-          "relation_type": "is influenced by",
-          "target": "reconstruction of older states of a language",
-          "evidence": "The study of the reconstruction of older states of a language can inform predictions about future language development, highlighting the cyclical nature of linguistic evolution.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "grammaticalization",
-          "relation_type": "leads to",
-          "target": "semantic bleaching",
-          "evidence": "Once a linguistic expression has changed from a lexical to a grammatical meaning (bleaching)...",
-          "section_name": "Mechanisms - Morphological reduction",
-          "section_index": 3
-        },
-        {
-          "source": "lexicalization",
-          "relation_type": "is related to",
-          "target": "grammaticalization",
-          "evidence": "Lexicalization is related to grammaticalization as both processes involve the transformation of meaning and function in language, with lexicalization often occurring as a precursor to grammaticalization.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "latin construction clarā mente",
-          "relation_type": "is a source of",
-          "target": "modern Romance productive adverb formation",
-          "evidence": "the Latin construction of the type clarā mente, meaning 'with a clear mind' is the source of modern Romance productive adverb formation.",
-          "section_name": "Mechanisms - Phonetic erosion",
-          "section_index": 3
-        },
-        {
-          "source": "transparadigmatic variability",
-          "relation_type": "is reduced by",
-          "target": "obligatorification",
-          "evidence": "Lehmann describes it as a reduction in transparadigmatic variability.",
-          "section_name": "Mechanisms - Obligatorification",
-          "section_index": 3
-        },
-        {
-          "source": "grammaticalization",
-          "relation_type": "influences",
-          "target": "function words",
-          "evidence": "Grammaticalization processes often lead to the transformation of content words into function words, illustrating how language evolves over time to enhance communicative efficiency.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "evolutionary language",
-          "relation_type": "developed from",
-          "target": "stages of grammatical development",
-          "evidence": "Humboldt suggested that in all languages grammatical structures evolved out of a language stage in which there were only words for concrete objects and ideas.",
-          "section_name": "History",
-          "section_index": 2
-        },
-        {
-          "source": "grammaticalization",
-          "relation_type": "important for",
-          "target": "discourse analysis",
-          "evidence": "It was not until the 1970s, with the growth of interest in discourse analysis and linguistic universals, that the interest for grammaticalization in linguistic studies began to grow again.",
-          "section_name": "History",
-          "section_index": 2
-        },
-        {
-          "source": "Irish Gaelic",
-          "relation_type": "provides a counterexample to",
-          "target": "unidirectionality",
-          "evidence": "One is found in the development of Irish Gaelic with the origin of the first-person-plural pronoun muid.",
-          "section_name": "Unidirectionality hypothesis - Counterexamples (degrammaticalization)",
-          "section_index": 5
-        },
-        {
-          "source": "semantic bleaching",
-          "relation_type": "is a characteristic of",
-          "target": "grammaticalization",
-          "evidence": "Semantic bleaching, or desemanticization, has been seen from early on as a characteristic of grammaticalization.",
-          "section_name": "Mechanisms - Semantic bleaching",
-          "section_index": 3
-        },
-        {
-          "source": "cline of grammaticalization",
-          "relation_type": "has implications",
-          "target": "diachronic implications",
-          "evidence": "the cline of grammaticalization has both diachronic and synchronic implications",
-          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Historical linguistics",
-          "section_index": 4
-        },
-        {
-          "source": "Janda",
-          "relation_type": "criticizes",
-          "target": "theory of grammaticalization",
-          "evidence": "Janda, for example, wrote that 'given that even writers on grammaticalization themselves freely acknowledge the involvement of several distinct processes in the larger set of phenomena...'",
-          "section_name": "Mechanisms - Obligatorification",
-          "section_index": 3
-        },
-        {
-          "source": "auxiliary verbs",
-          "relation_type": "become full-fledged",
-          "target": "inflection",
-          "evidence": "the auxiliary became a full-fledged inflection in almost all Romance languages",
-          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Examples developing a future tense",
-          "section_index": 4
-        },
-        {
-          "source": "English genitive -'s",
-          "relation_type": "is an example of",
-          "target": "degrammaticalization",
-          "evidence": "One is the English genitive -'s, which, in Old English, was a suffix but, in Modern English, is a clitic.",
-          "section_name": "Unidirectionality hypothesis - Counterexamples (degrammaticalization)",
-          "section_index": 5
-        },
-        {
-          "source": "romance languages",
-          "relation_type": "develop from",
-          "target": "auxiliary verbs",
-          "evidence": "the original future tense forms were dropped when they became phonetically too close to the imperfect forms",
-          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Examples developing a future tense",
-          "section_index": 4
-        },
-        {
-          "source": "content words",
-          "relation_type": "are a type of",
-          "target": "lexical items",
-          "evidence": "lexical items or content words, which carry specific lexical meaning.",
-          "section_name": "Introduction",
-          "section_index": 1
-        },
-        {
-          "source": "principle of least effort",
-          "relation_type": "is a reason for",
-          "target": "phonetic erosion",
-          "evidence": "Some linguists trace erosion to the speaker's tendency to follow the principle of least effort.",
-          "section_name": "Mechanisms - Phonetic erosion",
-          "section_index": 3
-        },
-        {
-          "source": "historical context of linguistics",
-          "relation_type": "informs",
-          "target": "neo-grammarians",
-          "evidence": "The historical context of linguistics provides insights into the theories proposed by neo-grammarians, who focus on the systematic changes in language over time.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "parameters of grammaticality",
-          "relation_type": "influences",
-          "target": "parameters of grammaticalization",
-          "evidence": "The parameters of grammaticality provide a framework that influences the parameters of grammaticalization, guiding how linguistic elements change and develop.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "cline of grammaticalization",
-          "relation_type": "has implications",
-          "target": "synchronic implications",
-          "evidence": "the cline of grammaticalization has both diachronic and synchronic implications",
-          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Historical linguistics",
-          "section_index": 4
-        },
-        {
-          "source": "demonstrative",
-          "relation_type": "example of",
-          "target": "example of 'that'",
-          "evidence": "For example, the demonstrative 'that' as in 'that book' came to be used as a relative clause marker...",
-          "section_name": "Mechanisms - Morphological reduction",
-          "section_index": 3
-        },
-        {
-          "source": "James Matisoff",
-          "relation_type": "describes",
-          "target": "semantic bleaching",
-          "evidence": "James Matisoff described bleaching as 'the partial effacement of a morpheme's semantic features...'",
-          "section_name": "Mechanisms - Semantic bleaching",
-          "section_index": 3
-        },
-        {
-          "source": "hiragana",
-          "relation_type": "used for grammatical items in",
-          "target": "orthography",
-          "evidence": "grammatical items are written with hiragana",
-          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Japanese compound verbs",
-          "section_index": 4
-        },
-        {
-          "source": "present-day english",
-          "relation_type": "includes",
-          "target": "clitic",
-          "evidence": "The PDE form is even shortened to 'll and no longer necessarily implies intention",
-          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Examples developing a future tense",
-          "section_index": 4
-        },
-        {
-          "source": "historical context of grammaticalization",
-          "relation_type": "provides framework for",
-          "target": "stages of grammatical development",
-          "evidence": "Understanding the historical context of grammaticalization allows for a clearer comprehension of the various stages of grammatical development across languages.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "grammaticalization",
-          "relation_type": "historical process defined by",
-          "target": "František Lichtenberk",
-          "evidence": "Lichtenberk describes grammaticalization as a historical process affecting morphosyntactic categories.",
-          "section_name": "Views on grammaticalization",
-          "section_index": 6
-        },
-        {
-          "source": "grammatical categories",
-          "relation_type": "are affected by",
-          "target": "grammaticalization",
-          "evidence": "Meillet, Antoine. 'L'évolution des formes grammaticales.'",
-          "section_name": "Sources",
-          "section_index": 8
-        },
-        {
-          "source": "christian lehmann",
-          "relation_type": "is a key figure in",
-          "target": "grammaticalization studies",
-          "evidence": "Christian Lehmann is recognized as a key figure in grammaticalization studies, contributing significantly to the theoretical frameworks that explain the phenomenon.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "grammaticalization",
-          "relation_type": "defined by",
-          "target": "Elizabeth Traugott & Bernd Heine",
-          "evidence": "Traugott and Heine define grammaticalization as a linguistic process of organizing categories and coding.",
-          "section_name": "Views on grammaticalization",
-          "section_index": 6
-        },
-        {
-          "source": "Heine and Kuteva",
-          "relation_type": "argue that",
-          "target": "obligatorification",
-          "evidence": "Some linguists, like Heine and Kuteva, stress the fact that even though obligatorification can be seen as an important process, it is not necessary for grammaticalization to take place.",
-          "section_name": "Mechanisms - Obligatorification",
-          "section_index": 3
-        },
-        {
-          "source": "W. Humboldt",
-          "relation_type": "initiated",
-          "target": "typological difference in phonetic and phonological consequences",
-          "evidence": "a difference mostly initiated by the German linguist W. Humboldt.",
-          "section_name": "Mechanisms - Phonetic erosion",
-          "section_index": 3
-        },
-        {
-          "source": "Wei-Heng Chen (2011)",
-          "relation_type": "provides evidence for",
-          "target": "phonological consequences of grammaticalization",
-          "evidence": "Special treatise on the phonological consequences of grammaticalization and lexicalization in the Chinese languages can be found in Wei-Heng Chen (2011).",
-          "section_name": "Mechanisms - Phonetic erosion",
-          "section_index": 3
-        },
-        {
-          "source": "evidentiality",
-          "relation_type": "is an example of a concept that",
-          "target": "is less frequently grammaticalized",
-          "evidence": "Some concepts are often grammaticalized; others, such as evidentiality, less frequently.",
-          "section_name": "Introduction",
-          "section_index": 1
-        },
-        {
-          "source": "cognitive forces",
-          "relation_type": "impact",
-          "target": "parameters of grammaticality",
-          "evidence": "Cognitive forces influence the parameters of grammaticality by shaping how speakers perceive and produce grammatical structures, thus affecting language use and evolution.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "phonetic simplification",
-          "relation_type": "leads to",
-          "target": "phonetic erosion",
-          "evidence": "Phonetic simplification leads to phonetic erosion, as the simplification of sounds often results in the gradual loss of distinct phonetic features.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "grammaticalization",
-          "relation_type": "is a process involving",
-          "target": "content words",
-          "evidence": "Grammaticalization is a linguistic process in which words change from representing objects or actions to serving grammatical functions.",
-          "section_name": "Introduction",
-          "section_index": 1
-        },
-        {
-          "source": "documentation of changes",
-          "relation_type": "helps to reveal",
-          "target": "future language development",
-          "evidence": "the documenting of changes can help to reveal the lines along which a language is likely to develop in the future",
-          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Historical linguistics",
-          "section_index": 4
-        },
-        {
-          "source": "phonetic reduction",
-          "relation_type": "leads to",
-          "target": "loss of phonetic segments",
-          "evidence": "Phonetic reduction is a process that often results in the loss of phonetic segments, which is a significant aspect of language evolution and simplification.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "metonymic reasoning",
-          "relation_type": "applies to",
-          "target": "demonstrative",
-          "evidence": "Metonymic reasoning applies to the use of demonstratives, as these words often refer to entities based on contextual relationships rather than direct identification.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "discourse analysis",
-          "relation_type": "utilizes",
-          "target": "grammatical category of number",
-          "evidence": "Discourse analysis utilizes the grammatical category of number to understand how plurality affects meaning and interpretation in communication.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "Proto-Germanic etymon",
-          "relation_type": "is the origin of",
-          "target": "English suffixes -ly and -like",
-          "evidence": "both English suffixes -ly (as in bodily and angrily), and -like (as in catlike or yellow-like) ultimately come from an earlier Proto-Germanic etymon, *līką.",
-          "section_name": "Mechanisms - Semantic bleaching",
-          "section_index": 3
-        },
-        {
-          "source": "unidirectionality",
-          "relation_type": "is a key element of",
-          "target": "grammaticalization",
-          "evidence": "Although unidirectionality is a key element of grammaticalization, exceptions exist.",
-          "section_name": "Unidirectionality hypothesis - Counterexamples (degrammaticalization)",
-          "section_index": 5
-        },
-        {
-          "source": "category of number",
-          "relation_type": "is an example of",
-          "target": "obligatorification",
-          "evidence": "Examples of obligatoriness can be found in the category of number.",
-          "section_name": "Mechanisms - Obligatorification",
-          "section_index": 3
-        },
-        {
-          "source": "semantic bleaching",
-          "relation_type": "results in",
-          "target": "loss of semantic content",
-          "evidence": "...it is likely to lose morphological and syntactic elements that were characteristic of its initial category...",
-          "section_name": "Mechanisms - Morphological reduction",
-          "section_index": 3
-        },
-        {
-          "source": "heine and reh",
-          "relation_type": "focused on",
-          "target": "grammaticalization",
-          "evidence": "Another important work was Heine and Reh's Grammaticalization and Reanalysis in African Languages (1984).",
-          "section_name": "History",
-          "section_index": 2
-        },
-        {
-          "source": "obligatorification",
-          "relation_type": "is a process of",
-          "target": "grammaticalization",
-          "evidence": "Obligatorification occurs when the use of linguistic structures becomes increasingly more obligatory in the process of grammaticalization.",
-          "section_name": "Mechanisms - Obligatorification",
-          "section_index": 3
-        },
-        {
-          "source": "historical context of linguistics",
-          "relation_type": "shapes",
-          "target": "neo-grammarians",
-          "evidence": "The historical context of linguistics has shaped the neo-grammarians' approach to understanding language change and the principles governing it.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "parameters of grammaticalization",
-          "relation_type": "define",
-          "target": "cline of grammaticalization",
-          "evidence": "The parameters of grammaticalization help to outline the cline of grammaticalization, illustrating how linguistic elements evolve from concrete to abstract forms.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "phonetic reduction",
-          "relation_type": "is a form of",
-          "target": "phonetic simplification",
-          "evidence": "Phonetic reduction is a specific form of phonetic simplification that occurs as language evolves, often as a result of the principle of least effort, where speakers tend to minimize effort in speech production.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "Elizabeth Closs Traugott",
-          "relation_type": "is a key figure in",
-          "target": "grammaticalization",
-          "evidence": "Hopper, Paul J. and Elizabeth Traugott. Grammaticalization.",
-          "section_name": "Sources",
-          "section_index": 8
-        },
-        {
-          "source": "Kate Burridge (1998)",
-          "relation_type": "proposes a counterexample of",
-          "target": "grammaticalization",
-          "evidence": "Traugott cites a counterexample from function to content word proposed by Kate Burridge (1998).",
-          "section_name": "Unidirectionality hypothesis - Counterexamples (degrammaticalization)",
-          "section_index": 5
-        },
-        {
-          "source": "phonetic erosion",
-          "relation_type": "is linked to",
-          "target": "grammaticalization",
-          "evidence": "Phonetic erosion (also called phonological attrition or phonological reduction), is another process that is often linked to grammaticalization.",
-          "section_name": "Mechanisms - Phonetic erosion",
-          "section_index": 3
-        },
-        {
-          "source": "auxiliary verbs",
-          "relation_type": "transforms into",
-          "target": "present-day english",
-          "evidence": "The PDE verb 'will' can thus be said to have less lexical meaning than its preceding form in OE.",
-          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Examples developing a future tense",
-          "section_index": 4
-        },
-        {
-          "source": "grammaticalization",
-          "relation_type": "is influenced by",
-          "target": "cognitive forces",
-          "evidence": "Heine, Bernd. Auxiliaries: Cognitive Forces and Grammaticalization.",
-          "section_name": "Sources",
-          "section_index": 8
-        },
-        {
-          "source": "heine and reh",
-          "relation_type": "develop theories on",
-          "target": "grammaticalization",
-          "evidence": "Heine and Reh have developed influential theories on grammaticalization that explore the mechanisms and implications of this linguistic process across different languages.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "historical context",
-          "relation_type": "provides background for",
-          "target": "historical syntax",
-          "evidence": "Givon, Talmy. 'Historical syntax and synchronic morphology: an archaeologist's field trip.'",
-          "section_name": "Sources",
-          "section_index": 8
-        },
-        {
-          "source": "parameters of grammaticality",
-          "relation_type": "define",
-          "target": "grammaticalization",
-          "evidence": "The parameters of grammaticality help define the boundaries and rules of grammaticalization, illustrating how certain linguistic forms are accepted or rejected in language use.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "semantic bleaching",
-          "relation_type": "describes",
-          "target": "loss of semantic content",
-          "evidence": "It can be described as the loss of semantic content.",
-          "section_name": "Mechanisms - Semantic bleaching",
-          "section_index": 3
-        },
-        {
-          "source": "john haiman",
-          "relation_type": "explores",
-          "target": "grammaticalization",
-          "evidence": "John Haiman explores the implications of grammaticalization in his research, shedding light on how language reflects social and cognitive processes.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "grammaticalization",
-          "relation_type": "defined by",
-          "target": "Antoine Meillet",
-          "evidence": "Meillet describes grammaticalization as creating new forms and categories that transform the grammatical system.",
-          "section_name": "Views on grammaticalization",
-          "section_index": 6
-        },
-        {
-          "source": "grammaticalization",
-          "relation_type": "remains a popular item in",
+          "source": "neo-grammarians",
+          "relation_type": "contribute to",
           "target": "historical context of linguistics",
-          "evidence": "The great number of studies on grammaticalization in the last decade (up to 2018) show grammaticalization remains a popular item and is regarded as an important field within linguistic studies in general.",
-          "section_name": "History",
-          "section_index": 2
-        },
-        {
-          "source": "grammaticalization",
-          "relation_type": "defined by",
-          "target": "Jerzy Kurylowicz",
-          "evidence": "Kurylowicz's classical definition refers to the increase of a morpheme's grammatical status.",
-          "section_name": "Views on grammaticalization",
-          "section_index": 6
-        },
-        {
-          "source": "relative clause marker",
-          "relation_type": "loses",
-          "target": "grammatical category of number",
-          "evidence": "...and lost the grammatical category of number ('that' singular vs. 'those' plural)...",
-          "section_name": "Mechanisms - Morphological reduction",
-          "section_index": 3
-        },
-        {
-          "source": "grammaticalization",
-          "relation_type": "can lead to",
-          "target": "loss of phonetic segments",
-          "evidence": "It implies that a linguistic expression loses phonetic substance when it has undergone grammaticalization.",
-          "section_name": "Mechanisms - Phonetic erosion",
-          "section_index": 3
-        },
-        {
-          "source": "grammaticalization",
-          "relation_type": "results in the development of",
-          "target": "function words",
-          "evidence": "Grammaticalization can involve content words... developing into new function words that express grammatical relationships.",
-          "section_name": "Introduction",
-          "section_index": 1
-        },
-        {
-          "source": "auxiliary verbs",
-          "relation_type": "are developed from",
-          "target": "content words",
-          "evidence": "nouns and verbs which carry certain lexical meaning develop over time into grammatical items such as auxiliaries.",
-          "section_name": "Introduction",
-          "section_index": 1
-        },
-        {
-          "source": "auxiliary verbs",
-          "relation_type": "are examples of",
-          "target": "function words",
-          "evidence": "Auxiliary verbs serve as a prime example of function words that have emerged through grammaticalization, demonstrating the shift from content to function in language evolution.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "kanji",
-          "relation_type": "used in writing",
-          "target": "japanese compound verbs",
-          "evidence": "Compound verbs are thus generally written with a kanji for each constituent verb",
-          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Japanese compound verbs",
-          "section_index": 4
-        },
-        {
-          "source": "grammaticalization",
-          "relation_type": "principles defined by",
-          "target": "Paul Hopper",
-          "evidence": "Hopper outlines five principles that detect grammaticalization during its process.",
-          "section_name": "Views on grammaticalization",
-          "section_index": 6
-        },
-        {
-          "source": "inflectional suffix",
-          "relation_type": "hypothetical future evolution of",
-          "target": "auxiliary verbs",
-          "evidence": "will could become further grammaticalized to the point that it forms an inflexional affix indicating future tense",
-          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Examples developing a future tense",
-          "section_index": 4
-        },
-        {
-          "source": "example of 'that'",
-          "relation_type": "transforms into",
-          "target": "relative clause marker",
-          "evidence": "...came to be used as a relative clause marker...",
-          "section_name": "Mechanisms - Morphological reduction",
-          "section_index": 3
-        },
-        {
-          "source": "phonetic erosion",
-          "relation_type": "includes",
-          "target": "phonetic simplification",
-          "evidence": "Phonetic simplification 'Going to' → 'gonna' (or even 'I am going to' → 'I'm gonna' → 'I'mma') and 'because' → 'coz' are examples of erosion in English.",
-          "section_name": "Mechanisms - Phonetic erosion",
-          "section_index": 3
-        },
-        {
-          "source": "semantic bleaching",
-          "relation_type": "leads to",
-          "target": "loss of semantic content",
-          "evidence": "Semantic bleaching is a process that leads to the loss of semantic content in words, particularly in the context of grammaticalization, where lexical items become more abstract and less specific in meaning.",
+          "evidence": "The neo-grammarians' theories significantly contribute to the historical context of linguistics by providing frameworks that explain language change and the principles of grammaticalization.",
           "section_name": "global",
           "section_index": -1
         },
@@ -953,35 +145,171 @@
           "section_index": 3
         },
         {
-          "source": "degrammaticalization",
-          "relation_type": "is exemplified by",
-          "target": "North Saami abessive case suffix",
-          "evidence": "the degrammaticalization of the North Saami abessive ('without') case suffix -haga to the postposition haga.",
+          "source": "hiragana",
+          "relation_type": "used for grammatical items in",
+          "target": "orthography",
+          "evidence": "grammatical items are written with hiragana",
+          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Japanese compound verbs",
+          "section_index": 4
+        },
+        {
+          "source": "metonymic reasoning",
+          "relation_type": "is used to connect",
+          "target": "body or shape and abstract property of likeness",
+          "evidence": "One could make the connection between the body or shape of a physical being and the abstract property of likeness or similarity, but only through metonymic reasoning.",
+          "section_name": "Mechanisms - Semantic bleaching",
+          "section_index": 3
+        },
+        {
+          "source": "grammaticalization",
+          "relation_type": "results in the development of",
+          "target": "function words",
+          "evidence": "Grammaticalization can involve content words... developing into new function words that express grammatical relationships.",
+          "section_name": "Introduction",
+          "section_index": 1
+        },
+        {
+          "source": "grammaticalization",
+          "relation_type": "influences",
+          "target": "function words",
+          "evidence": "Grammaticalization processes often lead to the transformation of content words into function words, illustrating how language evolves over time to enhance communicative efficiency.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "Wei-Heng Chen (2011)",
+          "relation_type": "provides evidence for",
+          "target": "phonological consequences of grammaticalization",
+          "evidence": "Special treatise on the phonological consequences of grammaticalization and lexicalization in the Chinese languages can be found in Wei-Heng Chen (2011).",
+          "section_name": "Mechanisms - Phonetic erosion",
+          "section_index": 3
+        },
+        {
+          "source": "heine and reh",
+          "relation_type": "focused on",
+          "target": "grammaticalization",
+          "evidence": "Another important work was Heine and Reh's Grammaticalization and Reanalysis in African Languages (1984).",
+          "section_name": "History",
+          "section_index": 2
+        },
+        {
+          "source": "parameters of grammaticality",
+          "relation_type": "influences",
+          "target": "parameters of grammaticalization",
+          "evidence": "The parameters of grammaticality provide a framework that influences the parameters of grammaticalization, guiding how linguistic elements change and develop.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "future language development",
+          "relation_type": "is influenced by",
+          "target": "reconstruction of older states of a language",
+          "evidence": "The study of the reconstruction of older states of a language can inform predictions about future language development, highlighting the cyclical nature of linguistic evolution.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "proto-germanic etymon",
+          "relation_type": "is foundational for",
+          "target": "content words",
+          "evidence": "The proto-germanic etymon provides a foundational basis for many content words in modern languages, illustrating the historical depth of linguistic evolution.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "grammatical categories",
+          "relation_type": "are affected by",
+          "target": "grammaticalization",
+          "evidence": "Meillet, Antoine. 'L'évolution des formes grammaticales.'",
+          "section_name": "Sources",
+          "section_index": 8
+        },
+        {
+          "source": "unidirectionality",
+          "relation_type": "debated topic in",
+          "target": "grammaticalization",
+          "evidence": "An important and popular topic which is still debated is the question of unidirectionality.",
+          "section_name": "History",
+          "section_index": 2
+        },
+        {
+          "source": "auxiliary verbs",
+          "relation_type": "are developed from",
+          "target": "content words",
+          "evidence": "nouns and verbs which carry certain lexical meaning develop over time into grammatical items such as auxiliaries.",
+          "section_name": "Introduction",
+          "section_index": 1
+        },
+        {
+          "source": "example of 'let's'",
+          "relation_type": "illustrates",
+          "target": "auxiliary verbs",
+          "evidence": "The phrase 'let's' serves as an example of how auxiliary verbs can emerge from imperative constructions, showcasing the dynamic nature of language.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "English genitive -'s",
+          "relation_type": "is an example of",
+          "target": "degrammaticalization",
+          "evidence": "One is the English genitive -'s, which, in Old English, was a suffix but, in Modern English, is a clitic.",
           "section_name": "Unidirectionality hypothesis - Counterexamples (degrammaticalization)",
           "section_index": 5
+        },
+        {
+          "source": "grammaticalization",
+          "relation_type": "remains a popular item in",
+          "target": "historical context of linguistics",
+          "evidence": "The great number of studies on grammaticalization in the last decade (up to 2018) show grammaticalization remains a popular item and is regarded as an important field within linguistic studies in general.",
+          "section_name": "History",
+          "section_index": 2
         },
         {
           "source": "auxiliary verbs",
           "relation_type": "example of",
           "target": "grammaticalization",
-          "evidence": "Auxiliary verbs serve as a prime example of grammaticalization, as they evolve from full lexical verbs into grammatical markers, illustrating the process of semantic bleaching and loss of semantic content over time.",
+          "evidence": "Auxiliary verbs often emerge through grammaticalization processes, illustrating how lexical items can evolve into grammatical markers over time, thus serving as a concrete example of the broader concept of grammaticalization.",
           "section_name": "global",
           "section_index": -1
         },
         {
-          "source": "function words",
-          "relation_type": "result from",
-          "target": "grammaticalization",
-          "evidence": "The process of grammaticalization results in the emergence of function words, which are crucial for sentence structure and grammatical relationships.",
+          "source": "case studies",
+          "relation_type": "illustrate",
+          "target": "cline of grammaticalization",
+          "evidence": "Case studies provide concrete examples that illustrate the cline of grammaticalization, showcasing how specific linguistic items transition through various stages of grammatical development.",
           "section_name": "global",
           "section_index": -1
         },
         {
-          "source": "parameters of grammaticalization",
-          "relation_type": "are linked to",
+          "source": "discourse analysis",
+          "relation_type": "utilizes",
+          "target": "evidentiality",
+          "evidence": "Discourse analysis often incorporates the concept of evidentiality to understand how speakers convey knowledge and belief, linking linguistic structures to broader communicative practices.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "degrammaticalization",
+          "relation_type": "related to",
           "target": "grammaticalization",
-          "evidence": "these 'parameters of grammaticalization' are often linked to the theory.",
-          "section_name": "Mechanisms - Obligatorification",
+          "evidence": "The first monograph on degrammaticalization and its relation to grammaticalization was published in 2009 by Muriel Norde.",
+          "section_name": "Views on grammaticalization",
+          "section_index": 6
+        },
+        {
+          "source": "latin construction clarā mente",
+          "relation_type": "is a source of",
+          "target": "modern Romance productive adverb formation",
+          "evidence": "the Latin construction of the type clarā mente, meaning 'with a clear mind' is the source of modern Romance productive adverb formation.",
+          "section_name": "Mechanisms - Phonetic erosion",
+          "section_index": 3
+        },
+        {
+          "source": "Proto-Germanic etymon",
+          "relation_type": "is the origin of",
+          "target": "English suffixes -ly and -like",
+          "evidence": "both English suffixes -ly (as in bodily and angrily), and -like (as in catlike or yellow-like) ultimately come from an earlier Proto-Germanic etymon, *līką.",
+          "section_name": "Mechanisms - Semantic bleaching",
           "section_index": 3
         },
         {
@@ -993,60 +321,116 @@
           "section_index": -1
         },
         {
-          "source": "monosyllabic languages",
-          "relation_type": "feature",
-          "target": "obligatory match between syllable and morpheme",
-          "evidence": "featuring an obligatory match between syllable and morpheme.",
-          "section_name": "Mechanisms - Phonetic erosion",
-          "section_index": 3
-        },
-        {
-          "source": "counterexamples",
-          "relation_type": "challenge",
-          "target": "unidirectionality",
-          "evidence": "the possibility of counterexamples, coupled with their rarity, is given as evidence for the general operating principle of unidirectionality.",
-          "section_name": "Unidirectionality hypothesis - Counterexamples (degrammaticalization)",
-          "section_index": 5
-        },
-        {
-          "source": "orthography",
-          "relation_type": "describes the writing system of",
-          "target": "japanese compound verbs",
-          "evidence": "in Japanese orthography lexical items are generally written with kanji... while grammatical items are written with hiragana",
-          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Japanese compound verbs",
+          "source": "romance languages",
+          "relation_type": "develop from",
+          "target": "auxiliary verbs",
+          "evidence": "the original future tense forms were dropped when they became phonetically too close to the imperfect forms",
+          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Examples developing a future tense",
           "section_index": 4
         },
         {
-          "source": "degrammaticalization",
-          "relation_type": "related to",
-          "target": "grammaticalization",
-          "evidence": "The first monograph on degrammaticalization and its relation to grammaticalization was published in 2009.",
-          "section_name": "Views on grammaticalization",
-          "section_index": 6
+          "source": "example of 'that'",
+          "relation_type": "transforms into",
+          "target": "relative clause marker",
+          "evidence": "...came to be used as a relative clause marker...",
+          "section_name": "Mechanisms - Morphological reduction",
+          "section_index": 3
         },
         {
-          "source": "example of 'let's'",
-          "relation_type": "illustrates",
+          "source": "semantic bleaching",
+          "relation_type": "contributes to",
           "target": "loss of semantic content",
-          "evidence": "The example of 'let's' illustrates the loss of semantic content as it becomes a formulaic expression used for suggesting actions rather than conveying specific meanings.",
+          "evidence": "Semantic bleaching is a phenomenon that leads to the loss of specific meanings in words, which is a key aspect of how grammaticalization affects the semantic content of lexical items, thereby linking these concepts in the context of language evolution.",
           "section_name": "global",
           "section_index": -1
         },
         {
-          "source": "degrammaticalization",
-          "relation_type": "is a process related to",
+          "source": "function words",
+          "relation_type": "are a type of",
+          "target": "grammatical items",
+          "evidence": "grammatical items or function words, which serve mainly to express grammatical relationships.",
+          "section_name": "Introduction",
+          "section_index": 1
+        },
+        {
+          "source": "grammaticalization",
+          "relation_type": "influences",
+          "target": "auxiliary verbs",
+          "evidence": "Grammaticalization processes often lead to the development of auxiliary verbs from lexical items, illustrating how grammaticalization shapes the structure of language.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "historical context of linguistics",
+          "relation_type": "shapes",
+          "target": "neo-grammarians",
+          "evidence": "The historical context of linguistics has shaped the neo-grammarians' approach to understanding language change and the principles governing it.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "morpheme",
+          "relation_type": "loses",
+          "target": "semantic features",
+          "evidence": "the partial effacement of a morpheme's semantic features, the stripping away of some of its precise content...",
+          "section_name": "Mechanisms - Semantic bleaching",
+          "section_index": 3
+        },
+        {
+          "source": "relative clause marker",
+          "relation_type": "loses",
+          "target": "grammatical category of number",
+          "evidence": "...and lost the grammatical category of number ('that' singular vs. 'those' plural)...",
+          "section_name": "Mechanisms - Morphological reduction",
+          "section_index": 3
+        },
+        {
+          "source": "case studies",
+          "relation_type": "illustrate concepts of",
           "target": "grammaticalization",
-          "evidence": "Norde, Muriel. Degrammaticalization.",
+          "evidence": "Fischer, Olga, & Anette Rosenbach. 'Introduction' in Pathways of Change: Grammaticalization in English.",
           "section_name": "Sources",
           "section_index": 8
         },
         {
-          "source": "neo-grammarians",
-          "relation_type": "contribute to",
-          "target": "historical context of linguistics",
-          "evidence": "The neo-grammarians' theories significantly contribute to the historical context of linguistics by providing frameworks that explain language change and the principles of grammaticalization.",
+          "source": "cognitive forces",
+          "relation_type": "drive",
+          "target": "grammaticalization",
+          "evidence": "Cognitive forces play a significant role in driving grammaticalization, as they influence how speakers process and produce language, thereby affecting the evolution of grammatical structures over time.",
           "section_name": "global",
           "section_index": -1
+        },
+        {
+          "source": "principle of least effort",
+          "relation_type": "is a reason for",
+          "target": "phonetic erosion",
+          "evidence": "Some linguists trace erosion to the speaker's tendency to follow the principle of least effort.",
+          "section_name": "Mechanisms - Phonetic erosion",
+          "section_index": 3
+        },
+        {
+          "source": "inflectional suffix",
+          "relation_type": "hypothetical future evolution of",
+          "target": "auxiliary verbs",
+          "evidence": "will could become further grammaticalized to the point that it forms an inflexional affix indicating future tense",
+          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Examples developing a future tense",
+          "section_index": 4
+        },
+        {
+          "source": "parameters of grammaticalization",
+          "relation_type": "are linked to",
+          "target": "grammaticalization",
+          "evidence": "these 'parameters of grammaticalization' are often linked to the theory.",
+          "section_name": "Mechanisms - Obligatorification",
+          "section_index": 3
+        },
+        {
+          "source": "kanji",
+          "relation_type": "used in writing",
+          "target": "japanese compound verbs",
+          "evidence": "Compound verbs are thus generally written with a kanji for each constituent verb",
+          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Japanese compound verbs",
+          "section_index": 4
         },
         {
           "source": "recurrent clines",
@@ -1057,44 +441,636 @@
           "section_index": 4
         },
         {
-          "source": "historical context of grammaticalization",
-          "relation_type": "provides framework for understanding",
-          "target": "stages of grammatical development",
-          "evidence": "The historical context of grammaticalization offers a framework for understanding the various stages of grammatical development, as it situates these changes within a broader timeline of linguistic evolution.",
+          "source": "grammaticalization",
+          "relation_type": "is a process involving",
+          "target": "content words",
+          "evidence": "Grammaticalization is a linguistic process in which words change from representing objects or actions to serving grammatical functions.",
+          "section_name": "Introduction",
+          "section_index": 1
+        },
+        {
+          "source": "unidirectionality",
+          "relation_type": "is a key element of",
+          "target": "grammaticalization",
+          "evidence": "Although unidirectionality is a key element of grammaticalization, exceptions exist.",
+          "section_name": "Unidirectionality hypothesis - Counterexamples (degrammaticalization)",
+          "section_index": 5
+        },
+        {
+          "source": "parameters of grammaticality",
+          "relation_type": "define",
+          "target": "grammaticalization",
+          "evidence": "The parameters of grammaticality help define the boundaries and rules of grammaticalization, illustrating how certain linguistic forms are accepted or rejected in language use.",
           "section_name": "global",
           "section_index": -1
         },
         {
-          "source": "see",
-          "relation_type": "base verb for",
-          "target": "inflectional suffix",
-          "evidence": "'try out, see' (〜みる, -miru), from 'see' (見る, miru)",
+          "source": "auxiliary verbs",
+          "relation_type": "are examples of",
+          "target": "function words",
+          "evidence": "Auxiliary verbs serve as a prime example of function words that have emerged through grammaticalization, demonstrating the shift from content to function in language evolution.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "demonstrative",
+          "relation_type": "example of",
+          "target": "example of 'that'",
+          "evidence": "For example, the demonstrative 'that' as in 'that book' came to be used as a relative clause marker...",
+          "section_name": "Mechanisms - Morphological reduction",
+          "section_index": 3
+        },
+        {
+          "source": "heine and reh",
+          "relation_type": "develop theories on",
+          "target": "grammaticalization",
+          "evidence": "Heine and Reh have developed influential theories on grammaticalization that explore the mechanisms and implications of this linguistic process across different languages.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "phonetic erosion",
+          "relation_type": "is linked to",
+          "target": "grammaticalization",
+          "evidence": "Phonetic erosion (also called phonological attrition or phonological reduction), is another process that is often linked to grammaticalization.",
+          "section_name": "Mechanisms - Phonetic erosion",
+          "section_index": 3
+        },
+        {
+          "source": "evolutionary language",
+          "relation_type": "developed from",
+          "target": "stages of grammatical development",
+          "evidence": "Humboldt suggested that in all languages grammatical structures evolved out of a language stage in which there were only words for concrete objects and ideas.",
+          "section_name": "History",
+          "section_index": 2
+        },
+        {
+          "source": "degrammaticalization",
+          "relation_type": "is a process related to",
+          "target": "grammaticalization",
+          "evidence": "Norde, Muriel. Degrammaticalization.",
+          "section_name": "Sources",
+          "section_index": 8
+        },
+        {
+          "source": "auxiliary verbs",
+          "relation_type": "transforms into",
+          "target": "present-day english",
+          "evidence": "The PDE verb 'will' can thus be said to have less lexical meaning than its preceding form in OE.",
+          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Examples developing a future tense",
+          "section_index": 4
+        },
+        {
+          "source": "Bybee et al. (1994)",
+          "relation_type": "acknowledge that",
+          "target": "parameters of grammaticalization",
+          "evidence": "linguists such as Bybee et al. (1994) have acknowledged that independently, they are not essential to grammaticalization.",
+          "section_name": "Mechanisms - Obligatorification",
+          "section_index": 3
+        },
+        {
+          "source": "discourse analysis",
+          "relation_type": "utilizes",
+          "target": "grammatical category of number",
+          "evidence": "Discourse analysis utilizes the grammatical category of number to understand how plurality affects meaning and interpretation in communication.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "semantic bleaching",
+          "relation_type": "is a characteristic of",
+          "target": "grammaticalization",
+          "evidence": "Semantic bleaching, or desemanticization, has been seen from early on as a characteristic of grammaticalization.",
+          "section_name": "Mechanisms - Semantic bleaching",
+          "section_index": 3
+        },
+        {
+          "source": "grammaticalization",
+          "relation_type": "is studied in",
+          "target": "historical syntax",
+          "evidence": "Campbell, Lyle, & Alice C. Harris. Historical syntax in cross-linguistic perspective.",
+          "section_name": "Sources",
+          "section_index": 8
+        },
+        {
+          "source": "unidirectionality",
+          "relation_type": "is a principle of",
+          "target": "grammaticalization",
+          "evidence": "Unidirectionality is a principle of grammaticalization that posits that linguistic forms tend to evolve in a specific direction, from more concrete to more abstract meanings.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "try eating (it) and see",
+          "relation_type": "illustrates the use of",
+          "target": "grammaticalization",
+          "evidence": "as in 'try eating (it) and see' (食べてみる, tabetemiru)",
           "section_name": "Clines of grammaticality – cycles of categorial downgrading - Japanese compound verbs",
           "section_index": 4
         },
         {
-          "source": "historical syntax",
-          "relation_type": "intersects with",
-          "target": "grammatical categories",
-          "evidence": "Historical syntax intersects with grammatical categories by examining how syntactic structures have evolved over time, thereby informing our understanding of current grammatical frameworks.",
-          "section_name": "global",
-          "section_index": -1
+          "source": "Irish Gaelic",
+          "relation_type": "provides a counterexample to",
+          "target": "unidirectionality",
+          "evidence": "One is found in the development of Irish Gaelic with the origin of the first-person-plural pronoun muid.",
+          "section_name": "Unidirectionality hypothesis - Counterexamples (degrammaticalization)",
+          "section_index": 5
         },
         {
-          "source": "unidirectionality",
-          "relation_type": "debated topic in",
-          "target": "grammaticalization",
-          "evidence": "An important and popular topic which is still debated is the question of unidirectionality.",
+          "source": "grammaticalization",
+          "relation_type": "defined as",
+          "target": "parameters of grammaticality",
+          "evidence": "Lehmann also invented a set of 'parameters', a method along which grammaticality could be measured both synchronically and diachronically.",
           "section_name": "History",
           "section_index": 2
         },
         {
           "source": "grammaticalization",
-          "relation_type": "metaphorical shift described by",
-          "target": "James A. Matisoff",
-          "evidence": "Matisoff views grammaticalization as a subtype of metaphor involving a shift toward the abstract.",
+          "relation_type": "observed in",
+          "target": "serbo-croatian",
+          "evidence": "the Old Church Slavonic verb xъtěti ('to want/to wish') has gone from a content word to an auxiliary verb in phonetically reduced form",
+          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Examples developing a future tense",
+          "section_index": 4
+        },
+        {
+          "source": "grammaticalization",
+          "relation_type": "is influenced by",
+          "target": "cognitive forces",
+          "evidence": "Heine, Bernd. Auxiliaries: Cognitive Forces and Grammaticalization.",
+          "section_name": "Sources",
+          "section_index": 8
+        },
+        {
+          "source": "grammaticalization",
+          "relation_type": "applies to",
+          "target": "inflectional suffix",
+          "evidence": "some suffixes have become grammaticalized, and are written in hiragana",
+          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Japanese compound verbs",
+          "section_index": 4
+        },
+        {
+          "source": "grammaticalization",
+          "relation_type": "can lead to",
+          "target": "loss of phonetic segments",
+          "evidence": "It implies that a linguistic expression loses phonetic substance when it has undergone grammaticalization.",
+          "section_name": "Mechanisms - Phonetic erosion",
+          "section_index": 3
+        },
+        {
+          "source": "historical context of linguistics",
+          "relation_type": "informs",
+          "target": "neo-grammarians",
+          "evidence": "The historical context of linguistics provides insights into the theories proposed by neo-grammarians, who focus on the systematic changes in language over time.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "grammaticalization",
+          "relation_type": "leads to",
+          "target": "semantic bleaching",
+          "evidence": "Once a linguistic expression has changed from a lexical to a grammatical meaning (bleaching)...",
+          "section_name": "Mechanisms - Morphological reduction",
+          "section_index": 3
+        },
+        {
+          "source": "Kate Burridge (1998)",
+          "relation_type": "proposes a counterexample of",
+          "target": "grammaticalization",
+          "evidence": "Traugott cites a counterexample from function to content word proposed by Kate Burridge (1998).",
+          "section_name": "Unidirectionality hypothesis - Counterexamples (degrammaticalization)",
+          "section_index": 5
+        },
+        {
+          "source": "cline of grammaticalization",
+          "relation_type": "has implications",
+          "target": "diachronic implications",
+          "evidence": "the cline of grammaticalization has both diachronic and synchronic implications",
+          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Historical linguistics",
+          "section_index": 4
+        },
+        {
+          "source": "grammaticalization",
+          "relation_type": "important for",
+          "target": "discourse analysis",
+          "evidence": "It was not until the 1970s, with the growth of interest in discourse analysis and linguistic universals, that the interest for grammaticalization in linguistic studies began to grow again.",
+          "section_name": "History",
+          "section_index": 2
+        },
+        {
+          "source": "morpheme",
+          "relation_type": "signals",
+          "target": "grammatical category of number",
+          "evidence": "the suffix -mente in this usage is interpretable by today's native speakers only as a morpheme signaling 'adverb'.",
+          "section_name": "Mechanisms - Phonetic erosion",
+          "section_index": 3
+        },
+        {
+          "source": "evolutionary language",
+          "relation_type": "is influenced by",
+          "target": "grammaticalization",
+          "evidence": "The concept of evolutionary language is influenced by grammaticalization, as it reflects the dynamic nature of language change and adaptation over time.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "grammaticalization",
+          "relation_type": "defined by",
+          "target": "Antoine Meillet",
+          "evidence": "Antoine Meillet (1912) described grammaticalization as creating new forms and introducing categories that transform the grammatical system.",
           "section_name": "Views on grammaticalization",
           "section_index": 6
+        },
+        {
+          "source": "metonymic reasoning",
+          "relation_type": "applies to",
+          "target": "demonstrative",
+          "evidence": "Metonymic reasoning applies to the use of demonstratives, as these words often refer to entities based on contextual relationships rather than direct identification.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "grammaticalization",
+          "relation_type": "principles defined by",
+          "target": "Paul Hopper",
+          "evidence": "Paul Hopper (1991) defined five principles of grammaticalization, including layering, divergence, specialization, persistence, and de-categorialization.",
+          "section_name": "Views on grammaticalization",
+          "section_index": 6
+        },
+        {
+          "source": "parameters of grammaticality",
+          "relation_type": "informs",
+          "target": "discourse analysis",
+          "evidence": "The parameters of grammaticality are essential for discourse analysis, as they help determine how grammatical structures function within larger communicative contexts, thus bridging the gap between syntax and discourse.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "lexicalization",
+          "relation_type": "is related to",
+          "target": "grammaticalization",
+          "evidence": "Lexicalization and grammaticalization are interconnected processes, as both involve the transformation of language elements, with lexicalization focusing on the creation of new words and grammaticalization on the evolution of grammatical forms.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "phonetic reduction",
+          "relation_type": "leads to",
+          "target": "loss of phonetic segments",
+          "evidence": "Phonetic reduction is a process that often results in the loss of phonetic segments, which is a significant aspect of language evolution and simplification.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "neo-grammarians",
+          "relation_type": "rejected",
+          "target": "stages of grammatical development",
+          "evidence": "neo-grammarians like Brugmann rejected the separation of language into distinct 'stages' in favour of uniformitarian assumptions.",
+          "section_name": "History",
+          "section_index": 2
+        },
+        {
+          "source": "case markers",
+          "relation_type": "are influenced by",
+          "target": "grammatical category of number",
+          "evidence": "Case markers often reflect the grammatical category of number, demonstrating how grammatical features interact within a language system.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "content words",
+          "relation_type": "are a type of",
+          "target": "lexical items",
+          "evidence": "lexical items or content words, which carry specific lexical meaning.",
+          "section_name": "Introduction",
+          "section_index": 1
+        },
+        {
+          "source": "grammaticalization",
+          "relation_type": "edited by",
+          "target": "Elizabeth Traugott & Bernd Heine",
+          "evidence": "Elizabeth Traugott & Bernd Heine (1991) edited a collection of papers defining grammaticalization as a linguistic process of organizing categories and coding.",
+          "section_name": "Views on grammaticalization",
+          "section_index": 6
+        },
+        {
+          "source": "japanese compound verbs",
+          "relation_type": "example of",
+          "target": "example of compound verb",
+          "evidence": "Many Japanese words are formed by connecting two verbs, as in 'go and ask (listen)' (行って聞く, ittekiku)",
+          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Japanese compound verbs",
+          "section_index": 4
+        },
+        {
+          "source": "old english willan",
+          "relation_type": "evolves into",
+          "target": "auxiliary verbs",
+          "evidence": "the change from the Old English (OE) verb willan ('to want/to wish') to an auxiliary verb signifying intention in Middle English (ME)",
+          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Examples developing a future tense",
+          "section_index": 4
+        },
+        {
+          "source": "grammaticalization",
+          "relation_type": "defined by",
+          "target": "Jerzy Kurylowicz",
+          "evidence": "Jerzy Kurylowicz (1965) provided a classical definition of grammaticalization as the increase of the range of a morpheme from lexical to grammatical status.",
+          "section_name": "Views on grammaticalization",
+          "section_index": 6
+        },
+        {
+          "source": "semantic bleaching",
+          "relation_type": "occurs in",
+          "target": "grammaticalized morphemic role",
+          "evidence": "This example also illustrates that semantic bleaching of a form in its grammaticalized morphemic role does not necessarily imply bleaching of its lexical source.",
+          "section_name": "Mechanisms - Phonetic erosion",
+          "section_index": 3
+        },
+        {
+          "source": "grammaticalization",
+          "relation_type": "summarized by",
+          "target": "Olga Fischer & Anette Rosenbach",
+          "evidence": "Olga Fischer & Anette Rosenbach (2000) summarized grammaticalization as a diachronic process with typical mechanisms.",
+          "section_name": "Views on grammaticalization",
+          "section_index": 6
+        },
+        {
+          "source": "auxiliary verbs",
+          "relation_type": "become full-fledged",
+          "target": "inflection",
+          "evidence": "the auxiliary became a full-fledged inflection in almost all Romance languages",
+          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Examples developing a future tense",
+          "section_index": 4
+        },
+        {
+          "source": "function words",
+          "relation_type": "result from",
+          "target": "grammaticalization",
+          "evidence": "The process of grammaticalization results in the emergence of function words, which are crucial for sentence structure and grammatical relationships.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "present-day english",
+          "relation_type": "includes",
+          "target": "clitic",
+          "evidence": "The PDE form is even shortened to 'll and no longer necessarily implies intention",
+          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Examples developing a future tense",
+          "section_index": 4
+        },
+        {
+          "source": "documentation of changes",
+          "relation_type": "helps to reveal",
+          "target": "future language development",
+          "evidence": "the documenting of changes can help to reveal the lines along which a language is likely to develop in the future",
+          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Historical linguistics",
+          "section_index": 4
+        },
+        {
+          "source": "John Haiman",
+          "relation_type": "describes",
+          "target": "semantic reduction",
+          "evidence": "John Haiman wrote that 'semantic reduction, or bleaching, occurs as a morpheme loses its intention...'",
+          "section_name": "Mechanisms - Semantic bleaching",
+          "section_index": 3
+        },
+        {
+          "source": "parameters of grammaticalization",
+          "relation_type": "define",
+          "target": "cline of grammaticalization",
+          "evidence": "The parameters of grammaticalization help to outline the cline of grammaticalization, illustrating how linguistic elements evolve from concrete to abstract forms.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "James Matisoff",
+          "relation_type": "describes",
+          "target": "semantic bleaching",
+          "evidence": "James Matisoff described bleaching as 'the partial effacement of a morpheme's semantic features...'",
+          "section_name": "Mechanisms - Semantic bleaching",
+          "section_index": 3
+        },
+        {
+          "source": "metonymic reasoning",
+          "relation_type": "is a mechanism for",
+          "target": "grammaticalization",
+          "evidence": "Metonymic reasoning serves as a cognitive mechanism that facilitates grammaticalization, allowing speakers to create new grammatical forms based on existing semantic relationships.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "Heine and Kuteva",
+          "relation_type": "argue that",
+          "target": "obligatorification",
+          "evidence": "Some linguists, like Heine and Kuteva, stress the fact that even though obligatorification can be seen as an important process, it is not necessary for grammaticalization to take place.",
+          "section_name": "Mechanisms - Obligatorification",
+          "section_index": 3
+        },
+        {
+          "source": "semantic bleaching",
+          "relation_type": "results in",
+          "target": "loss of semantic content",
+          "evidence": "...it is likely to lose morphological and syntactic elements that were characteristic of its initial category...",
+          "section_name": "Mechanisms - Morphological reduction",
+          "section_index": 3
+        },
+        {
+          "source": "evidentiality",
+          "relation_type": "is an example of a concept that",
+          "target": "is less frequently grammaticalized",
+          "evidence": "Some concepts are often grammaticalized; others, such as evidentiality, less frequently.",
+          "section_name": "Introduction",
+          "section_index": 1
+        },
+        {
+          "source": "phonetic erosion",
+          "relation_type": "includes",
+          "target": "phonetic simplification",
+          "evidence": "Phonetic simplification 'Going to' → 'gonna' (or even 'I am going to' → 'I'm gonna' → 'I'mma') and 'because' → 'coz' are examples of erosion in English.",
+          "section_name": "Mechanisms - Phonetic erosion",
+          "section_index": 3
+        },
+        {
+          "source": "grammaticalization",
+          "relation_type": "defined by",
+          "target": "Christian Lehmann",
+          "evidence": "Christian Lehmann (1982) defined grammaticalization as a process leading from lexemes to grammatical formatives, involving semantic, syntactic, and phonological processes.",
+          "section_name": "Views on grammaticalization",
+          "section_index": 6
+        },
+        {
+          "source": "james matisoff",
+          "relation_type": "contributes to",
+          "target": "understanding of grammaticalization",
+          "evidence": "James Matisoff's work contributes to the understanding of grammaticalization by examining its effects in various linguistic contexts, particularly in lesser-studied languages.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "W. Humboldt",
+          "relation_type": "initiated",
+          "target": "typological difference in phonetic and phonological consequences",
+          "evidence": "a difference mostly initiated by the German linguist W. Humboldt.",
+          "section_name": "Mechanisms - Phonetic erosion",
+          "section_index": 3
+        },
+        {
+          "source": "historical context of grammaticalization",
+          "relation_type": "contextualizes",
+          "target": "stages of grammatical development",
+          "evidence": "Understanding the historical context of grammaticalization provides insight into the various stages of grammatical development, highlighting how past linguistic changes inform current language structures.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "degrammaticalization",
+          "relation_type": "is exemplified by",
+          "target": "North Saami abessive case suffix",
+          "evidence": "the degrammaticalization of the North Saami abessive ('without') case suffix -haga to the postposition haga.",
+          "section_name": "Unidirectionality hypothesis - Counterexamples (degrammaticalization)",
+          "section_index": 5
+        },
+        {
+          "source": "grammaticalization",
+          "relation_type": "metaphorical shift described by",
+          "target": "James A. Matisoff",
+          "evidence": "James A. Matisoff (1991) described grammaticalization as a subtype of metaphor, indicating a shift toward the abstract.",
+          "section_name": "Views on grammaticalization",
+          "section_index": 6
+        },
+        {
+          "source": "historical syntax",
+          "relation_type": "examines",
+          "target": "grammatical categories",
+          "evidence": "Historical syntax examines the development of grammatical categories over time, providing insights into how these categories have evolved and changed in response to linguistic and social factors.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "grammaticalization",
+          "relation_type": "is seen as",
+          "target": "an epiphenomenal telescoping",
+          "evidence": "it may involve certain typical 'path(way)s', but the latter seem to be built out of separate stepping-stones.",
+          "section_name": "Mechanisms - Obligatorification",
+          "section_index": 3
+        },
+        {
+          "source": "transparadigmatic variability",
+          "relation_type": "is reduced by",
+          "target": "obligatorification",
+          "evidence": "Lehmann describes it as a reduction in transparadigmatic variability.",
+          "section_name": "Mechanisms - Obligatorification",
+          "section_index": 3
+        },
+        {
+          "source": "obligatorification",
+          "relation_type": "is a process of",
+          "target": "grammaticalization",
+          "evidence": "Obligatorification occurs when the use of linguistic structures becomes increasingly more obligatory in the process of grammaticalization.",
+          "section_name": "Mechanisms - Obligatorification",
+          "section_index": 3
+        },
+        {
+          "source": "recurrent clines",
+          "relation_type": "enables",
+          "target": "general laws of grammaticalization",
+          "evidence": "The studying and documentation of recurrent clines enable linguists to form general laws of grammaticalization",
+          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Historical linguistics",
+          "section_index": 4
+        },
+        {
+          "source": "monosyllabic languages",
+          "relation_type": "feature",
+          "target": "obligatory match between syllable and morpheme",
+          "evidence": "featuring an obligatory match between syllable and morpheme.",
+          "section_name": "Mechanisms - Phonetic erosion",
+          "section_index": 3
+        },
+        {
+          "source": "historical context",
+          "relation_type": "provides background for",
+          "target": "historical syntax",
+          "evidence": "Givon, Talmy. 'Historical syntax and synchronic morphology: an archaeologist's field trip.'",
+          "section_name": "Sources",
+          "section_index": 8
+        },
+        {
+          "source": "Elizabeth Closs Traugott",
+          "relation_type": "is a key figure in",
+          "target": "grammaticalization",
+          "evidence": "Hopper, Paul J. and Elizabeth Traugott. Grammaticalization.",
+          "section_name": "Sources",
+          "section_index": 8
+        },
+        {
+          "source": "grammaticalization",
+          "relation_type": "coined by",
+          "target": "christian lehmann",
+          "evidence": "A greatly influential work in the domain was Christian Lehmann's Thoughts on Grammaticalization (1982).",
+          "section_name": "History",
+          "section_index": 2
+        },
+        {
+          "source": "historical context of grammaticalization",
+          "relation_type": "provides background for",
+          "target": "stages of grammatical development",
+          "evidence": "Understanding the historical context of grammaticalization helps to elucidate the various stages of grammatical development observed in languages.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "category of number",
+          "relation_type": "is an example of",
+          "target": "obligatorification",
+          "evidence": "Examples of obligatoriness can be found in the category of number.",
+          "section_name": "Mechanisms - Obligatorification",
+          "section_index": 3
+        },
+        {
+          "source": "cline of grammaticalization",
+          "relation_type": "has implications",
+          "target": "synchronic implications",
+          "evidence": "the cline of grammaticalization has both diachronic and synchronic implications",
+          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Historical linguistics",
+          "section_index": 4
+        },
+        {
+          "source": "orthography",
+          "relation_type": "describes the writing system of",
+          "target": "japanese compound verbs",
+          "evidence": "in Japanese orthography lexical items are generally written with kanji... while grammatical items are written with hiragana",
+          "section_name": "Clines of grammaticality – cycles of categorial downgrading - Japanese compound verbs",
+          "section_index": 4
+        },
+        {
+          "source": "phonetic reduction",
+          "relation_type": "related to",
+          "target": "loss of phonetic segments",
+          "evidence": "Phonetic reduction is a phenomenon that often results in the loss of phonetic segments, illustrating how pronunciation evolves in language over time.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "example of 'let's'",
+          "relation_type": "illustrates the process of",
+          "target": "grammaticalization",
+          "evidence": "A well-known example of grammaticalization is that of the process in which the lexical cluster let us... is reduced to let's.",
+          "section_name": "Introduction",
+          "section_index": 1
+        },
+        {
+          "source": "historical context of grammaticalization",
+          "relation_type": "provides framework for",
+          "target": "stages of grammatical development",
+          "evidence": "Understanding the historical context of grammaticalization allows for a clearer comprehension of the various stages of grammatical development across languages.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "case markers",
+          "relation_type": "are developed from",
+          "target": "content words",
+          "evidence": "Where grammaticalization takes place... develop over time into grammatical items such as auxiliaries, case markers, inflections.",
+          "section_name": "Introduction",
+          "section_index": 1
         }
       ]
     }

@@ -547,6 +547,9 @@ class NetworkConceptMapGenerator:
                 .pulse-{unique_id} {{
                     animation: pulse-{unique_id} 2s infinite;
                 }}
+                .pulse-ring.faded {{
+                    opacity: 0.01 !important;
+                }}
                 .controls {{
                     position: absolute;
                     top: 10px;
@@ -660,19 +663,6 @@ class NetworkConceptMapGenerator:
                 networkData.links = networkData.links.filter(link => 
                     validNodeIds.has(link.source) && validNodeIds.has(link.target)
                 );
-
-                // Function to highlight terms in evidence text
-                function highlightTermsInEvidence(evidence, source, target, relation) {{
-                    if (!evidence) return "No evidence available";
-                    
-                    try {{
-                        // Simple HTML display without attempting to highlight terms
-                        return evidence;
-                    }} catch(e) {{
-                        console.error("Error in evidence:", e);
-                        return "No evidence available";
-                    }}
-                }}
 
                 // Function to calculate importance score
                 function calculateImportanceScore(node) {{
@@ -1347,19 +1337,32 @@ class NetworkConceptMapGenerator:
                         .attr("fill", function(d) {{ return getNodeColor(d); }})  // Use color for fill
                         .attr("stroke", "#7E57C2");  // White stroke by default
 
-                    // Apply coral highlight to nodes with hidden connections
-                    nodeCircles.filter(function(d) {{ return nodesWithHidden.has(d.id); }})
-                        .classed("hidden-connections-highlight", true);
-
                     // Add pulse animation to nodes with hidden connections
                     node.filter(function(d) {{ return nodesWithHidden.has(d.id); }})
                         .append("circle")
-                        .attr("r", function(d) {{ return getNodeSize(d); }})
+                        .attr("r", function(d) {{ return getNodeSize(d) + 1; }})
                         .attr("fill", "none")
-                        .attr("stroke", "#FF8A65")  // soft coral pulse animation
-                        .attr("stroke-width", 2)
-                        .attr("opacity", 0.5)
-                        .attr("class", "pulse-{{unique_id}}");
+                        .style("stroke", "#FF8A65")
+                        .style("stroke-width", "2px")
+                        .attr("class", "pulse-ring")
+                        // Crucially, store the node ID as a data attribute
+                        .attr("data-node-id", function(d) {{ return d.id; }})
+                        .call(function(selection) {{
+                            // Define the pulse animation function
+                            function pulse() {{
+                                selection
+                                    .transition()
+                                    .duration(1000)
+                                    // Only transform the radius, not the opacity
+                                    .attr("r", function(d) {{ return getNodeSize(d) + 6; }})
+                                    .transition()
+                                    .duration(1000)
+                                    .attr("r", function(d) {{ return getNodeSize(d) + 5; }})
+                                    .on("end", pulse);
+                            }}
+                            // Start the pulse animation
+                            pulse();
+                        }});
 
                     // Add text labels to nodes
                     node.append("text")
@@ -1406,24 +1409,19 @@ class NetworkConceptMapGenerator:
                     // Add a stronger collision detection force specifically for labels
                     simulation.force("label-collision", d3.forceCollide()
                         .radius(function(d) {{
-                            // Use larger collision radius for nodes with visible labels
+                            // Calculate collision radius based on node size and label dimensions
                             const nodeRadius = getNodeSize(d);
-                            const labelOffset = Math.max(d.labelWidth || 0, d.labelHeight || 0) / 2;
-                            // Return larger of the two values plus padding
-                            return Math.max(nodeRadius, labelOffset) + 15;
+                            // Use the max of label width and height divided by 2 for the collision radius
+                            const labelWidth = d.labelWidth || 0;
+                            const labelHeight = d.labelHeight || 0;
+                            const labelRadius = Math.max(labelWidth, labelHeight) / 1.8;
+                            
+                            // Return the larger of node radius or label radius, plus padding
+                            return Math.max(nodeRadius, labelRadius) + 15;
                         }})
-                        .strength(0.7) // Stronger collision force for labels
-                        .iterations(3)  // More iterations for better collision resolution
+                        .strength(0.8) // Stronger collision force specifically for labels
+                        .iterations(3) 
                     );
-
-                    // Add visual indicator for central node
-                    node.filter(d => d.isCenter)
-                        .append("circle")
-                        .attr("r", function(d) {{ return getNodeSize(d) + 5; }})
-                        .attr("fill", "none")
-                        .attr("stroke", "#5D32A8")
-                        .attr("stroke-width", 1.5)
-                        .attr("opacity", 0.5);
 
                     // Update simulation
                     simulation.alpha(1).restart(); // Full restart for better layout
@@ -1521,44 +1519,56 @@ class NetworkConceptMapGenerator:
                             .attr("dy", function(d) {{
                                 // Check surrounding density
                                 let nearbyNodes = 0;
-                                const threshold = getNodeSize(d) * 3; // Detection radius
+                                const threshold = getNodeSize(d) * 4; // Expanded detection radius
+                                let crowdedTop = 0, crowdedBottom = 0, crowdedLeft = 0, crowdedRight = 0;
                                 
                                 nodes.forEach(other => {{
                                     if (d.id !== other.id) {{
                                         const dx = d.x - other.x;
                                         const dy = d.y - other.y;
                                         const distance = Math.sqrt(dx*dx + dy*dy);
-                                        if (distance < threshold) nearbyNodes++;
+                                        
+                                        if (distance < threshold) {{
+                                            nearbyNodes++;
+                                            // Check which direction is most crowded
+                                            if (Math.abs(dx) > Math.abs(dy)) {{
+                                                // Horizontal proximity
+                                                if (dx > 0) crowdedLeft++; else crowdedRight++;
+                                            }} else {{
+                                                // Vertical proximity
+                                                if (dy > 0) crowdedTop++; else crowdedBottom++;
+                                            }}
+                                        }}
                                     }}
                                 }});
+                                
+                                const dirs = [
+                                    {{dir: "top", count: crowdedTop, offset: -getNodeSize(d) - 10}},
+                                    {{dir: "right", count: crowdedRight, offset: "0.35em"}},
+                                    {{dir: "bottom", count: crowdedBottom, offset: getNodeSize(d) + 14}},
+                                    {{dir: "left", count: crowdedLeft, offset: "0.35em"}}
+                                ];
+                                
+                                dirs.sort((a, b) => a.count - b.count);
 
                                 // Adaptively position label based on node density and position
                                 const angle = Math.atan2(d.y - centerY, d.x - centerX);
 
                                 // If crowded area, place labels more carefully
-                                if (nearbyNodes > 2) {{
-                                    // Place in least crowded direction
+                                if (d.layer === "priority" || nearbyNodes <= 2) {{
                                     if (angle > -Math.PI/4 && angle < Math.PI/4) {{
-                                        return getNodeSize(d) + 5; // Right side
+                                        return "0.35em"; // Right side
                                     }} else if (angle >= Math.PI/4 && angle < 3*Math.PI/4) {{
-                                        return getNodeSize(d) + 15; // Bottom
+                                        return getNodeSize(d) + 14; // Below
                                     }} else if (angle >= 3*Math.PI/4 || angle <= -3*Math.PI/4) {{
-                                        return -getNodeSize(d) - 5; // Left side
+                                        return "0.35em"; // Left side
                                     }} else {{
-                                        return -getNodeSize(d) - 15; // Top
-                                    }}
-                                }} else {{
-                                    // Standard positioning based on angle from center
-                                    if (angle > -Math.PI/4 && angle < Math.PI/4) {{
-                                        return "0.35em"; // Right side, centered vertically
-                                    }} else if (angle >= Math.PI/4 && angle < 3*Math.PI/4) {{
-                                        return getNodeSize(d) + 15; // Below node
-                                    }} else if (angle >= 3*Math.PI/4 || angle <= -3*Math.PI/4) {{
-                                        return "0.35em"; // Left side, centered vertically
-                                    }} else {{
-                                        return -getNodeSize(d) - 5; // Above node
+                                        return -getNodeSize(d) - 10; // Above
                                     }}
                                 }}
+                                
+                                // Otherwise use the least crowded direction
+                                return dirs[0].offset;
                             }})
                             .attr("dx", function(d) {{
                                 // Similar to dy logic, but for horizontal positioning
@@ -1658,12 +1668,27 @@ class NetworkConceptMapGenerator:
                             connectedNodeIds.add(sourceId);
                         }}
                     }});
-                    
-                    console.log("Connected nodes:", Array.from(connectedNodeIds));
-                    
+                                        
                     // Apply fading and highlighting using DOM selections
                     g.selectAll(".node").classed("faded", function(d) {{
                         return !connectedNodeIds.has(d.id);
+                    }});
+                    
+                    g.selectAll(".pulse-ring").each(function() {{
+                        const ringNodeId = d3.select(this).attr("data-node-id");
+                        
+                        // Set appropriate opacity based on connection
+                        if (connectedNodeIds.has(ringNodeId)) {{
+                            d3.select(this).style("opacity", 0.5);  // Connected - visible
+                            
+                            // Clear any fading class if present
+                            d3.select(this).classed("faded-ring", false);
+                        }} else {{
+                            d3.select(this).style("opacity", 0.01);  // Not connected - faded
+                            
+                            // Add class to mark as faded
+                            d3.select(this).classed("faded-ring", true);
+                        }}
                     }});
                     
                     g.selectAll(".link").classed("faded", function(d) {{
@@ -1693,6 +1718,7 @@ class NetworkConceptMapGenerator:
                     console.log("Resetting focus");
                     g.selectAll(".node").classed("faded", false).classed("focused", false);
                     g.selectAll(".link").classed("faded", false);
+                    g.selectAll(".pulse-ring").style("opacity", "0.5");
                 }}
                 
                 // Button click handlers

@@ -1,38 +1,20 @@
 {
   "metadata": {
     "processing_mode": "subsection",
-    "timestamp": "2025-03-07T00:56:20.000000"
+    "timestamp": "2025-03-07T11:44:46.000000"
   },
   "Grammaticalization": {
     "category": "general",
-    "total_entities": 82,
+    "total_entities": 83,
     "entities": [
       {
         "id": "grammaticalization",
-        "frequency": 7,
-        "section_count": 5,
+        "frequency": 4,
+        "section_count": 4,
         "variants": [
           "grammaticalization"
         ],
         "appearances": [
-          {
-            "section": "Mechanisms - Obligatorification",
-            "section_index": 3,
-            "variant": "grammaticalization",
-            "evidence": "Grammaticalization is the process through which words develop into grammatical elements over time. Understanding grammaticalization is crucial as it provides insights into how languages change and adapt, revealing the dynamic nature of linguistic structures."
-          },
-          {
-            "section": "Clines of grammaticality – cycles of categorial downgrading - Examples developing a future tense",
-            "section_index": 4,
-            "variant": "grammaticalization",
-            "evidence": "Grammaticalization is the linguistic process through which words develop new grammatical functions, often transitioning from full verbs to auxiliary verbs or inflectional endings. This process is significant as it illustrates how language evolves over time, impacting meaning and usage."
-          },
-          {
-            "section": "Clines of grammaticality – cycles of categorial downgrading - Japanese compound verbs",
-            "section_index": 4,
-            "variant": "grammaticalization",
-            "evidence": "Grammaticalization is the process by which words develop new grammatical functions over time. In Japanese, this process is evident in the transformation of certain verb forms into grammatical markers, which are then represented in hiragana, highlighting the dynamic nature of language."
-          },
           {
             "section": "Clines of grammaticality – cycles of categorial downgrading - Historical linguistics",
             "section_index": 4,
@@ -114,29 +96,6 @@
         "layer": "priority"
       },
       {
-        "id": "christian lehmann",
-        "frequency": 2,
-        "section_count": 2,
-        "variants": [
-          "christian lehmann"
-        ],
-        "appearances": [
-          {
-            "section": "History",
-            "section_index": 2,
-            "variant": "christian lehmann",
-            "evidence": "Christian Lehmann is a key figure in the study of grammaticalization, known for his work that emphasized the continuity of research in this field. His contributions are significant as they provide a framework for understanding grammaticality across different languages and time periods."
-          },
-          {
-            "section": "Views on grammaticalization",
-            "section_index": 6,
-            "variant": "christian lehmann",
-            "evidence": "Lehmann's definition of grammaticalization as a process involving semantic, syntactic, and phonological changes is important for understanding the complexity of how words transition from concrete meanings to grammatical functions. This multi-faceted approach is essential for linguists studying language evolution."
-          }
-        ],
-        "layer": "tertiary"
-      },
-      {
         "id": "unidirectionality",
         "frequency": 2,
         "section_count": 2,
@@ -158,30 +117,6 @@
           }
         ],
         "layer": "priority"
-      },
-      {
-        "id": "james matisoff",
-        "frequency": 2,
-        "section_count": 2,
-        "variants": [
-          "james matisoff",
-          "james a. matisoff"
-        ],
-        "appearances": [
-          {
-            "section": "Mechanisms - Semantic bleaching",
-            "section_index": 3,
-            "variant": "james matisoff",
-            "evidence": "James Matisoff is a linguist known for his work on grammaticalization and semantic bleaching. His contributions are significant in understanding how morphemes lose their specific meanings, providing a framework for analyzing language change."
-          },
-          {
-            "section": "Views on grammaticalization",
-            "section_index": 6,
-            "variant": "james a. matisoff",
-            "evidence": "Matisoff's interpretation of grammaticalization as a metaphorical shift highlights the abstract nature of language evolution. This concept is significant as it connects grammaticalization to broader cognitive processes in language use."
-          }
-        ],
-        "layer": "tertiary"
       },
       {
         "id": "semantic bleaching",
@@ -218,9 +153,9 @@
         "frequency": 3,
         "section_count": 1,
         "variants": [
+          "decategorialization",
           "morphological reduction",
-          "loss of semantic content",
-          "decategorialization"
+          "loss of semantic content"
         ],
         "appearances": [
           {
@@ -398,6 +333,23 @@
         "layer": "secondary"
       },
       {
+        "id": "christian lehmann",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "christian lehmann"
+        ],
+        "appearances": [
+          {
+            "section": "Views on grammaticalization",
+            "section_index": 6,
+            "variant": "christian lehmann",
+            "evidence": "Lehmann's definition of grammaticalization as a process involving semantic, syntactic, and phonological changes is important for understanding the complexity of how words transition from concrete meanings to grammatical functions. This multi-faceted approach is essential for linguists studying language evolution."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
         "id": "parameters of grammaticality",
         "frequency": 1,
         "section_count": 1,
@@ -515,6 +467,23 @@
           }
         ],
         "layer": "secondary"
+      },
+      {
+        "id": "james matisoff",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "james matisoff"
+        ],
+        "appearances": [
+          {
+            "section": "Mechanisms - Semantic bleaching",
+            "section_index": 3,
+            "variant": "james matisoff",
+            "evidence": "James Matisoff is a linguist known for his work on grammaticalization and semantic bleaching. His contributions are significant in understanding how morphemes lose their specific meanings, providing a framework for analyzing language change."
+          }
+        ],
+        "layer": "tertiary"
       },
       {
         "id": "john haiman",
@@ -1362,6 +1331,23 @@
             "section_index": 6,
             "variant": "františek lichtenberk",
             "evidence": "Lichtenberk's view of grammaticalization as a historical process emphasizes its gradual nature and its impact on morphosyntactic categories. This perspective is important for understanding the timeline and implications of grammatical changes in languages."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "james a. matisoff",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "james a. matisoff"
+        ],
+        "appearances": [
+          {
+            "section": "Views on grammaticalization",
+            "section_index": 6,
+            "variant": "james a. matisoff",
+            "evidence": "Matisoff's interpretation of grammaticalization as a metaphorical shift highlights the abstract nature of language evolution. This concept is significant as it connects grammaticalization to broader cognitive processes in language use."
           }
         ],
         "layer": "tertiary"
