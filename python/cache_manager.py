@@ -97,6 +97,39 @@ class CacheManager:
                     versions.append(dir.name[1:])  # Remove 'v' prefix
         return sorted(versions)
 
+    def cache_relations(self, concepts, text, relations):
+        """Cache relations for a set of concepts and text."""
+        cache_key = self._get_relation_cache_key(concepts, text)
+        cache_file = self.relation_cache_dir / f"{cache_key}.pkl"
+
+        try:
+            # Convert Relation objects to dictionaries to avoid pickle issues
+            serializable_relations = []
+            for rel in relations:
+                if hasattr(rel, '__dict__'):
+                    # It's a Relation object - convert to dict
+                    rel_dict = {
+                        "source": rel.source,
+                        "relation_type": rel.relation_type,
+                        "target": rel.target,
+                        "evidence": rel.evidence,
+                        "section_index": rel.section_index,
+                        "section_name": rel.section_name,
+                        "confidence": getattr(rel, 'confidence', 1.0)
+                    }
+                    serializable_relations.append(rel_dict)
+                else:
+                    # It's already a dictionary
+                    serializable_relations.append(rel)
+
+            with cache_file.open('wb') as f:
+                pickle.dump(serializable_relations, f)
+
+            return True
+        except Exception as e:
+            print(f"Error caching relations: {str(e)}")
+            return False
+
     def get_cached_relations(self, concepts, text):
         """Get cached relations for a set of concepts and text."""
         cache_key = self._get_relation_cache_key(concepts, text)
@@ -105,7 +138,29 @@ class CacheManager:
         if cache_file.exists():
             try:
                 with cache_file.open('rb') as f:
-                    return pickle.load(f)
+                    cached_relations = pickle.load(f)
+
+                # Convert dictionary relations back to Relation objects
+                result_relations = []
+                for rel_dict in cached_relations:
+                    if isinstance(rel_dict, dict):
+                        # Create a Relation object from the dictionary
+                        from entity_extraction import Relation  # Import here to avoid circular imports
+                        relation = Relation(
+                            source=rel_dict["source"],
+                            relation_type=rel_dict["relation_type"],
+                            target=rel_dict["target"],
+                            evidence=rel_dict["evidence"],
+                            section_index=rel_dict.get("section_index", -1),
+                            section_name=rel_dict.get("section_name", "global"),
+                            confidence=rel_dict.get("confidence", 1.0)
+                        )
+                        result_relations.append(relation)
+                    else:
+                        # It's already a Relation object
+                        result_relations.append(rel_dict)
+
+                return result_relations
             except (EOFError, pickle.PickleError, Exception) as e:
                 print(f"Error loading cached relations: {str(e)}")
                 # Delete the corrupted cache file
@@ -114,14 +169,6 @@ class CacheManager:
                 except:
                     pass
         return None
-
-    def cache_relations(self, concepts, text, relations):
-        """Cache relations for a set of concepts and text."""
-        cache_key = self._get_relation_cache_key(concepts, text)
-        cache_file = self.relation_cache_dir / f"{cache_key}.pkl"
-
-        with cache_file.open('wb') as f:
-            pickle.dump(relations, f)
 
     def _get_relation_cache_key(self, concepts, text):
         """Generate cache key for relations."""

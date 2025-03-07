@@ -114,16 +114,41 @@ class Relation:
     section_index: int
     section_name: str
     confidence: float = 1.0
-    
+
     def __eq__(self, other):
         """Consider relations equal if they have same source, type, and target."""
         return (self.source.lower() == other.source.lower() and
                 self.relation_type.lower() == other.relation_type.lower() and
                 self.target.lower() == other.target.lower())
-    
+
     def __hash__(self):
         """Hash based on normalized source, type, and target."""
         return hash((self.source.lower(), self.relation_type.lower(), self.target.lower()))
+
+    def to_dict(self):
+        """Convert to dictionary for JSON serialization."""
+        return {
+            "source": self.source,
+            "relation_type": self.relation_type,
+            "target": self.target,
+            "evidence": self.evidence,
+            "section_index": self.section_index,
+            "section_name": self.section_name,
+            "confidence": self.confidence
+        }
+
+    @classmethod
+    def from_dict(cls, data):
+        """Create relation from dictionary."""
+        return cls(
+            source=data["source"],
+            relation_type=data["relation_type"],
+            target=data["target"],
+            evidence=data["evidence"],
+            section_index=data.get("section_index", -1),
+            section_name=data.get("section_name", "global"),
+            confidence=data.get("confidence", 1.0)
+        )
 
 class RelationTracker:
     def __init__(self, periodic_extraction_threshold: int = 3):

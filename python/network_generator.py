@@ -596,6 +596,10 @@ class NetworkConceptMapGenerator:
                 // Set up variables
                 let expandedNodes = new Set(networkData.expandedNodes || []);
                 let pinnedNodes = new Set(); // Track pinned/fixed nodes
+                
+                let currentSimulation = null;
+                let currentNodes = [];
+
                 const width = 800;
                 const height = 600;
                 const centerX = width / 2;
@@ -970,6 +974,9 @@ class NetworkConceptMapGenerator:
                             .distanceMax(150)
                             .distanceMin(25))
                         .alphaDecay(0.02);
+                    
+                    currentSimulation = simulation;
+                    currentNodes = nodes;
 
                     // Create links with hover effects
                     const link = g.selectAll(".link")
@@ -1290,9 +1297,33 @@ class NetworkConceptMapGenerator:
                             d.labelHeight = bbox.height;
                         }});
                     
-                    simulation.force("label-collision", d3.forceCollide().radius(function(d) {{
-                        return getNodeSize(d) + (d.labelWidth ? (d.labelWidth / 2) + 5 : 15);
-                    }}).strength(0.5));
+                    node.selectAll("text")
+                        .each(function(d) {{
+                            // Get accurate bounding box for each label
+                            const bbox = this.getBBox();
+                            d.labelWidth = bbox.width;
+                            d.labelHeight = bbox.height;
+                            // Store expanded bounding box for collision detection
+                            d.labelBBox = {{
+                                x: -bbox.width/2 - 5,  // Add padding
+                                y: -bbox.height/2 - 2, // Add padding
+                                width: bbox.width + 10,
+                                height: bbox.height + 4
+                            }};
+                        }});
+                                        
+                    // Add a stronger collision detection force specifically for labels
+                    simulation.force("label-collision", d3.forceCollide()
+                        .radius(function(d) {{
+                            // Use larger collision radius for nodes with visible labels
+                            const nodeRadius = getNodeSize(d);
+                            const labelOffset = Math.max(d.labelWidth || 0, d.labelHeight || 0) / 2;
+                            // Return larger of the two values plus padding
+                            return Math.max(nodeRadius, labelOffset) + 15;
+                        }})
+                        .strength(0.7) // Stronger collision force for labels
+                        .iterations(3)  // More iterations for better collision resolution
+                    );
 
                     // Add visual indicator for central node
                     node.filter(d => d.isCenter)
@@ -1397,46 +1428,59 @@ class NetworkConceptMapGenerator:
                         
                         node.select("text")
                             .attr("dy", function(d) {{
-                                // Position based on node location
-                                const distanceFromCenter = Math.sqrt(
-                                    Math.pow(d.x - centerX, 2) + Math.pow(d.y - centerY, 2)
-                                );
-                                const angle = Math.atan2(d.y - centerY, d.x - centerX);
+                                // Check surrounding density
+                                let nearbyNodes = 0;
+                                const threshold = getNodeSize(d) * 3; // Detection radius
                                 
-                                // Position label based on angle from center
-                                if (angle > -Math.PI/4 && angle < Math.PI/4) {{
-                                    // Right side
-                                    return "0.35em"; // Center vertically
-                                }} else if (angle >= Math.PI/4 && angle < 3*Math.PI/4) {{
-                                    // Bottom
-                                    return getNodeSize(d) + 15; // Below node
-                                }} else if (angle >= 3*Math.PI/4 || angle <= -3*Math.PI/4) {{
-                                    // Left side
-                                    return "0.35em"; // Center vertically
+                                nodes.forEach(other => {{
+                                    if (d.id !== other.id) {{
+                                        const dx = d.x - other.x;
+                                        const dy = d.y - other.y;
+                                        const distance = Math.sqrt(dx*dx + dy*dy);
+                                        if (distance < threshold) nearbyNodes++;
+                                    }}
+                                }});
+
+                                // Adaptively position label based on node density and position
+                                const angle = Math.atan2(d.y - centerY, d.x - centerX);
+
+                                // If crowded area, place labels more carefully
+                                if (nearbyNodes > 2) {{
+                                    // Place in least crowded direction
+                                    if (angle > -Math.PI/4 && angle < Math.PI/4) {{
+                                        return getNodeSize(d) + 5; // Right side
+                                    }} else if (angle >= Math.PI/4 && angle < 3*Math.PI/4) {{
+                                        return getNodeSize(d) + 15; // Bottom
+                                    }} else if (angle >= 3*Math.PI/4 || angle <= -3*Math.PI/4) {{
+                                        return -getNodeSize(d) - 5; // Left side
+                                    }} else {{
+                                        return -getNodeSize(d) - 15; // Top
+                                    }}
                                 }} else {{
-                                    // Top
-                                    return -getNodeSize(d) - 5; // Above node
+                                    // Standard positioning based on angle from center
+                                    if (angle > -Math.PI/4 && angle < Math.PI/4) {{
+                                        return "0.35em"; // Right side, centered vertically
+                                    }} else if (angle >= Math.PI/4 && angle < 3*Math.PI/4) {{
+                                        return getNodeSize(d) + 15; // Below node
+                                    }} else if (angle >= 3*Math.PI/4 || angle <= -3*Math.PI/4) {{
+                                        return "0.35em"; // Left side, centered vertically
+                                    }} else {{
+                                        return -getNodeSize(d) - 5; // Above node
+                                    }}
                                 }}
                             }})
                             .attr("dx", function(d) {{
-                                // Position based on node location
-                                const distanceFromCenter = Math.sqrt(
-                                    Math.pow(d.x - centerX, 2) + Math.pow(d.y - centerY, 2)
-                                );
+                                // Similar to dy logic, but for horizontal positioning
                                 const angle = Math.atan2(d.y - centerY, d.x - centerX);
                                 
-                                // Position label based on angle from center
+                                // Use existing dx logic but with more spacing
                                 if (angle > -Math.PI/4 && angle < Math.PI/4) {{
-                                    // Right side
-                                    return getNodeSize(d) + 5; // To the right
+                                    return getNodeSize(d) + 8; // To the right
                                 }} else if (angle >= Math.PI/4 && angle < 3*Math.PI/4) {{
-                                    // Bottom
                                     return 0; // Centered horizontally
                                 }} else if (angle >= 3*Math.PI/4 || angle <= -3*Math.PI/4) {{
-                                    // Left side
-                                    return -getNodeSize(d) - 5; // To the left
+                                    return -getNodeSize(d) - 8; // To the left
                                 }} else {{
-                                    // Top
                                     return 0; // Centered horizontally
                                 }}
                             }})
@@ -1560,10 +1604,16 @@ class NetworkConceptMapGenerator:
                 d3.select("#unpin-btn").on("click", function() {{
                     console.log("Unpin All button clicked");
                     
+                    if (!currentNodes || !currentSimulation) {{
+                        console.error("No active visualization");
+                        return;
+                    }}
+                    
                     // Unpin all nodes
                     pinnedNodes.forEach(nodeId => {{
-                        const node = nodes.find(n => n.id === nodeId);
+                        const node = currentNodes.find(n => n.id === nodeId);
                         if (node && !node.isCenter) {{
+                            console.log("Unpinning node:", nodeId);
                             node.fx = null;
                             node.fy = null;
                         }}
@@ -1576,7 +1626,7 @@ class NetworkConceptMapGenerator:
                     g.selectAll(".node--pinned").classed("node--pinned", false);
                     
                     // Run simulation with low alpha to adjust
-                    simulation.alpha(0.1).restart();
+                    currentSimulation.alpha(0.1).restart();
                 }});
                 
                 // Function to communicate with Streamlit

@@ -426,26 +426,6 @@ with col1:
                 st.session_state.extractor.relation_tracker = RelationTracker()
                 st.session_state.extractor.relation_tracker.periodic_extraction_threshold = 3
 
-                try:
-                    # Temporary fix for pickle error with Relation objects
-                    # Just disable caching for relations during this run
-                    original_cache_relations = st.session_state.extractor.cache_manager.cache_relations
-                    original_get_cached = st.session_state.extractor.cache_manager.get_cached_relations
-
-                    def no_op_cache(*args, **kwargs):
-                        # Do nothing - don't try to cache relations
-                        pass
-
-                    def no_op_get(*args, **kwargs):
-                        # Always return None to force re-computation
-                        return None
-
-                    # Replace with no-op functions
-                    st.session_state.extractor.cache_manager.cache_relations = no_op_cache
-                    st.session_state.extractor.cache_manager.get_cached_relations = no_op_get
-                except Exception as e:
-                    st.warning(f"Note: Relation caching disabled due to: {str(e)}")
-
                 # Section processing with progress updates
                 sections = article_data.get('sections', [])
                 sections_to_skip = {"See also", "Notes", "References", "Works cited", "External links"}
