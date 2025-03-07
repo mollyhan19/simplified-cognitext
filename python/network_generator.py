@@ -428,6 +428,11 @@ class NetworkConceptMapGenerator:
                 .node.has-explanation circle {{
                     stroke-dasharray: 3, 3;
                 }}
+                .node--pinned circle {{
+                    stroke-width: 3px;
+                    stroke-dasharray: none;
+                    stroke: #f06292;
+                }}
                 .node--priority circle {{
                     stroke: #7E57C2;
                 }}
@@ -558,8 +563,8 @@ class NetworkConceptMapGenerator:
                 <button id="reset-btn">Reset</button>
                 <button id="expand-all-btn">Expand All</button>
                 <button id="recenter-btn">Recenter</button>
+                <button id="unpin-btn">Unpin All</button>
             </div>
-
             <div class="legend">
                 <div class="legend-item">
                     <div class="legend-color priority-color"></div>
@@ -590,6 +595,7 @@ class NetworkConceptMapGenerator:
             document.addEventListener('DOMContentLoaded', function() {{
                 // Set up variables
                 let expandedNodes = new Set(networkData.expandedNodes || []);
+                let pinnedNodes = new Set(); // Track pinned/fixed nodes
                 const width = 800;
                 const height = 600;
                 const centerX = width / 2;
@@ -828,6 +834,14 @@ class NetworkConceptMapGenerator:
                     const layerGroups = {{"priority": [], "secondary": [], "tertiary": []}};
 
                     nodes.forEach(node => {{
+                        if (pinnedNodes.has(node.id)) {{
+                            console.log("Preserving position for pinned node:", node.id);
+                            // Make sure fx and fy are set from existing position
+                            node.fx = node.x;
+                            node.fy = node.y;
+                            return; // Skip the rest of the positioning for this node
+                        }}
+                        
                         if (node.id === centralNodeId) {{
                             // Central node stays at center
                             node.x = centerX;
@@ -864,6 +878,7 @@ class NetworkConceptMapGenerator:
                     }});
                 }}
 
+
                 // Function to update the visualization
                 function updateVisualization() {{
                     // Get current data
@@ -878,6 +893,17 @@ class NetworkConceptMapGenerator:
 
                     // Create a node ID lookup for the simulation
                     const nodeById = new Map(nodes.map(node => [node.id, node]));
+                    
+                    nodes.forEach(node => {{
+                        if (pinnedNodes.has(node.id)) {{
+                            // If this node is pinned, ensure it has fixed coordinates
+                            const pinnedNode = nodeById.get(node.id);
+                            if (pinnedNode) {{
+                                node.fx = pinnedNode.x || node.x;
+                                node.fy = pinnedNode.y || node.y;
+                            }}
+                        }}
+                    }});
 
                     // Assign initial positions
                     assignInitialPositions(nodes, centralNode.id);
@@ -1015,8 +1041,8 @@ class NetworkConceptMapGenerator:
                                     d.type
                                 );
 
-                                // Show the evidence tooltip
-                                // When showing the evidence tooltip, just display the evidence as plain text
+                        // Show the evidence tooltip
+                        // When showing the evidence tooltip, just display the evidence as plain text
                         evidenceTooltip
                             .style("display", "block")
                             .style("left", (event.pageX + 10) + "px")
@@ -1087,51 +1113,37 @@ class NetworkConceptMapGenerator:
                                 nodes.forEach(node => {{
                                     nodePositions.set(node.id, {{x: node.x, y: node.y}});
                                 }});
-
+                        
                                 // Toggle expansion state
                                 if (expandedNodes.has(d.id)) {{
                                     expandedNodes.delete(d.id);
+                                    pinnedNodes.delete(d.id);
+                                    d.fx = null;
+                                    d.fy = null;
+                                    d3.select(this).classed("node--pinned", false);
                                 }} else {{
                                     expandedNodes.add(d.id);
+                                    pinnedNodes.add(d.id);
+                                    d.fx = d.x;
+                                    d.fy = d.y;
+                                    console.log("Pinned node at position:", d.x, d.y);
+                                    // Add visual indicator
+                                    d3.select(this).classed("node--pinned", true);
                                 }}
-
+                    
                                 // Update visualization
                                 updateVisualization();
-
-                                // After updating, fix positions of all previously visible nodes
+                        
                                 // We need to wait for the nodes to be created in the DOM
                                 setTimeout(() => {{
+                                    console.log("Checking pinned nodes after update");
                                     g.selectAll(".node").each(function(node) {{
-                                        const oldPos = nodePositions.get(node.id);
-                                        if (oldPos) {{
-                                            // Fix this node at its previous position
-                                            node.fx = oldPos.x;
-                                            node.fy = oldPos.y;
-
-                                            // For newly added nodes, don't fix position
-                                            // so they can find a good position via simulation
+                                        if (pinnedNodes.has(node.id)) {{
+                                            console.log("Should be pinned:", node.id, "fx:", node.fx, "fy:", node.fy);
                                         }}
                                     }});
-
-                                    // Run the simulation with low alpha to stabilize new nodes
-                                    simulation.alpha(0.1).restart();
-
-                                    // Release fixed positions after a short time
-                                    // This allows for smooth transitions while maintaining stability
-                                    setTimeout(() => {{
-                                        g.selectAll(".node").each(function(node) {{
-                                            // Release all nodes except the central node
-                                            if (!node.isCenter) {{
-                                                node.fx = null;
-                                                node.fy = null;
-                                            }}
-                                        }});
-
-                                        // Restart with very low alpha for minimal movement
-                                        simulation.alpha(0.05).restart();
-                                    }}, 1500); // 1.5 seconds should be enough for initial positioning
-                                }}, 50);
-
+                                }}, 500);
+                        
                                 sendMessageToStreamlit({{
                                     expandedNodes: Array.from(expandedNodes)
                                 }});
@@ -1218,7 +1230,8 @@ class NetworkConceptMapGenerator:
                                       "<em>Frequency: " + (d.frequency || 0) + "</em><br>" +
                                       "<em>Connections: " + (d.degree || 0) + "</em>" +
                                       (nodesWithHidden.has(d.id)
-                                          ? "<br><span style='color:#FF8A65'><em>Click to expand connections</em></span>"
+                                          ? "<br><span style='color:#FF8A65'><em>Click to expand connections" + 
+                                            (pinnedNodes.has(d.id) ? " (pinned)" : "") + "</em></span>"
                                           : "") +
                                       "<br><span style='color:#2196F3'><em>Right-click for explanation</em></span>");
                         }})
@@ -1292,9 +1305,22 @@ class NetworkConceptMapGenerator:
 
                     // Update simulation
                     simulation.alpha(1).restart(); // Full restart for better layout
+                    
+                    node.isPinned = true;
 
                     simulation.on("tick", function() {{
                         nodes.forEach(d => {{
+                            if (pinnedNodes.has(d.id) || d.isPinned) {{
+                                if (d.fx !== null && d.fy !== null) {{
+                                    d.x = d.fx;
+                                    d.y = d.fy;
+                                }}
+                            }}
+                            
+                            if (pinnedNodes.has(d.id) && (d.fx === null || d.fy === null)) {{
+                                console.warn("Pinned node lost its fixed position:", d.id);
+                            }}
+                            
                             if (d.isCenter) {{
                                 d.x = centerX;
                                 d.y = centerY;
@@ -1434,10 +1460,15 @@ class NetworkConceptMapGenerator:
                     function dragstarted(event, d) {{
                         if (d.isCenter) return; // Don't allow dragging center node
                         if (!event.active) simulation.alphaTarget(0.3).restart();
+                        // Store original position
+                        d._originalX = d.x;
+                        d._originalY = d.y;
+                        
+                        // Always fix position during drag
                         d.fx = d.x;
                         d.fy = d.y;
                     }}
-                    
+                            
                     function dragged(event, d) {{
                         if (d.isCenter) return; // Don't allow dragging center node
                         d.fx = event.x;
@@ -1447,8 +1478,16 @@ class NetworkConceptMapGenerator:
                     function dragended(event, d) {{
                         if (d.isCenter) return; // Don't allow dragging center node
                         if (!event.active) simulation.alphaTarget(0);
-                        d.fx = null;
-                        d.fy = null;
+                        // If this node is pinned, keep it fixed at the new position
+                        if (pinnedNodes.has(d.id)) {{
+                            d.fx = d.x;
+                            d.fy = d.y;
+                            console.log("Node remains pinned after drag:", d.id, "at", d.x, d.y);
+                        }} else {{
+                            // Otherwise, release it
+                            d.fx = null;
+                            d.fy = null;
+                        }}
                     }}
                 }}
                 
@@ -1518,6 +1557,28 @@ class NetworkConceptMapGenerator:
                     }}
                 }});
                 
+                d3.select("#unpin-btn").on("click", function() {{
+                    console.log("Unpin All button clicked");
+                    
+                    // Unpin all nodes
+                    pinnedNodes.forEach(nodeId => {{
+                        const node = nodes.find(n => n.id === nodeId);
+                        if (node && !node.isCenter) {{
+                            node.fx = null;
+                            node.fy = null;
+                        }}
+                    }});
+                    
+                    // Clear pinned nodes set
+                    pinnedNodes.clear();
+                    
+                    // Remove visual indicators
+                    g.selectAll(".node--pinned").classed("node--pinned", false);
+                    
+                    // Run simulation with low alpha to adjust
+                    simulation.alpha(0.1).restart();
+                }});
+                
                 // Function to communicate with Streamlit
                 function safelySendMessageToStreamlit(message) {{
                     console.log("Attempting to send message to Streamlit:", message);
@@ -1558,8 +1619,50 @@ class NetworkConceptMapGenerator:
                 }}
                 
                 function sendMessageToStreamlit(message) {{
-                    return safelySendMessageToStreamlit(message);
+                    // Only proceed if we're in a Streamlit context
+                    if (window.Streamlit && window.Streamlit.setComponentValue) {{
+                        try {{
+                            window.Streamlit.setComponentValue(message);
+                            console.log("Message sent to Streamlit:", message);
+                            return true;
+                        }} catch (e) {{
+                            console.error("Error sending to Streamlit:", e);
+                            // No need to retry - just apply changes locally
+                            console.log("Applying changes locally due to error");
+                            return false;
+                        }}
+                    }} else {{
+                        console.log("Streamlit API not available, applying changes locally");
+                        // No need to worry about it - all changes are already applied locally
+                        return false;
+                    }}
                 }}
+                
+                svg.on("click", function(event) {{
+                    // Ignore if the click was on a node or a control
+                    if (event.target.closest(".node") || event.target.closest(".controls")) 
+                        return;
+                    
+                    // Unpin all nodes
+                    if (pinnedNodes.size > 0) {{
+                        pinnedNodes.forEach(nodeId => {{
+                            const node = nodes.find(n => n.id === nodeId);
+                            if (node && !node.isCenter) {{
+                                node.fx = null;
+                                node.fy = null;
+                            }}
+                        }});
+                        
+                        // Clear pinned nodes set
+                        pinnedNodes.clear();
+                        
+                        // Remove visual indicators
+                        g.selectAll(".node--pinned").classed("node--pinned", false);
+                        
+                        // Run simulation with low alpha to adjust
+                        simulation.alpha(0.1).restart();
+                    }}
+                }});
                 
                 // Initial visualization
                 updateVisualization();
