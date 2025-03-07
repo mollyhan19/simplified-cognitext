@@ -6,7 +6,7 @@
   },
   "articles": {
     "Quantum supremacy": {
-      "category": "general",
+      "category": "computer_science",
       "relations": [
         {
           "source": "quantum supremacy",
