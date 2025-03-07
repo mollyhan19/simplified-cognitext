@@ -49,13 +49,6 @@ PREGENERATED_CONTENT = {
         "relation_file": os.path.join(pregenerated_dir, "microchimerism_relations.json"),
         "detail_level": "detailed"
     },
-    "https://en.wikipedia.org/wiki/Speech_perception": {
-        "title": "Speech perception",
-        "html_file": os.path.join(pregenerated_dir, "speech_perception_network.html"),
-        "entity_file": os.path.join(pregenerated_dir, "speech_perception_entities.json"),
-        "relation_file": os.path.join(pregenerated_dir, "speech_perception_relations.json"),
-        "detail_level": "detailed"
-    },
     "https://en.wikipedia.org/wiki/Quantum_supremacy":{
         "title": "Quantum supremacy",
         "html_file": os.path.join(pregenerated_dir, "quantum_supremacy_network.html"),

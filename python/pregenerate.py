@@ -29,12 +29,12 @@ network_generator = NetworkConceptMapGenerator(api_key=openai_api_key, output_di
 # Define URLs to pre-generate
 URLS_TO_GENERATE = [
     {
-        "url": "https://en.wikipedia.org/wiki/Microchimerism",
-        "name": "microchimerism"
-    },
-    {
         "url": "https://en.wikipedia.org/wiki/Grammaticalization",
         "name": "grammaticalization"
+    },
+    {
+        "url": "https://en.wikipedia.org/wiki/Quantum_supremacy",
+        "name": "quantum_supremacy"
     }
 ]
 
