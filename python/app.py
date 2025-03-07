@@ -504,7 +504,6 @@ with col1:
                     st.session_state.extractor.relation_tracker.add_global_relations(final_global_relations)
                     st.session_state.extractor.relation_tracker.merge_relations()
 
-
                 # Format relations for use in the app
                 relations = [
                     {

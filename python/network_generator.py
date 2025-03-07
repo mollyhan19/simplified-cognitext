@@ -223,7 +223,7 @@ class NetworkConceptMapGenerator:
             # Extract key attributes
             source = relation.get("source", "")
             target = relation.get("target", "")
-            relation_type = relation.get("type", "")
+            relation_type = relation.get("relation_type", "")
             evidence = relation.get("evidence", "")
 
             # Only add if source and target are non-empty
@@ -452,17 +452,17 @@ class NetworkConceptMapGenerator:
                 }}
                 .node.faded circle {{
                     opacity: 0.2;
-                    transition: opacity 0.3s ease;
+                    transition: opacity 0.2s ease;
                 }}
                 
                 .node.faded text {{
                     opacity: 0.1;
-                    transition: opacity 0.3s ease;
+                    transition: opacity 0.2s ease;
                 }}
                 
                 .link.faded {{
                     opacity: 0.1;
-                    transition: opacity 0.3s ease;
+                    transition: opacity 0.2s ease;
                 }}
                 
                 .node.focused circle {{
@@ -917,6 +917,9 @@ class NetworkConceptMapGenerator:
                     // Get current data
                     const {{ nodes, links }} = getVisibleData();
                     const nodesWithHidden = getAllNodesWithHiddenConnections();
+                    
+                    currentNodes = nodes;
+                    currentLinks = links;
 
                     // Find central node
                     const centralNode = findCentralNode(nodes);
@@ -952,15 +955,36 @@ class NetworkConceptMapGenerator:
                                 evidence: link.evidence
                             }})))
                             .distance(d => {{
-                                // Distance calculation remains the same...
+                                // Adjust distance based on layer and node size
+                                const source = typeof d.source === 'object' ? d.source : nodeById.get(String(d.source));
+                                const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
+                        
+                                if (!source || !target) return 120;
+                        
+                                // Get sizes of source and target nodes
+                                const sourceSize = getNodeSize(source);
+                                const targetSize = getNodeSize(target);
+                                
+                                // Base distance on node sizes + a minimum distance
+                                const baseDistance = sourceSize + targetSize + 30;
+                                
+                                // Layer-based adjustments
+                                if (source.layer === "priority" && target.layer === "priority") {{
+                                    // Priority-to-priority connections are slightly closer
+                                    return baseDistance * 1.2;
+                                }} else if (source.layer === "priority" || target.layer === "priority") {{
+                                    // Priority-to-other connections at medium distance
+                                    return baseDistance * 1.5;
+                                }}
+                                
+                                // Other connections have more space
+                                return baseDistance * 2.0;
                             }})
                             .strength(0.3))
-                        .force("charge", d3.forceManyBody()
-                                .strength(d => {{
-                                    // Stronger repulsion for larger nodes
-                                    return d.isCenter ? -500 : -300;
-                                }})
-                                .distanceMax(500)) // Limit the range of repulsion
+                        .force("charge", d3.forceManyBody().strength(d => {{
+                            // Stronger repulsion for larger nodes
+                            return d.isCenter ? -500 : -300;
+                        }}))
                         .force("center", d3.forceCenter(centerX, centerY).strength(0.2)) // Stronger centering force
                         .force("collide", d3.forceCollide().radius(d => getNodeSize(d) + 10))
                         .force("x", d3.forceX(centerX).strength(d => {{
@@ -983,10 +1007,13 @@ class NetworkConceptMapGenerator:
                             if (d.layer === "secondary") return 240;
                             return 360; // tertiary
                         }}, centerX, centerY).strength(0.15))
+                        .force("link-repulsion", d3.forceManyBody()
+                            .strength(-10)
+                            .distanceMax(150)
+                            .distanceMin(25))
                         .alphaDecay(0.02);
                     
                     currentSimulation = simulation;
-                    currentNodes = nodes;
 
                     // Create links with hover effects
                     const link = g.selectAll(".link")
@@ -1021,6 +1048,9 @@ class NetworkConceptMapGenerator:
                         .on("mouseover", function(event, d) {{
                             // Highlight the line on hover
                             const currentColor = d3.select(this).attr("stroke");
+                            const sourceNode = typeof d.source === 'object' ? d.source : nodeById.get(String(d.source));
+                            const targetNode = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
+                        
                             d3.select(this)
                                 .attr("stroke-opacity", 1)
                                 .attr("stroke-width", function() {{
@@ -1043,37 +1073,22 @@ class NetworkConceptMapGenerator:
                                             return "#999"; // Darker gray
                                     }}
                                 }});
-
-                            // Get source and target node objects
-                            const sourceNode = typeof d.source === 'object' ? d.source : nodeById.get(String(d.source));
-                            const targetNode = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
-
+                            
                             if (sourceNode && targetNode) {{
-                                // Prepare evidence with highlighted terms
-                                const evidence = d.evidence || "";
-                                const highlightedEvidence = highlightTermsInEvidence(
-                                    evidence, 
-                                    sourceNode.name || sourceNode.id,
-                                    targetNode.name || targetNode.id,
-                                    d.type
-                                );
-
-                        // Show the evidence tooltip
-                        // When showing the evidence tooltip, just display the evidence as plain text
-                        evidenceTooltip
-                            .style("display", "block")
-                            .style("left", (event.pageX + 10) + "px")
-                            .style("top", (event.pageY - 10) + "px")
-                            .html(`
-                                <strong>${{sourceNode.name || sourceNode.id}}</strong>
-                                <span style="margin: 0 5px;">→</span>
-                                <strong>${{d.type || "relates to"}}</strong>
-                                <span style="margin: 0 5px;">→</span>
-                                <strong>${{targetNode.name || targetNode.id}}</strong>
-                                <hr style="margin: 8px 0;">
-                                <div>${{d.evidence || "No evidence available"}}</div>
-                            `);
-                            }}
+                                evidenceTooltip
+                                    .style("display", "block")
+                                    .style("left", event.pageX + 10 + "px")
+                                    .style("top", event.pageY - 10 + "px")
+                                    .html(`
+                                        <strong>${{sourceNode.name || sourceNode.id}}</strong>
+                                        <span style="margin: 0 5px;">→</span>
+                                        <strong>${{d.type || "relates to"}}</strong>
+                                        <span style="margin: 0 5px;">→</span>
+                                        <strong>${{targetNode.name || targetNode.id}}</strong>
+                                        <hr style="margin: 8px 0;">
+                                        <div>${{d.evidence || "No evidence available"}}</div>
+                                    `);
+                            }};
                         }})
                         .on("mouseout", function() {{
                             // Restore original line style                            
@@ -1120,62 +1135,117 @@ class NetworkConceptMapGenerator:
                     
                     node
                         // Left-click for expanding/collapsing hidden connections
+                        // Update the node click handler
                         .on("click", function(event, d) {{
                             event.stopPropagation();
+                            
+                            // Store current positions of all nodes
+                            const nodePositions = new Map();
+                            currentNodes.forEach(node => {{
+                                nodePositions.set(node.id, {{x: node.x, y: node.y}});
+                            }});
                         
-                            // Only toggle expansion if the node has hidden connections
                             if (nodesWithHidden.has(d.id)) {{
-                                // Store current positions of all nodes before expanding
-                                const nodePositions = new Map();
-                                nodes.forEach(node => {{
-                                    nodePositions.set(node.id, {{x: node.x, y: node.y}});
-                                }});
-                        
+                                // First apply focus immediately regardless of expansion state
+                                applyFocus(d.id);
+                                focusedNodeId = d.id;
+                                
                                 // Toggle expansion state
                                 if (expandedNodes.has(d.id)) {{
+                                    // COLLAPSING - The node is already expanded, so collapse it
                                     expandedNodes.delete(d.id);
                                     pinnedNodes.delete(d.id);
                                     d.fx = null;
                                     d.fy = null;
                                     d3.select(this).classed("node--pinned", false);
                                     
-                                    // Remove focus if this was the focused node
-                                    if (focusedNodeId === d.id) {{
-                                        focusedNodeId = null;
-                                        resetFocus();
-                                    }}
+                                    // Update visualization (removes hidden connections)
+                                    updateVisualization();
+                                    
+                                    // After visualization update, reapply focus to remaining nodes
+                                    setTimeout(() => {{
+                                        if (focusedNodeId) {{
+                                            applyFocus(focusedNodeId);
+                                        }}
+                                    }}, 50);
                                 }} else {{
+                                    // EXPANDING - Node isn't expanded yet, so expand it
                                     expandedNodes.add(d.id);
                                     pinnedNodes.add(d.id);
                                     d.fx = d.x;
                                     d.fy = d.y;
-                                    console.log("Pinned node at position:", d.x, d.y);
-                                    // Add visual indicator
                                     d3.select(this).classed("node--pinned", true);
                                     
-                                    focusedNodeId = d.id;
+                                    // Update visualization to show hidden connections
+                                    updateVisualization();
+                                    
+                                    // After updating, fix positions and reapply focus
+                                    setTimeout(() => {{
+                                        g.selectAll(".node").each(function(node) {{
+                                            const oldPos = nodePositions.get(node.id);
+                                            if (oldPos) {{
+                                                // Fix this node at its previous position temporarily
+                                                node.fx = oldPos.x;
+                                                node.fy = oldPos.y;
+                                            }}
+                                            
+                                            // Keep expanded nodes pinned
+                                            if (pinnedNodes.has(node.id)) {{
+                                                node.fx = node.x;
+                                                node.fy = node.y;
+                                            }}
+                                        }});
+                                        
+                                        // Run simulation to position new nodes
+                                        currentSimulation.alpha(0.3).restart();
+                                        
+                                        // Release non-pinned nodes after a delay
+                                        setTimeout(() => {{
+                                            g.selectAll(".node").each(function(node) {{
+                                                if (!pinnedNodes.has(node.id) && !node.isCenter) {{
+                                                    node.fx = null;
+                                                    node.fy = null;
+                                                }}
+                                            }});
+                                            
+                                            currentSimulation.alpha(0.05).restart();
+                                            
+                                            // Reapply focus to include new connections
+                                            if (focusedNodeId) {{
+                                                applyFocus(focusedNodeId);
+                                            }}
+                                        }}, 1500);
+                                    }}, 50);
                                 }}
-                    
-                                // Update visualization
-                                updateVisualization();
-                        
-                                // We need to wait for the nodes to be created in the DOM
-                                setTimeout(() => {{
-                                    console.log("Checking pinned nodes after update");
-                                    g.selectAll(".node").each(function(node) {{
-                                        if (pinnedNodes.has(node.id)) {{
-                                            console.log("Should be pinned:", node.id, "fx:", node.fx, "fy:", node.fy);
-                                        }}
-                                    }});
-                                    if (focusedNodeId) {{
-                                        applyFocus(focusedNodeId);
-                                    }}
-                                }}, 500);
-                        
+                            
                                 sendMessageToStreamlit({{
                                     expandedNodes: Array.from(expandedNodes)
                                 }});
                             }}
+                            // Case 2: Node doesn't have hidden connections - just toggle focus
+                            else {{
+                                // If already focused, unfocus
+                                if (focusedNodeId === d.id) {{
+                                    focusedNodeId = null;
+                                    resetFocus();
+                                }} 
+                                // Otherwise set focus to this node
+                                else {{
+                                    focusedNodeId = d.id;
+                                    // Pin the node temporarily while focused
+                                    if (d && !d.isCenter) {{
+                                        d.fx = d.x;
+                                        d.fy = d.y;
+                                    }}
+                                    // Apply visual focus immediately
+                                    applyFocus(d.id);
+                                }}
+                            }}
+                        
+                            // Try to sync with Streamlit if needed
+                            sendMessageToStreamlit({{
+                                expandedNodes: Array.from(expandedNodes)
+                            }});
                         }})
                         // Right-click (contextmenu) for concept explanation
                         .on("contextmenu", function(event, d) {{
@@ -1258,9 +1328,9 @@ class NetworkConceptMapGenerator:
                                       "<em>Frequency: " + (d.frequency || 0) + "</em><br>" +
                                       "<em>Connections: " + (d.degree || 0) + "</em>" +
                                       (nodesWithHidden.has(d.id)
-                                          ? "<br><span style='color:#FF8A65'><em>Click to expand connections" + 
+                                          ? "<br><span style='color:#FF8A65'><em>Click to expand hidden connections" + 
                                             (pinnedNodes.has(d.id) ? " (pinned)" : "") + "</em></span>"
-                                          : "") +
+                                          : "<br><span style='color:#2196F3'><em>Click to focus on this node's connections</em></span>") +
                                       "<br><span style='color:#2196F3'><em>Right-click for explanation</em></span>");
                         }})
                         .on("mouseout", function() {{
@@ -1277,7 +1347,7 @@ class NetworkConceptMapGenerator:
                         .attr("fill", function(d) {{ return getNodeColor(d); }})  // Use color for fill
                         .attr("stroke", "#7E57C2");  // White stroke by default
 
-                    // Apply RED highlight to nodes with hidden connections
+                    // Apply coral highlight to nodes with hidden connections
                     nodeCircles.filter(function(d) {{ return nodesWithHidden.has(d.id); }})
                         .classed("hidden-connections-highlight", true);
 
@@ -1409,6 +1479,12 @@ class NetworkConceptMapGenerator:
                             
                             if (!source || !target) return "";
                             
+                            // Find other links between the same nodes
+                            const relatedLinks = links.filter(l => 
+                                (l.source.id === source.id && l.target.id === target.id) ||
+                                (l.source.id === target.id && l.target.id === source.id)
+                            );
+                            
                             // Calculate midpoint
                             const midX = (source.x + target.x) / 2;
                             const midY = (source.y + target.y) / 2;
@@ -1423,17 +1499,11 @@ class NetworkConceptMapGenerator:
                             const len = Math.sqrt(normalX * normalX + normalY * normalY);
                             let curvature = 0;
                             
-                            // Determine curvature based on link context
                             if (len > 0) {{
-                                // Add more curvature for links between nodes that have many connections
-                                curvature = 20 + Math.min(source.degree + target.degree, 20);
-                                
-                                // If this is a bidirectional link, curve it more
-                                const isBidirectional = links.some(l => 
-                                    (l.source.id === target.id && l.target.id === source.id) ||
-                                    (l.source === target.id && l.target === source.id)
-                                );
-                                if (isBidirectional) curvature = curvature * 1.5;
+                                // If multiple relationships, adjust curvature for each
+                                const relationIndex = relatedLinks.indexOf(d);
+                                const multiplier = relationIndex === 0 ? 1 : 1 + (relationIndex * 0.5);
+                                curvature = 20 * multiplier;
                             }}
                             
                             const controlX = midX + (normalX / len) * curvature;
@@ -1561,13 +1631,26 @@ class NetworkConceptMapGenerator:
                     
                     // Get the focused node and its direct connections
                     const connectedNodeIds = new Set();
-                    connectedNodeIds.add(nodeId); // Add the focused node
+                    connectedNodeIds.add(nodeId); // Add the focused node itself
                     
-                    // Find all nodes directly connected to the focused node
+                    // Use DOM selection to find connected nodes
                     g.selectAll(".link").each(function(link) {{
-                        const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
-                        const targetId = typeof link.target === 'object' ? link.target.id : link.target;
-
+                        let sourceId, targetId;
+                        
+                        // Handle all possible formats of source/target
+                        if (typeof link.source === 'object' && link.source !== null) {{
+                            sourceId = link.source.id;
+                        }} else {{
+                            sourceId = String(link.source);
+                        }}
+                        
+                        if (typeof link.target === 'object' && link.target !== null) {{
+                            targetId = link.target.id;
+                        }} else {{
+                            targetId = String(link.target);
+                        }}
+                        
+                        // Add connected nodes to our set
                         if (sourceId === nodeId) {{
                             connectedNodeIds.add(targetId);
                         }}
@@ -1575,22 +1658,35 @@ class NetworkConceptMapGenerator:
                             connectedNodeIds.add(sourceId);
                         }}
                     }});
-
+                    
                     console.log("Connected nodes:", Array.from(connectedNodeIds));
-
-                    // Fade out non-connected nodes and links
+                    
+                    // Apply fading and highlighting using DOM selections
                     g.selectAll(".node").classed("faded", function(d) {{
                         return !connectedNodeIds.has(d.id);
                     }});
-
+                    
                     g.selectAll(".link").classed("faded", function(d) {{
-                        const sourceId = typeof d.source === 'object' ? d.source.id : d.source;
-                        const targetId = typeof d.target === 'object' ? d.target.id : d.target;
+                        let sourceId, targetId;
+                        
+                        if (typeof d.source === 'object' && d.source !== null) {{
+                            sourceId = d.source.id;
+                        }} else {{
+                            sourceId = String(d.source);
+                        }}
+                        
+                        if (typeof d.target === 'object' && d.target !== null) {{
+                            targetId = d.target.id;
+                        }} else {{
+                            targetId = String(d.target);
+                        }}
+                        
                         return !(connectedNodeIds.has(sourceId) && connectedNodeIds.has(targetId));
                     }});
-
+                    
                     // Highlight the focused node
                     g.selectAll(".node").filter(d => d.id === nodeId).classed("focused", true);
+                    
                 }}
 
                 function resetFocus() {{
@@ -1702,7 +1798,7 @@ class NetworkConceptMapGenerator:
                     resetFocus();
                     
                     // First stage: Gentle transition from current positions
-                    currentSimulation.alpha(0.1).restart();
+                    currentSimulation.alpha(0.2).restart();
                     
                     // Second stage: Apply layer-based positioning after a short delay
                     setTimeout(() => {{
@@ -1748,7 +1844,7 @@ class NetworkConceptMapGenerator:
                             }});
                             
                             // Final gentle adjustment
-                            currentSimulation.alpha(0.05).restart();
+                            currentSimulation.alpha(0.1).restart();
                         }}, 1000);
                     }}, 500);
                 }});
@@ -1816,14 +1912,15 @@ class NetworkConceptMapGenerator:
                     // Ignore if the click was on a node or a control
                     if (event.target.closest(".node") || event.target.closest(".controls")) 
                         return;
-                        
+                    
+                    // Reset focus
                     focusedNodeId = null;
                     resetFocus();
                     
-                    // Unpin all nodes
+                    // Unpin all nodes - access currentNodes instead of nodes
                     if (pinnedNodes.size > 0) {{
                         pinnedNodes.forEach(nodeId => {{
-                            const node = nodes.find(n => n.id === nodeId);
+                            const node = currentNodes.find(n => n.id === nodeId);
                             if (node && !node.isCenter) {{
                                 node.fx = null;
                                 node.fy = null;
@@ -1837,9 +1934,12 @@ class NetworkConceptMapGenerator:
                         g.selectAll(".node--pinned").classed("node--pinned", false);
                         
                         // Run simulation with low alpha to adjust
-                        simulation.alpha(0.1).restart();
+                        if (currentSimulation) {{
+                            currentSimulation.alpha(0.1).restart();
+                        }}
                     }}
                 }});
+
                 
                 // Initial visualization
                 updateVisualization();
