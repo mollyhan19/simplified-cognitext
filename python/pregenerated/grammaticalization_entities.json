@@ -1,0 +1,1477 @@
+{
+  "metadata": {
+    "processing_mode": "subsection",
+    "timestamp": "2025-03-06T22:28:59.000000"
+  },
+  "Grammaticalization": {
+    "category": "general",
+    "total_entities": 79,
+    "entities": [
+      {
+        "id": "grammaticalization",
+        "frequency": 7,
+        "section_count": 5,
+        "variants": [
+          "grammaticalization"
+        ],
+        "appearances": [
+          {
+            "section": "Mechanisms - Obligatorification",
+            "section_index": 3,
+            "variant": "grammaticalization",
+            "evidence": "Grammaticalization is the process through which words develop into grammatical elements over time. Understanding grammaticalization is crucial as it provides insights into how languages change and adapt, revealing the dynamic nature of linguistic structures."
+          },
+          {
+            "section": "Clines of grammaticality – cycles of categorial downgrading - Examples developing a future tense",
+            "section_index": 4,
+            "variant": "grammaticalization",
+            "evidence": "Grammaticalization is the linguistic process through which words develop new grammatical functions, often transitioning from full verbs to auxiliary verbs or inflectional endings. This process is significant as it illustrates how language evolves over time, impacting meaning and usage."
+          },
+          {
+            "section": "Clines of grammaticality – cycles of categorial downgrading - Japanese compound verbs",
+            "section_index": 4,
+            "variant": "grammaticalization",
+            "evidence": "Grammaticalization is the process by which words develop new grammatical functions over time. In Japanese, this process is evident in the transformation of certain verb forms into grammatical markers, which are then represented in hiragana, highlighting the dynamic nature of language."
+          },
+          {
+            "section": "Clines of grammaticality – cycles of categorial downgrading - Historical linguistics",
+            "section_index": 4,
+            "variant": "grammaticalization",
+            "evidence": "Grammaticalization is a linguistic phenomenon where words and forms evolve from more concrete, lexical meanings to more abstract, grammatical functions over time. This process is significant because it helps linguists understand how languages change and develop, revealing patterns that can predict future language evolution."
+          },
+          {
+            "section": "Unidirectionality hypothesis - Counterexamples (degrammaticalization)",
+            "section_index": 5,
+            "variant": "grammaticalization",
+            "evidence": "Grammaticalization is the process by which words develop new grammatical functions over time, often becoming more abstract and less phonetically distinct. Understanding grammaticalization helps linguists trace the evolution of language and the mechanisms behind changes in syntax and morphology."
+          },
+          {
+            "section": "Views on grammaticalization",
+            "section_index": 6,
+            "variant": "grammaticalization",
+            "evidence": "Grammaticalization is a linguistic process where words evolve from a lexical to a grammatical status, often leading to new forms and categories within a language. This concept is crucial as it helps linguists understand how language changes over time and how meanings shift."
+          },
+          {
+            "section": "Sources",
+            "section_index": 8,
+            "variant": "grammaticalization",
+            "evidence": "Grammaticalization refers to the process by which words develop into grammatical elements, creating new forms and introducing categories that previously lacked linguistic expression. This concept is crucial in understanding how languages evolve over time and how grammatical structures emerge."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "degrammaticalization",
+        "frequency": 3,
+        "section_count": 3,
+        "variants": [
+          "degrammaticalization"
+        ],
+        "appearances": [
+          {
+            "section": "Unidirectionality hypothesis - Counterexamples (degrammaticalization)",
+            "section_index": 5,
+            "variant": "degrammaticalization",
+            "evidence": "Degrammaticalization is the process by which a grammatical element loses its grammatical function and becomes more independent. This concept is essential for understanding the reverse process of grammaticalization and the complexities of language evolution."
+          },
+          {
+            "section": "Views on grammaticalization",
+            "section_index": 6,
+            "variant": "degrammaticalization",
+            "evidence": "Degrammaticalization refers to the process where grammatical forms revert to a more lexical status. Understanding this concept is important as it provides a counterpoint to grammaticalization, illustrating the dynamic and reversible nature of language change."
+          },
+          {
+            "section": "Sources",
+            "section_index": 8,
+            "variant": "degrammaticalization",
+            "evidence": "Degrammaticalization is the process through which grammatical elements revert to a more lexical or less grammatical status. This concept is important for understanding the dynamic nature of language and how grammatical structures can change over time."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "historical context of grammaticalization",
+        "frequency": 4,
+        "section_count": 2,
+        "variants": [
+          "middle english",
+          "present-day english",
+          "serbo-croatian",
+          "historical context of grammaticalization"
+        ],
+        "appearances": [
+          {
+            "section": "Introduction",
+            "section_index": 1,
+            "variant": "historical context of grammaticalization",
+            "evidence": "The historical context of grammaticalization reflects its evolution as a concept within linguistics. Understanding its broader meanings across different linguistic frameworks is essential for grasping the complexities of language development and change."
+          },
+          {
+            "section": "Clines of grammaticality – cycles of categorial downgrading - Examples developing a future tense",
+            "section_index": 4,
+            "variant": "middle english",
+            "evidence": "Middle English refers to the stage of the English language spoken from approximately 1150 to 1500. This period is crucial for understanding the transition of verbs like 'willan' into auxiliary forms, marking significant linguistic evolution."
+          },
+          {
+            "section": "Clines of grammaticality – cycles of categorial downgrading - Examples developing a future tense",
+            "section_index": 4,
+            "variant": "present-day english",
+            "evidence": "Present-Day English (PDE) is the current form of the English language, characterized by its simplified grammatical structures and vocabulary. Understanding PDE is essential for recognizing how historical changes in language have shaped modern usage."
+          },
+          {
+            "section": "Clines of grammaticality – cycles of categorial downgrading - Examples developing a future tense",
+            "section_index": 4,
+            "variant": "serbo-croatian",
+            "evidence": "Serbo-Croatian is a South Slavic language that provides a comparative example of grammaticalization, illustrating how verbs can evolve similarly across different languages. This comparison enriches the understanding of language change."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "auxiliary verbs",
+        "frequency": 2,
+        "section_count": 2,
+        "variants": [
+          "auxiliary verb",
+          "auxiliary verbs"
+        ],
+        "appearances": [
+          {
+            "section": "Introduction",
+            "section_index": 1,
+            "variant": "auxiliary verbs",
+            "evidence": "Auxiliary verbs are verbs that accompany main verbs to form tenses, moods, or voices. The transformation of 'willan' into 'will' exemplifies grammaticalization, showcasing how language can adapt to express complex ideas like intention and futurity."
+          },
+          {
+            "section": "Clines of grammaticality – cycles of categorial downgrading - Examples developing a future tense",
+            "section_index": 4,
+            "variant": "auxiliary verb",
+            "evidence": "An auxiliary verb is a verb that helps to form tenses, moods, or voices of other verbs. In the case of 'will', it has transitioned from indicating intention to primarily marking future tense, showcasing the shift in its grammatical role."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "christian lehmann",
+        "frequency": 2,
+        "section_count": 2,
+        "variants": [
+          "christian lehmann"
+        ],
+        "appearances": [
+          {
+            "section": "History",
+            "section_index": 2,
+            "variant": "christian lehmann",
+            "evidence": "Christian Lehmann is a key figure in the study of grammaticalization, known for his work that emphasized the continuity of research in this field. His contributions are significant as they provide a framework for understanding grammaticality across different languages and time periods."
+          },
+          {
+            "section": "Views on grammaticalization",
+            "section_index": 6,
+            "variant": "christian lehmann",
+            "evidence": "Lehmann's definition of grammaticalization as a process involving semantic, syntactic, and phonological changes is important for understanding the complexity of how words transition from concrete meanings to grammatical functions. This multi-faceted approach is essential for linguists studying language evolution."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "unidirectionality",
+        "frequency": 2,
+        "section_count": 2,
+        "variants": [
+          "unidirectionality"
+        ],
+        "appearances": [
+          {
+            "section": "History",
+            "section_index": 2,
+            "variant": "unidirectionality",
+            "evidence": "Unidirectionality in grammaticalization refers to the idea that grammatical changes typically occur in a one-way direction, from less grammatical to more grammatical forms. This concept is crucial for understanding the nature of language evolution and the constraints that govern grammatical change."
+          },
+          {
+            "section": "Unidirectionality hypothesis - Counterexamples (degrammaticalization)",
+            "section_index": 5,
+            "variant": "unidirectionality",
+            "evidence": "Unidirectionality refers to the principle that language change, particularly in grammaticalization, typically moves in one direction—from less to more grammaticalized forms. This concept is crucial for understanding how languages evolve over time and the general patterns that govern these changes."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "james matisoff",
+        "frequency": 2,
+        "section_count": 2,
+        "variants": [
+          "james matisoff",
+          "james a. matisoff"
+        ],
+        "appearances": [
+          {
+            "section": "Mechanisms - Semantic bleaching",
+            "section_index": 3,
+            "variant": "james matisoff",
+            "evidence": "James Matisoff is a linguist known for his work on grammaticalization and semantic bleaching. His contributions are significant in understanding how morphemes lose their specific meanings, providing a framework for analyzing language change."
+          },
+          {
+            "section": "Views on grammaticalization",
+            "section_index": 6,
+            "variant": "james a. matisoff",
+            "evidence": "Matisoff's interpretation of grammaticalization as a metaphorical shift highlights the abstract nature of language evolution. This concept is significant as it connects grammaticalization to broader cognitive processes in language use."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "semantic bleaching",
+        "frequency": 3,
+        "section_count": 1,
+        "variants": [
+          "semantic bleaching",
+          "bleaching"
+        ],
+        "appearances": [
+          {
+            "section": "Mechanisms - Semantic bleaching",
+            "section_index": 3,
+            "variant": "semantic bleaching",
+            "evidence": "Semantic bleaching refers to the process where a word loses its specific meaning and becomes more abstract, often retaining only grammatical functions. This concept is crucial in understanding how language evolves over time, particularly in the context of grammaticalization, where words shift from having concrete meanings to serving more functional roles in sentence structure."
+          },
+          {
+            "section": "Mechanisms - Morphological reduction",
+            "section_index": 3,
+            "variant": "bleaching",
+            "evidence": "Bleaching refers to the process where a word loses its specific lexical meaning and takes on a more grammatical function. This concept is significant because it illustrates how language evolves and how words can shift in their roles within sentences, impacting communication and understanding."
+          },
+          {
+            "section": "Mechanisms - Phonetic erosion",
+            "section_index": 3,
+            "variant": "semantic bleaching",
+            "evidence": "Semantic bleaching refers to the process where a word loses its specific meaning and becomes more generalized. This concept is important in linguistics as it shows how meanings can shift while maintaining phonological forms."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "loss of semantic content",
+        "frequency": 3,
+        "section_count": 1,
+        "variants": [
+          "morphological reduction",
+          "loss of semantic content",
+          "decategorialization"
+        ],
+        "appearances": [
+          {
+            "section": "Mechanisms - Semantic bleaching",
+            "section_index": 3,
+            "variant": "loss of semantic content",
+            "evidence": "The loss of semantic content refers to the diminishing specificity of meaning in words as they undergo grammaticalization. This concept is important because it highlights how language can become more abstract and less tied to concrete ideas, impacting comprehension and communication."
+          },
+          {
+            "section": "Mechanisms - Morphological reduction",
+            "section_index": 3,
+            "variant": "decategorialization",
+            "evidence": "Decategorialization is the process by which a word loses its grammatical category, such as moving from a noun to a grammatical marker. Understanding this concept is crucial for linguists as it highlights the dynamic nature of language and how grammatical structures can change over time."
+          },
+          {
+            "section": "Mechanisms - Morphological reduction",
+            "section_index": 3,
+            "variant": "morphological reduction",
+            "evidence": "Morphological reduction refers to the simplification of a word's form, often resulting in the loss of inflectional or derivational morphemes. This concept is important in the study of language change, as it helps explain how words can become less complex while still retaining their communicative function."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "content words",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "content words"
+        ],
+        "appearances": [
+          {
+            "section": "Introduction",
+            "section_index": 1,
+            "variant": "content words",
+            "evidence": "Content words are the building blocks of language that carry specific meanings, such as nouns and verbs. Understanding their role in grammaticalization helps linguists analyze how these words can shift to serve grammatical purposes, thereby enriching our comprehension of language structure."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "function words",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "function words"
+        ],
+        "appearances": [
+          {
+            "section": "Introduction",
+            "section_index": 1,
+            "variant": "function words",
+            "evidence": "Function words are essential in constructing sentences as they help to convey grammatical relationships rather than specific meanings. Their development from content words through grammaticalization is crucial for understanding how language evolves and functions."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "evidentiality",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "evidentiality"
+        ],
+        "appearances": [
+          {
+            "section": "Introduction",
+            "section_index": 1,
+            "variant": "evidentiality",
+            "evidence": "Evidentiality refers to the linguistic encoding of the source of information. Its less frequent grammaticalization compared to other concepts highlights the variability in how different linguistic elements evolve, which is important for understanding language diversity."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "lexical items",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "lexical items"
+        ],
+        "appearances": [
+          {
+            "section": "Introduction",
+            "section_index": 1,
+            "variant": "lexical items",
+            "evidence": "Lexical items are words that have specific meanings and are crucial for conveying information. Their transition into grammatical functions through grammaticalization is a fundamental aspect of linguistic change, illustrating how language can adapt to new communicative needs."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "case markers",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "case markers"
+        ],
+        "appearances": [
+          {
+            "section": "Introduction",
+            "section_index": 1,
+            "variant": "case markers",
+            "evidence": "Case markers are grammatical elements that indicate the grammatical function of nouns in a sentence. Their emergence from content words through grammaticalization is significant for understanding how languages structure relationships between words."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "example of 'let's'",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "example of 'let's'"
+        ],
+        "appearances": [
+          {
+            "section": "Introduction",
+            "section_index": 1,
+            "variant": "example of 'let's'",
+            "evidence": "The transformation of 'let us' into 'let's' illustrates grammaticalization by showing how a phrase can lose its original meaning and take on a new grammatical function. This example is significant as it highlights the fluidity of language and how expressions can evolve over time."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "evolutionary language",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "evolutionary language"
+        ],
+        "appearances": [
+          {
+            "section": "History",
+            "section_index": 2,
+            "variant": "evolutionary language",
+            "evidence": "The concept of evolutionary language suggests that grammatical structures in languages develop over time from simpler forms that only express concrete ideas. This idea is crucial for understanding the historical progression of language and how communication becomes more complex."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "stages of grammatical development",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "stages of grammatical development"
+        ],
+        "appearances": [
+          {
+            "section": "History",
+            "section_index": 2,
+            "variant": "stages of grammatical development",
+            "evidence": "The stages of grammatical development refer to the progressive phases through which grammatical structures evolve. Understanding these stages is important for linguists as it provides insight into the historical changes in language structure and usage."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "parameters of grammaticality",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "parameters of grammaticality"
+        ],
+        "appearances": [
+          {
+            "section": "History",
+            "section_index": 2,
+            "variant": "parameters of grammaticality",
+            "evidence": "The parameters of grammaticality are criteria developed by Lehmann to assess grammatical structures at different points in time. This methodological approach is important for linguists as it allows for a systematic analysis of language change and structure."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "heine and reh",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "heine and reh"
+        ],
+        "appearances": [
+          {
+            "section": "History",
+            "section_index": 2,
+            "variant": "heine and reh",
+            "evidence": "Heine and Reh are notable linguists who contributed to the understanding of grammaticalization in African languages. Their work is significant as it highlights the application of grammaticalization theory to specific language families, enriching the overall discourse in linguistics."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "discourse analysis",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "discourse analysis"
+        ],
+        "appearances": [
+          {
+            "section": "History",
+            "section_index": 2,
+            "variant": "discourse analysis",
+            "evidence": "Discourse analysis is a methodological approach that examines language use in context. Its rise in the 1970s contributed to a renewed interest in grammaticalization, highlighting the interplay between language structure and usage in real-world communication."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "neo-grammarians",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "neo-grammarians"
+        ],
+        "appearances": [
+          {
+            "section": "History",
+            "section_index": 2,
+            "variant": "neo-grammarians",
+            "evidence": "Neo-grammarians were a group of linguists who advocated for a uniformitarian approach to language change, opposing the idea of distinct stages in language evolution. Their perspective is important as it represents a significant theoretical shift in the understanding of language development."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "historical context of linguistics",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "historical context of linguistics"
+        ],
+        "appearances": [
+          {
+            "section": "History",
+            "section_index": 2,
+            "variant": "historical context of linguistics",
+            "evidence": "The historical context of linguistics during the late twentieth century reflects a shift in focus from diachronic (historical) studies to synchronic (contemporary) analyses. This context is important for understanding the evolution of linguistic theories and methodologies."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "morpheme",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "morpheme"
+        ],
+        "appearances": [
+          {
+            "section": "Mechanisms - Semantic bleaching",
+            "section_index": 3,
+            "variant": "morpheme",
+            "evidence": "A morpheme is the smallest grammatical unit in a language that carries meaning. Understanding morphemes is essential for analyzing how words change over time, particularly in the context of semantic bleaching and grammaticalization, as it shows how meaning can be stripped away while retaining grammatical function."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "phonetic reduction",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "phonetic reduction"
+        ],
+        "appearances": [
+          {
+            "section": "Mechanisms - Semantic bleaching",
+            "section_index": 3,
+            "variant": "phonetic reduction",
+            "evidence": "Phonetic reduction is the process where the pronunciation of a word becomes less distinct over time. This concept is relevant in the study of language evolution, as it often accompanies semantic bleaching, illustrating how both meaning and sound can change in the development of language."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "john haiman",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "john haiman"
+        ],
+        "appearances": [
+          {
+            "section": "Mechanisms - Semantic bleaching",
+            "section_index": 3,
+            "variant": "john haiman",
+            "evidence": "John Haiman is a linguist who has contributed to the understanding of grammaticalization and semantic change. His insights into semantic reduction help clarify the processes involved in how language evolves and how meanings can shift over time."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "proto-germanic etymon",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "proto-germanic etymon"
+        ],
+        "appearances": [
+          {
+            "section": "Mechanisms - Semantic bleaching",
+            "section_index": 3,
+            "variant": "proto-germanic etymon",
+            "evidence": "The Proto-Germanic etymon refers to the ancient root forms of words from which modern languages have evolved. This historical context is important for understanding how current language forms have developed and the semantic shifts that have occurred over time."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "metonymic reasoning",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "metonymic reasoning"
+        ],
+        "appearances": [
+          {
+            "section": "Mechanisms - Semantic bleaching",
+            "section_index": 3,
+            "variant": "metonymic reasoning",
+            "evidence": "Metonymic reasoning is a cognitive process where one concept is understood in relation to another, often through association. This concept is relevant in linguistics as it explains how abstract meanings can be derived from concrete terms, particularly in the context of semantic bleaching."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "demonstrative",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "demonstrative"
+        ],
+        "appearances": [
+          {
+            "section": "Mechanisms - Morphological reduction",
+            "section_index": 3,
+            "variant": "demonstrative",
+            "evidence": "A demonstrative is a type of pronoun used to indicate specific items or entities, such as 'this' or 'that'. The shift in usage of 'that' from a demonstrative to a grammatical marker exemplifies how language can adapt and evolve, which is a key area of study in linguistics."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "relative clause marker",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "relative clause marker"
+        ],
+        "appearances": [
+          {
+            "section": "Mechanisms - Morphological reduction",
+            "section_index": 3,
+            "variant": "relative clause marker",
+            "evidence": "A relative clause marker is a word that introduces a relative clause, providing additional information about a noun. This concept is significant because it shows how grammatical functions can change, affecting sentence structure and meaning."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "grammatical category of number",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "grammatical category of number"
+        ],
+        "appearances": [
+          {
+            "section": "Mechanisms - Morphological reduction",
+            "section_index": 3,
+            "variant": "grammatical category of number",
+            "evidence": "The grammatical category of number refers to the distinction between singular and plural forms in language. Understanding this concept is essential for grasping how words function in sentences and how their meanings can shift with changes in grammatical structure."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "example of 'that'",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "example of 'that'"
+        ],
+        "appearances": [
+          {
+            "section": "Mechanisms - Morphological reduction",
+            "section_index": 3,
+            "variant": "example of 'that'",
+            "evidence": "The example of 'that' illustrates the concept of bleaching and decategorialization in action. It serves as a practical case study for linguists to analyze how specific words can evolve in their grammatical roles over time."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "phonetic erosion",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "phonetic erosion"
+        ],
+        "appearances": [
+          {
+            "section": "Mechanisms - Phonetic erosion",
+            "section_index": 3,
+            "variant": "phonetic erosion",
+            "evidence": "Phonetic erosion refers to the process by which a linguistic expression loses phonetic substance as it undergoes grammaticalization. This concept is significant because it highlights how language evolves over time, affecting pronunciation and the structure of words."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "loss of phonetic segments",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "loss of phonetic segments"
+        ],
+        "appearances": [
+          {
+            "section": "Mechanisms - Phonetic erosion",
+            "section_index": 3,
+            "variant": "loss of phonetic segments",
+            "evidence": "This refers to the phenomenon where certain sounds or syllables are omitted in speech, leading to a more streamlined pronunciation. It is a key aspect of phonetic erosion and illustrates how language can simplify over time."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "phonetic simplification",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "phonetic simplification"
+        ],
+        "appearances": [
+          {
+            "section": "Mechanisms - Phonetic erosion",
+            "section_index": 3,
+            "variant": "phonetic simplification",
+            "evidence": "Phonetic simplification is the process where complex sounds are reduced to simpler forms, making speech easier and quicker. This concept is important as it reflects the tendency of speakers to favor efficiency in communication."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "principle of least effort",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "principle of least effort"
+        ],
+        "appearances": [
+          {
+            "section": "Mechanisms - Phonetic erosion",
+            "section_index": 3,
+            "variant": "principle of least effort",
+            "evidence": "The principle of least effort suggests that speakers naturally gravitate towards simpler and less demanding forms of speech. This principle is significant in understanding why phonetic erosion occurs, as it drives changes in language usage."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "wei-heng chen (2011)",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "wei-heng chen (2011)"
+        ],
+        "appearances": [
+          {
+            "section": "Mechanisms - Phonetic erosion",
+            "section_index": 3,
+            "variant": "wei-heng chen (2011)",
+            "evidence": "Wei-Heng Chen's work provides insights into how grammaticalization affects phonological changes in Chinese languages. This contribution is valuable for understanding the typological differences in language evolution."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "monosyllabic languages",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "monosyllabic languages"
+        ],
+        "appearances": [
+          {
+            "section": "Mechanisms - Phonetic erosion",
+            "section_index": 3,
+            "variant": "monosyllabic languages",
+            "evidence": "Monosyllabic languages are those that primarily consist of single-syllable words. This concept is relevant in linguistic studies as it highlights how language structure can influence phonetic changes and grammaticalization processes."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "w. humboldt",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "w. humboldt"
+        ],
+        "appearances": [
+          {
+            "section": "Mechanisms - Phonetic erosion",
+            "section_index": 3,
+            "variant": "w. humboldt",
+            "evidence": "W. Humboldt was a linguist who contributed significantly to the understanding of language typology and evolution. His ideas are foundational in the study of how different languages develop and change over time."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "latin construction clarā mente",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "latin construction clarā mente"
+        ],
+        "appearances": [
+          {
+            "section": "Mechanisms - Phonetic erosion",
+            "section_index": 3,
+            "variant": "latin construction clarā mente",
+            "evidence": "The Latin phrase clarā mente illustrates how historical language forms can influence modern language structures. This example is significant as it shows the continuity and change in language over time."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "obligatorification",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "obligatorification"
+        ],
+        "appearances": [
+          {
+            "section": "Mechanisms - Obligatorification",
+            "section_index": 3,
+            "variant": "obligatorification",
+            "evidence": "Obligatorification refers to the phenomenon where certain linguistic structures become mandatory within a language, particularly during the process of grammaticalization. This concept is significant because it highlights how language evolves and how certain grammatical forms become fixed, impacting language use and structure."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "transparadigmatic variability",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "transparadigmatic variability"
+        ],
+        "appearances": [
+          {
+            "section": "Mechanisms - Obligatorification",
+            "section_index": 3,
+            "variant": "transparadigmatic variability",
+            "evidence": "Transparadigmatic variability refers to the flexibility a language user has in choosing forms within a paradigm. Its reduction signifies a shift towards more rigid grammatical structures, which is important for understanding how languages standardize over time."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "parameters of grammaticalization",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "parameters of grammaticalization"
+        ],
+        "appearances": [
+          {
+            "section": "Mechanisms - Obligatorification",
+            "section_index": 3,
+            "variant": "parameters of grammaticalization",
+            "evidence": "Parameters of grammaticalization are specific features or conditions that are associated with the grammaticalization process. Recognizing these parameters helps linguists analyze language change more effectively, although they are not exclusively tied to grammaticalization."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "heine and kuteva",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "heine and kuteva"
+        ],
+        "appearances": [
+          {
+            "section": "Mechanisms - Obligatorification",
+            "section_index": 3,
+            "variant": "heine and kuteva",
+            "evidence": "Heine and Kuteva are linguists who have contributed to the understanding of language change and grammaticalization. Their work emphasizes that while certain processes like obligatorification are significant, they are not prerequisites for grammaticalization, highlighting the complexity of language evolution."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "bybee et al. (1994)",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "bybee et al. (1994)"
+        ],
+        "appearances": [
+          {
+            "section": "Mechanisms - Obligatorification",
+            "section_index": 3,
+            "variant": "bybee et al. (1994)",
+            "evidence": "Bybee et al. (1994) are notable linguists who have explored the parameters of grammaticalization. Their acknowledgment of the independence of these parameters from grammaticalization theory contributes to a broader understanding of language change and its mechanisms."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "janda",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "janda"
+        ],
+        "appearances": [
+          {
+            "section": "Mechanisms - Obligatorification",
+            "section_index": 3,
+            "variant": "janda",
+            "evidence": "Janda is a linguist who critiques the theory of grammaticalization, arguing that the processes involved can often be analyzed independently. His perspective raises important questions about the validity and scope of grammaticalization as a distinct phenomenon in linguistics."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "old english willan",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "old english willan"
+        ],
+        "appearances": [
+          {
+            "section": "Clines of grammaticality – cycles of categorial downgrading - Examples developing a future tense",
+            "section_index": 4,
+            "variant": "old english willan",
+            "evidence": "The Old English verb 'willan' means 'to want' or 'to wish' and serves as a foundational example of how verbs can shift in meaning and function over time. Its evolution into an auxiliary verb in Middle English marks a significant change in the expression of intention in the English language."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "clitic",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "clitic"
+        ],
+        "appearances": [
+          {
+            "section": "Clines of grammaticality – cycles of categorial downgrading - Examples developing a future tense",
+            "section_index": 4,
+            "variant": "clitic",
+            "evidence": "A clitic is a word that has no independent stress and is phonologically dependent on another word. The clitic form 'll exemplifies how language can condense and adapt, reflecting changes in spoken English and the evolution of auxiliary verbs."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "inflectional suffix",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "inflectional suffix"
+        ],
+        "appearances": [
+          {
+            "section": "Clines of grammaticality – cycles of categorial downgrading - Examples developing a future tense",
+            "section_index": 4,
+            "variant": "inflectional suffix",
+            "evidence": "An inflectional suffix is a morpheme added to a word to express grammatical relationships. The hypothetical evolution of 'will' into an inflectional suffix illustrates the potential for further grammaticalization in language development."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "romance languages",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "romance languages"
+        ],
+        "appearances": [
+          {
+            "section": "Clines of grammaticality – cycles of categorial downgrading - Examples developing a future tense",
+            "section_index": 4,
+            "variant": "romance languages",
+            "evidence": "Romance languages are derived from Latin and have undergone significant grammatical changes, including the development of future tense forms. This evolution highlights the broader patterns of language change and the influence of historical context on grammatical structures."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "japanese compound verbs",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "japanese compound verbs"
+        ],
+        "appearances": [
+          {
+            "section": "Clines of grammaticality – cycles of categorial downgrading - Japanese compound verbs",
+            "section_index": 4,
+            "variant": "japanese compound verbs",
+            "evidence": "Japanese compound verbs are formed by connecting two verbs, creating new meanings and functions. Understanding how these verbs are constructed is essential for grasping the complexities of Japanese grammar and orthography, particularly in distinguishing between lexical and grammatical elements."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "orthography",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "orthography"
+        ],
+        "appearances": [
+          {
+            "section": "Clines of grammaticality – cycles of categorial downgrading - Japanese compound verbs",
+            "section_index": 4,
+            "variant": "orthography",
+            "evidence": "Orthography refers to the conventional spelling system of a language. In the context of Japanese, it involves the use of kanji for lexical items and hiragana for grammatical items, which is crucial for understanding how meaning is conveyed in written Japanese."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "kanji",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "kanji"
+        ],
+        "appearances": [
+          {
+            "section": "Clines of grammaticality – cycles of categorial downgrading - Japanese compound verbs",
+            "section_index": 4,
+            "variant": "kanji",
+            "evidence": "Kanji are logographic characters used in the modern Japanese writing system, representing words or morphemes. They play a significant role in the orthography of Japanese, particularly in forming compound verbs, as they provide a visual representation of the meaning of each verb."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "hiragana",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "hiragana"
+        ],
+        "appearances": [
+          {
+            "section": "Clines of grammaticality – cycles of categorial downgrading - Japanese compound verbs",
+            "section_index": 4,
+            "variant": "hiragana",
+            "evidence": "Hiragana is a phonetic script used in Japanese writing, primarily for grammatical elements and function words. Its use in conjunction with kanji helps to clarify the grammatical structure of sentences, especially in compound verbs where certain elements are grammaticalized."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "example of compound verb",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "example of compound verb"
+        ],
+        "appearances": [
+          {
+            "section": "Clines of grammaticality – cycles of categorial downgrading - Japanese compound verbs",
+            "section_index": 4,
+            "variant": "example of compound verb",
+            "evidence": "The example 'go and ask (listen)' illustrates how two verbs can be combined to form a compound verb in Japanese. This showcases the flexibility of the language and the importance of understanding verb combinations for effective communication."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "case study of 'try eating (it) and see'",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "case study of 'try eating (it) and see'"
+        ],
+        "appearances": [
+          {
+            "section": "Clines of grammaticality – cycles of categorial downgrading - Japanese compound verbs",
+            "section_index": 4,
+            "variant": "case study of 'try eating (it) and see'",
+            "evidence": "The phrase 'try eating (it) and see' exemplifies the application of compound verbs in everyday Japanese. It highlights how compound verbs can convey complex actions and intentions, making them a vital aspect of conversational fluency."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "cline of grammaticalization",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "cline of grammaticalization"
+        ],
+        "appearances": [
+          {
+            "section": "Clines of grammaticality – cycles of categorial downgrading - Historical linguistics",
+            "section_index": 4,
+            "variant": "cline of grammaticalization",
+            "evidence": "The cline of grammaticalization refers to the continuum of change that words undergo, transitioning from full lexical forms to reduced grammatical forms. This concept is crucial for understanding the dynamics of language change, as it illustrates the gradual nature of linguistic evolution."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "diachronic implications",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "diachronic implications"
+        ],
+        "appearances": [
+          {
+            "section": "Clines of grammaticality – cycles of categorial downgrading - Historical linguistics",
+            "section_index": 4,
+            "variant": "diachronic implications",
+            "evidence": "Diachronic implications refer to the historical perspective of language change, focusing on how linguistic forms evolve over time. This aspect is important for linguists as it provides insights into the natural processes that shape language development."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "synchronic implications",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "synchronic implications"
+        ],
+        "appearances": [
+          {
+            "section": "Clines of grammaticality – cycles of categorial downgrading - Historical linguistics",
+            "section_index": 4,
+            "variant": "synchronic implications",
+            "evidence": "Synchronic implications focus on the study of language at a specific point in time, analyzing how different forms coexist and relate to each other. This perspective is essential for understanding the current state of a language and its structural organization."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "recurrent clines",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "recurrent clines"
+        ],
+        "appearances": [
+          {
+            "section": "Clines of grammaticality – cycles of categorial downgrading - Historical linguistics",
+            "section_index": 4,
+            "variant": "recurrent clines",
+            "evidence": "Recurrent clines are patterns of grammaticalization that appear consistently across different languages and contexts. Studying these clines allows linguists to establish general principles of language change, enhancing our understanding of linguistic evolution."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "reconstruction of older states of a language",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "reconstruction of older states of a language"
+        ],
+        "appearances": [
+          {
+            "section": "Clines of grammaticality – cycles of categorial downgrading - Historical linguistics",
+            "section_index": 4,
+            "variant": "reconstruction of older states of a language",
+            "evidence": "The reconstruction of older states of a language involves analyzing grammaticalization processes to infer how languages have changed over time. This is significant for historical linguistics, as it helps linguists trace the development of languages and understand their historical contexts."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "future language development",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "future language development"
+        ],
+        "appearances": [
+          {
+            "section": "Clines of grammaticality – cycles of categorial downgrading - Historical linguistics",
+            "section_index": 4,
+            "variant": "future language development",
+            "evidence": "Future language development refers to the potential trajectories that languages may take based on observed patterns of grammaticalization. Understanding these patterns is crucial for predicting how languages will evolve and adapt in response to social and communicative needs."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "counterexamples",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "counterexamples"
+        ],
+        "appearances": [
+          {
+            "section": "Unidirectionality hypothesis - Counterexamples (degrammaticalization)",
+            "section_index": 5,
+            "variant": "counterexamples",
+            "evidence": "Counterexamples are instances that challenge the prevailing theories, such as unidirectionality in grammaticalization. They are important for refining linguistic theories and understanding the complexities of language change."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "lexicalization",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "lexicalization"
+        ],
+        "appearances": [
+          {
+            "section": "Unidirectionality hypothesis - Counterexamples (degrammaticalization)",
+            "section_index": 5,
+            "variant": "lexicalization",
+            "evidence": "Lexicalization is the process by which a grammatical form becomes part of a lexical item, often losing its grammatical function. This concept is significant as it illustrates how language can shift between different forms and functions, impacting meaning and usage."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "hopper and traugott (1993)",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "hopper and traugott (1993)"
+        ],
+        "appearances": [
+          {
+            "section": "Unidirectionality hypothesis - Counterexamples (degrammaticalization)",
+            "section_index": 5,
+            "variant": "hopper and traugott (1993)",
+            "evidence": "Hopper and Traugott are prominent linguists known for their work on grammaticalization. Their theories provide a framework for understanding how language evolves and the factors that influence these changes."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "english genitive -'s",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "english genitive -'s"
+        ],
+        "appearances": [
+          {
+            "section": "Unidirectionality hypothesis - Counterexamples (degrammaticalization)",
+            "section_index": 5,
+            "variant": "english genitive -'s",
+            "evidence": "The English genitive -'s illustrates a case of grammaticalization where a suffix has evolved into a clitic form. This example highlights the dynamic nature of language and how grammatical elements can change their status over time."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "kate burridge (1998)",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "kate burridge (1998)"
+        ],
+        "appearances": [
+          {
+            "section": "Unidirectionality hypothesis - Counterexamples (degrammaticalization)",
+            "section_index": 5,
+            "variant": "kate burridge (1998)",
+            "evidence": "Kate Burridge is a linguist whose work contributes to the understanding of language change, particularly in the context of grammaticalization. Her examples provide valuable insights into how language can shift between functional and content forms."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "irish gaelic",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "irish gaelic"
+        ],
+        "appearances": [
+          {
+            "section": "Unidirectionality hypothesis - Counterexamples (degrammaticalization)",
+            "section_index": 5,
+            "variant": "irish gaelic",
+            "evidence": "Irish Gaelic serves as a case study for examining grammaticalization and unidirectionality, showcasing how specific linguistic elements can evolve under particular circumstances. This example enriches the understanding of language dynamics in different linguistic contexts."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "antoine meillet",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "antoine meillet"
+        ],
+        "appearances": [
+          {
+            "section": "Views on grammaticalization",
+            "section_index": 6,
+            "variant": "antoine meillet",
+            "evidence": "Meillet's interpretation emphasizes that grammaticalization introduces new forms and categories that transform the grammatical system. His work is significant as it highlights the dynamic nature of language and the role of grammaticalization in this process."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "jerzy kurylowicz",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "jerzy kurylowicz"
+        ],
+        "appearances": [
+          {
+            "section": "Views on grammaticalization",
+            "section_index": 6,
+            "variant": "jerzy kurylowicz",
+            "evidence": "Kurylowicz defined grammaticalization as the process where a morpheme increases its grammatical status, which is foundational for understanding how language evolves. His definition is widely cited, making it a cornerstone in the study of grammaticalization."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "paul hopper",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "paul hopper"
+        ],
+        "appearances": [
+          {
+            "section": "Views on grammaticalization",
+            "section_index": 6,
+            "variant": "paul hopper",
+            "evidence": "Hopper's five principles—layering, divergence, specialization, persistence, and de-categorialization—provide a framework for analyzing grammaticalization processes. These principles are critical for linguists to identify and understand the nuances of grammatical change."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "františek lichtenberk",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "františek lichtenberk"
+        ],
+        "appearances": [
+          {
+            "section": "Views on grammaticalization",
+            "section_index": 6,
+            "variant": "františek lichtenberk",
+            "evidence": "Lichtenberk's view of grammaticalization as a historical process emphasizes its gradual nature and its impact on morphosyntactic categories. This perspective is important for understanding the timeline and implications of grammatical changes in languages."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "elizabeth traugott & bernd heine",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "elizabeth traugott & bernd heine"
+        ],
+        "appearances": [
+          {
+            "section": "Views on grammaticalization",
+            "section_index": 6,
+            "variant": "elizabeth traugott & bernd heine",
+            "evidence": "Traugott and Heine's definition of grammaticalization as a process of organizing categories and coding underscores the tension between lexical expression and morphosyntactic coding. Their work is pivotal in framing grammaticalization within the broader context of linguistic theory."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "olga fischer & anette rosenbach",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "olga fischer & anette rosenbach"
+        ],
+        "appearances": [
+          {
+            "section": "Views on grammaticalization",
+            "section_index": 6,
+            "variant": "olga fischer & anette rosenbach",
+            "evidence": "Fischer and Rosenbach's summary of grammaticalization highlights its diachronic nature and typical mechanisms, which are essential for understanding how language evolves over time. Their insights contribute to the ongoing discourse on the definitions and implications of grammaticalization."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "historical syntax",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "historical syntax"
+        ],
+        "appearances": [
+          {
+            "section": "Sources",
+            "section_index": 8,
+            "variant": "historical syntax",
+            "evidence": "Historical syntax studies the changes in sentence structure over time across different languages. It provides insights into how syntactic rules and structures evolve, which is essential for understanding the development of languages and their grammatical systems."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "grammatical categories",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "grammatical categories"
+        ],
+        "appearances": [
+          {
+            "section": "Sources",
+            "section_index": 8,
+            "variant": "grammatical categories",
+            "evidence": "Grammatical categories are classifications of words based on their function in a sentence, such as nouns, verbs, and adjectives. Understanding these categories is fundamental to analyzing language structure and the processes of grammaticalization."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "cognitive forces",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "cognitive forces"
+        ],
+        "appearances": [
+          {
+            "section": "Sources",
+            "section_index": 8,
+            "variant": "cognitive forces",
+            "evidence": "Cognitive forces refer to the mental processes that influence language change, particularly in the context of grammaticalization. Recognizing these forces helps linguists understand the underlying motivations for language evolution."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "case studies",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "case studies"
+        ],
+        "appearances": [
+          {
+            "section": "Sources",
+            "section_index": 8,
+            "variant": "case studies",
+            "evidence": "Case studies provide specific examples of grammaticalization processes in particular languages, illustrating how theoretical concepts apply in real-world contexts. They are essential for validating linguistic theories and understanding language diversity."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "elizabeth closs traugott",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "elizabeth closs traugott"
+        ],
+        "appearances": [
+          {
+            "section": "Sources",
+            "section_index": 8,
+            "variant": "elizabeth closs traugott",
+            "evidence": "Elizabeth Closs Traugott is a prominent linguist known for her work on grammaticalization and language change. Her contributions are significant in shaping the field and advancing our understanding of how languages evolve."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "historical context",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "historical context"
+        ],
+        "appearances": [
+          {
+            "section": "Sources",
+            "section_index": 8,
+            "variant": "historical context",
+            "evidence": "Historical context refers to the background and circumstances surrounding language change, including social, cultural, and historical factors. Understanding this context is crucial for analyzing how and why grammaticalization occurs."
+          }
+        ],
+        "layer": "tertiary"
+      }
+    ]
+  }
+}

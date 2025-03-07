@@ -1,0 +1,1457 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="utf-8">
+            <title>Grammaticalization</title>
+            <script src="https://d3js.org/d3.v7.min.js"></script>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    overflow: hidden;
+                }
+                .explanation-panel {
+                    position: absolute;
+                    padding: 15px;
+                    background: white;
+                    border: 1px solid #ccc;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+                    max-width: 300px;
+                    z-index: 1000;
+                    font-size: 14px;
+                    line-height: 1.4;
+                    opacity: 0;
+                    transition: opacity 0.3s;
+                    pointer-events: auto;
+                }
+                
+                .explanation-panel.visible {
+                    opacity: 1;
+                }
+                
+                .explanation-title {
+                    margin-top: 0;
+                    margin-bottom: 10px;
+                    color: #2196F3;
+                    font-size: 16px;
+                    font-weight: bold;
+                }
+                
+                .explanation-content {
+                    margin-bottom: 10px;
+                }
+                
+                .explanation-footer {
+                    display: block;
+                    margin-top: 8px;
+                    font-style: italic;
+                    color: #666;
+                    font-size: 12px;
+                }
+                
+                .close-explanation {
+                    position: absolute;
+                    top: 5px;
+                    right: 5px;
+                    background: none;
+                    border: none;
+                    font-size: 16px;
+                    cursor: pointer;
+                    color: #666;
+                }
+                .node {
+                    cursor: pointer;
+                }
+                .node circle {
+                    stroke-width: 2px;
+                    transition: all 0.3s ease;
+                }
+                .node.has-explanation circle {
+                    stroke-dasharray: 3, 3;
+                }
+                .node--pinned circle {
+                    stroke-width: 3px;
+                    stroke-dasharray: none;
+                    stroke: #f06292;
+                }
+                .node--priority circle {
+                    stroke: #7E57C2;
+                }
+                .node--secondary circle {
+                    stroke: #6596B5;
+                }
+                .node--tertiary circle {
+                    stroke: #8FC2B9;
+                }
+                .hidden-connections-highlight {
+                    stroke: #FF8A65 !important;
+                    stroke-width: 3px !important;
+                }
+                .node--expanded circle {
+                    stroke-width: 3px;
+                }
+                .node text {
+                    font: 12px sans-serif;
+                    pointer-events: none;
+                }
+                .node.faded circle {
+                    opacity: 0.2;
+                    transition: opacity 0.3s ease;
+                }
+                
+                .node.faded text {
+                    opacity: 0.1;
+                    transition: opacity 0.3s ease;
+                }
+                
+                .link.faded {
+                    opacity: 0.1;
+                    transition: opacity 0.3s ease;
+                }
+                
+                .node.focused circle {
+                    stroke-width: 4px;
+                    stroke: #FF5252;
+                }
+                .link {
+                    fill: none;
+                    stroke-width: 1.5px;
+                    cursor: pointer;
+                    transition: stroke 0.3s ease;
+                }
+                .link:hover {
+                    stroke-width: 2.5px;
+                    stroke-opacity: 0.9 !important;
+                }
+                .link-label {
+                    font-size: 10px;
+                    fill: #666;
+                    pointer-events: none;
+                }
+                .tooltip {
+                    position: absolute;
+                    padding: 8px;
+                    background: rgba(255, 255, 255, 0.95);
+                    color: #333;
+                    border-radius: 4px;
+                    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+                    pointer-events: none;
+                    font-size: 12px;
+                    max-width: 300px;
+                    z-index: 1000;
+                    border: 1px solid #ddd;
+                }
+                .evidence-tooltip {
+                    max-width: 350px;
+                    line-height: 1.4;
+                }
+                .tooltip .right-click-instruction {
+                    display: block;
+                    margin-top: 5px;
+                    font-style: italic;
+                    color: #2196F3;
+                }
+                .legend {
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    background: rgba(255, 255, 255, 0.8);
+                    border-radius: 4px;
+                    padding: 8px;
+                    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+                }
+                .legend-item {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 5px;
+                }
+                .legend-color {
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 50%;
+                    margin-right: 8px;
+                }
+                .priority-color {
+                    background-color: #9575CD;
+                    border: 1.5px solid #7E57C2;
+                }
+                .secondary-color {
+                    background-color: #97C0DB;
+                    border: 1.5px solid #6596B5;
+                }
+                .tertiary-color {
+                    background-color: #D1EDE8;
+                    border: 1.5px solid #ABD9D1;
+                }
+                @keyframes pulse-1741318139969 {
+                    0% { transform: scale(1); opacity: 0.5; }
+                    50% { transform: scale(1.2); opacity: 0.2; }
+                    100% { transform: scale(1); opacity: 0.5; }
+                }
+                .pulse-1741318139969 {
+                    animation: pulse-1741318139969 2s infinite;
+                }
+                .controls {
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    display: flex;
+                    gap: 10px;
+                }
+                button {
+                    background-color: white;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    padding: 5px 10px;
+                    cursor: pointer;
+                    font-size: 12px;
+                }
+                button:hover {
+                    background-color: #f0f0f0;
+                }
+                .center-node circle {
+                    stroke-width: 3px;
+                }
+                .highlight {
+                    font-weight: bold;
+                    color: #006400;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="controls">
+                <button id="reset-btn">Reset</button>
+                <button id="expand-all-btn">Expand All</button>
+                <button id="recenter-btn">Recenter</button>
+                <button id="unpin-btn">Unpin All</button>
+            </div>
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color priority-color"></div>
+                    <span>Priority Concepts</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color secondary-color"></div>
+                    <span>Secondary Concepts</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color tertiary-color"></div>
+                    <span>Tertiary Concepts</span>
+                </div>
+                <div class="legend-item">
+                    <div style="width:15px; height:15px; margin-right:8px; border:1.5px solid #FF8A65; border-radius:50%; background-color: rgba(255, 0, 0, 0.3);" class="pulse-1741318139969"></div>
+                    <span>Has Hidden Connections</span>
+                </div>
+            </div>
+
+            <svg id="concept-map" width="800" height="600"></svg>
+            <div id="tooltip" class="tooltip" style="display: none;"></div>
+            <div id="evidence-tooltip" class="tooltip evidence-tooltip" style="display: none;"></div>
+
+            <script>
+            // Load the data
+            const networkData = {"nodes": [{"id": "grammaticalization", "name": "grammaticalization", "frequency": 7, "degree": 53, "layer": "priority", "evidence": "Grammaticalization is the process through which words develop into grammatical elements over time. Understanding grammaticalization is crucial as it provides insights into how languages change and adapt, revealing the dynamic nature of linguistic structures."}, {"id": "degrammaticalization", "name": "degrammaticalization", "frequency": 3, "degree": 5, "layer": "secondary", "evidence": "Degrammaticalization is the process by which a grammatical element loses its grammatical function and becomes more independent. This concept is essential for understanding the reverse process of grammaticalization and the complexities of language evolution."}, {"id": "historical context of grammaticalization", "name": "historical context of grammaticalization", "frequency": 4, "degree": 3, "layer": "tertiary", "evidence": "The historical context of grammaticalization reflects its evolution as a concept within linguistics. Understanding its broader meanings across different linguistic frameworks is essential for grasping the complexities of language development and change."}, {"id": "auxiliary verbs", "name": "auxiliary verbs", "frequency": 2, "degree": 7, "layer": "priority", "evidence": "Auxiliary verbs are verbs that accompany main verbs to form tenses, moods, or voices. The transformation of 'willan' into 'will' exemplifies grammaticalization, showcasing how language can adapt to express complex ideas like intention and futurity."}, {"id": "christian lehmann", "name": "christian lehmann", "frequency": 2, "degree": 2, "layer": "tertiary", "evidence": "Christian Lehmann is a key figure in the study of grammaticalization, known for his work that emphasized the continuity of research in this field. His contributions are significant as they provide a framework for understanding grammaticality across different languages and time periods."}, {"id": "unidirectionality", "name": "unidirectionality", "frequency": 2, "degree": 5, "layer": "priority", "evidence": "Unidirectionality in grammaticalization refers to the idea that grammatical changes typically occur in a one-way direction, from less grammatical to more grammatical forms. This concept is crucial for understanding the nature of language evolution and the constraints that govern grammatical change."}, {"id": "james matisoff", "name": "james matisoff", "frequency": 2, "degree": 1, "layer": "tertiary", "evidence": "James Matisoff is a linguist known for his work on grammaticalization and semantic bleaching. His contributions are significant in understanding how morphemes lose their specific meanings, providing a framework for analyzing language change."}, {"id": "semantic bleaching", "name": "semantic bleaching", "frequency": 3, "degree": 8, "layer": "priority", "evidence": "Semantic bleaching refers to the process where a word loses its specific meaning and becomes more abstract, often retaining only grammatical functions. This concept is crucial in understanding how language evolves over time, particularly in the context of grammaticalization, where words shift from having concrete meanings to serving more functional roles in sentence structure."}, {"id": "loss of semantic content", "name": "loss of semantic content", "frequency": 3, "degree": 4, "layer": "priority", "evidence": "The loss of semantic content refers to the diminishing specificity of meaning in words as they undergo grammaticalization. This concept is important because it highlights how language can become more abstract and less tied to concrete ideas, impacting comprehension and communication."}, {"id": "content words", "name": "content words", "frequency": 1, "degree": 5, "layer": "secondary", "evidence": "Content words are the building blocks of language that carry specific meanings, such as nouns and verbs. Understanding their role in grammaticalization helps linguists analyze how these words can shift to serve grammatical purposes, thereby enriching our comprehension of language structure."}, {"id": "function words", "name": "function words", "frequency": 1, "degree": 6, "layer": "secondary", "evidence": "Function words are essential in constructing sentences as they help to convey grammatical relationships rather than specific meanings. Their development from content words through grammaticalization is crucial for understanding how language evolves and functions."}, {"id": "evidentiality", "name": "evidentiality", "frequency": 1, "degree": 4, "layer": "secondary", "evidence": "Evidentiality refers to the linguistic encoding of the source of information. Its less frequent grammaticalization compared to other concepts highlights the variability in how different linguistic elements evolve, which is important for understanding language diversity."}, {"id": "lexical items", "name": "lexical items", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "Lexical items are words that have specific meanings and are crucial for conveying information. Their transition into grammatical functions through grammaticalization is a fundamental aspect of linguistic change, illustrating how language can adapt to new communicative needs."}, {"id": "case markers", "name": "case markers", "frequency": 1, "degree": 3, "layer": "secondary", "evidence": "Case markers are grammatical elements that indicate the grammatical function of nouns in a sentence. Their emergence from content words through grammaticalization is significant for understanding how languages structure relationships between words."}, {"id": "example of 'let's'", "name": "example of 'let's'", "frequency": 1, "degree": 2, "layer": "tertiary", "evidence": "The transformation of 'let us' into 'let's' illustrates grammaticalization by showing how a phrase can lose its original meaning and take on a new grammatical function. This example is significant as it highlights the fluidity of language and how expressions can evolve over time."}, {"id": "evolutionary language", "name": "evolutionary language", "frequency": 1, "degree": 2, "layer": "priority", "evidence": "The concept of evolutionary language suggests that grammatical structures in languages develop over time from simpler forms that only express concrete ideas. This idea is crucial for understanding the historical progression of language and how communication becomes more complex."}, {"id": "stages of grammatical development", "name": "stages of grammatical development", "frequency": 1, "degree": 5, "layer": "secondary", "evidence": "The stages of grammatical development refer to the progressive phases through which grammatical structures evolve. Understanding these stages is important for linguists as it provides insight into the historical changes in language structure and usage."}, {"id": "parameters of grammaticality", "name": "parameters of grammaticality", "frequency": 1, "degree": 4, "layer": "secondary", "evidence": "The parameters of grammaticality are criteria developed by Lehmann to assess grammatical structures at different points in time. This methodological approach is important for linguists as it allows for a systematic analysis of language change and structure."}, {"id": "heine and reh", "name": "heine and reh", "frequency": 1, "degree": 2, "layer": "tertiary", "evidence": "Heine and Reh are notable linguists who contributed to the understanding of grammaticalization in African languages. Their work is significant as it highlights the application of grammaticalization theory to specific language families, enriching the overall discourse in linguistics."}, {"id": "discourse analysis", "name": "discourse analysis", "frequency": 1, "degree": 4, "layer": "secondary", "evidence": "Discourse analysis is a methodological approach that examines language use in context. Its rise in the 1970s contributed to a renewed interest in grammaticalization, highlighting the interplay between language structure and usage in real-world communication."}, {"id": "neo-grammarians", "name": "neo-grammarians", "frequency": 1, "degree": 4, "layer": "secondary", "evidence": "Neo-grammarians were a group of linguists who advocated for a uniformitarian approach to language change, opposing the idea of distinct stages in language evolution. Their perspective is important as it represents a significant theoretical shift in the understanding of language development."}, {"id": "historical context of linguistics", "name": "historical context of linguistics", "frequency": 1, "degree": 4, "layer": "tertiary", "evidence": "The historical context of linguistics during the late twentieth century reflects a shift in focus from diachronic (historical) studies to synchronic (contemporary) analyses. This context is important for understanding the evolution of linguistic theories and methodologies."}, {"id": "morpheme", "name": "morpheme", "frequency": 1, "degree": 2, "layer": "secondary", "evidence": "A morpheme is the smallest grammatical unit in a language that carries meaning. Understanding morphemes is essential for analyzing how words change over time, particularly in the context of semantic bleaching and grammaticalization, as it shows how meaning can be stripped away while retaining grammatical function."}, {"id": "phonetic reduction", "name": "phonetic reduction", "frequency": 1, "degree": 5, "layer": "secondary", "evidence": "Phonetic reduction is the process where the pronunciation of a word becomes less distinct over time. This concept is relevant in the study of language evolution, as it often accompanies semantic bleaching, illustrating how both meaning and sound can change in the development of language."}, {"id": "john haiman", "name": "john haiman", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "John Haiman is a linguist who has contributed to the understanding of grammaticalization and semantic change. His insights into semantic reduction help clarify the processes involved in how language evolves and how meanings can shift over time."}, {"id": "proto-germanic etymon", "name": "proto-germanic etymon", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "The Proto-Germanic etymon refers to the ancient root forms of words from which modern languages have evolved. This historical context is important for understanding how current language forms have developed and the semantic shifts that have occurred over time."}, {"id": "metonymic reasoning", "name": "metonymic reasoning", "frequency": 1, "degree": 3, "layer": "tertiary", "evidence": "Metonymic reasoning is a cognitive process where one concept is understood in relation to another, often through association. This concept is relevant in linguistics as it explains how abstract meanings can be derived from concrete terms, particularly in the context of semantic bleaching."}, {"id": "demonstrative", "name": "demonstrative", "frequency": 1, "degree": 2, "layer": "secondary", "evidence": "A demonstrative is a type of pronoun used to indicate specific items or entities, such as 'this' or 'that'. The shift in usage of 'that' from a demonstrative to a grammatical marker exemplifies how language can adapt and evolve, which is a key area of study in linguistics."}, {"id": "relative clause marker", "name": "relative clause marker", "frequency": 1, "degree": 2, "layer": "secondary", "evidence": "A relative clause marker is a word that introduces a relative clause, providing additional information about a noun. This concept is significant because it shows how grammatical functions can change, affecting sentence structure and meaning."}, {"id": "grammatical category of number", "name": "grammatical category of number", "frequency": 1, "degree": 4, "layer": "tertiary", "evidence": "The grammatical category of number refers to the distinction between singular and plural forms in language. Understanding this concept is essential for grasping how words function in sentences and how their meanings can shift with changes in grammatical structure."}, {"id": "example of 'that'", "name": "example of 'that'", "frequency": 1, "degree": 2, "layer": "tertiary", "evidence": "The example of 'that' illustrates the concept of bleaching and decategorialization in action. It serves as a practical case study for linguists to analyze how specific words can evolve in their grammatical roles over time."}, {"id": "phonetic erosion", "name": "phonetic erosion", "frequency": 1, "degree": 5, "layer": "priority", "evidence": "Phonetic erosion refers to the process by which a linguistic expression loses phonetic substance as it undergoes grammaticalization. This concept is significant because it highlights how language evolves over time, affecting pronunciation and the structure of words."}, {"id": "loss of phonetic segments", "name": "loss of phonetic segments", "frequency": 1, "degree": 4, "layer": "secondary", "evidence": "This refers to the phenomenon where certain sounds or syllables are omitted in speech, leading to a more streamlined pronunciation. It is a key aspect of phonetic erosion and illustrates how language can simplify over time."}, {"id": "phonetic simplification", "name": "phonetic simplification", "frequency": 1, "degree": 3, "layer": "secondary", "evidence": "Phonetic simplification is the process where complex sounds are reduced to simpler forms, making speech easier and quicker. This concept is important as it reflects the tendency of speakers to favor efficiency in communication."}, {"id": "principle of least effort", "name": "principle of least effort", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "The principle of least effort suggests that speakers naturally gravitate towards simpler and less demanding forms of speech. This principle is significant in understanding why phonetic erosion occurs, as it drives changes in language usage."}, {"id": "wei-heng chen (2011)", "name": "wei-heng chen (2011)", "frequency": 1, "degree": 0, "layer": "tertiary", "evidence": "Wei-Heng Chen's work provides insights into how grammaticalization affects phonological changes in Chinese languages. This contribution is valuable for understanding the typological differences in language evolution."}, {"id": "monosyllabic languages", "name": "monosyllabic languages", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "Monosyllabic languages are those that primarily consist of single-syllable words. This concept is relevant in linguistic studies as it highlights how language structure can influence phonetic changes and grammaticalization processes."}, {"id": "w. humboldt", "name": "w. humboldt", "frequency": 1, "degree": 0, "layer": "tertiary", "evidence": "W. Humboldt was a linguist who contributed significantly to the understanding of language typology and evolution. His ideas are foundational in the study of how different languages develop and change over time."}, {"id": "latin construction clar\u0101 mente", "name": "latin construction clar\u0101 mente", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "The Latin phrase clar\u0101 mente illustrates how historical language forms can influence modern language structures. This example is significant as it shows the continuity and change in language over time."}, {"id": "obligatorification", "name": "obligatorification", "frequency": 1, "degree": 4, "layer": "priority", "evidence": "Obligatorification refers to the phenomenon where certain linguistic structures become mandatory within a language, particularly during the process of grammaticalization. This concept is significant because it highlights how language evolves and how certain grammatical forms become fixed, impacting language use and structure."}, {"id": "transparadigmatic variability", "name": "transparadigmatic variability", "frequency": 1, "degree": 1, "layer": "priority", "evidence": "Transparadigmatic variability refers to the flexibility a language user has in choosing forms within a paradigm. Its reduction signifies a shift towards more rigid grammatical structures, which is important for understanding how languages standardize over time."}, {"id": "parameters of grammaticalization", "name": "parameters of grammaticalization", "frequency": 1, "degree": 3, "layer": "secondary", "evidence": "Parameters of grammaticalization are specific features or conditions that are associated with the grammaticalization process. Recognizing these parameters helps linguists analyze language change more effectively, although they are not exclusively tied to grammaticalization."}, {"id": "heine and kuteva", "name": "heine and kuteva", "frequency": 1, "degree": 0, "layer": "tertiary", "evidence": "Heine and Kuteva are linguists who have contributed to the understanding of language change and grammaticalization. Their work emphasizes that while certain processes like obligatorification are significant, they are not prerequisites for grammaticalization, highlighting the complexity of language evolution."}, {"id": "bybee et al. (1994)", "name": "bybee et al. (1994)", "frequency": 1, "degree": 0, "layer": "tertiary", "evidence": "Bybee et al. (1994) are notable linguists who have explored the parameters of grammaticalization. Their acknowledgment of the independence of these parameters from grammaticalization theory contributes to a broader understanding of language change and its mechanisms."}, {"id": "janda", "name": "janda", "frequency": 1, "degree": 0, "layer": "tertiary", "evidence": "Janda is a linguist who critiques the theory of grammaticalization, arguing that the processes involved can often be analyzed independently. His perspective raises important questions about the validity and scope of grammaticalization as a distinct phenomenon in linguistics."}, {"id": "old english willan", "name": "old english willan", "frequency": 1, "degree": 0, "layer": "priority", "evidence": "The Old English verb 'willan' means 'to want' or 'to wish' and serves as a foundational example of how verbs can shift in meaning and function over time. Its evolution into an auxiliary verb in Middle English marks a significant change in the expression of intention in the English language."}, {"id": "clitic", "name": "clitic", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "A clitic is a word that has no independent stress and is phonologically dependent on another word. The clitic form 'll exemplifies how language can condense and adapt, reflecting changes in spoken English and the evolution of auxiliary verbs."}, {"id": "inflectional suffix", "name": "inflectional suffix", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "An inflectional suffix is a morpheme added to a word to express grammatical relationships. The hypothetical evolution of 'will' into an inflectional suffix illustrates the potential for further grammaticalization in language development."}, {"id": "romance languages", "name": "romance languages", "frequency": 1, "degree": 0, "layer": "tertiary", "evidence": "Romance languages are derived from Latin and have undergone significant grammatical changes, including the development of future tense forms. This evolution highlights the broader patterns of language change and the influence of historical context on grammatical structures."}, {"id": "japanese compound verbs", "name": "japanese compound verbs", "frequency": 1, "degree": 4, "layer": "priority", "evidence": "Japanese compound verbs are formed by connecting two verbs, creating new meanings and functions. Understanding how these verbs are constructed is essential for grasping the complexities of Japanese grammar and orthography, particularly in distinguishing between lexical and grammatical elements."}, {"id": "orthography", "name": "orthography", "frequency": 1, "degree": 1, "layer": "priority", "evidence": "Orthography refers to the conventional spelling system of a language. In the context of Japanese, it involves the use of kanji for lexical items and hiragana for grammatical items, which is crucial for understanding how meaning is conveyed in written Japanese."}, {"id": "kanji", "name": "kanji", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "Kanji are logographic characters used in the modern Japanese writing system, representing words or morphemes. They play a significant role in the orthography of Japanese, particularly in forming compound verbs, as they provide a visual representation of the meaning of each verb."}, {"id": "hiragana", "name": "hiragana", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "Hiragana is a phonetic script used in Japanese writing, primarily for grammatical elements and function words. Its use in conjunction with kanji helps to clarify the grammatical structure of sentences, especially in compound verbs where certain elements are grammaticalized."}, {"id": "example of compound verb", "name": "example of compound verb", "frequency": 1, "degree": 2, "layer": "tertiary", "evidence": "The example 'go and ask (listen)' illustrates how two verbs can be combined to form a compound verb in Japanese. This showcases the flexibility of the language and the importance of understanding verb combinations for effective communication."}, {"id": "case study of 'try eating (it) and see'", "name": "case study of 'try eating (it) and see'", "frequency": 1, "degree": 0, "layer": "tertiary", "evidence": "The phrase 'try eating (it) and see' exemplifies the application of compound verbs in everyday Japanese. It highlights how compound verbs can convey complex actions and intentions, making them a vital aspect of conversational fluency."}, {"id": "cline of grammaticalization", "name": "cline of grammaticalization", "frequency": 1, "degree": 4, "layer": "priority", "evidence": "The cline of grammaticalization refers to the continuum of change that words undergo, transitioning from full lexical forms to reduced grammatical forms. This concept is crucial for understanding the dynamics of language change, as it illustrates the gradual nature of linguistic evolution."}, {"id": "diachronic implications", "name": "diachronic implications", "frequency": 1, "degree": 3, "layer": "secondary", "evidence": "Diachronic implications refer to the historical perspective of language change, focusing on how linguistic forms evolve over time. This aspect is important for linguists as it provides insights into the natural processes that shape language development."}, {"id": "synchronic implications", "name": "synchronic implications", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "Synchronic implications focus on the study of language at a specific point in time, analyzing how different forms coexist and relate to each other. This perspective is essential for understanding the current state of a language and its structural organization."}, {"id": "recurrent clines", "name": "recurrent clines", "frequency": 1, "degree": 3, "layer": "secondary", "evidence": "Recurrent clines are patterns of grammaticalization that appear consistently across different languages and contexts. Studying these clines allows linguists to establish general principles of language change, enhancing our understanding of linguistic evolution."}, {"id": "reconstruction of older states of a language", "name": "reconstruction of older states of a language", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "The reconstruction of older states of a language involves analyzing grammaticalization processes to infer how languages have changed over time. This is significant for historical linguistics, as it helps linguists trace the development of languages and understand their historical contexts."}, {"id": "future language development", "name": "future language development", "frequency": 1, "degree": 2, "layer": "tertiary", "evidence": "Future language development refers to the potential trajectories that languages may take based on observed patterns of grammaticalization. Understanding these patterns is crucial for predicting how languages will evolve and adapt in response to social and communicative needs."}, {"id": "counterexamples", "name": "counterexamples", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "Counterexamples are instances that challenge the prevailing theories, such as unidirectionality in grammaticalization. They are important for refining linguistic theories and understanding the complexities of language change."}, {"id": "lexicalization", "name": "lexicalization", "frequency": 1, "degree": 2, "layer": "secondary", "evidence": "Lexicalization is the process by which a grammatical form becomes part of a lexical item, often losing its grammatical function. This concept is significant as it illustrates how language can shift between different forms and functions, impacting meaning and usage."}, {"id": "hopper and traugott (1993)", "name": "hopper and traugott (1993)", "frequency": 1, "degree": 0, "layer": "tertiary", "evidence": "Hopper and Traugott are prominent linguists known for their work on grammaticalization. Their theories provide a framework for understanding how language evolves and the factors that influence these changes."}, {"id": "english genitive -'s", "name": "english genitive -'s", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "The English genitive -'s illustrates a case of grammaticalization where a suffix has evolved into a clitic form. This example highlights the dynamic nature of language and how grammatical elements can change their status over time."}, {"id": "kate burridge (1998)", "name": "kate burridge (1998)", "frequency": 1, "degree": 0, "layer": "tertiary", "evidence": "Kate Burridge is a linguist whose work contributes to the understanding of language change, particularly in the context of grammaticalization. Her examples provide valuable insights into how language can shift between functional and content forms."}, {"id": "irish gaelic", "name": "irish gaelic", "frequency": 1, "degree": 0, "layer": "tertiary", "evidence": "Irish Gaelic serves as a case study for examining grammaticalization and unidirectionality, showcasing how specific linguistic elements can evolve under particular circumstances. This example enriches the understanding of language dynamics in different linguistic contexts."}, {"id": "antoine meillet", "name": "antoine meillet", "frequency": 1, "degree": 0, "layer": "tertiary", "evidence": "Meillet's interpretation emphasizes that grammaticalization introduces new forms and categories that transform the grammatical system. His work is significant as it highlights the dynamic nature of language and the role of grammaticalization in this process."}, {"id": "jerzy kurylowicz", "name": "jerzy kurylowicz", "frequency": 1, "degree": 0, "layer": "tertiary", "evidence": "Kurylowicz defined grammaticalization as the process where a morpheme increases its grammatical status, which is foundational for understanding how language evolves. His definition is widely cited, making it a cornerstone in the study of grammaticalization."}, {"id": "paul hopper", "name": "paul hopper", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "Hopper's five principles\u2014layering, divergence, specialization, persistence, and de-categorialization\u2014provide a framework for analyzing grammaticalization processes. These principles are critical for linguists to identify and understand the nuances of grammatical change."}, {"id": "franti\u0161ek lichtenberk", "name": "franti\u0161ek lichtenberk", "frequency": 1, "degree": 0, "layer": "tertiary", "evidence": "Lichtenberk's view of grammaticalization as a historical process emphasizes its gradual nature and its impact on morphosyntactic categories. This perspective is important for understanding the timeline and implications of grammatical changes in languages."}, {"id": "elizabeth traugott & bernd heine", "name": "elizabeth traugott & bernd heine", "frequency": 1, "degree": 0, "layer": "tertiary", "evidence": "Traugott and Heine's definition of grammaticalization as a process of organizing categories and coding underscores the tension between lexical expression and morphosyntactic coding. Their work is pivotal in framing grammaticalization within the broader context of linguistic theory."}, {"id": "olga fischer & anette rosenbach", "name": "olga fischer & anette rosenbach", "frequency": 1, "degree": 0, "layer": "tertiary", "evidence": "Fischer and Rosenbach's summary of grammaticalization highlights its diachronic nature and typical mechanisms, which are essential for understanding how language evolves over time. Their insights contribute to the ongoing discourse on the definitions and implications of grammaticalization."}, {"id": "historical syntax", "name": "historical syntax", "frequency": 1, "degree": 3, "layer": "priority", "evidence": "Historical syntax studies the changes in sentence structure over time across different languages. It provides insights into how syntactic rules and structures evolve, which is essential for understanding the development of languages and their grammatical systems."}, {"id": "grammatical categories", "name": "grammatical categories", "frequency": 1, "degree": 3, "layer": "secondary", "evidence": "Grammatical categories are classifications of words based on their function in a sentence, such as nouns, verbs, and adjectives. Understanding these categories is fundamental to analyzing language structure and the processes of grammaticalization."}, {"id": "cognitive forces", "name": "cognitive forces", "frequency": 1, "degree": 2, "layer": "secondary", "evidence": "Cognitive forces refer to the mental processes that influence language change, particularly in the context of grammaticalization. Recognizing these forces helps linguists understand the underlying motivations for language evolution."}, {"id": "case studies", "name": "case studies", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "Case studies provide specific examples of grammaticalization processes in particular languages, illustrating how theoretical concepts apply in real-world contexts. They are essential for validating linguistic theories and understanding language diversity."}, {"id": "elizabeth closs traugott", "name": "elizabeth closs traugott", "frequency": 1, "degree": 0, "layer": "tertiary", "evidence": "Elizabeth Closs Traugott is a prominent linguist known for her work on grammaticalization and language change. Her contributions are significant in shaping the field and advancing our understanding of how languages evolve."}, {"id": "historical context", "name": "historical context", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "Historical context refers to the background and circumstances surrounding language change, including social, cultural, and historical factors. Understanding this context is crucial for analyzing how and why grammaticalization occurs."}], "links": [{"source": "auxiliary verbs", "target": "grammaticalization", "type": "", "evidence": "It is very common for full verbs to become auxiliaries and eventually inflectional endings."}, {"source": "kanji", "target": "japanese compound verbs", "type": "", "evidence": "Compound verbs are thus generally written with a kanji for each constituent verb"}, {"source": "semantic bleaching", "target": "grammaticalized morphemic role", "type": "", "evidence": "This example also illustrates that semantic bleaching of a form in its grammaticalized morphemic role does not necessarily imply bleaching of its lexical source."}, {"source": "counterexamples", "target": "unidirectionality", "type": "", "evidence": "the possibility of counterexamples, coupled with their rarity, is given as evidence for the general operating principle of unidirectionality."}, {"source": "recurrent clines", "target": "general laws of grammaticalization", "type": "", "evidence": "The studying and documentation of recurrent clines enable linguists to form general laws of grammaticalization"}, {"source": "grammaticalization", "target": "an epiphenomenal telescoping", "type": "", "evidence": "it may involve certain typical 'path(way)s', but the latter seem to be built out of separate stepping-stones."}, {"source": "Elizabeth Closs Traugott", "target": "grammaticalization", "type": "", "evidence": "Hopper, Paul J. and Elizabeth Traugott. Grammaticalization."}, {"source": "historical context of grammaticalization", "target": "stages of grammatical development", "type": "", "evidence": "Understanding the historical context of grammaticalization provides insight into the various stages of grammatical development, highlighting how past linguistic changes inform current language structures."}, {"source": "discourse analysis", "target": "grammatical category of number", "type": "", "evidence": "Discourse analysis utilizes the grammatical category of number to understand how plurality affects meaning and interpretation in communication."}, {"source": "grammaticalization", "target": "Olga Fischer & Anette Rosenbach", "type": "", "evidence": "Fischer and Rosenbach summarize recent approaches to grammaticalization in their book."}, {"source": "grammaticalization", "target": "Franti\u0161ek Lichtenberk", "type": "", "evidence": "Lichtenberk describes grammaticalization as a historical process affecting morphosyntactic categories."}, {"source": "grammaticalization", "target": "phonetic reduction", "type": "", "evidence": "He saw this as one of the two kinds of change that are always associated with grammaticalization (the other being phonetic reduction)."}, {"source": "grammaticalization", "target": "historical context of linguistics", "type": "", "evidence": "The great number of studies on grammaticalization in the last decade (up to 2018) show grammaticalization remains a popular item and is regarded as an important field within linguistic studies in general."}, {"source": "example of 'let's'", "target": "grammaticalization", "type": "", "evidence": "A well-known example of grammaticalization is that of the process in which the lexical cluster let us... is reduced to let's."}, {"source": "morpheme", "target": "semantic features", "type": "", "evidence": "the partial effacement of a morpheme's semantic features, the stripping away of some of its precise content..."}, {"source": "morpheme", "target": "grammatical category of number", "type": "", "evidence": "the suffix -mente in this usage is interpretable by today's native speakers only as a morpheme signaling 'adverb'."}, {"source": "grammaticalization", "target": "discourse analysis", "type": "", "evidence": "It was not until the 1970s, with the growth of interest in discourse analysis and linguistic universals, that the interest for grammaticalization in linguistic studies began to grow again."}, {"source": "phonetic reduction", "target": "loss of phonetic segments", "type": "", "evidence": "Phonetic reduction is a phenomenon that often results in the loss of phonetic segments, illustrating how pronunciation evolves in language over time."}, {"source": "phonetic simplification", "target": "phonetic erosion", "type": "", "evidence": "Phonetic simplification leads to phonetic erosion, as the simplification of sounds often results in the gradual loss of distinct phonetic features."}, {"source": "example of 'let's'", "target": "loss of semantic content", "type": "", "evidence": "The example of 'let's' illustrates the loss of semantic content as it becomes a formulaic expression used for suggesting actions rather than conveying specific meanings."}, {"source": "semantic bleaching", "target": "loss of semantic content", "type": "", "evidence": "Semantic bleaching is a process that results in the loss of specific semantic content in words, which is a key aspect of grammaticalization, showing how meanings can shift and become more generalized over time."}, {"source": "james matisoff", "target": "understanding of grammaticalization", "type": "", "evidence": "James Matisoff's work contributes to the understanding of grammaticalization by examining its effects in various linguistic contexts, particularly in lesser-studied languages."}, {"source": "grammaticalization", "target": "Christian Lehmann", "type": "", "evidence": "Lehmann states that grammaticalization is a process leading from lexemes to grammatical formatives."}, {"source": "Janda", "target": "theory of grammaticalization", "type": "", "evidence": "Janda, for example, wrote that 'given that even writers on grammaticalization themselves freely acknowledge the involvement of several distinct processes in the larger set of phenomena...'"}, {"source": "grammaticalization", "target": "historical syntax", "type": "", "evidence": "Campbell, Lyle, & Alice C. Harris. Historical syntax in cross-linguistic perspective."}, {"source": "inflectional suffix", "target": "Modern English will", "type": "", "evidence": "hypothetically, will could become further grammaticalized to the point that it forms an inflectional affix indicating future tense"}, {"source": "christian lehmann", "target": "grammaticalization studies", "type": "", "evidence": "Christian Lehmann is recognized as a key figure in grammaticalization studies, contributing significantly to the theoretical frameworks that explain the phenomenon."}, {"source": "case markers", "target": "function words", "type": "", "evidence": "Case markers serve as examples of function words, illustrating how grammatical elements serve specific roles in sentence structure."}, {"source": "evolutionary language", "target": "stages of grammatical development", "type": "", "evidence": "Humboldt suggested that in all languages grammatical structures evolved out of a language stage in which there were only words for concrete objects and ideas."}, {"source": "semantic bleaching", "target": "loss of semantic content", "type": "", "evidence": "...it is likely to lose morphological and syntactic elements that were characteristic of its initial category..."}, {"source": "neo-grammarians", "target": "stages of grammatical development", "type": "", "evidence": "neo-grammarians like Brugmann rejected the separation of language into distinct 'stages' in favour of uniformitarian assumptions."}, {"source": "grammaticalization", "target": "function words", "type": "", "evidence": "Grammaticalization processes often lead to the transformation of content words into function words, illustrating how language evolves over time to enhance communicative efficiency."}, {"source": "Bybee et al. (1994)", "target": "parameters of grammaticalization", "type": "", "evidence": "linguists such as Bybee et al. (1994) have acknowledged that independently, they are not essential to grammaticalization."}, {"source": "grammaticalization", "target": "Jerzy Kurylowicz", "type": "", "evidence": "Kurylowicz's classical definition refers to the increase of a morpheme's grammatical status."}, {"source": "degrammaticalization", "target": "grammaticalization", "type": "", "evidence": "The first monograph on degrammaticalization and its relation to grammaticalization was published in 2009."}, {"source": "case studies", "target": "grammaticalization", "type": "", "evidence": "Fischer, Olga, & Anette Rosenbach. 'Introduction' in Pathways of Change: Grammaticalization in English."}, {"source": "latin construction clar\u0101 mente", "target": "modern Romance productive adverb formation", "type": "", "evidence": "the Latin construction of the type clar\u0101 mente, meaning 'with a clear mind' is the source of modern Romance productive adverb formation."}, {"source": "metonymic reasoning", "target": "demonstrative", "type": "", "evidence": "Metonymic reasoning applies to the use of demonstratives, as these words often refer to entities based on contextual relationships rather than direct identification."}, {"source": "grammaticalization", "target": "function words", "type": "", "evidence": "Grammaticalization can involve content words... developing into new function words that express grammatical relationships."}, {"source": "cline of grammaticalization", "target": "synchronic implications", "type": "", "evidence": "the cline of grammaticalization has both diachronic and synchronic implications"}, {"source": "grammaticalization", "target": "semantic bleaching", "type": "", "evidence": "Once a linguistic expression has changed from a lexical to a grammatical meaning (bleaching)..."}, {"source": "grammaticalization", "target": "degrammaticalization", "type": "", "evidence": "Grammaticalization and degrammaticalization represent opposing processes in language evolution, where grammaticalization involves the development of grammatical forms from lexical items, while degrammaticalization refers to the loss of grammatical features, highlighting the dynamic nature of language change."}, {"source": "try eating (it) and see", "target": "compound verb", "type": "", "evidence": "as in 'try eating (it) and see' (\u98df\u3079\u3066\u307f\u308b, tabetemiru)"}, {"source": "Modern English will", "target": "Old English willan", "type": "", "evidence": "The PDE verb 'will' can thus be said to have less lexical meaning than its preceding form in OE."}, {"source": "see", "target": "try out, see", "type": "", "evidence": "from 'see' (\u898b\u308b, miru), as in 'try eating (it) and see' (\u98df\u3079\u3066\u307f\u308b, tabetemiru)"}, {"source": "orthography", "target": "japanese compound verbs", "type": "", "evidence": "in Japanese orthography lexical items are generally written with kanji... while grammatical items are written with hiragana"}, {"source": "John Haiman", "target": "semantic reduction", "type": "", "evidence": "John Haiman wrote that 'semantic reduction, or bleaching, occurs as a morpheme loses its intention...'"}, {"source": "grammaticalization", "target": "Antoine Meillet", "type": "", "evidence": "Meillet describes grammaticalization as creating new forms and categories that transform the grammatical system."}, {"source": "case markers", "target": "grammaticalization", "type": "", "evidence": "Case markers often emerge through grammaticalization processes, illustrating how functional elements in language can evolve from more complex forms into simpler, more abstract markers."}, {"source": "semantic bleaching", "target": "loss of semantic content", "type": "", "evidence": "It can be described as the loss of semantic content."}, {"source": "historical context of grammaticalization", "target": "stages of grammatical development", "type": "", "evidence": "Understanding the historical context of grammaticalization helps to elucidate the various stages of grammatical development observed in languages."}, {"source": "proto-germanic etymon", "target": "content words", "type": "", "evidence": "The proto-germanic etymon provides a foundational basis for many content words in modern languages, illustrating the historical depth of linguistic evolution."}, {"source": "heine and reh", "target": "grammaticalization", "type": "", "evidence": "Another important work was Heine and Reh's Grammaticalization and Reanalysis in African Languages (1984)."}, {"source": "Irish Gaelic", "target": "unidirectionality", "type": "", "evidence": "One is found in the development of Irish Gaelic with the origin of the first-person-plural pronoun muid."}, {"source": "grammaticalized", "target": "suffixes", "type": "", "evidence": "some suffixes have become grammaticalized, and are written in hiragana"}, {"source": "cline of grammaticalization", "target": "natural path of change", "type": "", "evidence": "clines represent a natural path along which forms or words change over time"}, {"source": "function words", "target": "grammatical items", "type": "", "evidence": "grammatical items or function words, which serve mainly to express grammatical relationships."}, {"source": "principle of least effort", "target": "phonetic erosion", "type": "", "evidence": "Some linguists trace erosion to the speaker's tendency to follow the principle of least effort."}, {"source": "example of 'that'", "target": "relative clause marker", "type": "", "evidence": "...came to be used as a relative clause marker..."}, {"source": "Hopper and Traugott (1993)", "target": "lexicalization", "type": "", "evidence": "Hopper and Traugott (1993), who treat some putative counterexamples as cases of lexicalization."}, {"source": "lexicalization", "target": "grammaticalization", "type": "", "evidence": "Lexicalization is closely related to grammaticalization, as both processes involve the transformation of words and phrases over time, affecting their grammatical status and usage."}, {"source": "historical context of grammaticalization", "target": "stages of grammatical development", "type": "", "evidence": "Understanding the historical context of grammaticalization helps to frame the stages of grammatical development, as it shows how languages evolve over time."}, {"source": "documentation of changes", "target": "future language development", "type": "", "evidence": "the documenting of changes can help to reveal the lines along which a language is likely to develop in the future"}, {"source": "phonetic reduction", "target": "grammaticalization", "type": "", "evidence": "Phonetic reduction is frequently observed in the process of grammaticalization, where the pronunciation of words becomes less distinct as they transition into grammatical markers."}, {"source": "evidentiality", "target": "grammatical category of number", "type": "", "evidence": "Evidentiality can be affected by the grammatical category of number, indicating how different grammatical features interact within a language."}, {"source": "auxiliary verbs", "target": "grammaticalization", "type": "", "evidence": "Auxiliary verbs serve as prime examples of grammaticalization, as they evolve from full lexical verbs to grammatical markers, demonstrating the process of language change in action."}, {"source": "auxiliary verbs", "target": "function words", "type": "", "evidence": "Auxiliary verbs serve as a prime example of function words that have emerged through grammaticalization, demonstrating the shift from content to function in language evolution."}, {"source": "parameters of grammaticality", "target": "grammaticalization", "type": "", "evidence": "The parameters of grammaticality help define the boundaries and rules of grammaticalization, illustrating how certain linguistic forms are accepted or rejected in language use."}, {"source": "evidentiality", "target": "auxiliary verbs", "type": "", "evidence": "Evidentiality often intersects with the use of auxiliary verbs, as these verbs can convey information about the source of knowledge or evidence in a statement."}, {"source": "historical context of linguistics", "target": "neo-grammarians", "type": "", "evidence": "The historical context of linguistics informs the neo-grammarians' approach to understanding language change, emphasizing the importance of historical perspectives in linguistic theory."}, {"source": "content words", "target": "lexical items", "type": "", "evidence": "lexical items or content words, which carry specific lexical meaning."}, {"source": "Latin future tense forms", "target": "Romance languages", "type": "", "evidence": "the original future tense forms (e.g. cantabo) were dropped when they became phonetically too close to the imperfect forms"}, {"source": "grammaticalization", "target": "loss of phonetic segments", "type": "", "evidence": "It implies that a linguistic expression loses phonetic substance when it has undergone grammaticalization."}, {"source": "grammaticalization", "target": "parameters of grammaticality", "type": "", "evidence": "Lehmann also invented a set of 'parameters', a method along which grammaticality could be measured both synchronically and diachronically."}, {"source": "degrammaticalization", "target": "North Saami abessive case suffix", "type": "", "evidence": "the degrammaticalization of the North Saami abessive ('without') case suffix -haga to the postposition haga."}, {"source": "metonymic reasoning", "target": "body or shape and abstract property of likeness", "type": "", "evidence": "One could make the connection between the body or shape of a physical being and the abstract property of likeness or similarity, but only through metonymic reasoning."}, {"source": "cognitive forces", "target": "grammaticalization", "type": "", "evidence": "Cognitive forces play a crucial role in driving grammaticalization, as they influence how speakers process and produce language, leading to systematic changes in grammatical structures."}, {"source": "recurrent clines", "target": "reconstruction of older states of a language", "type": "", "evidence": "It plays an important role in the reconstruction of older states of a language"}, {"source": "heine and reh", "target": "grammaticalization", "type": "", "evidence": "Heine and Reh have developed influential theories on grammaticalization that explore the mechanisms and implications of this linguistic process across different languages."}, {"source": "grammaticalization", "target": "Paul Hopper", "type": "", "evidence": "Hopper outlines five principles that detect grammaticalization during its process."}, {"source": "unidirectionality", "target": "grammaticalization", "type": "", "evidence": "An important and popular topic which is still debated is the question of unidirectionality."}, {"source": "obligatorification", "target": "grammaticalization", "type": "", "evidence": "Obligatorification occurs when the use of linguistic structures becomes increasingly more obligatory in the process of grammaticalization."}, {"source": "grammaticalization", "target": "cognitive forces", "type": "", "evidence": "Heine, Bernd. Auxiliaries: Cognitive Forces and Grammaticalization."}, {"source": "English genitive -'s", "target": "degrammaticalization", "type": "", "evidence": "One is the English genitive -'s, which, in Old English, was a suffix but, in Modern English, is a clitic."}, {"source": "grammaticalization", "target": "content words", "type": "", "evidence": "Grammaticalization is a linguistic process in which words change from representing objects or actions to serving grammatical functions."}, {"source": "James Matisoff", "target": "semantic bleaching", "type": "", "evidence": "James Matisoff described bleaching as 'the partial effacement of a morpheme's semantic features...'"}, {"source": "discourse analysis", "target": "grammatical categories", "type": "", "evidence": "Discourse analysis often utilizes grammatical categories to understand how language functions in context, revealing the interplay between grammar and meaning in communication."}, {"source": "unidirectionality", "target": "grammaticalization", "type": "", "evidence": "Although unidirectionality is a key element of grammaticalization, exceptions exist."}, {"source": "parameters of grammaticality", "target": "grammatical categories", "type": "", "evidence": "The parameters of grammaticality help define the rules and structures that govern grammatical categories, illustrating how these parameters shape the way languages are constructed and understood."}, {"source": "semantic bleaching", "target": "grammaticalization", "type": "", "evidence": "Semantic bleaching, or desemanticization, has been seen from early on as a characteristic of grammaticalization."}, {"source": "evolutionary language", "target": "grammaticalization", "type": "", "evidence": "The concept of evolutionary language is influenced by grammaticalization, as it reflects the dynamic nature of language change and adaptation over time."}, {"source": "evidentiality", "target": "is less frequently grammaticalized", "type": "", "evidence": "Some concepts are often grammaticalized; others, such as evidentiality, less frequently."}, {"source": "parameters of grammaticality", "target": "parameters of grammaticalization", "type": "", "evidence": "The parameters of grammaticality provide a framework that influences the parameters of grammaticalization, guiding how linguistic elements change and develop."}, {"source": "auxiliary verbs", "target": "content words", "type": "", "evidence": "nouns and verbs which carry certain lexical meaning develop over time into grammatical items such as auxiliaries."}, {"source": "grammaticalization", "target": "auxiliary verbs", "type": "", "evidence": "Grammaticalization often leads to the development of auxiliary verbs from lexical items, illustrating how the process transforms content words into function words."}, {"source": "discourse analysis", "target": "evidentiality", "type": "", "evidence": "Discourse analysis often incorporates the concept of evidentiality to understand how speakers convey knowledge and belief, linking linguistic structures to broader communicative practices."}, {"source": "japanese compound verbs", "target": "example of compound verb", "type": "", "evidence": "Many Japanese words are formed by connecting two verbs, as in 'go and ask (listen)' (\u884c\u3063\u3066\u805e\u304f, ittekiku)"}, {"source": "grammaticalization", "target": "semantic bleaching", "type": "", "evidence": "Grammaticalization often leads to semantic bleaching, where words lose their specific meanings over time as they transition from content words to function words."}, {"source": "Wei-Heng Chen (2011)", "target": "phonological consequences of grammaticalization", "type": "", "evidence": "Special treatise on the phonological consequences of grammaticalization and lexicalization in the Chinese languages can be found in Wei-Heng Chen (2011)."}, {"source": "historical syntax", "target": "diachronic implications", "type": "", "evidence": "Historical syntax provides a framework for understanding diachronic implications, allowing linguists to trace the evolution of syntactic structures across different time periods."}, {"source": "grammaticalization", "target": "James A. Matisoff", "type": "", "evidence": "Matisoff views grammaticalization as a subtype of metaphor involving a shift toward the abstract."}, {"source": "grammatical categories", "target": "grammaticalization", "type": "", "evidence": "Meillet, Antoine. 'L'\u00e9volution des formes grammaticales.'"}, {"source": "grammaticalization", "target": "Elizabeth Traugott & Bernd Heine", "type": "", "evidence": "Traugott and Heine define grammaticalization as a linguistic process of organizing categories and coding."}, {"source": "relative clause marker", "target": "grammatical category of number", "type": "", "evidence": "...and lost the grammatical category of number ('that' singular vs. 'those' plural)..."}, {"source": "grammaticalization", "target": "Romance languages", "type": "", "evidence": "the process went further and produced irregular forms\u2014cf. Spanish har\u00e9 (instead of *hacer\u00e9, 'I'll do')"}, {"source": "phonetic erosion", "target": "phonetic simplification", "type": "", "evidence": "Phonetic simplification 'Going to' \u2192 'gonna' (or even 'I am going to' \u2192 'I'm gonna' \u2192 'I'mma') and 'because' \u2192 'coz' are examples of erosion in English."}, {"source": "transparadigmatic variability", "target": "obligatorification", "type": "", "evidence": "Lehmann describes it as a reduction in transparadigmatic variability."}, {"source": "degrammaticalization", "target": "grammaticalization", "type": "", "evidence": "Norde, Muriel. Degrammaticalization."}, {"source": "Old Church Slavonic verb x\u044at\u011bti", "target": "grammaticalization", "type": "", "evidence": "the Old Church Slavonic verb x\u044at\u011bti ('to want/to wish') has gone from a content word to an auxiliary verb"}, {"source": "W. Humboldt", "target": "typological difference in phonetic and phonological consequences", "type": "", "evidence": "a difference mostly initiated by the German linguist W. Humboldt."}, {"source": "Old English willan", "target": "auxiliary verbs", "type": "", "evidence": "the change from the Old English (OE) verb willan ('to want/to wish') to an auxiliary verb signifying intention in Middle English (ME)"}, {"source": "future language development", "target": "diachronic implications", "type": "", "evidence": "Future language development is shaped by diachronic implications, as understanding past changes can inform predictions about how languages will evolve."}, {"source": "Heine and Kuteva", "target": "obligatorification", "type": "", "evidence": "Some linguists, like Heine and Kuteva, stress the fact that even though obligatorification can be seen as an important process, it is not necessary for grammaticalization to take place."}, {"source": "monosyllabic languages", "target": "obligatory match between syllable and morpheme", "type": "", "evidence": "featuring an obligatory match between syllable and morpheme."}, {"source": "parameters of grammaticalization", "target": "grammaticalization", "type": "", "evidence": "these 'parameters of grammaticalization' are often linked to the theory."}, {"source": "phonetic reduction", "target": "phonetic simplification", "type": "", "evidence": "Phonetic reduction often leads to phonetic simplification, showing how the principle of least effort operates in language use."}, {"source": "cline of grammaticalization", "target": "diachronic implications", "type": "", "evidence": "the cline of grammaticalization has both diachronic and synchronic implications"}, {"source": "historical context", "target": "historical syntax", "type": "", "evidence": "Givon, Talmy. 'Historical syntax and synchronic morphology: an archaeologist's field trip.'"}, {"source": "john haiman", "target": "grammaticalization", "type": "", "evidence": "John Haiman explores the implications of grammaticalization in his research, shedding light on how language reflects social and cognitive processes."}, {"source": "neo-grammarians", "target": "historical context of linguistics", "type": "", "evidence": "The neo-grammarians' theories significantly contribute to the historical context of linguistics by providing frameworks that explain language change and the principles of grammaticalization."}, {"source": "example of compound verb", "target": "japanese compound verbs", "type": "", "evidence": "The example of a compound verb demonstrates the structure and function of Japanese compound verbs, providing insight into the complexities of verb formation in different languages."}, {"source": "case markers", "target": "content words", "type": "", "evidence": "Where grammaticalization takes place... develop over time into grammatical items such as auxiliaries, case markers, inflections."}, {"source": "function words", "target": "grammaticalization", "type": "", "evidence": "The process of grammaticalization results in the emergence of function words, which are crucial for sentence structure and grammatical relationships."}, {"source": "Modern English 'll", "target": "Modern English will", "type": "", "evidence": "This clitic form phonologically adapts to its surroundings and cannot receive stress unlike the uncontracted form."}, {"source": "hiragana", "target": "grammatical items", "type": "", "evidence": "grammatical items are written with hiragana"}, {"source": "Kate Burridge (1998)", "target": "grammaticalization", "type": "", "evidence": "Traugott cites a counterexample from function to content word proposed by Kate Burridge (1998)."}, {"source": "phonetic erosion", "target": "loss of phonetic segments", "type": "", "evidence": "Loss of phonetic segments, including loss of full syllables."}, {"source": "phonetic reduction", "target": "loss of phonetic segments", "type": "", "evidence": "Phonetic reduction often leads to the loss of phonetic segments in speech, which is a significant aspect of language evolution, affecting how words are pronounced and understood over time."}, {"source": "phonetic erosion", "target": "grammaticalization", "type": "", "evidence": "Phonetic erosion (also called phonological attrition or phonological reduction), is another process that is often linked to grammaticalization."}, {"source": "category of number", "target": "obligatorification", "type": "", "evidence": "Examples of obligatoriness can be found in the category of number."}, {"source": "grammaticalization", "target": "christian lehmann", "type": "", "evidence": "A greatly influential work in the domain was Christian Lehmann's Thoughts on Grammaticalization (1982)."}, {"source": "demonstrative", "target": "example of 'that'", "type": "", "evidence": "For example, the demonstrative 'that' as in 'that book' came to be used as a relative clause marker..."}, {"source": "cline of grammaticalization", "target": "recurrent clines", "type": "", "evidence": "The cline of grammaticalization illustrates recurrent clines in language change, highlighting patterns that emerge across different languages and contexts."}, {"source": "unidirectionality", "target": "grammaticalization", "type": "", "evidence": "Unidirectionality is a principle of grammaticalization that posits that linguistic forms tend to evolve in a specific direction, from more concrete to more abstract meanings."}, {"source": "historical context of linguistics", "target": "neo-grammarians", "type": "", "evidence": "The historical context of linguistics has shaped the neo-grammarians' approach to understanding language change and the principles governing it."}, {"source": "Proto-Germanic etymon", "target": "English suffixes -ly and -like", "type": "", "evidence": "both English suffixes -ly (as in bodily and angrily), and -like (as in catlike or yellow-like) ultimately come from an earlier Proto-Germanic etymon, *l\u012bk\u0105."}, {"source": "metonymic reasoning", "target": "grammaticalization", "type": "", "evidence": "Metonymic reasoning serves as a cognitive mechanism that facilitates grammaticalization, allowing speakers to create new grammatical forms based on existing semantic relationships."}], "expandedNodes": []};
+
+            document.addEventListener('DOMContentLoaded', function() {
+                // Set up variables
+                let expandedNodes = new Set(networkData.expandedNodes || []);
+                let pinnedNodes = new Set(); // Track pinned/fixed nodes
+                
+                let currentSimulation = null;
+                let currentNodes = [];
+                
+                let focusedNodeId = null;
+
+                const width = 800;
+                const height = 600;
+                const centerX = width / 2;
+                const centerY = height / 2;
+
+                // Color scheme - shades of green from lightest to darkest
+                const colorScheme = [
+                    "#D1EDE8", "#ABD9D1", "#97C0DB", "#6596B5", "#9C82DE", "#9575CD"
+                ];
+
+                // Set up SVG and tooltips
+                const svg = d3.select("#concept-map");
+                const tooltip = d3.select("#tooltip");
+                const evidenceTooltip = d3.select("#evidence-tooltip");
+
+                // Create a group for zooming
+                const g = svg.append("g");
+
+                // Set up zoom behavior
+                const zoom = d3.zoom()
+                    .scaleExtent([0.5, 5])
+                    .on("zoom", function(event) {
+                        g.attr("transform", event.transform);
+                    });
+
+                svg.call(zoom);
+
+                // Ensure nodes have string IDs and links reference those IDs
+                networkData.nodes.forEach(node => {
+                    node.id = String(node.id);
+                });
+
+                networkData.links.forEach(link => {
+                    link.source = String(link.source);
+                    link.target = String(link.target);
+                });
+
+                // Validate links - only keep links where both source and target nodes exist
+                const validNodeIds = new Set(networkData.nodes.map(node => node.id));
+                networkData.links = networkData.links.filter(link => 
+                    validNodeIds.has(link.source) && validNodeIds.has(link.target)
+                );
+
+                // Function to highlight terms in evidence text
+                function highlightTermsInEvidence(evidence, source, target, relation) {
+                    if (!evidence) return "No evidence available";
+                    
+                    try {
+                        // Simple HTML display without attempting to highlight terms
+                        return evidence;
+                    } catch(e) {
+                        console.error("Error in evidence:", e);
+                        return "No evidence available";
+                    }
+                }
+
+                // Function to calculate importance score
+                function calculateImportanceScore(node) {
+                    const frequencyWeight = 0.6;
+                    const maxFrequency = Math.max(...networkData.nodes.map(n => n.frequency || 0), 1);
+                    const maxDegree = Math.max(...networkData.nodes.map(n => n.degree || 0), 1);
+                    const normalizedFrequency = (node.frequency || 0) / maxFrequency;
+                    const normalizedDegree = (node.degree || 0) / maxDegree;
+                    return (normalizedFrequency * frequencyWeight) + (normalizedDegree * (1 - frequencyWeight));
+                }
+
+                // Find the most important concept to place at the center
+                function findCentralNode(nodes) {
+                    return nodes.reduce((max, node) => {
+                        const score = calculateImportanceScore(node);
+                        return (score > calculateImportanceScore(max)) ? node : max;
+                    }, nodes[0]);
+                }
+
+                // Function to get node size based on importance
+                function getNodeSize(node) {
+                    const score = calculateImportanceScore(node);
+                    return 10 + (score * 30);  // Min 10, max 40
+                }
+
+                // Function to get node color based on layer
+                function getNodeColor(node) {
+                    let baseIntensity;
+                    switch(node.layer) {
+                        case 'priority':
+                            baseIntensity = 5; // Darkest shade
+                            break;
+                        case 'secondary':
+                            baseIntensity = 2; // Medium shade
+                            break;
+                        case 'tertiary':
+                        default:
+                            baseIntensity = 0; // Lightest shade
+                    }
+
+                    const score = calculateImportanceScore(node);
+                    const intensityVariation = Math.min(Math.floor(score * 2), 1);
+                    const colorIndex = Math.min(Math.max(baseIntensity - intensityVariation, 0), colorScheme.length - 1);
+
+                    return colorScheme[colorIndex];
+                }
+
+                // Function to get visible data based on expanded nodes
+                function getVisibleData() {
+                    console.log("Getting visible data with expanded nodes:", Array.from(expandedNodes));
+                    
+                    // Priority nodes are always visible
+                    const visibleNodeIds = new Set(
+                        networkData.nodes
+                            .filter(node => node.layer === "priority" || expandedNodes.has(node.id))
+                            .map(node => node.id)
+                    );
+                    
+                    console.log(`Initial visible nodes (priority + expanded): ${visibleNodeIds.size}`);
+                    
+                    // Keep track of how many nodes we add in this expansion pass
+                    let nodesAdded = 0;
+                    
+                    // Find all nodes connected to expanded nodes
+                    expandedNodes.forEach(expandedId => {
+                        networkData.links.forEach(link => {
+                            let sourceId, targetId;
+                            
+                            // Handle both string and object formats
+                            if (typeof link.source === 'object') {
+                                sourceId = link.source.id;
+                            } else {
+                                sourceId = String(link.source);
+                            }
+                            
+                            if (typeof link.target === 'object') {
+                                targetId = link.target.id;
+                            } else {
+                                targetId = String(link.target);
+                            }
+                            
+                            if (sourceId === expandedId && !visibleNodeIds.has(targetId)) {
+                                visibleNodeIds.add(targetId);
+                                nodesAdded++;
+                            }
+                            
+                            if (targetId === expandedId && !visibleNodeIds.has(sourceId)) {
+                                visibleNodeIds.add(sourceId);
+                                nodesAdded++;
+                            }
+                        });
+                    });
+                    
+                    console.log(`Added ${nodesAdded} connected nodes to visible set`);
+                    console.log(`Total visible nodes: ${visibleNodeIds.size}`);
+                    
+                    // Get visible nodes
+                    const visibleNodes = networkData.nodes.filter(node => 
+                        visibleNodeIds.has(node.id)
+                    );
+                    
+                    // Get visible links
+                    const visibleLinks = networkData.links.filter(link => {
+                        let sourceId, targetId;
+                        
+                        // Handle both string and object formats
+                        if (typeof link.source === 'object') {
+                            sourceId = link.source.id;
+                        } else {
+                            sourceId = String(link.source);
+                        }
+                        
+                        if (typeof link.target === 'object') {
+                            targetId = link.target.id;
+                        } else {
+                            targetId = String(link.target);
+                        }
+                        
+                        return visibleNodeIds.has(sourceId) && visibleNodeIds.has(targetId);
+                    });
+                    
+                    console.log(`Visible nodes: ${visibleNodes.length}, Visible links: ${visibleLinks.length}`);
+                    
+                    return { nodes: visibleNodes, links: visibleLinks };
+                }
+
+                // Function to find nodes with hidden connections
+                function getAllNodesWithHiddenConnections() {
+                    // Get all nodes
+                    const allNodeIds = new Set(networkData.nodes.map(n => n.id));
+                    
+                    // Get currently visible nodes
+                    const visibleData = getVisibleData();
+                    const visibleNodeIds = new Set(visibleData.nodes.map(n => n.id));
+                    
+                    // Build a map of all connections
+                    const allConnections = new Map();
+                    
+                    // Initialize map with all nodes
+                    allNodeIds.forEach(nodeId => {
+                        allConnections.set(nodeId, []);
+                    });
+                    
+                    // Add all connections
+                    networkData.links.forEach(link => {
+                        const sourceId = typeof link.source === 'object' ? link.source.id : String(link.source);
+                        const targetId = typeof link.target === 'object' ? link.target.id : String(link.target);
+                        
+                        if (allConnections.has(sourceId)) {
+                            allConnections.get(sourceId).push(targetId);
+                        }
+                        
+                        if (allConnections.has(targetId)) {
+                            allConnections.get(targetId).push(sourceId);
+                        }
+                    });
+                    
+                    // Find all nodes that have hidden connections
+                    const nodesWithHidden = new Set();
+                    
+                    // Check each visible node
+                    visibleNodeIds.forEach(nodeId => {
+                        const connections = allConnections.get(nodeId) || [];
+
+                        // If any connection is to a non-visible node, this node has hidden connections
+                        if (connections.some(connId => !visibleNodeIds.has(connId))) {
+                            nodesWithHidden.add(nodeId);
+                        }
+                    });
+
+                    // Print debug info
+                    console.log(`Found ${nodesWithHidden.size} nodes with hidden connections`);
+                    console.log("Nodes with hidden connections:", Array.from(nodesWithHidden));
+
+                    return nodesWithHidden;
+                }
+
+                // Function to assign initial positions in concentric circles
+                function assignInitialPositions(nodes, centralNodeId) {
+                    // Group nodes by layer
+                    const layerGroups = {"priority": [], "secondary": [], "tertiary": []};
+
+                    nodes.forEach(node => {
+                        if (pinnedNodes.has(node.id)) {
+                            console.log("Preserving position for pinned node:", node.id);
+                            // Make sure fx and fy are set from existing position
+                            node.fx = node.x;
+                            node.fy = node.y;
+                            return; // Skip the rest of the positioning for this node
+                        }
+                        
+                        if (node.id === centralNodeId) {
+                            // Central node stays at center
+                            node.x = centerX;
+                            node.y = centerY;
+                            node.fx = centerX; // Fix position
+                            node.fy = centerY; // Fix position
+                            node.isCenter = true;
+                        } else {
+                            // Group other nodes by layer
+                            const layer = node.layer || "tertiary";
+                            layerGroups[layer].push(node);
+                            // Clear any fixed positions
+                            node.fx = null;
+                            node.fy = null;
+                            node.isCenter = false;
+                        }
+                    });
+
+                    // Assign positions in concentric circles by layer
+                    // Priority nodes closest to center
+                    positionNodesInCircle(layerGroups["priority"], 120);
+                    positionNodesInCircle(layerGroups["secondary"], 240);
+                    positionNodesInCircle(layerGroups["tertiary"], 360);
+                }
+
+                // Helper function to position nodes in a circle
+                function positionNodesInCircle(nodes, radius) {
+                    const angleStep = (2 * Math.PI) / Math.max(nodes.length, 1);
+
+                    nodes.forEach((node, i) => {
+                        const angle = i * angleStep;
+                        node.x = centerX + radius * Math.cos(angle);
+                        node.y = centerY + radius * Math.sin(angle);
+                    });
+                }
+
+
+                // Function to update the visualization
+                function updateVisualization() {
+                    // Get current data
+                    const { nodes, links } = getVisibleData();
+                    const nodesWithHidden = getAllNodesWithHiddenConnections();
+
+                    // Find central node
+                    const centralNode = findCentralNode(nodes);
+
+                    // Clear previous elements
+                    g.selectAll("*").remove();
+
+                    // Create a node ID lookup for the simulation
+                    const nodeById = new Map(nodes.map(node => [node.id, node]));
+                    
+                    nodes.forEach(node => {
+                        if (pinnedNodes.has(node.id)) {
+                            // If this node is pinned, ensure it has fixed coordinates
+                            const pinnedNode = nodeById.get(node.id);
+                            if (pinnedNode) {
+                                node.fx = pinnedNode.x || node.x;
+                                node.fy = pinnedNode.y || node.y;
+                            }
+                        }
+                    });
+
+                    // Assign initial positions
+                    assignInitialPositions(nodes, centralNode.id);
+
+                    // Set up the simulation with proper node references and forces
+                     const simulation = d3.forceSimulation(nodes)
+                        .force("link", d3.forceLink()
+                            .id(d => d.id)
+                            .links(links.map(link => ({
+                                source: nodeById.get(String(link.source)) || String(link.source),
+                                target: nodeById.get(String(link.target)) || String(link.target),
+                                type: link.type,
+                                evidence: link.evidence
+                            })))
+                            .distance(d => {
+                                // Adjust distance based on layer and node size
+                                const source = typeof d.source === 'object' ? d.source : nodeById.get(String(d.source));
+                                const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
+                        
+                                if (!source || !target) return 120;
+                        
+                                // Get sizes of source and target nodes
+                                const sourceSize = getNodeSize(source);
+                                const targetSize = getNodeSize(target);
+                                
+                                // Base distance on node sizes + a minimum distance
+                                const baseDistance = sourceSize + targetSize + 30;
+                                
+                                // Layer-based adjustments
+                                if (source.layer === "priority" && target.layer === "priority") {
+                                    // Priority-to-priority connections are slightly closer
+                                    return baseDistance * 1.2;
+                                } else if (source.layer === "priority" || target.layer === "priority") {
+                                    // Priority-to-other connections at medium distance
+                                    return baseDistance * 1.5;
+                                }
+                                
+                                // Other connections have more space
+                                return baseDistance * 2.0;
+                            })
+                            .strength(0.3))
+                        .force("charge", d3.forceManyBody().strength(d => {
+                            // Stronger repulsion for larger nodes
+                            return d.isCenter ? -500 : -300;
+                        }))
+                        .force("center", d3.forceCenter(centerX, centerY))
+                        .force("collide", d3.forceCollide().radius(d => getNodeSize(d) + 10))
+                        .force("x", d3.forceX(centerX).strength(d => {
+                            // Layer-based strength to keep priority nodes closer to center
+                            if (d.isCenter) return 1.0;
+                            if (d.layer === "priority") return 0.1;
+                            if (d.layer === "secondary") return 0.05;
+                            return 0.01;
+                        }))
+                        .force("y", d3.forceY(centerY).strength(d => {
+                            // Layer-based strength to keep priority nodes closer to center
+                            if (d.isCenter) return 1.0;
+                            if (d.layer === "priority") return 0.1;
+                            if (d.layer === "secondary") return 0.05;
+                            return 0.01;
+                        }))
+                        .force("link-repulsion", d3.forceManyBody()
+                            .strength(-10)
+                            .distanceMax(150)
+                            .distanceMin(25))
+                        .alphaDecay(0.02);
+                    
+                    currentSimulation = simulation;
+                    currentNodes = nodes;
+
+                    // Create links with hover effects
+                    const link = g.selectAll(".link")
+                        .data(links)
+                        .join("path")
+                        .attr("class", "link")
+                        .attr("stroke", function(d) {
+                            // Get the target node
+                            const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
+                            
+                            if (!target) return "#BDBDBD"; // Default gray
+                            
+                            // Color based on target's layer
+                            switch(target.layer) {
+                                case "priority":
+                                    return "#B39DDB"; // Purple for priority
+                                case "secondary":
+                                    return "#90CAF9"; // Blue for secondary
+                                case "tertiary":
+                                    return "#B2DFDB"; // Light blue/green for tertiary
+                                default:
+                                    return "#BDBDBD"; // Default gray
+                            }
+                        })
+                        .attr("stroke-opacity", 0.6)
+                        .attr("stroke-width", function(d) {
+                            const sourceNode = nodes.find(n => n.id === String(d.source));
+                            const targetNode = nodes.find(n => n.id === String(d.target));
+                            return (sourceNode?.layer === "priority" && targetNode?.layer === "priority") ? 3 : 1.5;
+                        })
+                        .attr("fill", "none")
+                        .on("mouseover", function(event, d) {
+                            // Highlight the line on hover
+                            const currentColor = d3.select(this).attr("stroke");
+                            d3.select(this)
+                                .attr("stroke-opacity", 1)
+                                .attr("stroke-width", function() {
+                                    return parseFloat(d3.select(this).attr("stroke-width")) + 1;
+                                })
+                                .attr("stroke", function() {
+                                    // Darken the current color for hover effect
+                                    const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
+                                    
+                                    if (!target) return "#999";
+                                    
+                                    switch(target.layer) {
+                                        case "priority":
+                                            return "#9575CD"; // Slightly darker purple
+                                        case "secondary":
+                                            return "#64B5F6"; // Slightly darker blue
+                                        case "tertiary":
+                                            return "#80CBC4"; // Slightly darker teal
+                                        default:
+                                            return "#999"; // Darker gray
+                                    }
+                                });
+
+                            // Get source and target node objects
+                            const sourceNode = typeof d.source === 'object' ? d.source : nodeById.get(String(d.source));
+                            const targetNode = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
+
+                            if (sourceNode && targetNode) {
+                                // Prepare evidence with highlighted terms
+                                const evidence = d.evidence || "";
+                                const highlightedEvidence = highlightTermsInEvidence(
+                                    evidence, 
+                                    sourceNode.name || sourceNode.id,
+                                    targetNode.name || targetNode.id,
+                                    d.type
+                                );
+
+                        // Show the evidence tooltip
+                        // When showing the evidence tooltip, just display the evidence as plain text
+                        evidenceTooltip
+                            .style("display", "block")
+                            .style("left", (event.pageX + 10) + "px")
+                            .style("top", (event.pageY - 10) + "px")
+                            .html(`
+                                <strong>${sourceNode.name || sourceNode.id}</strong>
+                                <span style="margin: 0 5px;">→</span>
+                                <strong>${d.type || "relates to"}</strong>
+                                <span style="margin: 0 5px;">→</span>
+                                <strong>${targetNode.name || targetNode.id}</strong>
+                                <hr style="margin: 8px 0;">
+                                <div>${d.evidence || "No evidence available"}</div>
+                            `);
+                            }
+                        })
+                        .on("mouseout", function() {
+                            // Restore original line style                            
+                            d3.select(this)
+                                    .attr("stroke-opacity", 0.6)
+                                    .attr("stroke-width", function(d) {
+                                        const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
+                                        
+                                        if (target && target.layer === "priority") return 2;
+                                        if (target && target.layer === "secondary") return 1.8;
+                                        return 1.5;
+                                    })
+                                    .attr("stroke", function(d) {
+                                        // Restore original color
+                                        const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
+                                        
+                                        if (!target) return "#BDBDBD";
+                                        
+                                        switch(target.layer) {
+                                            case "priority":
+                                                return "#B39DDB"; // Light purple
+                                            case "secondary":
+                                                return "#90CAF9"; // Light blue
+                                            case "tertiary":
+                                                return "#B2DFDB"; // Light teal
+                                            default:
+                                                return "#BDBDBD";
+                                        }
+                                    });
+
+                            // Hide the evidence tooltip
+                            evidenceTooltip.style("display", "none");
+                        });
+
+                    // Create node groups
+                    const node = g.selectAll(".node")
+                        .data(nodes)
+                        .join("g")
+                        .attr("class", function(d) {
+                            return "node node--" + (d.layer || "tertiary") + 
+                                   (expandedNodes.has(d.id) ? " node--expanded" : "") +
+                                   (d.isCenter ? " center-node" : "");
+                        });
+                    
+                    node
+                        // Left-click for expanding/collapsing hidden connections
+                        .on("click", function(event, d) {
+                            event.stopPropagation();
+                        
+                            // Only toggle expansion if the node has hidden connections
+                            if (nodesWithHidden.has(d.id)) {
+                                // Store current positions of all nodes before expanding
+                                const nodePositions = new Map();
+                                nodes.forEach(node => {
+                                    nodePositions.set(node.id, {x: node.x, y: node.y});
+                                });
+                        
+                                // Toggle expansion state
+                                if (expandedNodes.has(d.id)) {
+                                    expandedNodes.delete(d.id);
+                                    pinnedNodes.delete(d.id);
+                                    d.fx = null;
+                                    d.fy = null;
+                                    d3.select(this).classed("node--pinned", false);
+                                    
+                                    // Remove focus if this was the focused node
+                                    if (focusedNodeId === d.id) {
+                                        focusedNodeId = null;
+                                        resetFocus();
+                                    }
+                                } else {
+                                    expandedNodes.add(d.id);
+                                    pinnedNodes.add(d.id);
+                                    d.fx = d.x;
+                                    d.fy = d.y;
+                                    console.log("Pinned node at position:", d.x, d.y);
+                                    // Add visual indicator
+                                    d3.select(this).classed("node--pinned", true);
+                                    
+                                    focusedNodeId = d.id;
+                                }
+                    
+                                // Update visualization
+                                updateVisualization();
+                        
+                                // We need to wait for the nodes to be created in the DOM
+                                setTimeout(() => {
+                                    console.log("Checking pinned nodes after update");
+                                    g.selectAll(".node").each(function(node) {
+                                        if (pinnedNodes.has(node.id)) {
+                                            console.log("Should be pinned:", node.id, "fx:", node.fx, "fy:", node.fy);
+                                        }
+                                    });
+                                    if (focusedNodeId) {
+                                        applyFocus(focusedNodeId);
+                                    }
+                                }, 500);
+                        
+                                sendMessageToStreamlit({
+                                    expandedNodes: Array.from(expandedNodes)
+                                });
+                            }
+                        })
+                        // Right-click (contextmenu) for concept explanation
+                        .on("contextmenu", function(event, d) {
+                            // Prevent the default context menu
+                            event.preventDefault();
+                            
+                            // Get the evidence for this concept
+                            const nodeData = networkData.nodes.find(n => n.id === d.id);
+                            const evidence = nodeData.evidence || "No explanation available for this concept.";
+                                                        
+                            // Create or update the explanation panel
+                            if (!d3.select("#explanation-panel").size()) {
+                                d3.select("body").append("div")
+                                    .attr("id", "explanation-panel")
+                                    .style("position", "absolute")
+                                    .style("padding", "15px")
+                                    .style("background", "white")
+                                    .style("border", "1px solid #ccc")
+                                    .style("border-radius", "8px")
+                                    .style("box-shadow", "0 2px 10px rgba(0,0,0,0.2)")
+                                    .style("max-width", "300px")
+                                    .style("z-index", "1000")
+                                    .style("font-size", "14px")
+                                    .style("line-height", "1.4");
+                                    
+                                // Add close button
+                                d3.select("#explanation-panel")
+                                    .append("button")
+                                    .attr("class", "close-explanation")
+                                    .style("position", "absolute")
+                                    .style("top", "5px")
+                                    .style("right", "5px")
+                                    .style("background", "none")
+                                    .style("border", "none")
+                                    .style("font-size", "16px")
+                                    .style("cursor", "pointer")
+                                    .style("color", "#666")
+                                    .html("&times;")
+                                    .on("click", function() {
+                                        d3.select("#explanation-panel").style("display", "none");
+                                    });
+                            }
+                            
+                            // Update and position the explanation panel
+                            d3.select("#explanation-panel")
+                                .style("display", "block")
+                                .style("left", (event.pageX + 10) + "px")
+                                .style("top", (event.pageY - 10) + "px")
+                                .html(`
+                                    <button class="close-explanation" style="position:absolute;top:5px;right:5px;background:none;border:none;font-size:16px;cursor:pointer;color:#666;">&times;</button>
+                                    <div style="margin-top: 5px;">
+                                        <h3 style="margin-top:0;margin-bottom:10px;color:#2196F3;">${d.name || d.id}</h3>
+                                        <p>${evidence}</p>
+                                        <span style="display:block;margin-top:8px;font-style:italic;color:#666;font-size:12px;">Layer: ${d.layer || "unknown"}</span>
+                                    </div>
+                                `);
+                                
+                            // Handle close button click
+                            d3.select(".close-explanation").on("click", function() {
+                                d3.select("#explanation-panel").style("display", "none");
+                            });
+                                
+                            // Visual feedback for right-click
+                            d3.select(this).select("circle")
+                                .transition()
+                                .duration(200)
+                                .attr("r", function(d) { return getNodeSize(d) * 1.2; })
+                                .transition()
+                                .duration(200)
+                                .attr("r", function(d) { return getNodeSize(d); });
+                        })
+                        .on("mouseover", function(event, d) {
+                            // Show basic node info on hover with updated instructions
+                            tooltip
+                                .style("display", "block")
+                                .style("left", (event.pageX + 10) + "px")
+                                .style("top", (event.pageY - 10) + "px")
+                                .html("<strong>" + (d.name || d.id) + "</strong><br>" +
+                                      "<em>Level: " + (d.layer || "unknown") + "</em><br>" +
+                                      "<em>Frequency: " + (d.frequency || 0) + "</em><br>" +
+                                      "<em>Connections: " + (d.degree || 0) + "</em>" +
+                                      (nodesWithHidden.has(d.id)
+                                          ? "<br><span style='color:#FF8A65'><em>Click to expand connections" + 
+                                            (pinnedNodes.has(d.id) ? " (pinned)" : "") + "</em></span>"
+                                          : "") +
+                                      "<br><span style='color:#2196F3'><em>Right-click for explanation</em></span>");
+                        })
+                        .on("mouseout", function() {
+                            tooltip.style("display", "none");
+                        })
+                        .call(d3.drag()
+                            .on("start", dragstarted)
+                            .on("drag", dragged)
+                            .on("end", dragended));
+
+                    // Add circles to nodes with filled colors
+                    const nodeCircles = node.append("circle")
+                        .attr("r", function(d) { return getNodeSize(d); })
+                        .attr("fill", function(d) { return getNodeColor(d); })  // Use color for fill
+                        .attr("stroke", "#7E57C2");  // White stroke by default
+
+                    // Apply RED highlight to nodes with hidden connections
+                    nodeCircles.filter(function(d) { return nodesWithHidden.has(d.id); })
+                        .classed("hidden-connections-highlight", true);
+
+                    // Add pulse animation to nodes with hidden connections
+                    node.filter(function(d) { return nodesWithHidden.has(d.id); })
+                        .append("circle")
+                        .attr("r", function(d) { return getNodeSize(d); })
+                        .attr("fill", "none")
+                        .attr("stroke", "#FF8A65")  // soft coral pulse animation
+                        .attr("stroke-width", 2)
+                        .attr("opacity", 0.5)
+                        .attr("class", "pulse-{unique_id}");
+
+                    // Add text labels to nodes
+                    node.append("text")
+                        .attr("class", "node-label")
+                        .attr("text-anchor", "middle")
+                        .attr("font-size", function(d) { 
+                            if (d.isCenter) return "14px";
+                            return d.layer === "priority" ? "12px" : "10px"; 
+                        })
+                        .attr("font-weight", function(d) { 
+                            if (d.isCenter) return "bold";
+                            return d.layer === "priority" ? "bold" : "normal";
+                        })
+                        .attr("fill", "#000000")
+                        .attr("opacity", function(d) {
+                            // Show all labels for priority nodes, but fewer labels for other layers
+                            return d.layer === "priority" ? 1 : 0.7;
+                        })
+                        .text(function(d) {
+                            return d.name || d.id;
+                        })
+                        .each(function(d) {
+                            // Get label width to improve positioning
+                            const bbox = this.getBBox();
+                            d.labelWidth = bbox.width;
+                            d.labelHeight = bbox.height;
+                        });
+                    
+                    node.selectAll("text")
+                        .each(function(d) {
+                            // Get accurate bounding box for each label
+                            const bbox = this.getBBox();
+                            d.labelWidth = bbox.width;
+                            d.labelHeight = bbox.height;
+                            // Store expanded bounding box for collision detection
+                            d.labelBBox = {
+                                x: -bbox.width/2 - 5,  // Add padding
+                                y: -bbox.height/2 - 2, // Add padding
+                                width: bbox.width + 10,
+                                height: bbox.height + 4
+                            };
+                        });
+                                        
+                    // Add a stronger collision detection force specifically for labels
+                    simulation.force("label-collision", d3.forceCollide()
+                        .radius(function(d) {
+                            // Use larger collision radius for nodes with visible labels
+                            const nodeRadius = getNodeSize(d);
+                            const labelOffset = Math.max(d.labelWidth || 0, d.labelHeight || 0) / 2;
+                            // Return larger of the two values plus padding
+                            return Math.max(nodeRadius, labelOffset) + 15;
+                        })
+                        .strength(0.7) // Stronger collision force for labels
+                        .iterations(3)  // More iterations for better collision resolution
+                    );
+
+                    // Add visual indicator for central node
+                    node.filter(d => d.isCenter)
+                        .append("circle")
+                        .attr("r", function(d) { return getNodeSize(d) + 5; })
+                        .attr("fill", "none")
+                        .attr("stroke", "#5D32A8")
+                        .attr("stroke-width", 1.5)
+                        .attr("opacity", 0.5);
+
+                    // Update simulation
+                    simulation.alpha(1).restart(); // Full restart for better layout
+                    
+                    node.isPinned = true;
+
+                    simulation.on("tick", function() {
+                        nodes.forEach(d => {
+                            if (pinnedNodes.has(d.id) || d.isPinned) {
+                                if (d.fx !== null && d.fy !== null) {
+                                    d.x = d.fx;
+                                    d.y = d.fy;
+                                }
+                            }
+                            
+                            if (pinnedNodes.has(d.id) && (d.fx === null || d.fy === null)) {
+                                console.warn("Pinned node lost its fixed position:", d.id);
+                            }
+                            
+                            if (d.isCenter) {
+                                d.x = centerX;
+                                d.y = centerY;
+                            }
+
+                            // Apply gentle force to keep nodes in their layer rings
+                            if (!d.isCenter) {
+                                // Calculate distance from center
+                                const dx = d.x - centerX;
+                                const dy = d.y - centerY;
+                                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                                // Target radius based on layer
+                                let targetRadius;
+                                if (d.layer === "priority") targetRadius = 120;
+                                else if (d.layer === "secondary") targetRadius = 240;
+                                else targetRadius = 360; // tertiary
+
+                                // Strength of the force (adjust as needed)
+                                const strength = 0.05;
+
+                                if (distance > 0) {
+                                    // Push/pull toward the target radius
+                                    const factor = 1 - (targetRadius / distance);
+                                    d.x -= dx * factor * strength;
+                                    d.y -= dy * factor * strength;
+                                }
+                            }
+                        });
+
+                        link.attr("d", function(d) {
+                            const source = typeof d.source === 'object' ? d.source : nodeById.get(String(d.source));
+                            const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
+                            
+                            if (!source || !target) return "";
+                            
+                            // Calculate midpoint
+                            const midX = (source.x + target.x) / 2;
+                            const midY = (source.y + target.y) / 2;
+                            
+                            // Calculate normal vector for curve control point
+                            const dx = target.x - source.x;
+                            const dy = target.y - source.y;
+                            const normalX = -dy;
+                            const normalY = dx;
+                            
+                            // Normalize and scale for curvature
+                            const len = Math.sqrt(normalX * normalX + normalY * normalY);
+                            let curvature = 0;
+                            
+                            // Determine curvature based on link context
+                            if (len > 0) {
+                                // Add more curvature for links between nodes that have many connections
+                                curvature = 20 + Math.min(source.degree + target.degree, 20);
+                                
+                                // If this is a bidirectional link, curve it more
+                                const isBidirectional = links.some(l => 
+                                    (l.source.id === target.id && l.target.id === source.id) ||
+                                    (l.source === target.id && l.target === source.id)
+                                );
+                                if (isBidirectional) curvature = curvature * 1.5;
+                            }
+                            
+                            const controlX = midX + (normalX / len) * curvature;
+                            const controlY = midY + (normalY / len) * curvature;
+                            
+                            // Quadratic curve path
+                            return `M${source.x},${source.y} Q${controlX},${controlY} ${target.x},${target.y}`;
+                        });
+                        
+                        node.attr("transform", function(d) {
+                            return "translate(" + d.x + "," + d.y + ")";
+                        });
+                        
+                        node.select("text")
+                            .attr("dy", function(d) {
+                                // Check surrounding density
+                                let nearbyNodes = 0;
+                                const threshold = getNodeSize(d) * 3; // Detection radius
+                                
+                                nodes.forEach(other => {
+                                    if (d.id !== other.id) {
+                                        const dx = d.x - other.x;
+                                        const dy = d.y - other.y;
+                                        const distance = Math.sqrt(dx*dx + dy*dy);
+                                        if (distance < threshold) nearbyNodes++;
+                                    }
+                                });
+
+                                // Adaptively position label based on node density and position
+                                const angle = Math.atan2(d.y - centerY, d.x - centerX);
+
+                                // If crowded area, place labels more carefully
+                                if (nearbyNodes > 2) {
+                                    // Place in least crowded direction
+                                    if (angle > -Math.PI/4 && angle < Math.PI/4) {
+                                        return getNodeSize(d) + 5; // Right side
+                                    } else if (angle >= Math.PI/4 && angle < 3*Math.PI/4) {
+                                        return getNodeSize(d) + 15; // Bottom
+                                    } else if (angle >= 3*Math.PI/4 || angle <= -3*Math.PI/4) {
+                                        return -getNodeSize(d) - 5; // Left side
+                                    } else {
+                                        return -getNodeSize(d) - 15; // Top
+                                    }
+                                } else {
+                                    // Standard positioning based on angle from center
+                                    if (angle > -Math.PI/4 && angle < Math.PI/4) {
+                                        return "0.35em"; // Right side, centered vertically
+                                    } else if (angle >= Math.PI/4 && angle < 3*Math.PI/4) {
+                                        return getNodeSize(d) + 15; // Below node
+                                    } else if (angle >= 3*Math.PI/4 || angle <= -3*Math.PI/4) {
+                                        return "0.35em"; // Left side, centered vertically
+                                    } else {
+                                        return -getNodeSize(d) - 5; // Above node
+                                    }
+                                }
+                            })
+                            .attr("dx", function(d) {
+                                // Similar to dy logic, but for horizontal positioning
+                                const angle = Math.atan2(d.y - centerY, d.x - centerX);
+                                
+                                // Use existing dx logic but with more spacing
+                                if (angle > -Math.PI/4 && angle < Math.PI/4) {
+                                    return getNodeSize(d) + 8; // To the right
+                                } else if (angle >= Math.PI/4 && angle < 3*Math.PI/4) {
+                                    return 0; // Centered horizontally
+                                } else if (angle >= 3*Math.PI/4 || angle <= -3*Math.PI/4) {
+                                    return -getNodeSize(d) - 8; // To the left
+                                } else {
+                                    return 0; // Centered horizontally
+                                }
+                            })
+                            .attr("text-anchor", function(d) {
+                                const angle = Math.atan2(d.y - centerY, d.x - centerX);
+
+                                // Set text anchor based on angle
+                                if (angle > -Math.PI/4 && angle < Math.PI/4) {
+                                    return "start"; // Right side
+                                } else if (angle >= Math.PI/4 && angle < 3*Math.PI/4) {
+                                    return "middle"; // Bottom
+                                } else if (angle >= 3*Math.PI/4 || angle <= -3*Math.PI/4) {
+                                    return "end"; // Left side
+                                } else {
+                                    return "middle"; // Top
+                                }
+                            });
+                    }); 
+                    
+                    // Drag functions
+                    function dragstarted(event, d) {
+                        if (d.isCenter) return; // Don't allow dragging center node
+                        if (!event.active) simulation.alphaTarget(0.3).restart();
+                        // Store original position
+                        d._originalX = d.x;
+                        d._originalY = d.y;
+                        
+                        // Always fix position during drag
+                        d.fx = d.x;
+                        d.fy = d.y;
+                    }
+                            
+                    function dragged(event, d) {
+                        if (d.isCenter) return; // Don't allow dragging center node
+                        d.fx = event.x;
+                        d.fy = event.y;
+                    }
+                
+                    function dragended(event, d) {
+                        if (d.isCenter) return; // Don't allow dragging center node
+                        if (!event.active) simulation.alphaTarget(0);
+                        // If this node is pinned, keep it fixed at the new position
+                        if (pinnedNodes.has(d.id)) {
+                            d.fx = d.x;
+                            d.fy = d.y;
+                            console.log("Node remains pinned after drag:", d.id, "at", d.x, d.y);
+                        } else {
+                            // Otherwise, release it
+                            d.fx = null;
+                            d.fy = null;
+                        }
+                    }
+                }
+                
+                function applyFocus(nodeId) {
+                    console.log("Applying focus to node:", nodeId);
+                    
+                    // Get the focused node and its direct connections
+                    const connectedNodeIds = new Set();
+                    connectedNodeIds.add(nodeId); // Add the focused node
+                    
+                    // Find all nodes directly connected to the focused node
+                    g.selectAll(".link").each(function(link) {
+                        const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
+                        const targetId = typeof link.target === 'object' ? link.target.id : link.target;
+
+                        if (sourceId === nodeId) {
+                            connectedNodeIds.add(targetId);
+                        }
+                        if (targetId === nodeId) {
+                            connectedNodeIds.add(sourceId);
+                        }
+                    });
+
+                    console.log("Connected nodes:", Array.from(connectedNodeIds));
+
+                    // Fade out non-connected nodes and links
+                    g.selectAll(".node").classed("faded", function(d) {
+                        return !connectedNodeIds.has(d.id);
+                    });
+
+                    g.selectAll(".link").classed("faded", function(d) {
+                        const sourceId = typeof d.source === 'object' ? d.source.id : d.source;
+                        const targetId = typeof d.target === 'object' ? d.target.id : d.target;
+                        return !(connectedNodeIds.has(sourceId) && connectedNodeIds.has(targetId));
+                    });
+
+                    // Highlight the focused node
+                    g.selectAll(".node").filter(d => d.id === nodeId).classed("focused", true);
+                }
+
+                function resetFocus() {
+                    console.log("Resetting focus");
+                    g.selectAll(".node").classed("faded", false).classed("focused", false);
+                    g.selectAll(".link").classed("faded", false);
+                }
+                
+                // Button click handlers
+                d3.select("#reset-btn").on("click", function() {
+                    expandedNodes.clear();
+                    updateVisualization();
+                    sendMessageToStreamlit([]);
+                });
+                
+                d3.select("#expand-all-btn").on("click", function() {
+                    console.log("Expand All button clicked");
+                    
+                    // First get all nodes with hidden connections
+                    const nodesWithHidden = getAllNodesWithHiddenConnections();
+                    
+                    // Expand them all at once
+                    let expansionsAdded = 0;
+                    nodesWithHidden.forEach(nodeId => {
+                        if (!expandedNodes.has(nodeId)) {
+                            expandedNodes.add(nodeId);
+                            expansionsAdded++;
+                        }
+                    });
+                    
+                    console.log(`Added ${expansionsAdded} nodes to expanded set`);
+                    console.log("Expanded nodes:", Array.from(expandedNodes));
+                    
+                    // Update visualization with the new expanded set
+                    updateVisualization();
+                    
+                    // Try to communicate with Streamlit if available
+                    if (window.Streamlit) {
+                        try {
+                            window.Streamlit.setComponentValue({expandedNodes: Array.from(expandedNodes)});
+                            console.log("Sent expanded nodes to Streamlit");
+                        } catch (e) {
+                            console.error("Error sending to Streamlit:", e);
+                        }
+                    } else {
+                        console.warn("Streamlit object not available");
+                    }
+                });
+                
+                d3.select("#reset-btn").on("click", function() {
+                    console.log("Reset button clicked");
+                    
+                    // Clear expanded nodes
+                    const previousCount = expandedNodes.size;
+                    expandedNodes.clear();
+                    
+                    console.log(`Cleared ${previousCount} expanded nodes`);
+                    
+                    // Update visualization
+                    updateVisualization();
+                    
+                    // Try to communicate with Streamlit if available
+                    if (window.Streamlit) {
+                        try {
+                            window.Streamlit.setComponentValue({expandedNodes: []});
+                            console.log("Sent empty expanded nodes to Streamlit");
+                        } catch (e) {
+                            console.error("Error sending to Streamlit:", e);
+                        }
+                    } else {
+                        console.warn("Streamlit object not available");
+                    }
+                });
+                
+                d3.select("#unpin-btn").on("click", function() {
+                    console.log("Unpin All button clicked");
+                    
+                    if (!currentNodes || !currentSimulation) {
+                        console.error("No active visualization");
+                        return;
+                    }
+                    
+                    // Unpin all nodes
+                    pinnedNodes.forEach(nodeId => {
+                        const node = currentNodes.find(n => n.id === nodeId);
+                        if (node && !node.isCenter) {
+                            console.log("Unpinning node:", nodeId);
+                            node.fx = null;
+                            node.fy = null;
+                        }
+                    });
+                    
+                    // Clear pinned nodes set
+                    pinnedNodes.clear();
+                    
+                    // Remove visual indicators
+                    g.selectAll(".node--pinned").classed("node--pinned", false);
+                    
+                    // Run simulation with low alpha to adjust
+                    currentSimulation.alpha(0.1).restart();
+                });
+                
+                // Function to communicate with Streamlit
+                function safelySendMessageToStreamlit(message) {
+                    console.log("Attempting to send message to Streamlit:", message);
+                    
+                    try {
+                        // Check if Streamlit is available
+                        if (window.Streamlit) {
+                            window.Streamlit.setComponentValue(message);
+                            console.log("Message sent successfully to Streamlit");
+                            return true;
+                        } else {
+                            console.warn("Streamlit object not available yet. Will retry in 500ms");
+                            
+                            // Retry after a short delay
+                            setTimeout(() => {
+                                if (window.Streamlit) {
+                                    window.Streamlit.setComponentValue(message);
+                                    console.log("Message sent successfully to Streamlit on retry");
+                                } else {
+                                    console.error("Streamlit object still not available after retry");
+                                    
+                                    // Fall back to direct update if Streamlit communication fails
+                                    try {
+                                        expandedNodes = new Set(message.expandedNodes || []);
+                                        updateVisualization();
+                                        console.log("Applied changes locally since Streamlit communication failed");
+                                    } catch (localError) {
+                                        console.error("Error applying local changes:", localError);
+                                    }
+                                }
+                            }, 500);
+                            return false;
+                        }
+                    } catch (error) {
+                        console.error("Error sending message to Streamlit:", error);
+                        return false;
+                    }
+                }
+                
+                function sendMessageToStreamlit(message) {
+                    // Only proceed if we're in a Streamlit context
+                    if (window.Streamlit && window.Streamlit.setComponentValue) {
+                        try {
+                            window.Streamlit.setComponentValue(message);
+                            console.log("Message sent to Streamlit:", message);
+                            return true;
+                        } catch (e) {
+                            console.error("Error sending to Streamlit:", e);
+                            // No need to retry - just apply changes locally
+                            console.log("Applying changes locally due to error");
+                            return false;
+                        }
+                    } else {
+                        console.log("Streamlit API not available, applying changes locally");
+                        // No need to worry about it - all changes are already applied locally
+                        return false;
+                    }
+                }
+                
+                svg.on("click", function(event) {
+                    // Ignore if the click was on a node or a control
+                    if (event.target.closest(".node") || event.target.closest(".controls")) 
+                        return;
+                        
+                    focusedNodeId = null;
+                    resetFocus();
+                    
+                    // Unpin all nodes
+                    if (pinnedNodes.size > 0) {
+                        pinnedNodes.forEach(nodeId => {
+                            const node = nodes.find(n => n.id === nodeId);
+                            if (node && !node.isCenter) {
+                                node.fx = null;
+                                node.fy = null;
+                            }
+                        });
+                        
+                        // Clear pinned nodes set
+                        pinnedNodes.clear();
+                        
+                        // Remove visual indicators
+                        g.selectAll(".node--pinned").classed("node--pinned", false);
+                        
+                        // Run simulation with low alpha to adjust
+                        simulation.alpha(0.1).restart();
+                    }
+                });
+                
+                // Initial visualization
+                updateVisualization();
+                
+                document.addEventListener('click', function(event) {
+                    // Check if the click is outside the explanation panel and nodes
+                    const explanationPanel = document.getElementById('explanation-panel');
+                    const isClickOutsidePanel = explanationPanel && 
+                                                !explanationPanel.contains(event.target) && 
+                                                !event.target.closest('.node');
+                    
+                    if (isClickOutsidePanel) {
+                        // Hide the explanation panel
+                        d3.select("#explanation-panel").style("display", "none");
+                    }
+                });
+            });
+            </script>
+        </body>
+        </html>
+        

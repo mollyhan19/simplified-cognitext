@@ -1,0 +1,974 @@
+{
+  "metadata": {
+    "type": "master_relations",
+    "processing_mode": "subsection",
+    "timestamp": "2025-03-06T22:26:43.000000"
+  },
+  "articles": {
+    "Quantum supremacy": {
+      "category": "general",
+      "relations": [
+        {
+          "source": "quantum supremacy",
+          "relation_type": "demonstrates",
+          "target": "quantum computing",
+          "evidence": "Quantum supremacy is a milestone that signifies the point at which quantum computers can perform tasks that classical computers cannot, highlighting the transformative potential of quantum computing.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "shor's algorithm",
+          "relation_type": "is related to",
+          "target": "prime factorization",
+          "evidence": "Shor's algorithm is known for its efficiency in prime factorization.",
+          "section_name": "Proposed experiments - Boson sampling",
+          "section_index": 4
+        },
+        {
+          "source": "quantum supremacy",
+          "relation_type": "is viewed as",
+          "target": "scientific goal",
+          "evidence": "researchers view quantum supremacy as primarily a scientific goal",
+          "section_name": "Introduction",
+          "section_index": 1
+        },
+        {
+          "source": "unknown behavior of noise",
+          "relation_type": "is a potential roadblock for",
+          "target": "demonstrating quantum supremacy",
+          "evidence": "Skeptics point to the unknown behavior of noise in scaled-up quantum systems as a potential roadblock for successfully implementing quantum computing and demonstrating quantum supremacy.",
+          "section_name": "Criticisms - Susceptibility to error",
+          "section_index": 5
+        },
+        {
+          "source": "google and ustc research groups",
+          "relation_type": "collaborative efforts",
+          "target": "quantum supremacy",
+          "evidence": "The collaboration between Google and USTC research groups represents a significant effort in the pursuit of demonstrating quantum supremacy through innovative quantum computing techniques.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "complexity",
+          "relation_type": "has an upper bound for",
+          "target": "integer factoring",
+          "evidence": "the best upper bound for the complexity of this problem is O(2^{n/3+o(1)})",
+          "section_name": "Proposed experiments - Shor's algorithm for factoring integers",
+          "section_index": 4
+        },
+        {
+          "source": "boson sampling",
+          "relation_type": "depends on",
+          "target": "sampling problems",
+          "evidence": "Boson sampling is a more specific proposal, the classical hardness of which depends upon the intractability of calculating the permanent of a large matrix with complex entries.",
+          "section_name": "Computational complexity",
+          "section_index": 3
+        },
+        {
+          "source": "quantum phase transition",
+          "relation_type": "phenomenon in quantum systems",
+          "target": "quantum annealing",
+          "evidence": "Quantum phase transitions are critical to understanding the behavior of quantum systems during quantum annealing, linking theoretical physics with practical applications in quantum computing.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "peter shor",
+          "relation_type": "formulated",
+          "target": "shor's algorithm",
+          "evidence": "Peter Shor formulated Shor's algorithm, streamlining a method for factoring integers in polynomial time.",
+          "section_name": "Background - Quantum advantage in the 20th century",
+          "section_index": 2
+        },
+        {
+          "source": "john preskill",
+          "relation_type": "coined the term",
+          "target": "quantum supremacy",
+          "evidence": "The term was coined by John Preskill in 2011",
+          "section_name": "Introduction",
+          "section_index": 1
+        },
+        {
+          "source": "aaronson and arkhipov",
+          "relation_type": "proposed",
+          "target": "boson sampling",
+          "evidence": "the boson sampling proposal of Aaronson and Arkhipov",
+          "section_name": "Introduction",
+          "section_index": 1
+        },
+        {
+          "source": "turing machine",
+          "relation_type": "foundation of computational theory",
+          "target": "quantum turing machine",
+          "evidence": "The quantum Turing machine extends the classical Turing machine model, illustrating how foundational concepts in computational theory evolve to accommodate quantum principles.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "richard feynman",
+          "relation_type": "influential figure",
+          "target": "quantum computing",
+          "evidence": "Richard Feynman's early insights into simulating quantum systems laid the groundwork for the development of quantum computing, highlighting the historical evolution of the field.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "google and ustc research groups",
+          "relation_type": "collaborative effort in",
+          "target": "quantum supremacy demonstration",
+          "evidence": "The collaboration between Google and USTC research groups has been pivotal in advancing the experimental demonstration of quantum supremacy, showcasing the global effort in quantum research.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "john preskill",
+          "relation_type": "advocate for quantum supremacy",
+          "target": "quantum supremacy",
+          "evidence": "John Preskill's advocacy for quantum supremacy emphasizes the potential of quantum computers to solve problems beyond the reach of classical computing, linking theoretical discussions with future technological aspirations.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "quantum gates",
+          "relation_type": "building blocks",
+          "target": "quantum circuits",
+          "evidence": "Quantum gates are fundamental components of quantum circuits, which are essential for implementing quantum algorithms and achieving desired computational outcomes.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "complexity-theoretical conjectures",
+          "relation_type": "are assumptions related to",
+          "target": "boson sampling",
+          "evidence": "assuming a few complexity-theoretical conjectures (that calculating the permanent of Gaussian matrices is #P-Hard and that the polynomial hierarchy does not collapse)...",
+          "section_name": "Proposed experiments - Boson sampling",
+          "section_index": 4
+        },
+        {
+          "source": "shor's algorithm",
+          "relation_type": "is the first",
+          "target": "polynomial-time quantum algorithm",
+          "evidence": "It was the first polynomial-time quantum algorithm proposed for a real-world problem.",
+          "section_name": "Proposed experiments - Shor's algorithm for factoring integers",
+          "section_index": 4
+        },
+        {
+          "source": "richard feynman",
+          "relation_type": "argued",
+          "target": "quantum computing",
+          "evidence": "Feynman showed that quantum mechanics could not be efficiently simulated on classical devices.",
+          "section_name": "Background - Quantum advantage in the 20th century",
+          "section_index": 2
+        },
+        {
+          "source": "jonathan a. jones and michele mosca",
+          "relation_type": "published",
+          "target": "quantum algorithm",
+          "evidence": "published 'Implementation of a Quantum Algorithm to Solve Deutsch's Problem on a Nuclear Magnetic Resonance Quantum Computer', marking the first demonstration of a quantum algorithm.",
+          "section_name": "Background - Quantum advantage in the 20th century",
+          "section_index": 2
+        },
+        {
+          "source": "quantum computing",
+          "relation_type": "addresses problems that are",
+          "target": "intractable for classical computers",
+          "evidence": "can solve certain sampling and search problems that... are intractable for classical computers.",
+          "section_name": "Proposed experiments - Boson sampling",
+          "section_index": 4
+        },
+        {
+          "source": "neven's law",
+          "relation_type": "suggests",
+          "target": "quantum supremacy",
+          "evidence": "Quanta Magazine suggested that quantum supremacy could happen in 2019, according to Neven's law.",
+          "section_name": "Background - Progress in the 21st century",
+          "section_index": 2
+        },
+        {
+          "source": "circuit model",
+          "relation_type": "describes",
+          "target": "quantum complexity classes",
+          "evidence": "Circuit models are useful in describing quantum complexity classes.",
+          "section_name": "Computational complexity",
+          "section_index": 3
+        },
+        {
+          "source": "quantum supremacy",
+          "relation_type": "demonstrated by",
+          "target": "sycamore processor",
+          "evidence": "Google had announced its intention to demonstrate quantum supremacy by the end of 2017 by constructing and running a 49-qubit chip... On October 23, 2019, Google published the results of this quantum supremacy experiment in the Nature article, 'Quantum Supremacy Using a Programmable Superconducting Processor' in which they developed a new 53-qubit processor, named 'Sycamore'.",
+          "section_name": "Proposed experiments - Sampling the output distribution of random quantum circuits",
+          "section_index": 4
+        },
+        {
+          "source": "qubits",
+          "relation_type": "are related to",
+          "target": "resources needed for error correction",
+          "evidence": "it is not yet definitively known how the resources needed for error correction will scale with the number of qubits.",
+          "section_name": "Criticisms - Susceptibility to error",
+          "section_index": 5
+        },
+        {
+          "source": "quantum supremacy",
+          "relation_type": "is rejected in favor of",
+          "target": "quantum advantage",
+          "evidence": "he specifically rejected the term 'quantum advantage' as it did not fully encapsulate the meaning of his new term",
+          "section_name": "Criticisms - Criticism of the name",
+          "section_index": 5
+        },
+        {
+          "source": "quantum computing",
+          "relation_type": "related to",
+          "target": "quantum algorithm",
+          "evidence": "Researchers have since developed better algorithms for the sampling problem used to claim quantum supremacy.",
+          "section_name": "Background - Progress in the 21st century",
+          "section_index": 2
+        },
+        {
+          "source": "boson sampling",
+          "relation_type": "is a method used in",
+          "target": "quantum computing",
+          "evidence": "This computing paradigm based upon sending identical photons through a linear-optical network can solve certain sampling and search problems...",
+          "section_name": "Proposed experiments - Boson sampling",
+          "section_index": 4
+        },
+        {
+          "source": "quantum advantage",
+          "relation_type": "has largely replaced",
+          "target": "quantum supremacy",
+          "evidence": "the term 'quantum advantage' has 'largely replaced' the term 'quantum supremacy'",
+          "section_name": "Criticisms - Criticism of the name",
+          "section_index": 5
+        },
+        {
+          "source": "quantum supremacy",
+          "relation_type": "involves",
+          "target": "computational complexity theory",
+          "evidence": "the computational-complexity-theoretic task of finding a problem that can be solved by that quantum computer",
+          "section_name": "Introduction",
+          "section_index": 1
+        },
+        {
+          "source": "david deutsch",
+          "relation_type": "produced",
+          "target": "quantum turing machine",
+          "evidence": "David Deutsch produced a description for a quantum Turing machine.",
+          "section_name": "Background - Quantum advantage in the 20th century",
+          "section_index": 2
+        },
+        {
+          "source": "quantum phase transition",
+          "relation_type": "phenomenon influencing",
+          "target": "quantum computing performance",
+          "evidence": "Quantum phase transitions can significantly affect the performance of quantum systems, impacting their computational capabilities and the realization of quantum algorithms.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "deutsch's algorithm",
+          "relation_type": "implemented in",
+          "target": "clustered quantum computer",
+          "evidence": "the implementation of Deutsch's algorithm in a clustered quantum computer (2007)",
+          "section_name": "Background - Progress in the 21st century",
+          "section_index": 2
+        },
+        {
+          "source": "classical algorithm for simulating boson sampling",
+          "relation_type": "has a complexity of",
+          "target": "O(n2^{n+mn^{2})}",
+          "evidence": "The best proposed classical algorithm for simulating boson sampling runs in time O(n2^{n+mn^{2}) for a system with n photons and m output modes.",
+          "section_name": "Proposed experiments - Boson sampling",
+          "section_index": 4
+        },
+        {
+          "source": "quantum supremacy",
+          "relation_type": "demonstrates capability",
+          "target": "quantum computing",
+          "evidence": "Quantum supremacy is a milestone that indicates quantum computing's ability to perform tasks beyond the reach of classical computers, showcasing its potential impact on computational problems.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "quantum computers",
+          "relation_type": "are susceptible to",
+          "target": "errors",
+          "evidence": "Quantum computers are much more susceptible to errors than classical computers due to decoherence and noise.",
+          "section_name": "Criticisms - Susceptibility to error",
+          "section_index": 5
+        },
+        {
+          "source": "quantum advantage",
+          "relation_type": "is an alternative term suggested by",
+          "target": "thirteen researchers",
+          "evidence": "A controversial commentary article in the journal Nature signed by thirteen researchers asserts that the alternative phrase 'quantum advantage' should be used instead",
+          "section_name": "Criticisms - Criticism of the name",
+          "section_index": 5
+        },
+        {
+          "source": "noise",
+          "relation_type": "contributes to",
+          "target": "errors",
+          "evidence": "Quantum computers are much more susceptible to errors than classical computers due to decoherence and noise.",
+          "section_name": "Criticisms - Susceptibility to error",
+          "section_index": 5
+        },
+        {
+          "source": "boson sampling",
+          "relation_type": "example of quantum advantage",
+          "target": "quantum supremacy",
+          "evidence": "Boson sampling serves as a specific instance where quantum supremacy can be demonstrated, as it is a problem that classical computers struggle to solve efficiently compared to quantum systems.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "computational complexity theory",
+          "relation_type": "underpins quantum algorithms",
+          "target": "grover's algorithm",
+          "evidence": "Grover's algorithm is a significant result in computational complexity theory, demonstrating how quantum algorithms can provide quadratic speedups over classical counterparts.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "quantum turing machine",
+          "relation_type": "extends",
+          "target": "turing machine",
+          "evidence": "The quantum Turing machine is a theoretical model that extends the classical Turing machine.",
+          "section_name": "Background - Progress in the 21st century",
+          "section_index": 2
+        },
+        {
+          "source": "sycamore processor",
+          "relation_type": "capable of",
+          "target": "fast, high-fidelity quantum logic gates",
+          "evidence": "Google claims that their machine performed the target computation in 200 seconds.",
+          "section_name": "Proposed experiments - Sampling the output distribution of random quantum circuits",
+          "section_index": 4
+        },
+        {
+          "source": "sampling problems",
+          "relation_type": "contrast with",
+          "target": "decision problems",
+          "evidence": "Contrary to decision problems that require yes or no answers, sampling problems ask for samples from probability distributions.",
+          "section_name": "Computational complexity",
+          "section_index": 3
+        },
+        {
+          "source": "quantum error-correcting codes",
+          "relation_type": "can be used to",
+          "target": "simulate a noiseless quantum computer",
+          "evidence": "The threshold theorem states that a noisy quantum computer can use quantum error-correcting codes to simulate a noiseless quantum computer.",
+          "section_name": "Criticisms - Susceptibility to error",
+          "section_index": 5
+        },
+        {
+          "source": "threshold theorem",
+          "relation_type": "states that",
+          "target": "quantum error-correcting codes",
+          "evidence": "The threshold theorem states that a noisy quantum computer can use quantum error-correcting codes to simulate a noiseless quantum computer.",
+          "section_name": "Criticisms - Susceptibility to error",
+          "section_index": 5
+        },
+        {
+          "source": "grover's algorithm",
+          "relation_type": "is a type of",
+          "target": "quantum algorithm",
+          "evidence": "Grover's algorithm is another significant quantum algorithm for searching unsorted databases.",
+          "section_name": "Background - Progress in the 21st century",
+          "section_index": 2
+        },
+        {
+          "source": "ibm's dispute",
+          "relation_type": "challenges",
+          "target": "quantum supremacy",
+          "evidence": "IBM disputed this claim, saying that an improved classical algorithm should be able to solve that problem in two and a half days on that same supercomputer.",
+          "section_name": "Proposed experiments - Sampling the output distribution of random quantum circuits",
+          "section_index": 4
+        },
+        {
+          "source": "richard feynman",
+          "relation_type": "contributed to the concept of",
+          "target": "quantum computing",
+          "evidence": "the concept dates to Richard Feynman's 1981 proposals of quantum computing",
+          "section_name": "Introduction",
+          "section_index": 1
+        },
+        {
+          "source": "quantum complexity theory",
+          "relation_type": "extends",
+          "target": "classical computational complexity theory",
+          "evidence": "As an extension of classical computational complexity theory, quantum complexity theory considers what a theoretical universal quantum computer could accomplish.",
+          "section_name": "Computational complexity",
+          "section_index": 3
+        },
+        {
+          "source": "quantum annealing",
+          "relation_type": "used in",
+          "target": "D-Wave Systems",
+          "evidence": "D-Wave Systems reported on an experiment using a quantum annealing based processor.",
+          "section_name": "Background - Progress in the 21st century",
+          "section_index": 2
+        },
+        {
+          "source": "boson sampling",
+          "relation_type": "is a proposal for demonstrating",
+          "target": "quantum supremacy",
+          "evidence": "Examples of proposals to demonstrate quantum supremacy include the boson sampling proposal of Aaronson and Arkhipov",
+          "section_name": "Introduction",
+          "section_index": 1
+        },
+        {
+          "source": "quantum supremacy",
+          "relation_type": "achieved by",
+          "target": "google",
+          "evidence": "Google claims to have reached quantum supremacy with an array of 54 qubits.",
+          "section_name": "Background - Progress in the 21st century",
+          "section_index": 2
+        },
+        {
+          "source": "quantum supremacy",
+          "relation_type": "achieved by",
+          "target": "USTC",
+          "evidence": "A group based in the University of Science and Technology of China (USTC) led by Pan Jianwei reached quantum supremacy by implementing gaussian boson sampling.",
+          "section_name": "Background - Progress in the 21st century",
+          "section_index": 2
+        },
+        {
+          "source": "rsa cryptosystem",
+          "relation_type": "is based on the difficulty of",
+          "target": "integer factoring",
+          "evidence": "The RSA cryptosystem relies on the difficulty of integer factoring.",
+          "section_name": "Proposed experiments - Boson sampling",
+          "section_index": 4
+        },
+        {
+          "source": "quantum random circuit sampling",
+          "relation_type": "related to",
+          "target": "quantum supremacy",
+          "evidence": "The scheme discussed was a variant of a quantum random sampling scheme in which qubits undergo random quantum circuits.",
+          "section_name": "Background - Progress in the 21st century",
+          "section_index": 2
+        },
+        {
+          "source": "classical algorithm",
+          "relation_type": "requires more time than",
+          "target": "shor's algorithm",
+          "evidence": "the best known classical algorithm requires 2^{O(n^{1/3})} time.",
+          "section_name": "Proposed experiments - Shor's algorithm for factoring integers",
+          "section_index": 4
+        },
+        {
+          "source": "quantum supremacy",
+          "relation_type": "is a term coined by",
+          "target": "john preskill",
+          "evidence": "John Preskill, the professor of theoretical physics at the California Institute of Technology who coined the term",
+          "section_name": "Criticisms - Criticism of the name",
+          "section_index": 5
+        },
+        {
+          "source": "classical computers",
+          "relation_type": "are compared to",
+          "target": "quantum computers",
+          "evidence": "no classical computer can solve in any feasible amount of time",
+          "section_name": "Introduction",
+          "section_index": 1
+        },
+        {
+          "source": "quantum supremacy",
+          "relation_type": "can be achieved by",
+          "target": "near-term quantum computers",
+          "evidence": "quantum supremacy is that it can be feasibly achieved by near-term quantum computers",
+          "section_name": "Introduction",
+          "section_index": 1
+        },
+        {
+          "source": "historical significance",
+          "relation_type": "is associated with",
+          "target": "shor's algorithm",
+          "evidence": "This algorithm is important both practically and historically for quantum computing.",
+          "section_name": "Proposed experiments - Shor's algorithm for factoring integers",
+          "section_index": 4
+        },
+        {
+          "source": "BQP (bounded-error quantum polynomial time)",
+          "relation_type": "is a type of",
+          "target": "quantum complexity classes",
+          "evidence": "The most useful quantum complexity class is BQP (bounded-error quantum polynomial time), the class of decision problems that can be solved in polynomial time by a universal quantum computer.",
+          "section_name": "Computational complexity",
+          "section_index": 3
+        },
+        {
+          "source": "boson sampling",
+          "relation_type": "related to quantum supremacy",
+          "target": "aaronson and arkhipov",
+          "evidence": "The concept of boson sampling, proposed by Aaronson and Arkhipov, serves as a benchmark for demonstrating quantum supremacy, linking theoretical advancements with experimental validation.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "decoherence",
+          "relation_type": "contributes to",
+          "target": "errors",
+          "evidence": "Quantum computers are much more susceptible to errors than classical computers due to decoherence and noise.",
+          "section_name": "Criticisms - Susceptibility to error",
+          "section_index": 5
+        },
+        {
+          "source": "shor's algorithm",
+          "relation_type": "finds",
+          "target": "prime factorization",
+          "evidence": "This algorithm finds the prime factorization of an n-bit integer in O(n^{3}) time.",
+          "section_name": "Proposed experiments - Shor's algorithm for factoring integers",
+          "section_index": 4
+        },
+        {
+          "source": "quantum annealing",
+          "relation_type": "method of",
+          "target": "solving optimization problems",
+          "evidence": "Quantum annealing is a specific approach within quantum computing aimed at solving optimization problems, demonstrating the diverse methodologies within the field.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "quantum supremacy",
+          "relation_type": "is proposed to describe",
+          "target": "quantum computers",
+          "evidence": "the moment that a quantum computer gains the ability to perform a task that a classical computer never could",
+          "section_name": "Criticisms - Criticism of the name",
+          "section_index": 5
+        },
+        {
+          "source": "historical context",
+          "relation_type": "foundation for current research",
+          "target": "quantum computing",
+          "evidence": "Understanding the historical context of quantum computing provides insights into its evolution and the foundational theories that have shaped current research and technological advancements.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "current technology limitations",
+          "relation_type": "affects",
+          "target": "quantum supremacy",
+          "evidence": "The largest universal quantum circuit simulator running on classical supercomputers at the time was able to simulate 48 qubits.",
+          "section_name": "Proposed experiments - Sampling the output distribution of random quantum circuits",
+          "section_index": 4
+        },
+        {
+          "source": "jiuzhang",
+          "relation_type": "achieved quantum supremacy by",
+          "target": "gaussian boson sampling",
+          "evidence": "USTC reached quantum supremacy by implementing gaussian boson sampling on 76 photons.",
+          "section_name": "Background - Progress in the 21st century",
+          "section_index": 2
+        },
+        {
+          "source": "shor's algorithm",
+          "relation_type": "application of quantum computing",
+          "target": "prime factorization",
+          "evidence": "Shor's algorithm exemplifies how quantum computing can efficiently solve the prime factorization problem, which is a cornerstone of modern cryptography.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "quantum gates",
+          "relation_type": "are part of",
+          "target": "circuit model",
+          "evidence": "the quantum model consists of classical circuits and the application of unitary operations.",
+          "section_name": "Computational complexity",
+          "section_index": 3
+        },
+        {
+          "source": "historical context",
+          "relation_type": "foundation for",
+          "target": "quantum computing advancements",
+          "evidence": "The historical context of quantum computing, including foundational theories and early experiments, provides essential insights into the evolution and current state of the field.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "quantum supremacy",
+          "relation_type": "requires",
+          "target": "qubits",
+          "evidence": "around 50 qubits could be enough to demonstrate quantum supremacy.",
+          "section_name": "Proposed experiments - Sampling the output distribution of random quantum circuits",
+          "section_index": 4
+        },
+        {
+          "source": "quantum random circuit sampling",
+          "relation_type": "alternative approach",
+          "target": "boson sampling",
+          "evidence": "Quantum random circuit sampling is another method that can potentially demonstrate quantum supremacy, highlighting the diversity of approaches within quantum computing.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "complexity",
+          "relation_type": "impacted by",
+          "target": "quantum supremacy",
+          "evidence": "Bouland, Fefferman, Nirkhe and Vazirani gave, in 2018, theoretical evidence that efficiently simulating a random quantum circuit would require a collapse of the computational polynomial hierarchy.",
+          "section_name": "Proposed experiments - Sampling the output distribution of random quantum circuits",
+          "section_index": 4
+        },
+        {
+          "source": "boson sampling",
+          "relation_type": "is affected by",
+          "target": "loss and noise in boson sampling",
+          "evidence": "it has been shown that boson sampling in a system with large enough loss and noise can be simulated efficiently.",
+          "section_name": "Proposed experiments - Boson sampling",
+          "section_index": 4
+        },
+        {
+          "source": "google and ustc research groups",
+          "relation_type": "replicate",
+          "target": "Random Circuit Sampling",
+          "evidence": "the task replicated by the Google and USTC research groups.",
+          "section_name": "Computational complexity",
+          "section_index": 3
+        },
+        {
+          "source": "quantum random circuit sampling",
+          "relation_type": "is a proposal for demonstrating",
+          "target": "quantum supremacy",
+          "evidence": "sampling the output of random quantum circuits",
+          "section_name": "Introduction",
+          "section_index": 1
+        },
+        {
+          "source": "lov grover",
+          "relation_type": "published",
+          "target": "grover's algorithm",
+          "evidence": "published his algorithm, Grover's Algorithm, in his paper, 'A fast quantum mechanical algorithm for database search'.",
+          "section_name": "Background - Quantum advantage in the 20th century",
+          "section_index": 2
+        },
+        {
+          "source": "quantum supremacy",
+          "relation_type": "implies complete ascendancy over",
+          "target": "classical computers",
+          "evidence": "the word 'supremacy' better conveys complete ascendancy over any classical computer",
+          "section_name": "Criticisms - Criticism of the name",
+          "section_index": 5
+        },
+        {
+          "source": "near-term quantum computers",
+          "relation_type": "current technological focus",
+          "target": "quantum algorithms",
+          "evidence": "The development of near-term quantum computers emphasizes the need for quantum algorithms that can be executed on current hardware, bridging theoretical advancements with practical applications.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "quantum logic gate",
+          "relation_type": "building block of quantum algorithms",
+          "target": "quantum algorithm",
+          "evidence": "Quantum logic gates are fundamental components that enable the construction of quantum algorithms, illustrating the interdependence of hardware and software in quantum computing.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "current technology limitations",
+          "relation_type": "affects",
+          "target": "implementation of shor's algorithm",
+          "evidence": "However, implementing Shor's algorithm for large numbers is infeasible with current technology.",
+          "section_name": "Proposed experiments - Shor's algorithm for factoring integers",
+          "section_index": 4
+        },
+        {
+          "source": "boson sampling",
+          "relation_type": "related to",
+          "target": "quantum computing",
+          "evidence": "The largest universal quantum circuit simulator running on classical supercomputers at the time was able to simulate 48 qubits.",
+          "section_name": "Proposed experiments - Sampling the output distribution of random quantum circuits",
+          "section_index": 4
+        },
+        {
+          "source": "quantum supremacy",
+          "relation_type": "demonstrates capability",
+          "target": "quantum random circuit sampling",
+          "evidence": "Quantum supremacy is often illustrated through specific tasks like quantum random circuit sampling, which showcases the ability of quantum computers to outperform classical computers in certain computations.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "quantum computing",
+          "relation_type": "includes",
+          "target": "quantum logic gate",
+          "evidence": "quantum circuits featuring quantum gates drawn from a universal gate set.",
+          "section_name": "Background - Progress in the 21st century",
+          "section_index": 2
+        },
+        {
+          "source": "complexity arguments",
+          "relation_type": "concern",
+          "target": "sampling problems",
+          "evidence": "The difficulty of proving what cannot be done with classical computing is a common problem in definitively demonstrating quantum supremacy.",
+          "section_name": "Computational complexity",
+          "section_index": 3
+        },
+        {
+          "source": "quantum complexity theory",
+          "relation_type": "framework for understanding",
+          "target": "computational complexity theory",
+          "evidence": "Quantum complexity theory extends classical computational complexity theory, providing insights into the limits and capabilities of quantum algorithms compared to classical ones.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "near-term quantum computers",
+          "relation_type": "practical application of concepts",
+          "target": "quantum annealing",
+          "evidence": "Near-term quantum computers often utilize quantum annealing techniques, which are designed to solve optimization problems, showcasing the practical implications of quantum computing theories.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "rsa cryptosystem",
+          "relation_type": "is believed to be secure under",
+          "target": "shor's algorithm",
+          "evidence": "Namely, it gives a superpolynomial speedup under the reasonable assumption that RSA, a well-established cryptosystem, is secure.",
+          "section_name": "Proposed experiments - Shor's algorithm for factoring integers",
+          "section_index": 4
+        },
+        {
+          "source": "classical algorithm",
+          "relation_type": "compared to",
+          "target": "quantum supremacy",
+          "evidence": "Google claims that their machine performed the target computation in 200 seconds, and estimated that their classical algorithm would take 10,000 years in the world's fastest supercomputer to solve the same problem.",
+          "section_name": "Proposed experiments - Sampling the output distribution of random quantum circuits",
+          "section_index": 4
+        },
+        {
+          "source": "christopher monroe and david wineland",
+          "relation_type": "demonstrated",
+          "target": "quantum logic gate",
+          "evidence": "published their paper, 'Demonstration of a Fundamental Quantum Logic Gate', marking the first demonstration of a quantum logic gate.",
+          "section_name": "Background - Quantum advantage in the 20th century",
+          "section_index": 2
+        },
+        {
+          "source": "paul benioff",
+          "relation_type": "demonstrated",
+          "target": "reversible nature of quantum computing",
+          "evidence": "His paper... was the first to demonstrate that it is possible to show the reversible nature of quantum computing.",
+          "section_name": "Background - Quantum advantage in the 20th century",
+          "section_index": 2
+        },
+        {
+          "source": "quantum phase transition",
+          "relation_type": "related to",
+          "target": "quantum annealing",
+          "evidence": "the simulation of the non-equilibrium dynamics of a magnetic spin system quenched through a quantum phase transition.",
+          "section_name": "Background - Progress in the 21st century",
+          "section_index": 2
+        },
+        {
+          "source": "shor's theorem",
+          "relation_type": "demonstrated in",
+          "target": "2001",
+          "evidence": "the demonstration of Shor's theorem (2001)",
+          "section_name": "Background - Progress in the 21st century",
+          "section_index": 2
+        },
+        {
+          "source": "david deutsch",
+          "relation_type": "designed",
+          "target": "quantum algorithm",
+          "evidence": "designed an algorithm created to run on a quantum computer.",
+          "section_name": "Background - Quantum advantage in the 20th century",
+          "section_index": 2
+        },
+        {
+          "source": "shor's algorithm",
+          "relation_type": "provides",
+          "target": "superpolynomial speedup",
+          "evidence": "It can also provide a speedup for any problem that reduces to integer factoring.",
+          "section_name": "Proposed experiments - Shor's algorithm for factoring integers",
+          "section_index": 4
+        },
+        {
+          "source": "superpolynomial speedup",
+          "relation_type": "is a goal of",
+          "target": "quantum computing",
+          "evidence": "Quantum computing aims to achieve superpolynomial speedup over classical algorithms.",
+          "section_name": "Proposed experiments - Boson sampling",
+          "section_index": 4
+        },
+        {
+          "source": "skeptics",
+          "relation_type": "point to",
+          "target": "unknown behavior of noise",
+          "evidence": "Skeptics point to the unknown behavior of noise in scaled-up quantum systems as a potential roadblock for successfully implementing quantum computing.",
+          "section_name": "Criticisms - Susceptibility to error",
+          "section_index": 5
+        },
+        {
+          "source": "classical computers",
+          "relation_type": "comparison basis",
+          "target": "quantum computers",
+          "evidence": "Classical computers serve as a benchmark for evaluating the performance and capabilities of quantum computers, particularly in terms of speed and efficiency in solving complex problems.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "current technology limitations",
+          "relation_type": "barrier to",
+          "target": "quantum advantage",
+          "evidence": "The limitations of current technology, such as noise and loss in quantum systems, hinder the achievement of quantum advantage, where quantum computers outperform classical ones in practical applications.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "shor's algorithm",
+          "relation_type": "is important for",
+          "target": "quantum computing",
+          "evidence": "This algorithm is important both practically and historically for quantum computing.",
+          "section_name": "Proposed experiments - Shor's algorithm for factoring integers",
+          "section_index": 4
+        },
+        {
+          "source": "loss and noise in boson sampling",
+          "relation_type": "challenges to implementation",
+          "target": "experimental implementation",
+          "evidence": "The challenges posed by loss and noise in boson sampling highlight the difficulties faced in the experimental implementation of quantum algorithms, affecting the reliability of results.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "alan turing",
+          "relation_type": "developed",
+          "target": "turing machine",
+          "evidence": "Turing's paper described what he called a 'universal computing machine', which later became known as a Turing machine.",
+          "section_name": "Background - Quantum advantage in the 20th century",
+          "section_index": 2
+        },
+        {
+          "source": "quantum complexity theory",
+          "relation_type": "framework for understanding",
+          "target": "quantum algorithms",
+          "evidence": "Quantum complexity theory provides the theoretical foundation for analyzing the efficiency and capabilities of quantum algorithms, influencing the development of new quantum computational methods.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "Nature journal",
+          "relation_type": "published commentary by",
+          "target": "philip ball",
+          "evidence": "Nature's Philip Ball wrote in December 2020",
+          "section_name": "Criticisms - Criticism of the name",
+          "section_index": 5
+        },
+        {
+          "source": "quantum supremacy",
+          "relation_type": "can be demonstrated by",
+          "target": "boson sampling",
+          "evidence": "The algorithm leads to an estimate of 50 photons required to demonstrate quantum supremacy with boson sampling.",
+          "section_name": "Proposed experiments - Boson sampling",
+          "section_index": 4
+        },
+        {
+          "source": "shor's algorithm",
+          "relation_type": "application of",
+          "target": "quantum computing",
+          "evidence": "Shor's algorithm exemplifies how quantum computing can solve problems, such as integer factoring, exponentially faster than classical algorithms, thus illustrating the practical implications of quantum computing.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "boson sampling",
+          "relation_type": "example of",
+          "target": "quantum supremacy",
+          "evidence": "Boson sampling is often cited as a specific instance where quantum supremacy can be demonstrated, showcasing the capabilities of quantum systems over classical counterparts.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "boson sampling",
+          "relation_type": "requires",
+          "target": "photons",
+          "evidence": "The largest experimental implementation of boson sampling to date had 6 modes so could handle up to 6 photons at a time.",
+          "section_name": "Proposed experiments - Boson sampling",
+          "section_index": 4
+        },
+        {
+          "source": "yuri manin",
+          "relation_type": "contributed to the concept of",
+          "target": "quantum computing",
+          "evidence": "the concept dates to Yuri Manin's 1980 proposals of quantum computing",
+          "section_name": "Introduction",
+          "section_index": 1
+        },
+        {
+          "source": "numerical simulations",
+          "relation_type": "suggest that",
+          "target": "threshold for error correction",
+          "evidence": "Numerical simulations suggest that that number may be as high as 3%.",
+          "section_name": "Criticisms - Susceptibility to error",
+          "section_index": 5
+        },
+        {
+          "source": "quantum computing",
+          "relation_type": "enables algorithms",
+          "target": "shor's algorithm",
+          "evidence": "Quantum computing provides the necessary framework for implementing Shor's algorithm, which is pivotal for factoring large numbers efficiently, a task infeasible for classical computers.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "shor's algorithm",
+          "relation_type": "is a type of",
+          "target": "quantum algorithm",
+          "evidence": "Shor's algorithm is a well-known quantum algorithm for factoring.",
+          "section_name": "Background - Progress in the 21st century",
+          "section_index": 2
+        },
+        {
+          "source": "quantum supremacy",
+          "relation_type": "is defined by",
+          "target": "programmable quantum computer solving problems",
+          "evidence": "demonstrating that a programmable quantum computer can solve a problem that no classical computer can solve in any feasible amount of time",
+          "section_name": "Introduction",
+          "section_index": 1
+        },
+        {
+          "source": "paul benioff",
+          "relation_type": "proposed",
+          "target": "quantum computing",
+          "evidence": "Paul Benioff used Turing's paper to propose the theoretical feasibility of Quantum Computing.",
+          "section_name": "Background - Quantum advantage in the 20th century",
+          "section_index": 2
+        },
+        {
+          "source": "integer factoring",
+          "relation_type": "is a problem that",
+          "target": "shor's algorithm",
+          "evidence": "It can also provide a speedup for any problem that reduces to integer factoring.",
+          "section_name": "Proposed experiments - Shor's algorithm for factoring integers",
+          "section_index": 4
+        },
+        {
+          "source": "D-Wave Systems",
+          "relation_type": "first commercial quantum computer",
+          "target": "quantum computer",
+          "evidence": "D-Wave Systems became the first company to sell a quantum computer commercially.",
+          "section_name": "Background - Progress in the 21st century",
+          "section_index": 2
+        },
+        {
+          "source": "quantum error-correcting codes",
+          "relation_type": "solution to",
+          "target": "errors in quantum computing",
+          "evidence": "Quantum error-correcting codes are essential for mitigating errors and decoherence in quantum systems, which are critical challenges in realizing practical quantum computers.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "current technology limitations",
+          "relation_type": "affect the development of",
+          "target": "quantum computing",
+          "evidence": "Current technology limitations impact the scalability and implementation of quantum computing systems.",
+          "section_name": "Proposed experiments - Boson sampling",
+          "section_index": 4
+        }
+      ]
+    }
+  }
+}

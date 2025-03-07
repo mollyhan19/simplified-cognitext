@@ -1,0 +1,1357 @@
+{
+  "metadata": {
+    "processing_mode": "subsection",
+    "timestamp": "2025-03-06T22:26:43.000000"
+  },
+  "Quantum supremacy": {
+    "category": "general",
+    "total_entities": 74,
+    "entities": [
+      {
+        "id": "quantum supremacy",
+        "frequency": 7,
+        "section_count": 4,
+        "variants": [
+          "quantum advantage",
+          "quantum supremacy"
+        ],
+        "appearances": [
+          {
+            "section": "Introduction",
+            "section_index": 1,
+            "variant": "quantum supremacy",
+            "evidence": "Quantum supremacy refers to the ability of a quantum computer to solve problems that classical computers cannot solve in a reasonable timeframe. This concept is significant as it represents a key milestone in the development of quantum computing, showcasing its potential advantages over classical systems."
+          },
+          {
+            "section": "Introduction",
+            "section_index": 1,
+            "variant": "quantum advantage",
+            "evidence": "Quantum advantage is closely related to quantum supremacy and refers to the scenarios where quantum computers can outperform classical computers on specific tasks. Understanding quantum advantage is crucial for identifying practical applications of quantum computing technology."
+          },
+          {
+            "section": "Background - Progress in the 21st century",
+            "section_index": 2,
+            "variant": "quantum supremacy",
+            "evidence": "Quantum supremacy refers to the point at which a quantum computer can perform a calculation that is infeasible for any classical computer to complete in a reasonable time. This concept is significant as it marks a pivotal milestone in quantum computing, demonstrating the potential of quantum systems to solve complex problems beyond the reach of traditional computing methods."
+          },
+          {
+            "section": "Proposed experiments - Boson sampling",
+            "section_index": 4,
+            "variant": "quantum supremacy",
+            "evidence": "Quantum supremacy refers to the point at which a quantum computer can perform a calculation that is infeasible for any classical computer. This concept is pivotal in the discussion of boson sampling, as achieving quantum supremacy would validate the effectiveness of quantum computing methods over classical approaches."
+          },
+          {
+            "section": "Proposed experiments - Sampling the output distribution of random quantum circuits",
+            "section_index": 4,
+            "variant": "quantum supremacy",
+            "evidence": "Quantum supremacy refers to the point at which a quantum computer can perform a calculation that is infeasible for any classical computer to complete in a reasonable timeframe. This concept is significant because it marks a critical milestone in the development of quantum computing, demonstrating its potential to solve complex problems beyond the reach of traditional computing methods."
+          },
+          {
+            "section": "Criticisms - Susceptibility to error",
+            "section_index": 5,
+            "variant": "quantum supremacy",
+            "evidence": "Quantum supremacy refers to the point at which a quantum computer can perform a calculation that is infeasible for classical computers. Achieving this milestone is a key goal in quantum computing, but it is challenged by uncertainties related to noise and error rates in larger systems."
+          },
+          {
+            "section": "Criticisms - Criticism of the name",
+            "section_index": 5,
+            "variant": "quantum supremacy",
+            "evidence": "Quantum supremacy refers to the point at which a quantum computer can perform a task that is impossible or infeasible for a classical computer. This concept is significant because it marks a pivotal moment in the development of quantum computing, showcasing its potential to solve complex problems beyond the reach of traditional computing methods."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "boson sampling",
+        "frequency": 3,
+        "section_count": 3,
+        "variants": [
+          "boson sampling"
+        ],
+        "appearances": [
+          {
+            "section": "Introduction",
+            "section_index": 1,
+            "variant": "boson sampling",
+            "evidence": "Boson sampling is a specific quantum computing task proposed to demonstrate quantum supremacy. It involves sampling from the output of quantum states of indistinguishable particles, showcasing the unique capabilities of quantum systems compared to classical ones."
+          },
+          {
+            "section": "Computational complexity",
+            "section_index": 3,
+            "variant": "boson sampling",
+            "evidence": "Boson sampling is a significant problem in quantum computing that illustrates the potential advantages of quantum algorithms over classical ones. Its complexity is tied to deep mathematical challenges, making it a focal point for research in quantum supremacy."
+          },
+          {
+            "section": "Proposed experiments - Boson sampling",
+            "section_index": 4,
+            "variant": "boson sampling",
+            "evidence": "Boson sampling is a quantum computing method that utilizes identical photons passing through a linear-optical network to address specific computational problems. It is significant because it demonstrates the potential of quantum systems to outperform classical computers in certain tasks, particularly in sampling and search problems that are otherwise intractable."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "john preskill",
+        "frequency": 2,
+        "section_count": 2,
+        "variants": [
+          "john preskill"
+        ],
+        "appearances": [
+          {
+            "section": "Introduction",
+            "section_index": 1,
+            "variant": "john preskill",
+            "evidence": "John Preskill is a prominent physicist who introduced the term 'quantum supremacy' in 2011. His work has been influential in framing the goals and challenges of quantum computing, making him a key figure in this field."
+          },
+          {
+            "section": "Criticisms - Criticism of the name",
+            "section_index": 5,
+            "variant": "john preskill",
+            "evidence": "John Preskill is a prominent theoretical physicist known for coining the term 'quantum supremacy.' His contributions are crucial in defining the capabilities of quantum computers and distinguishing them from classical computers, thereby shaping the discourse around quantum computing."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "quantum random circuit sampling",
+        "frequency": 2,
+        "section_count": 2,
+        "variants": [
+          "quantum random circuit sampling",
+          "quantum random sampling"
+        ],
+        "appearances": [
+          {
+            "section": "Introduction",
+            "section_index": 1,
+            "variant": "quantum random circuit sampling",
+            "evidence": "Quantum random circuit sampling is another approach to demonstrate quantum supremacy, where quantum circuits are randomly generated and their outputs are sampled. This method highlights the potential of quantum computers to perform tasks that are infeasible for classical computers."
+          },
+          {
+            "section": "Background - Progress in the 21st century",
+            "section_index": 2,
+            "variant": "quantum random sampling",
+            "evidence": "Quantum random sampling is a process where quantum computers generate samples from a probability distribution defined by quantum states. This concept is important as it serves as a benchmark for demonstrating quantum supremacy, illustrating the unique capabilities of quantum systems in handling complex probabilistic tasks."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "classical computers",
+        "frequency": 2,
+        "section_count": 2,
+        "variants": [
+          "classical computers",
+          "classical computer"
+        ],
+        "appearances": [
+          {
+            "section": "Introduction",
+            "section_index": 1,
+            "variant": "classical computers",
+            "evidence": "Classical computers are traditional computing systems that operate on classical physics principles. Their ongoing improvements pose challenges to the permanence of quantum supremacy, as advancements in classical algorithms could diminish the advantages of quantum computing."
+          },
+          {
+            "section": "Criticisms - Criticism of the name",
+            "section_index": 5,
+            "variant": "classical computer",
+            "evidence": "A classical computer refers to traditional computing systems that operate based on classical physics principles. Understanding the distinction between classical and quantum computers is essential for grasping the significance of quantum supremacy and the potential advancements in computational capabilities."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "quantum computing",
+        "frequency": 2,
+        "section_count": 2,
+        "variants": [
+          "quantum computing"
+        ],
+        "appearances": [
+          {
+            "section": "Background - Quantum advantage in the 20th century",
+            "section_index": 2,
+            "variant": "quantum computing",
+            "evidence": "Quantum Computing is a type of computation that utilizes quantum mechanics to process information in fundamentally different ways than classical computers. It has the potential to solve certain problems much faster than classical computers, making it a significant area of research in computer science."
+          },
+          {
+            "section": "Proposed experiments - Shor's algorithm for factoring integers",
+            "section_index": 4,
+            "variant": "quantum computing",
+            "evidence": "Quantum computing is a field of study focused on developing computers that use quantum bits (qubits) to perform calculations. It has the potential to solve certain problems much faster than classical computers, which could revolutionize fields such as cryptography and optimization."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "shor's algorithm",
+        "frequency": 2,
+        "section_count": 2,
+        "variants": [
+          "shor's algorithm"
+        ],
+        "appearances": [
+          {
+            "section": "Background - Quantum advantage in the 20th century",
+            "section_index": 2,
+            "variant": "shor's algorithm",
+            "evidence": "Shor's algorithm is a quantum algorithm that efficiently factors large integers, which has significant implications for cryptography. It demonstrates the potential of quantum computers to outperform classical computers in specific tasks, particularly in breaking widely used encryption methods."
+          },
+          {
+            "section": "Proposed experiments - Shor's algorithm for factoring integers",
+            "section_index": 4,
+            "variant": "shor's algorithm",
+            "evidence": "Shor's algorithm is a quantum algorithm designed for integer factorization, which can solve this problem in polynomial time, unlike classical algorithms. Its significance lies in its potential to break widely used cryptographic systems, making it a cornerstone of quantum computing research."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "qubits",
+        "frequency": 2,
+        "section_count": 2,
+        "variants": [
+          "qubits"
+        ],
+        "appearances": [
+          {
+            "section": "Proposed experiments - Sampling the output distribution of random quantum circuits",
+            "section_index": 4,
+            "variant": "qubits",
+            "evidence": "Qubits, or quantum bits, are the fundamental units of quantum information, analogous to classical bits but capable of representing and processing information in ways that classical bits cannot. The number of qubits in a quantum system is crucial because it directly affects the computational power and complexity of quantum algorithms."
+          },
+          {
+            "section": "Criticisms - Susceptibility to error",
+            "section_index": 5,
+            "variant": "qubits",
+            "evidence": "Qubits are the fundamental units of quantum information, analogous to bits in classical computing. The scaling of resources for error correction in relation to the number of qubits is a critical area of research, as it impacts the feasibility of building large-scale quantum computers."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "yuri manin",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "yuri manin"
+        ],
+        "appearances": [
+          {
+            "section": "Introduction",
+            "section_index": 1,
+            "variant": "yuri manin",
+            "evidence": "Yuri Manin is known for his early contributions to the theoretical foundations of quantum computing, dating back to 1980. His work laid the groundwork for later developments in the field, including the concept of quantum supremacy."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "richard feynman",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "richard feynman"
+        ],
+        "appearances": [
+          {
+            "section": "Background - Quantum advantage in the 20th century",
+            "section_index": 2,
+            "variant": "richard feynman",
+            "evidence": "Richard Feynman was a renowned physicist whose insights into quantum mechanics and computing have significantly influenced the development of quantum computing. His work emphasized the need for quantum computers to simulate quantum phenomena effectively."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "computational complexity theory",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "computational complexity theory"
+        ],
+        "appearances": [
+          {
+            "section": "Introduction",
+            "section_index": 1,
+            "variant": "computational complexity theory",
+            "evidence": "Computational complexity theory studies the resources required to solve computational problems. It is essential for understanding the implications of quantum supremacy, as it helps identify problems that quantum computers can solve more efficiently than classical ones."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "aaronson and arkhipov",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "aaronson and arkhipov"
+        ],
+        "appearances": [
+          {
+            "section": "Introduction",
+            "section_index": 1,
+            "variant": "aaronson and arkhipov",
+            "evidence": "Scott Aaronson and Alex Arkhipov are researchers who proposed the boson sampling experiment as a method to demonstrate quantum supremacy. Their work has been influential in the field of quantum computing and has sparked further research into practical implementations."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "near-term quantum computers",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "near-term quantum computers"
+        ],
+        "appearances": [
+          {
+            "section": "Introduction",
+            "section_index": 1,
+            "variant": "near-term quantum computers",
+            "evidence": "Near-term quantum computers refer to the current generation of quantum devices that may achieve quantum supremacy without needing advanced error correction. This is significant as it suggests that practical demonstrations of quantum advantage may be closer than previously thought."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "scientific goal",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "scientific goal"
+        ],
+        "appearances": [
+          {
+            "section": "Introduction",
+            "section_index": 1,
+            "variant": "scientific goal",
+            "evidence": "Viewing quantum supremacy as a scientific goal emphasizes its role in advancing our understanding of quantum mechanics and computing, rather than focusing solely on immediate commercial applications. This perspective is important for guiding research priorities in the field."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "turing machine",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "turing machine"
+        ],
+        "appearances": [
+          {
+            "section": "Background - Quantum advantage in the 20th century",
+            "section_index": 2,
+            "variant": "turing machine",
+            "evidence": "A Turing machine is a theoretical construct that defines a simple abstract computational device capable of performing any computation that can be algorithmically defined. It is fundamental in the field of computer science as it provides a model for understanding the limits of what can be computed."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "quantum logic gate",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "quantum logic gate"
+        ],
+        "appearances": [
+          {
+            "section": "Background - Quantum advantage in the 20th century",
+            "section_index": 2,
+            "variant": "quantum logic gate",
+            "evidence": "A quantum logic gate is a basic building block of quantum circuits, analogous to classical logic gates in traditional computing. They manipulate quantum bits (qubits) and are essential for performing quantum computations."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "grover's algorithm",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "grover's algorithm"
+        ],
+        "appearances": [
+          {
+            "section": "Background - Quantum advantage in the 20th century",
+            "section_index": 2,
+            "variant": "grover's algorithm",
+            "evidence": "Grover's Algorithm is a quantum algorithm that provides a quadratic speedup for unstructured search problems compared to classical algorithms. It highlights the advantages of quantum computing in solving specific types of problems more efficiently."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "quantum turing machine",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "quantum turing machine"
+        ],
+        "appearances": [
+          {
+            "section": "Background - Quantum advantage in the 20th century",
+            "section_index": 2,
+            "variant": "quantum turing machine",
+            "evidence": "A quantum Turing machine extends the classical Turing machine concept to incorporate quantum mechanics, allowing it to process information in ways that classical machines cannot. This concept is crucial for understanding the theoretical foundations of quantum computing."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "reversible nature of quantum computing",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "reversible nature of quantum computing"
+        ],
+        "appearances": [
+          {
+            "section": "Background - Quantum advantage in the 20th century",
+            "section_index": 2,
+            "variant": "reversible nature of quantum computing",
+            "evidence": "The reversible nature of quantum computing refers to the ability to reverse quantum operations without loss of information, which is a key principle that allows quantum computers to perform computations more efficiently than classical computers."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "quantum algorithm",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "quantum algorithm"
+        ],
+        "appearances": [
+          {
+            "section": "Background - Quantum advantage in the 20th century",
+            "section_index": 2,
+            "variant": "quantum algorithm",
+            "evidence": "A quantum algorithm is an algorithm that runs on a quantum computer, utilizing quantum bits and principles of quantum mechanics to solve problems. The implementation of quantum algorithms is essential for demonstrating the practical capabilities of quantum computing."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "alan turing",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "alan turing"
+        ],
+        "appearances": [
+          {
+            "section": "Background - Quantum advantage in the 20th century",
+            "section_index": 2,
+            "variant": "alan turing",
+            "evidence": "Alan Turing was a pioneering mathematician and computer scientist whose work laid the foundations for modern computing. His contributions, particularly the concept of the Turing machine, are fundamental to the field of computer science."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "paul benioff",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "paul benioff"
+        ],
+        "appearances": [
+          {
+            "section": "Background - Quantum advantage in the 20th century",
+            "section_index": 2,
+            "variant": "paul benioff",
+            "evidence": "Paul Benioff is known for his contributions to the theoretical foundations of quantum computing, particularly in demonstrating how classical computing concepts can be adapted to quantum systems."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "david deutsch",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "david deutsch"
+        ],
+        "appearances": [
+          {
+            "section": "Background - Quantum advantage in the 20th century",
+            "section_index": 2,
+            "variant": "david deutsch",
+            "evidence": "David Deutsch is a physicist and computer scientist recognized for his foundational work in quantum computing, including the concept of the quantum Turing machine, which is essential for understanding quantum computation."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "christopher monroe and david wineland",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "christopher monroe and david wineland"
+        ],
+        "appearances": [
+          {
+            "section": "Background - Quantum advantage in the 20th century",
+            "section_index": 2,
+            "variant": "christopher monroe and david wineland",
+            "evidence": "Christopher Monroe and David Wineland are physicists known for their experimental work in quantum computing, particularly in demonstrating quantum logic gates, which are crucial for building quantum computers."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "jonathan a. jones and michele mosca",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "jonathan a. jones and michele mosca"
+        ],
+        "appearances": [
+          {
+            "section": "Background - Quantum advantage in the 20th century",
+            "section_index": 2,
+            "variant": "jonathan a. jones and michele mosca",
+            "evidence": "Jonathan A. Jones and Michele Mosca are researchers who contributed to the practical implementation of quantum algorithms, showcasing the capabilities of quantum computers in solving complex problems."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "shor's theorem",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "shor's theorem"
+        ],
+        "appearances": [
+          {
+            "section": "Background - Progress in the 21st century",
+            "section_index": 2,
+            "variant": "shor's theorem",
+            "evidence": "Shor's theorem is a quantum algorithm that efficiently factors large integers, which is a task that is computationally intensive for classical computers. This theorem is crucial because it highlights the potential of quantum computing to break widely used cryptographic systems, thereby reshaping the landscape of cybersecurity."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "deutsch's algorithm",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "deutsch's algorithm"
+        ],
+        "appearances": [
+          {
+            "section": "Background - Progress in the 21st century",
+            "section_index": 2,
+            "variant": "deutsch's algorithm",
+            "evidence": "Deutsch's algorithm is one of the first quantum algorithms that demonstrates the power of quantum computation over classical computation. It solves a specific problem faster than any classical algorithm, showcasing the fundamental differences in processing capabilities between quantum and classical systems."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "d-wave systems",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "d-wave systems"
+        ],
+        "appearances": [
+          {
+            "section": "Background - Progress in the 21st century",
+            "section_index": 2,
+            "variant": "d-wave systems",
+            "evidence": "D-Wave Systems is a company known for developing quantum computers, particularly focusing on quantum annealing technology. Their commercial availability of quantum computers represents a significant step in making quantum computing accessible for practical applications in various industries."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "ibm's response",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "ibm's response"
+        ],
+        "appearances": [
+          {
+            "section": "Background - Progress in the 21st century",
+            "section_index": 2,
+            "variant": "ibm's response",
+            "evidence": "IBM's response to Google's claims of quantum supremacy highlights the ongoing debate and scrutiny within the quantum computing community regarding the validity of such claims. This context is essential for understanding the competitive landscape and the challenges in establishing benchmarks for quantum performance."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "jiuzhang",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "jiuzhang"
+        ],
+        "appearances": [
+          {
+            "section": "Background - Progress in the 21st century",
+            "section_index": 2,
+            "variant": "jiuzhang",
+            "evidence": "Jiuzhang is a photonic quantum computer that achieved quantum supremacy through gaussian boson sampling, demonstrating the potential of light-based quantum computing. This achievement is significant as it showcases an alternative approach to quantum computing that could lead to advancements in computational capabilities."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "quantum annealing",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "quantum annealing"
+        ],
+        "appearances": [
+          {
+            "section": "Background - Progress in the 21st century",
+            "section_index": 2,
+            "variant": "quantum annealing",
+            "evidence": "Quantum annealing is a quantum computing method used to find the global minimum of a function, particularly useful for optimization problems. Its significance lies in its ability to solve complex problems more efficiently than classical approaches, thereby demonstrating the practical applications of quantum computing."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "neven's law",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "neven's law"
+        ],
+        "appearances": [
+          {
+            "section": "Background - Progress in the 21st century",
+            "section_index": 2,
+            "variant": "neven's law",
+            "evidence": "Neven's law is a conjecture that predicts the rapid advancement of quantum computing capabilities, suggesting that the performance of quantum computers will improve exponentially over time. This concept is relevant as it frames the expectations and timelines for achieving quantum supremacy."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "quantum phase transition",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "quantum phase transition"
+        ],
+        "appearances": [
+          {
+            "section": "Background - Progress in the 21st century",
+            "section_index": 2,
+            "variant": "quantum phase transition",
+            "evidence": "A quantum phase transition refers to a transformation between different quantum states of matter at absolute zero temperature, driven by quantum fluctuations. Understanding this concept is crucial for exploring the behavior of quantum systems and their applications in quantum computing."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "complexity arguments",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "complexity arguments"
+        ],
+        "appearances": [
+          {
+            "section": "Computational complexity",
+            "section_index": 3,
+            "variant": "complexity arguments",
+            "evidence": "Complexity arguments are essential in computer science as they help to understand how the resources required to solve problems increase with the size of the input. This understanding is crucial for evaluating the efficiency of algorithms and the feasibility of solving larger problems."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "quantum complexity theory",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "quantum complexity theory"
+        ],
+        "appearances": [
+          {
+            "section": "Computational complexity",
+            "section_index": 3,
+            "variant": "quantum complexity theory",
+            "evidence": "Quantum complexity theory extends classical complexity theory by exploring the capabilities of quantum computers. It is significant because it helps to identify problems that can be solved more efficiently with quantum algorithms compared to classical ones, potentially leading to breakthroughs in computation."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "bqp (bounded-error quantum polynomial time)",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "bqp (bounded-error quantum polynomial time)"
+        ],
+        "appearances": [
+          {
+            "section": "Computational complexity",
+            "section_index": 3,
+            "variant": "bqp (bounded-error quantum polynomial time)",
+            "evidence": "BQP is a critical concept in quantum computing as it defines the class of problems that quantum computers can solve efficiently. Understanding BQP is vital for researchers to explore the limits of quantum computation and its implications for classical complexity theory."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "circuit model",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "circuit model"
+        ],
+        "appearances": [
+          {
+            "section": "Computational complexity",
+            "section_index": 3,
+            "variant": "circuit model",
+            "evidence": "The circuit model is a foundational concept in both classical and quantum computing, representing how computations are structured. It is important for understanding how different types of operations can be combined to solve complex problems."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "quantum gates",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "quantum gates"
+        ],
+        "appearances": [
+          {
+            "section": "Computational complexity",
+            "section_index": 3,
+            "variant": "quantum gates",
+            "evidence": "Quantum gates are the building blocks of quantum circuits, allowing for the manipulation of quantum states. Their infinite nature compared to classical gates highlights the unique capabilities of quantum computing, which can lead to more powerful algorithms."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "sampling problems",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "sampling problems"
+        ],
+        "appearances": [
+          {
+            "section": "Computational complexity",
+            "section_index": 3,
+            "variant": "sampling problems",
+            "evidence": "Sampling problems are a distinct category in computational complexity that focus on generating samples from distributions rather than making binary decisions. They are important for understanding the limits of classical versus quantum computation, especially in the context of quantum supremacy."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "quantum complexity classes",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "quantum complexity classes"
+        ],
+        "appearances": [
+          {
+            "section": "Computational complexity",
+            "section_index": 3,
+            "variant": "quantum complexity classes",
+            "evidence": "Quantum complexity classes categorize problems based on their computational requirements in a quantum context. Understanding these classes helps researchers identify which problems can benefit from quantum computing and how they relate to classical complexity classes."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "historical context",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "historical context"
+        ],
+        "appearances": [
+          {
+            "section": "Computational complexity",
+            "section_index": 3,
+            "variant": "historical context",
+            "evidence": "The historical context of quantum computing involves ongoing debates about its capabilities compared to classical computing. This context is crucial for understanding the evolution of computational theory and the significance of quantum advancements."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "google and ustc research groups",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "google and ustc research groups"
+        ],
+        "appearances": [
+          {
+            "section": "Computational complexity",
+            "section_index": 3,
+            "variant": "google and ustc research groups",
+            "evidence": "The work of the Google and USTC research groups in Random Circuit Sampling is a notable example of practical applications of quantum computing. Their research contributes to the ongoing exploration of quantum supremacy and the capabilities of quantum algorithms."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "prime factorization",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "prime factorization"
+        ],
+        "appearances": [
+          {
+            "section": "Proposed experiments - Shor's algorithm for factoring integers",
+            "section_index": 4,
+            "variant": "prime factorization",
+            "evidence": "Prime factorization is the process of decomposing an integer into a product of prime numbers. It is a fundamental concept in number theory and has significant implications in cryptography, particularly in the security of systems like RSA."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "rsa cryptosystem",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "rsa cryptosystem"
+        ],
+        "appearances": [
+          {
+            "section": "Proposed experiments - Shor's algorithm for factoring integers",
+            "section_index": 4,
+            "variant": "rsa cryptosystem",
+            "evidence": "The RSA cryptosystem is a widely used public-key cryptographic system that relies on the difficulty of factoring large integers. Its security is based on the assumption that no efficient classical algorithm exists for prime factorization, making Shor's algorithm a significant threat to its security."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "superpolynomial speedup",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "superpolynomial speedup"
+        ],
+        "appearances": [
+          {
+            "section": "Proposed experiments - Shor's algorithm for factoring integers",
+            "section_index": 4,
+            "variant": "superpolynomial speedup",
+            "evidence": "Superpolynomial speedup refers to an algorithm's ability to solve a problem significantly faster than the best known classical algorithms, particularly in terms of time complexity. This concept is crucial in understanding the advantages of quantum algorithms over classical ones."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "integer factoring",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "integer factoring"
+        ],
+        "appearances": [
+          {
+            "section": "Proposed experiments - Shor's algorithm for factoring integers",
+            "section_index": 4,
+            "variant": "integer factoring",
+            "evidence": "Integer factoring is the process of determining the prime factors of an integer. It is a central problem in computational number theory and has applications in various fields, including cryptography and algorithm design."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "classical algorithm",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "classical algorithm"
+        ],
+        "appearances": [
+          {
+            "section": "Proposed experiments - Shor's algorithm for factoring integers",
+            "section_index": 4,
+            "variant": "classical algorithm",
+            "evidence": "A classical algorithm refers to traditional computational methods that run on classical computers. These algorithms often have limitations in terms of efficiency and speed when compared to quantum algorithms, especially for problems like integer factorization."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "complexity",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "complexity"
+        ],
+        "appearances": [
+          {
+            "section": "Proposed experiments - Shor's algorithm for factoring integers",
+            "section_index": 4,
+            "variant": "complexity",
+            "evidence": "Complexity in this context refers to the computational resources required to solve a problem, typically measured in terms of time or space. Understanding complexity is essential for evaluating the efficiency of algorithms and their feasibility for practical applications."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "historical significance",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "historical significance"
+        ],
+        "appearances": [
+          {
+            "section": "Proposed experiments - Shor's algorithm for factoring integers",
+            "section_index": 4,
+            "variant": "historical significance",
+            "evidence": "The historical significance of Shor's algorithm lies in its role as the first polynomial-time quantum algorithm proposed for a real-world problem. It marked a pivotal moment in the development of quantum computing and its potential applications."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "current technology limitations",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "current technology limitations"
+        ],
+        "appearances": [
+          {
+            "section": "Proposed experiments - Shor's algorithm for factoring integers",
+            "section_index": 4,
+            "variant": "current technology limitations",
+            "evidence": "Current technology limitations refer to the constraints of existing quantum computers, which are not yet capable of efficiently implementing Shor's algorithm for large integers. This highlights the gap between theoretical advancements and practical applications in quantum computing."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "linear-optical network",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "linear-optical network"
+        ],
+        "appearances": [
+          {
+            "section": "Proposed experiments - Boson sampling",
+            "section_index": 4,
+            "variant": "linear-optical network",
+            "evidence": "A linear-optical network is a system that manipulates light (photons) using linear optical elements like beam splitters and phase shifters. This concept is crucial for implementing boson sampling, as it provides the framework through which photons are processed to achieve quantum computational advantages."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "complexity-theoretical conjectures",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "complexity-theoretical conjectures"
+        ],
+        "appearances": [
+          {
+            "section": "Proposed experiments - Boson sampling",
+            "section_index": 4,
+            "variant": "complexity-theoretical conjectures",
+            "evidence": "Complexity-theoretical conjectures are assumptions made in computational theory regarding the difficulty of certain problems. They are important in the context of boson sampling as they underpin the belief that certain tasks are infeasible for classical computers, thus highlighting the potential advantages of quantum computing."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "classical algorithm for simulating boson sampling",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "classical algorithm for simulating boson sampling"
+        ],
+        "appearances": [
+          {
+            "section": "Proposed experiments - Boson sampling",
+            "section_index": 4,
+            "variant": "classical algorithm for simulating boson sampling",
+            "evidence": "The classical algorithm for simulating boson sampling provides a benchmark for understanding the computational complexity involved in replicating quantum processes. It illustrates the challenges classical computers face in simulating quantum phenomena, reinforcing the significance of boson sampling in demonstrating quantum advantages."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "photons",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "photons"
+        ],
+        "appearances": [
+          {
+            "section": "Proposed experiments - Boson sampling",
+            "section_index": 4,
+            "variant": "photons",
+            "evidence": "Photons are elementary particles of light that are used in boson sampling to represent quantum states. Their manipulation is central to the operation of quantum computing systems, making them a fundamental component in the exploration of quantum algorithms."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "gaussian matrices",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "gaussian matrices"
+        ],
+        "appearances": [
+          {
+            "section": "Proposed experiments - Boson sampling",
+            "section_index": 4,
+            "variant": "gaussian matrices",
+            "evidence": "Gaussian matrices are a type of matrix characterized by their entries being drawn from a Gaussian distribution. The difficulty of calculating their permanent is a key aspect of complexity theory, influencing the understanding of computational limits and the potential for quantum computing to solve certain problems more efficiently."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "experimental implementation",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "experimental implementation"
+        ],
+        "appearances": [
+          {
+            "section": "Proposed experiments - Boson sampling",
+            "section_index": 4,
+            "variant": "experimental implementation",
+            "evidence": "Experimental implementation refers to the practical application of theoretical concepts in a controlled environment to test their validity. In the case of boson sampling, such implementations are crucial for demonstrating the feasibility and effectiveness of quantum algorithms in real-world scenarios."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "loss and noise in boson sampling",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "loss and noise in boson sampling"
+        ],
+        "appearances": [
+          {
+            "section": "Proposed experiments - Boson sampling",
+            "section_index": 4,
+            "variant": "loss and noise in boson sampling",
+            "evidence": "Loss and noise are factors that can affect the performance of quantum systems, including boson sampling. Understanding how these elements influence the efficiency of quantum computations is essential for improving quantum algorithms and achieving reliable results."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "quantum circuit simulation",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "quantum circuit simulation"
+        ],
+        "appearances": [
+          {
+            "section": "Proposed experiments - Sampling the output distribution of random quantum circuits",
+            "section_index": 4,
+            "variant": "quantum circuit simulation",
+            "evidence": "Quantum circuit simulation involves using classical computers to model the behavior of quantum circuits. This is important for understanding quantum algorithms and testing quantum systems, but it becomes increasingly difficult as the number of qubits increases due to the exponential growth in computational requirements."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "sycamore processor",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "sycamore processor"
+        ],
+        "appearances": [
+          {
+            "section": "Proposed experiments - Sampling the output distribution of random quantum circuits",
+            "section_index": 4,
+            "variant": "sycamore processor",
+            "evidence": "The Sycamore processor is a 53-qubit quantum processor developed by Google, designed to perform quantum computations efficiently. Its development represents a significant advancement in quantum hardware, enabling the execution of complex quantum algorithms that were previously infeasible."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "bouland, fefferman, nirkhe, and vazirani",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "bouland, fefferman, nirkhe, and vazirani"
+        ],
+        "appearances": [
+          {
+            "section": "Proposed experiments - Sampling the output distribution of random quantum circuits",
+            "section_index": 4,
+            "variant": "bouland, fefferman, nirkhe, and vazirani",
+            "evidence": "These researchers contributed to the theoretical understanding of quantum circuit simulation, providing insights into the computational limits of classical algorithms in relation to quantum circuits. Their work is significant as it highlights the challenges faced in simulating quantum systems and the implications for computational complexity theory."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "ibm's dispute",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "ibm's dispute"
+        ],
+        "appearances": [
+          {
+            "section": "Proposed experiments - Sampling the output distribution of random quantum circuits",
+            "section_index": 4,
+            "variant": "ibm's dispute",
+            "evidence": "IBM's dispute regarding Google's claim of quantum supremacy emphasizes the ongoing debate within the scientific community about the practical implications of quantum computing versus classical computing. This highlights the importance of rigorous validation and comparison of quantum and classical computational capabilities."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "nature article",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "nature article"
+        ],
+        "appearances": [
+          {
+            "section": "Proposed experiments - Sampling the output distribution of random quantum circuits",
+            "section_index": 4,
+            "variant": "nature article",
+            "evidence": "The Nature article serves as a formal publication of Google's findings on quantum supremacy, providing a peer-reviewed account of their experimental results. This publication is crucial for disseminating knowledge and fostering further research in the field of quantum computing."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "quantum computers",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "quantum computers"
+        ],
+        "appearances": [
+          {
+            "section": "Criticisms - Susceptibility to error",
+            "section_index": 5,
+            "variant": "quantum computers",
+            "evidence": "Quantum computers are advanced computing systems that leverage the principles of quantum mechanics to process information. They are fundamentally different from classical computers and are particularly sensitive to errors caused by environmental factors, making their reliability a significant concern in their development."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "errors",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "errors"
+        ],
+        "appearances": [
+          {
+            "section": "Criticisms - Susceptibility to error",
+            "section_index": 5,
+            "variant": "errors",
+            "evidence": "Errors in quantum computing arise from various sources, including decoherence and noise, which can disrupt the delicate quantum states necessary for computation. Understanding and mitigating these errors is crucial for the practical implementation of quantum computers."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "threshold theorem",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "threshold theorem"
+        ],
+        "appearances": [
+          {
+            "section": "Criticisms - Susceptibility to error",
+            "section_index": 5,
+            "variant": "threshold theorem",
+            "evidence": "The threshold theorem is a fundamental principle in quantum computing that asserts that quantum error correction can effectively counteract noise, allowing a quantum computer to function as if it were noiseless, provided that the error rate remains below a certain threshold. This theorem is vital for advancing the reliability of quantum computations."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "quantum error-correcting codes",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "quantum error-correcting codes"
+        ],
+        "appearances": [
+          {
+            "section": "Criticisms - Susceptibility to error",
+            "section_index": 5,
+            "variant": "quantum error-correcting codes",
+            "evidence": "Quantum error-correcting codes are algorithms designed to protect quantum information from errors due to decoherence and noise. They play a crucial role in maintaining the integrity of quantum computations, especially in the context of the threshold theorem."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "decoherence",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "decoherence"
+        ],
+        "appearances": [
+          {
+            "section": "Criticisms - Susceptibility to error",
+            "section_index": 5,
+            "variant": "decoherence",
+            "evidence": "Decoherence refers to the loss of quantum coherence, where quantum states become entangled with their environment, leading to errors in computation. It is a significant challenge in the development of stable quantum computers."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "noise",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "noise"
+        ],
+        "appearances": [
+          {
+            "section": "Criticisms - Susceptibility to error",
+            "section_index": 5,
+            "variant": "noise",
+            "evidence": "Noise in quantum computing encompasses various disturbances that can affect the performance and accuracy of quantum operations. Understanding noise is essential for developing effective error correction methods and ensuring reliable quantum computing."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "numerical simulations",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "numerical simulations"
+        ],
+        "appearances": [
+          {
+            "section": "Criticisms - Susceptibility to error",
+            "section_index": 5,
+            "variant": "numerical simulations",
+            "evidence": "Numerical simulations are computational methods used to model and predict the behavior of quantum systems under various conditions. They provide insights into error thresholds and help researchers understand the limits of quantum error correction."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "skeptics",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "skeptics"
+        ],
+        "appearances": [
+          {
+            "section": "Criticisms - Susceptibility to error",
+            "section_index": 5,
+            "variant": "skeptics",
+            "evidence": "Skeptics in the field of quantum computing raise concerns about the practical challenges of scaling quantum systems, particularly regarding noise and error management. Their critiques are important for guiding research priorities and addressing potential pitfalls in quantum technology development."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "quantum advantage",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "quantum advantage"
+        ],
+        "appearances": [
+          {
+            "section": "Criticisms - Criticism of the name",
+            "section_index": 5,
+            "variant": "quantum advantage",
+            "evidence": "Quantum advantage is a term proposed as an alternative to quantum supremacy, suggesting that a quantum computer has a performance edge over classical computers. However, it implies a relative improvement rather than a complete dominance, which is why some researchers prefer the term quantum supremacy to emphasize the full capabilities of quantum computing."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "nature journal",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "nature journal"
+        ],
+        "appearances": [
+          {
+            "section": "Criticisms - Criticism of the name",
+            "section_index": 5,
+            "variant": "nature journal",
+            "evidence": "Nature is a leading scientific journal that publishes significant research and commentary in various fields, including physics. The discussions and articles published in Nature often influence scientific terminology and public understanding of complex concepts like quantum computing."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "philip ball",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "philip ball"
+        ],
+        "appearances": [
+          {
+            "section": "Criticisms - Criticism of the name",
+            "section_index": 5,
+            "variant": "philip ball",
+            "evidence": "Philip Ball is a science writer and editor who has contributed to discussions on scientific terminology and its implications. His observations on the shift from 'quantum supremacy' to 'quantum advantage' reflect broader societal concerns about language and its impact on public perception."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "theoretical physics",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "theoretical physics"
+        ],
+        "appearances": [
+          {
+            "section": "Criticisms - Criticism of the name",
+            "section_index": 5,
+            "variant": "theoretical physics",
+            "evidence": "Theoretical physics is a branch of physics that uses mathematical models and abstractions to explain and predict natural phenomena. It plays a crucial role in advancing our understanding of complex systems, including quantum mechanics and computing."
+          }
+        ],
+        "layer": "secondary"
+      }
+    ]
+  }
+}
