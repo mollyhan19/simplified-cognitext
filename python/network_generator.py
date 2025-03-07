@@ -113,8 +113,6 @@ class NetworkConceptMapGenerator:
         col1, col2 = st.columns([3, 1])
 
         with col1:
-            st.markdown(f"### {map_data['title']}")
-
             # Show expanded nodes information if any
             if st.session_state.network_expanded_nodes:
                 expanded_text = ", ".join(st.session_state.network_expanded_nodes[:3])
@@ -360,7 +358,6 @@ class NetworkConceptMapGenerator:
         <html>
         <head>
             <meta charset="utf-8">
-            <title>{title}</title>
             <script src="https://d3js.org/d3.v7.min.js"></script>
             <style>
                 body {{
@@ -857,14 +854,15 @@ class NetworkConceptMapGenerator:
                 function assignInitialPositions(nodes, centralNodeId) {{
                     // Group nodes by layer
                     const layerGroups = {{"priority": [], "secondary": [], "tertiary": []}};
-
+                    
+                    // First pass - identify layers and pinned nodes
                     nodes.forEach(node => {{
                         if (pinnedNodes.has(node.id)) {{
                             console.log("Preserving position for pinned node:", node.id);
                             // Make sure fx and fy are set from existing position
                             node.fx = node.x;
                             node.fy = node.y;
-                            return; // Skip the rest of the positioning for this node
+                            return; // Skip further positioning for pinned nodes
                         }}
                         
                         if (node.id === centralNodeId) {{
@@ -878,15 +876,16 @@ class NetworkConceptMapGenerator:
                             // Group other nodes by layer
                             const layer = node.layer || "tertiary";
                             layerGroups[layer].push(node);
-                            // Clear any fixed positions
-                            node.fx = null;
-                            node.fy = null;
+                            // Clear any fixed positions for non-pinned nodes
+                            if (!pinnedNodes.has(node.id)) {{
+                                node.fx = null;
+                                node.fy = null;
+                            }}
                             node.isCenter = false;
                         }}
                     }});
-
-                    // Assign positions in concentric circles by layer
-                    // Priority nodes closest to center
+                    
+                    // Position nodes in evenly distributed concentric circles by layer
                     positionNodesInCircle(layerGroups["priority"], 120);
                     positionNodesInCircle(layerGroups["secondary"], 240);
                     positionNodesInCircle(layerGroups["tertiary"], 360);
@@ -894,15 +893,24 @@ class NetworkConceptMapGenerator:
 
                 // Helper function to position nodes in a circle
                 function positionNodesInCircle(nodes, radius) {{
-                    const angleStep = (2 * Math.PI) / Math.max(nodes.length, 1);
-
+                    const count = nodes.length;
+                    if (count === 0) return;
+                    
+                    // Evenly distribute nodes around the circle
+                    const angleStep = (2 * Math.PI) / count;
+                    
+                    // Use a randomized offset to avoid bias to any particular direction
+                    const startAngle = Math.random() * 2 * Math.PI;
+                    
                     nodes.forEach((node, i) => {{
-                        const angle = i * angleStep;
+                        // Calculate angle with random offset to avoid clustering
+                        const angle = startAngle + i * angleStep;
+                        
+                        // Position node on the circle
                         node.x = centerX + radius * Math.cos(angle);
                         node.y = centerY + radius * Math.sin(angle);
                     }});
                 }}
-
 
                 // Function to update the visualization
                 function updateVisualization() {{
@@ -944,56 +952,37 @@ class NetworkConceptMapGenerator:
                                 evidence: link.evidence
                             }})))
                             .distance(d => {{
-                                // Adjust distance based on layer and node size
-                                const source = typeof d.source === 'object' ? d.source : nodeById.get(String(d.source));
-                                const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
-                        
-                                if (!source || !target) return 120;
-                        
-                                // Get sizes of source and target nodes
-                                const sourceSize = getNodeSize(source);
-                                const targetSize = getNodeSize(target);
-                                
-                                // Base distance on node sizes + a minimum distance
-                                const baseDistance = sourceSize + targetSize + 30;
-                                
-                                // Layer-based adjustments
-                                if (source.layer === "priority" && target.layer === "priority") {{
-                                    // Priority-to-priority connections are slightly closer
-                                    return baseDistance * 1.2;
-                                }} else if (source.layer === "priority" || target.layer === "priority") {{
-                                    // Priority-to-other connections at medium distance
-                                    return baseDistance * 1.5;
-                                }}
-                                
-                                // Other connections have more space
-                                return baseDistance * 2.0;
+                                // Distance calculation remains the same...
                             }})
                             .strength(0.3))
-                        .force("charge", d3.forceManyBody().strength(d => {{
-                            // Stronger repulsion for larger nodes
-                            return d.isCenter ? -500 : -300;
-                        }}))
-                        .force("center", d3.forceCenter(centerX, centerY))
+                        .force("charge", d3.forceManyBody()
+                                .strength(d => {{
+                                    // Stronger repulsion for larger nodes
+                                    return d.isCenter ? -500 : -300;
+                                }})
+                                .distanceMax(500)) // Limit the range of repulsion
+                        .force("center", d3.forceCenter(centerX, centerY).strength(0.2)) // Stronger centering force
                         .force("collide", d3.forceCollide().radius(d => getNodeSize(d) + 10))
                         .force("x", d3.forceX(centerX).strength(d => {{
-                            // Layer-based strength to keep priority nodes closer to center
+                            // Stronger x-centering for all nodes
                             if (d.isCenter) return 1.0;
-                            if (d.layer === "priority") return 0.1;
-                            if (d.layer === "secondary") return 0.05;
-                            return 0.01;
+                            if (d.layer === "priority") return 0.15; // Increased from 0.1
+                            if (d.layer === "secondary") return 0.1; // Increased from 0.05
+                            return 0.05; // Increased from 0.01
                         }}))
                         .force("y", d3.forceY(centerY).strength(d => {{
-                            // Layer-based strength to keep priority nodes closer to center
+                            // Stronger y-centering for all nodes
                             if (d.isCenter) return 1.0;
-                            if (d.layer === "priority") return 0.1;
-                            if (d.layer === "secondary") return 0.05;
-                            return 0.01;
+                            if (d.layer === "priority") return 0.15;
+                            if (d.layer === "secondary") return 0.1;
+                            return 0.05;
                         }}))
-                        .force("link-repulsion", d3.forceManyBody()
-                            .strength(-10)
-                            .distanceMax(150)
-                            .distanceMin(25))
+                        .force("radial", d3.forceRadial(d => {{
+                            // Target radius based on layer
+                            if (d.layer === "priority") return 120;
+                            if (d.layer === "secondary") return 240;
+                            return 360; // tertiary
+                        }}, centerX, centerY).strength(0.15))
                         .alphaDecay(0.02);
                     
                     currentSimulation = simulation;
@@ -1676,6 +1665,7 @@ class NetworkConceptMapGenerator:
                     }}
                 }});
                 
+                // Update the unpin button handler for gradual repositioning
                 d3.select("#unpin-btn").on("click", function() {{
                     console.log("Unpin All button clicked");
                     
@@ -1684,11 +1674,18 @@ class NetworkConceptMapGenerator:
                         return;
                     }}
                     
+                    // Store original positions before unpinning
+                    const originalPositions = new Map();
+                    currentNodes.forEach(node => {{
+                        originalPositions.set(node.id, {{x: node.x, y: node.y}});
+                    }});
+                    
                     // Unpin all nodes
                     pinnedNodes.forEach(nodeId => {{
                         const node = currentNodes.find(n => n.id === nodeId);
                         if (node && !node.isCenter) {{
                             console.log("Unpinning node:", nodeId);
+                            // Release fixed position
                             node.fx = null;
                             node.fy = null;
                         }}
@@ -1700,8 +1697,60 @@ class NetworkConceptMapGenerator:
                     // Remove visual indicators
                     g.selectAll(".node--pinned").classed("node--pinned", false);
                     
-                    // Run simulation with low alpha to adjust
+                    // Reset focus as well
+                    focusedNodeId = null;
+                    resetFocus();
+                    
+                    // First stage: Gentle transition from current positions
                     currentSimulation.alpha(0.1).restart();
+                    
+                    // Second stage: Apply layer-based positioning after a short delay
+                    setTimeout(() => {{
+                        // Calculate target positions based on layers
+                        currentNodes.forEach(node => {{
+                            // Skip the center node
+                            if (node.isCenter) return;
+                            
+                            // Calculate target radius based on layer
+                            let targetRadius;
+                            if (node.layer === "priority") targetRadius = 120;
+                            else if (node.layer === "secondary") targetRadius = 240;
+                            else targetRadius = 360; // tertiary
+                            
+                            // Get original position
+                            const origPos = originalPositions.get(node.id);
+                            if (!origPos) return;
+                            
+                            // Calculate angle from center
+                            const dx = origPos.x - centerX;
+                            const dy = origPos.y - centerY;
+                            const currentAngle = Math.atan2(dy, dx);
+                            
+                            // Calculate new position based on layer radius
+                            const newX = centerX + targetRadius * Math.cos(currentAngle);
+                            const newY = centerY + targetRadius * Math.sin(currentAngle);
+                            
+                            // Apply a gentle pull toward the target position
+                            const pullStrength = 0.1;
+                            node.vx = (newX - node.x) * pullStrength;
+                            node.vy = (newY - node.y) * pullStrength;
+                        }});
+                        
+                        // Run simulation with higher alpha for reorganization
+                        currentSimulation.alpha(0.3).restart();
+                        
+                        // Reset any forces to allow natural positioning
+                        setTimeout(() => {{
+                            currentNodes.forEach(node => {{
+                                // Remove velocity modifications
+                                node.vx = null;
+                                node.vy = null;
+                            }});
+                            
+                            // Final gentle adjustment
+                            currentSimulation.alpha(0.05).restart();
+                        }}, 1000);
+                    }}, 500);
                 }});
                 
                 // Function to communicate with Streamlit

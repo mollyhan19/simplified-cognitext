@@ -335,28 +335,25 @@ col1, col2 = st.columns([2, 1])  # Left (Concept Map) | Right (Chatbot)
 
 # Left column: Concept Extraction
 with col1:
-    if st.session_state.map_data["map_type"] is not None:
-        st.subheader(
-            f"{st.session_state.map_data['map_type'].capitalize()} Concept Map for {st.session_state.map_data['title']}")
 
-        if st.session_state.map_data["map_type"] == "network":
-            st.subheader(f"Network Concept Map for {st.session_state.map_data['title']}")
+    if st.session_state.map_data["map_type"] == "network":
+        st.subheader(f"Network Concept Map for {st.session_state.map_data['title']}")
 
-            component_value = network_generator.display_network_map(st.session_state.map_data)
+        component_value = network_generator.display_network_map(st.session_state.map_data)
 
-            # Provide download link
-            buffer = io.StringIO()
-            buffer.write(st.session_state.map_data["html_content"])
-            html_bytes = buffer.getvalue().encode()
-            st.download_button(
-                label="Download Network Map (HTML)",
-                data=html_bytes,
-                file_name=f"network_{st.session_state.map_data['title']}_{st.session_state.map_data.get('detail_level', 'detailed')}.html",
-                mime="text/html"
-            )
+        # Provide download link
+        buffer = io.StringIO()
+        buffer.write(st.session_state.map_data["html_content"])
+        html_bytes = buffer.getvalue().encode()
+        st.download_button(
+            label="Download Network Map (HTML)",
+            data=html_bytes,
+            file_name=f"network_{st.session_state.map_data['title']}_{st.session_state.map_data.get('detail_level', 'detailed')}.html",
+            mime="text/html"
+        )
 
-        # Add a divider to separate the existing map from the new map form
-        st.divider()
+    # Add a divider to separate the existing map from the new map form
+    st.divider()
 
     st.header("Concept Map Generator")
     url = st.text_input("Enter Wikipedia URL:")
@@ -507,12 +504,6 @@ with col1:
                     st.session_state.extractor.relation_tracker.add_global_relations(final_global_relations)
                     st.session_state.extractor.relation_tracker.merge_relations()
 
-                    # Restore original caching functions if they were temporarily replaced
-                    try:
-                        st.session_state.extractor.cache_manager.cache_relations = original_cache_relations
-                        st.session_state.extractor.cache_manager.get_cached_relations = original_get_cached
-                    except:
-                        pass
 
                 # Format relations for use in the app
                 relations = [
