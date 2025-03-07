@@ -314,7 +314,7 @@ st.set_page_config(layout="wide", page_title="Concept Map Generator")
 
 st.title("Cognitext: Enhanced Concept Map Generator")
 st.markdown("""
-Transform Wikipedia articles into interactive network concept maps that visualize knowledge relationships. This tool extracts key concepts and their interconnections, organizing them into an intuitive network concept maps, enabling non-linear reading patterns. 
+Turn Wikipedia into a playground of ideas! We take complex articles and transform them into interactive concept maps that show how ideas connect, bounce off each other, and build deeper understanding. Explore knowledge in a whole new way—no linear reading required.
 
 **Key features:**
 - **Node sizes** represent concept importance (based on frequency and total connections)
