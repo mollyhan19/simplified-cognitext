@@ -1,10 +1,10 @@
 {
   "metadata": {
     "processing_mode": "subsection",
-    "timestamp": "2025-03-06T22:26:43.000000"
+    "timestamp": "2025-03-07T00:56:30.000000"
   },
   "Quantum supremacy": {
-    "category": "computer_science",
+    "category": "general",
     "total_entities": 74,
     "entities": [
       {
@@ -12,8 +12,8 @@
         "frequency": 7,
         "section_count": 4,
         "variants": [
-          "quantum advantage",
-          "quantum supremacy"
+          "quantum supremacy",
+          "quantum advantage"
         ],
         "appearances": [
           {
@@ -64,7 +64,7 @@
       {
         "id": "boson sampling",
         "frequency": 3,
-        "section_count": 3,
+        "section_count": 2,
         "variants": [
           "boson sampling"
         ],
@@ -118,8 +118,8 @@
         "frequency": 2,
         "section_count": 2,
         "variants": [
-          "quantum random circuit sampling",
-          "quantum random sampling"
+          "quantum random sampling",
+          "quantum random circuit sampling"
         ],
         "appearances": [
           {

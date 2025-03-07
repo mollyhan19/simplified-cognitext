@@ -1,11 +1,11 @@
 {
   "metadata": {
     "processing_mode": "subsection",
-    "timestamp": "2025-03-06T22:28:59.000000"
+    "timestamp": "2025-03-07T00:56:20.000000"
   },
   "Grammaticalization": {
-    "category": "linguistics",
-    "total_entities": 79,
+    "category": "general",
+    "total_entities": 82,
     "entities": [
       {
         "id": "grammaticalization",
@@ -88,44 +88,6 @@
           }
         ],
         "layer": "secondary"
-      },
-      {
-        "id": "historical context of grammaticalization",
-        "frequency": 4,
-        "section_count": 2,
-        "variants": [
-          "middle english",
-          "present-day english",
-          "serbo-croatian",
-          "historical context of grammaticalization"
-        ],
-        "appearances": [
-          {
-            "section": "Introduction",
-            "section_index": 1,
-            "variant": "historical context of grammaticalization",
-            "evidence": "The historical context of grammaticalization reflects its evolution as a concept within linguistics. Understanding its broader meanings across different linguistic frameworks is essential for grasping the complexities of language development and change."
-          },
-          {
-            "section": "Clines of grammaticality – cycles of categorial downgrading - Examples developing a future tense",
-            "section_index": 4,
-            "variant": "middle english",
-            "evidence": "Middle English refers to the stage of the English language spoken from approximately 1150 to 1500. This period is crucial for understanding the transition of verbs like 'willan' into auxiliary forms, marking significant linguistic evolution."
-          },
-          {
-            "section": "Clines of grammaticality – cycles of categorial downgrading - Examples developing a future tense",
-            "section_index": 4,
-            "variant": "present-day english",
-            "evidence": "Present-Day English (PDE) is the current form of the English language, characterized by its simplified grammatical structures and vocabulary. Understanding PDE is essential for recognizing how historical changes in language have shaped modern usage."
-          },
-          {
-            "section": "Clines of grammaticality – cycles of categorial downgrading - Examples developing a future tense",
-            "section_index": 4,
-            "variant": "serbo-croatian",
-            "evidence": "Serbo-Croatian is a South Slavic language that provides a comparative example of grammaticalization, illustrating how verbs can evolve similarly across different languages. This comparison enriches the understanding of language change."
-          }
-        ],
-        "layer": "tertiary"
       },
       {
         "id": "auxiliary verbs",
@@ -366,6 +328,23 @@
           }
         ],
         "layer": "secondary"
+      },
+      {
+        "id": "historical context of grammaticalization",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "historical context of grammaticalization"
+        ],
+        "appearances": [
+          {
+            "section": "Introduction",
+            "section_index": 1,
+            "variant": "historical context of grammaticalization",
+            "evidence": "The historical context of grammaticalization reflects its evolution as a concept within linguistics. Understanding its broader meanings across different linguistic frameworks is essential for grasping the complexities of language development and change."
+          }
+        ],
+        "layer": "tertiary"
       },
       {
         "id": "example of 'let's'",
@@ -944,6 +923,57 @@
           }
         ],
         "layer": "secondary"
+      },
+      {
+        "id": "middle english",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "middle english"
+        ],
+        "appearances": [
+          {
+            "section": "Clines of grammaticality – cycles of categorial downgrading - Examples developing a future tense",
+            "section_index": 4,
+            "variant": "middle english",
+            "evidence": "Middle English refers to the stage of the English language spoken from approximately 1150 to 1500. This period is crucial for understanding the transition of verbs like 'willan' into auxiliary forms, marking significant linguistic evolution."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "present-day english",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "present-day english"
+        ],
+        "appearances": [
+          {
+            "section": "Clines of grammaticality – cycles of categorial downgrading - Examples developing a future tense",
+            "section_index": 4,
+            "variant": "present-day english",
+            "evidence": "Present-Day English (PDE) is the current form of the English language, characterized by its simplified grammatical structures and vocabulary. Understanding PDE is essential for recognizing how historical changes in language have shaped modern usage."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "serbo-croatian",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "serbo-croatian"
+        ],
+        "appearances": [
+          {
+            "section": "Clines of grammaticality – cycles of categorial downgrading - Examples developing a future tense",
+            "section_index": 4,
+            "variant": "serbo-croatian",
+            "evidence": "Serbo-Croatian is a South Slavic language that provides a comparative example of grammaticalization, illustrating how verbs can evolve similarly across different languages. This comparison enriches the understanding of language change."
+          }
+        ],
+        "layer": "tertiary"
       },
       {
         "id": "romance languages",
