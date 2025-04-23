@@ -54,6 +54,13 @@ PREGENERATED_CONTENT = {
         "entity_file": os.path.join(pregenerated_dir, "grammaticalization_entities.json"),
         "relation_file": os.path.join(pregenerated_dir, "grammaticalization_relations.json"),
         "detail_level": "detailed"
+    },
+    "https://en.wikipedia.org/wiki/P_versus_NP_problem": {
+        "title": "P versus NP problem",
+        "html_file": os.path.join(pregenerated_dir, "p_versus_np_problem_network.html"),
+        "entity_file": os.path.join(pregenerated_dir, "p_versus_np_problem_entities.json"),
+        "relation_file": os.path.join(pregenerated_dir, "p_versus_np_problem_relations.json"),
+        "detail_level": "detailed"
     }
 }
 
@@ -480,7 +487,8 @@ else:
             pregenerated_options = {
                 "Microchimerism": "https://en.wikipedia.org/wiki/Microchimerism",
                 "Quantum Supremacy": "https://en.wikipedia.org/wiki/Quantum_supremacy",
-                "Grammaticalization": "https://en.wikipedia.org/wiki/Grammaticalization"
+                "Grammaticalization": "https://en.wikipedia.org/wiki/Grammaticalization",
+                "P versus NP Problem": "https://en.wikipedia.org/wiki/P_versus_NP_problem"
             }
 
             # Create a selection dropdown
@@ -490,25 +498,6 @@ else:
                 index=0,
                 help="Choose from these pre-generated concept maps for instant exploration"
             )
-
-            # Description of selected topic
-            if selected_pregenerated == "Microchimerism":
-                st.markdown("""
-                **Microchimerism** refers to the presence of a small number of cells in an individual that originated 
-                from another genetically distinct individual. This fascinating biological phenomenon occurs most commonly 
-                during pregnancy when cells are exchanged between mother and fetus.
-                """)
-            elif selected_pregenerated == "Quantum Supremacy":
-                st.markdown("""
-                **Quantum Supremacy** refers to the point at which quantum computers can perform calculations that 
-                classical computers cannot practically perform. This represents a major milestone in the field of 
-                quantum computing.
-                """)
-            elif selected_pregenerated == "Grammaticalization":
-                st.markdown("""
-                **Grammaticalization** is a linguistic process where lexical items and constructions change over time to 
-                serve grammatical functions. It's a fundamental concept in understanding how languages evolve.
-                """)
 
             # Button to load selected pre-generated content
             if st.button("Load Pre-generated Concept Map", key="load_pregenerated"):
