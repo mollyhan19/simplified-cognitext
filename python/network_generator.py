@@ -136,7 +136,8 @@ class NetworkConceptMapGenerator:
                 st.info("Click on nodes with coral outlines to expand hidden connections")
 
         with col2:
-            if st.button("Reset View", key="network_reset"):
+            reset_key = f"network_reset_{map_data.get('title', '')}"
+            if st.button("Reset View", key=reset_key):
                 st.session_state.network_expanded_nodes = []
                 st.rerun()
 
