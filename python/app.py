@@ -414,7 +414,7 @@ if not st.session_state.api_key_valid:
 
     # Still show example images to give users an idea of what they can do
     st.subheader("Example of what you can create:")
-    st.image("https://raw.githubusercontent.com/cognitext/cognitext-streamlit/main/example_screenshot.png",
+    st.image("python/pregenerated/sample_networkvis.png",
              caption="Example concept map visualization")
 
 else:
@@ -769,48 +769,48 @@ else:
 
                     st.error(traceback.format_exc())
 
-# Right column: Chatbot
-with col2:
-    st.header("Concept Chatbot")
+    # Right column: Chatbot
+    with col2:
+        st.header("Concept Chatbot")
 
-    # Show information about extracted data if available
-    if st.session_state.extracted_data["entities"]:
-        st.success(f"Currently loaded: {st.session_state.extracted_data['title']}")
-    elif not st.session_state.api_key_valid:
-        st.warning("Enter your OpenAI API key in the sidebar to use the chatbot")
+        # Show information about extracted data if available
+        if st.session_state.extracted_data["entities"]:
+            st.success(f"Currently loaded: {st.session_state.extracted_data['title']}")
+        elif not st.session_state.api_key_valid:
+            st.warning("Enter your OpenAI API key in the sidebar to use the chatbot")
 
-    # Simple chatbot interface that's always available
-    if st.session_state.api_key_valid:
-        st.markdown("Ask me anything!")
+        # Simple chatbot interface that's always available
+        if st.session_state.api_key_valid:
+            st.markdown("Ask me anything!")
 
-        # Display chat history
-        for message in st.session_state.chat_history:
-            with st.chat_message(message["role"]):
-                st.markdown(message["content"])
+            # Display chat history
+            for message in st.session_state.chat_history:
+                with st.chat_message(message["role"]):
+                    st.markdown(message["content"])
 
-        # Get user input
-        user_question = st.chat_input("Ask a question")
-        if user_question:
-            # Display user message
-            with st.chat_message("user"):
-                st.markdown(user_question)
+            # Get user input
+            user_question = st.chat_input("Ask a question")
+            if user_question:
+                # Display user message
+                with st.chat_message("user"):
+                    st.markdown(user_question)
 
-            # Add to chat history
-            st.session_state.chat_history.append({"role": "user", "content": user_question})
+                # Add to chat history
+                st.session_state.chat_history.append({"role": "user", "content": user_question})
 
-            # Generate response
-            with st.chat_message("assistant"):
-                with st.spinner("Thinking..."):
-                    context = generate_context()
-                    response = query_llm(user_question, context)
-                    st.markdown(response)
+                # Generate response
+                with st.chat_message("assistant"):
+                    with st.spinner("Thinking..."):
+                        context = generate_context()
+                        response = query_llm(user_question, context)
+                        st.markdown(response)
 
-            # Add assistant response to chat history
-            st.session_state.chat_history.append({"role": "assistant", "content": response})
+                # Add assistant response to chat history
+                st.session_state.chat_history.append({"role": "assistant", "content": response})
 
-        # Option to clear chat history
-        if st.button("Clear Chat History"):
-            st.session_state.chat_history = []
-            st.rerun()
-    else:
-        st.info("Please provide a valid OpenAI API key in the sidebar to use the chatbot functionality.")
+            # Option to clear chat history
+            if st.button("Clear Chat History"):
+                st.session_state.chat_history = []
+                st.rerun()
+        else:
+            st.info("Please provide a valid OpenAI API key in the sidebar to use the chatbot functionality.")
