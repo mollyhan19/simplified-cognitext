@@ -177,25 +177,46 @@ class RelationTracker:
     
 class OptimizedEntityExtractor:
     def __init__(self, api_key: str, cache_version: str = "1.0"):
-        self.client = OpenAI(api_key=api_key)
+        """Initialize with API key."""
+        self.api_key = api_key
+        # Initialize the OpenAI client only if API key is provided
+        if api_key:
+            try:
+                self.client = OpenAI(api_key=api_key)
+            except Exception as e:
+                print(f"Error initializing OpenAI client: {str(e)}")
+                self.client = None
+        else:
+            self.client = None
+
         self.cache_manager = CacheManager(version=cache_version)
         self.memory_cache = {}
         self.entities = {}
-
         self.sections_processed = 0
-
         self.relation_tracker = RelationTracker()
 
     @lru_cache(maxsize=1000)
     def _cached_api_call(self, prompt: str) -> str:
-        """Cache API calls in memory."""
-        response = self.client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[{"role": "user", "content": prompt},
-                      {"role": "system", "content": "You are an expert at analyzing text and extracting meaningful concepts and relationships between them, with a special focus on making complex information more understandable. "}],
-            temperature=0.1
-        )
-        return response.choices[0].message.content
+        """Cache API calls in memory, with error handling for invalid API keys."""
+        # Check if client is initialized
+        if not self.client:
+            raise ValueError("OpenAI client not initialized. Please provide a valid API key.")
+
+        try:
+            response = self.client.chat.completions.create(
+                model="gpt-4o-mini",
+                messages=[{"role": "user", "content": prompt},
+                          {"role": "system",
+                           "content": "You are an expert at analyzing text and extracting meaningful concepts and relationships between them, with a special focus on making complex information more understandable. "}],
+                temperature=0.1
+            )
+            return response.choices[0].message.content
+        except Exception as e:
+            # More detailed error handling
+            if "Authentication" in str(e):
+                raise ValueError(f"API key authentication error: {str(e)}")
+            else:
+                raise ValueError(f"Error making API call: {str(e)}")
 
     @staticmethod
     def clean_markdown_json(response: str) -> str:

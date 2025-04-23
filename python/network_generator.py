@@ -8,10 +8,11 @@ with progressive disclosure functionality. Aligns with the existing Streamlit-Co
 import os
 import json
 import time
-
 import streamlit as st
 import streamlit.components.v1 as components
 from typing import List, Dict, Any, Optional, Set
+from openai import OpenAI
+
 
 class NetworkConceptMapGenerator:
     """
@@ -24,14 +25,36 @@ class NetworkConceptMapGenerator:
         Initialize the NetworkConceptMapGenerator.
 
         Args:
-            api_key: Optional API key (for consistency with other generators)
+            api_key: API key for OpenAI (may be None initially)
             output_dir: Directory for output files
         """
         self.api_key = api_key
         self.output_dir = output_dir
 
+        # Initialize OpenAI client only if API key is provided
+        if api_key:
+            try:
+                self.client = OpenAI(api_key=api_key)
+            except Exception as e:
+                print(f"Error initializing OpenAI client in NetworkConceptMapGenerator: {str(e)}")
+                self.client = None
+        else:
+            self.client = None
+
         # Ensure output directory exists
         os.makedirs(output_dir, exist_ok=True)
+
+    def update_api_key(self, new_api_key: str):
+        """Update the API key and reinitialize the client."""
+        self.api_key = new_api_key
+        if new_api_key:
+            try:
+                self.client = OpenAI(api_key=new_api_key)
+                return True
+            except Exception as e:
+                print(f"Error updating API key: {str(e)}")
+                return False
+        return False
 
     def generate_network_map(
             self,
