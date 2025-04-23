@@ -1,20 +1,20 @@
 {
   "metadata": {
     "processing_mode": "subsection",
-    "timestamp": "2025-03-06T22:26:06.000000"
+    "timestamp": "2025-04-23T15:08:26.000000"
   },
   "Microchimerism": {
     "category": "general",
-    "total_entities": 114,
+    "total_entities": 115,
     "entities": [
       {
         "id": "autoimmune diseases",
         "frequency": 5,
         "section_count": 5,
         "variants": [
-          "autoimmune diseases",
+          "autoimmune thyroid diseases",
           "autoimmune disorders",
-          "autoimmune thyroid diseases"
+          "autoimmune diseases"
         ],
         "appearances": [
           {
@@ -52,13 +52,14 @@
       },
       {
         "id": "fetal cells",
-        "frequency": 8,
+        "frequency": 9,
         "section_count": 3,
         "variants": [
-          "fetal-derived cells",
           "microchimeric fetal cells",
+          "collagen i and iii",
+          "fetal-derived cells",
           "fetal cells",
-          "y chromosome detection"
+          "tgf-β3"
         ],
         "appearances": [
           {
@@ -92,16 +93,22 @@
             "evidence": "Fetal cells are cells that originate from the fetus and can persist in the mother's body after pregnancy. Their presence is significant because they may interact with the mother's immune system and potentially influence cancer progression, which is a key area of research in understanding breast cancer prognosis."
           },
           {
-            "section": "Relationship with autoimmune diseases and breast cancer - Other cancers",
-            "section_index": 8,
-            "variant": "y chromosome detection",
-            "evidence": "Y chromosome detection is a method used to identify male fetal cells in a woman's bloodstream, which is a key aspect of studying microchimerism. This technique is significant for understanding the implications of fetal cells on maternal health and cancer risk."
-          },
-          {
             "section": "Role of microchimerism in wound healing",
             "section_index": 9,
             "variant": "microchimeric fetal cells",
             "evidence": "Microchimeric fetal cells are cells that originate from a fetus and persist in the mother's body after pregnancy. Their presence in maternal tissues, such as healed scars, indicates a potential role in tissue repair and regeneration, which is significant for understanding maternal-fetal interactions and healing processes."
+          },
+          {
+            "section": "Role of microchimerism in wound healing",
+            "section_index": 9,
+            "variant": "collagen i and iii",
+            "evidence": "Collagen I and III are types of collagen proteins that provide structural support in various tissues. Their expression by microchimeric fetal cells suggests these cells may contribute to the healing process by aiding in the formation of new tissue, which is crucial for recovery from injuries such as cesarean section scars."
+          },
+          {
+            "section": "Role of microchimerism in wound healing",
+            "section_index": 9,
+            "variant": "tgf-β3",
+            "evidence": "Transforming Growth Factor Beta 3 (TGF-β3) is a cytokine involved in tissue repair and regeneration. Its expression by microchimeric fetal cells indicates a role in modulating the healing process, making it an important factor in understanding how fetal cells can influence maternal tissue recovery."
           },
           {
             "section": "Stem cells - Animal models",
@@ -181,66 +188,6 @@
         "layer": "secondary"
       },
       {
-        "id": "microchimerism",
-        "frequency": 4,
-        "section_count": 2,
-        "variants": [
-          "microchimerism",
-          "fetal microchimerism"
-        ],
-        "appearances": [
-          {
-            "section": "Relationship with autoimmune diseases and breast cancer - Breast cancer",
-            "section_index": 8,
-            "variant": "microchimerism",
-            "evidence": "Microchimerism refers to the presence of a small number of cells that originate from another individual, such as fetal cells in a mother. This concept is important as it highlights how varying levels of these cells can impact health outcomes, particularly in the context of cancer prognosis."
-          },
-          {
-            "section": "Relationship with autoimmune diseases and breast cancer - Other cancers",
-            "section_index": 8,
-            "variant": "microchimerism",
-            "evidence": "Microchimerism refers to the presence of a small number of cells in an individual that originated from another individual, often seen in the context of pregnancy where fetal cells persist in the mother's body. This concept is significant because it suggests potential implications for women's health, particularly in relation to cancer risks and immune responses."
-          },
-          {
-            "section": "Relationship with autoimmune diseases and breast cancer - Other cancers",
-            "section_index": 8,
-            "variant": "fetal microchimerism",
-            "evidence": "Fetal microchimerism is the phenomenon where fetal cells persist in the mother's body after pregnancy. This concept is important as it indicates that these cells might have protective effects against certain cancers, such as ovarian cancer, thereby influencing maternal health."
-          },
-          {
-            "section": "Health implications",
-            "section_index": 11,
-            "variant": "fetal microchimerism",
-            "evidence": "Fetal microchimerism refers to the presence of fetal cells within the maternal body during and after pregnancy. This phenomenon is significant because it suggests that fetal cells may influence maternal health, potentially leading to both beneficial and adverse effects."
-          }
-        ],
-        "layer": "priority"
-      },
-      {
-        "id": "parkinson's disease",
-        "frequency": 2,
-        "section_count": 2,
-        "variants": [
-          "parkinson's disease",
-          "ovarian cancer risk"
-        ],
-        "appearances": [
-          {
-            "section": "Benefits of microchimeric cells",
-            "section_index": 7,
-            "variant": "parkinson's disease",
-            "evidence": "Parkinson's disease is a neurodegenerative disorder characterized by the loss of dopamine-producing neurons. The ability of fetal microchimeric cells to replace injured cells in this context suggests potential therapeutic avenues for neurodegenerative diseases."
-          },
-          {
-            "section": "Relationship with autoimmune diseases and breast cancer - Other cancers",
-            "section_index": 8,
-            "variant": "ovarian cancer risk",
-            "evidence": "Ovarian cancer risk refers to the likelihood of developing cancer in the ovaries, which can be influenced by various biological factors, including the presence of microchimeric cells. Understanding this risk is crucial for developing preventive strategies and improving women's health outcomes."
-          }
-        ],
-        "layer": "priority"
-      },
-      {
         "id": "studies",
         "frequency": 2,
         "section_count": 2,
@@ -268,8 +215,8 @@
         "frequency": 2,
         "section_count": 2,
         "variants": [
-          "fetal microchimeric cells",
-          "microchimeric cells"
+          "microchimeric cells",
+          "fetal microchimeric cells"
         ],
         "appearances": [
           {
@@ -306,6 +253,29 @@
             "section_index": 9,
             "variant": "tissue repair",
             "evidence": "Tissue repair is the biological process through which the body restores damaged tissues. The involvement of microchimeric fetal cells in this process highlights the complex interactions between maternal and fetal cells and their implications for healing and recovery."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "fetal microchimerism",
+        "frequency": 2,
+        "section_count": 2,
+        "variants": [
+          "fetal microchimerism"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Other cancers",
+            "section_index": 8,
+            "variant": "fetal microchimerism",
+            "evidence": "Fetal microchimerism is the phenomenon where fetal cells persist in the mother's body after pregnancy. This concept is important as it indicates that these cells might have protective effects against certain cancers, such as ovarian cancer, thereby influencing maternal health."
+          },
+          {
+            "section": "Health implications",
+            "section_index": 11,
+            "variant": "fetal microchimerism",
+            "evidence": "Fetal microchimerism refers to the presence of fetal cells within the maternal body during and after pregnancy. This phenomenon is significant because it suggests that fetal cells may influence maternal health, potentially leading to both beneficial and adverse effects."
           }
         ],
         "layer": "priority"
@@ -385,6 +355,23 @@
           }
         ],
         "layer": "tertiary"
+      },
+      {
+        "id": "microchimerism",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "microchimerism"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Other cancers",
+            "section_index": 8,
+            "variant": "microchimerism",
+            "evidence": "Microchimerism refers to the presence of a small number of cells in an individual that originated from another individual, often seen in the context of pregnancy where fetal cells persist in the mother's body. This concept is significant because it suggests potential implications for women's health, particularly in relation to cancer risks and immune responses."
+          }
+        ],
+        "layer": "priority"
       },
       {
         "id": "chimera of greek mythology",
@@ -603,6 +590,23 @@
             "section_index": 2,
             "variant": "cattle reproductive biology",
             "evidence": "Cattle reproductive biology encompasses the study of reproductive processes and outcomes in cattle, including the implications of conditions like freemartinism. Understanding these biological principles is essential for effective breeding practices and managing cattle populations."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "parkinson's disease",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "parkinson's disease"
+        ],
+        "appearances": [
+          {
+            "section": "Benefits of microchimeric cells",
+            "section_index": 7,
+            "variant": "parkinson's disease",
+            "evidence": "Parkinson's disease is a neurodegenerative disorder characterized by the loss of dopamine-producing neurons. The ability of fetal microchimeric cells to replace injured cells in this context suggests potential therapeutic avenues for neurodegenerative diseases."
           }
         ],
         "layer": "tertiary"
@@ -1764,6 +1768,40 @@
         "layer": "tertiary"
       },
       {
+        "id": "ovarian cancer risk",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "ovarian cancer risk"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Other cancers",
+            "section_index": 8,
+            "variant": "ovarian cancer risk",
+            "evidence": "Ovarian cancer risk refers to the likelihood of developing cancer in the ovaries, which can be influenced by various biological factors, including the presence of microchimeric cells. Understanding this risk is crucial for developing preventive strategies and improving women's health outcomes."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "y chromosome detection",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "y chromosome detection"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Other cancers",
+            "section_index": 8,
+            "variant": "y chromosome detection",
+            "evidence": "Y chromosome detection is a method used to identify male fetal cells in a woman's bloodstream, which is a key aspect of studying microchimerism. This technique is significant for understanding the implications of fetal cells on maternal health and cancer risk."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
         "id": "cervical cancer",
         "frequency": 1,
         "section_count": 1,
@@ -1847,40 +1885,6 @@
           }
         ],
         "layer": "tertiary"
-      },
-      {
-        "id": "collagen i and iii",
-        "frequency": 1,
-        "section_count": 1,
-        "variants": [
-          "collagen i and iii"
-        ],
-        "appearances": [
-          {
-            "section": "Role of microchimerism in wound healing",
-            "section_index": 9,
-            "variant": "collagen i and iii",
-            "evidence": "Collagen I and III are types of collagen proteins that provide structural support in various tissues. Their expression by microchimeric fetal cells suggests these cells may contribute to the healing process by aiding in the formation of new tissue, which is crucial for recovery from injuries such as cesarean section scars."
-          }
-        ],
-        "layer": "secondary"
-      },
-      {
-        "id": "tgf-β3",
-        "frequency": 1,
-        "section_count": 1,
-        "variants": [
-          "tgf-β3"
-        ],
-        "appearances": [
-          {
-            "section": "Role of microchimerism in wound healing",
-            "section_index": 9,
-            "variant": "tgf-β3",
-            "evidence": "Transforming Growth Factor Beta 3 (TGF-β3) is a cytokine involved in tissue repair and regeneration. Its expression by microchimeric fetal cells indicates a role in modulating the healing process, making it an important factor in understanding how fetal cells can influence maternal tissue recovery."
-          }
-        ],
-        "layer": "secondary"
       },
       {
         "id": "maternal skin injury signals",

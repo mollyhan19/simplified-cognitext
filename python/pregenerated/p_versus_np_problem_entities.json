@@ -1,73 +1,12 @@
 {
   "metadata": {
     "processing_mode": "subsection",
-    "timestamp": "2025-03-06T00:46:29.000000"
+    "timestamp": "2025-04-23T15:20:04.000000"
   },
   "P versus NP problem": {
     "category": "general",
-    "total_entities": 131,
+    "total_entities": 126,
     "entities": [
-      {
-        "id": "p versus np problem",
-        "frequency": 8,
-        "section_count": 8,
-        "variants": [
-          "p versus np problem",
-          "p vs np problem",
-          "p = np problem"
-        ],
-        "appearances": [
-          {
-            "section": "Introduction",
-            "section_index": 1,
-            "variant": "p versus np problem",
-            "evidence": "The P versus NP problem is a fundamental question in theoretical computer science that explores the relationship between problems that can be solved quickly and those that can be verified quickly. Understanding this problem is crucial as it has implications across various fields, including mathematics and computer science."
-          },
-          {
-            "section": "History",
-            "section_index": 3,
-            "variant": "p versus np problem",
-            "evidence": "The P versus NP problem is a fundamental question in computer science that asks whether every problem whose solution can be quickly verified (NP) can also be quickly solved (P). This concept is crucial because it has implications for fields such as cryptography, algorithm design, and computational theory, influencing how we understand the limits of computation."
-          },
-          {
-            "section": "Context",
-            "section_index": 4,
-            "variant": "p vs np problem",
-            "evidence": "The P vs NP problem is a central question in computer science that asks whether every problem whose solution can be verified quickly can also be solved quickly. This question has profound implications for mathematics, computer science, and beyond, influencing fields such as cryptography and optimization."
-          },
-          {
-            "section": "Harder problems",
-            "section_index": 6,
-            "variant": "p = np problem",
-            "evidence": "The P = NP problem is a major unsolved question in computer science that asks whether every problem whose solution can be quickly verified can also be quickly solved. Understanding this problem is crucial because it has implications for fields such as cryptography, algorithm design, and complexity theory."
-          },
-          {
-            "section": "Claimed solutions",
-            "section_index": 15,
-            "variant": "p versus np problem",
-            "evidence": "The P versus NP problem is a major unsolved question in computer science that asks whether every problem whose solution can be quickly verified can also be solved quickly. It is significant because it has profound implications for fields such as cryptography, algorithm design, and computational theory."
-          },
-          {
-            "section": "Popular culture",
-            "section_index": 16,
-            "variant": "p versus np problem",
-            "evidence": "The P versus NP problem is a major unsolved question in computer science that asks whether every problem whose solution can be quickly verified can also be solved quickly. Understanding this problem is crucial because it has implications for fields such as cryptography, algorithm design, and computational theory."
-          },
-          {
-            "section": "Sources",
-            "section_index": 21,
-            "variant": "p vs np problem",
-            "evidence": "The P vs NP Problem is a major unsolved question in computer science that asks whether every problem whose solution can be quickly verified can also be solved quickly. This has profound implications for fields such as cryptography, algorithm design, and optimization."
-          },
-          {
-            "section": "Further reading",
-            "section_index": 22,
-            "variant": "p vs np problem",
-            "evidence": "The P vs NP problem is a major unsolved question in computer science that asks whether every problem whose solution can be quickly verified can also be quickly solved. This question has profound implications for mathematics, computer science, and beyond."
-          }
-        ],
-        "layer": "priority"
-      },
       {
         "id": "polynomial time",
         "frequency": 8,
@@ -81,208 +20,361 @@
             "section": "Introduction",
             "section_index": 1,
             "variant": "polynomial time",
-            "evidence": "Polynomial time refers to the time complexity of an algorithm where the time taken to complete the task is a polynomial function of the size of the input. This concept is essential in classifying problems as 'P' or 'NP' and is a key factor in determining the efficiency of algorithms."
+            "evidence": "Polynomial time refers to the time complexity of an algorithm where the time taken to complete the task is a polynomial function of the size of the input. This concept is essential in classifying problems in computer science, particularly in the context of the P versus NP problem."
           },
           {
             "section": "Example",
             "section_index": 2,
             "variant": "polynomial-time algorithm",
-            "evidence": "A polynomial-time algorithm is one that can solve a problem in time that is a polynomial function of the size of the input. The existence of such an algorithm for the generalized Sudoku problem is uncertain, which raises important questions about the efficiency of solving complex problems in computer science."
+            "evidence": "A polynomial-time algorithm is one that can solve a problem in time that is a polynomial function of the size of the input. The uncertainty surrounding the existence of such an algorithm for the generalized Sudoku problem is a key issue in computational theory, impacting how we understand problem-solving in computer science."
           },
           {
             "section": "History",
             "section_index": 3,
             "variant": "polynomial time",
-            "evidence": "Polynomial time refers to the class of problems that can be solved or verified in a time that scales polynomially with the size of the input. This concept is fundamental to the P versus NP problem, as it distinguishes between problems that are efficiently solvable and those that are only efficiently verifiable."
+            "evidence": "Polynomial time refers to the time complexity of an algorithm that can be expressed as a polynomial function of the size of the input. This concept is crucial in distinguishing between problems that can be efficiently solved versus those that can only be efficiently verified."
           },
           {
             "section": "Context",
             "section_index": 4,
             "variant": "polynomial time",
-            "evidence": "Polynomial time is a measure of computational complexity that indicates an algorithm's running time grows at a polynomial rate relative to the input size. It is a key criterion for classifying problems as 'efficiently solvable' and is central to the definition of the complexity class P."
+            "evidence": "Polynomial time refers to the time complexity of an algorithm where the time taken to complete the task grows at a polynomial rate relative to the input size. This concept is significant because problems that can be solved in polynomial time are generally considered tractable and efficient, making them feasible for practical applications."
           },
           {
             "section": "NP-completeness",
             "section_index": 5,
             "variant": "polynomial time",
-            "evidence": "Polynomial time refers to the time complexity of an algorithm that can be expressed as a polynomial function of the size of the input. It is a critical concept in computational complexity theory, as it distinguishes between problems that can be solved efficiently and those that cannot."
+            "evidence": "Polynomial time refers to the time complexity of an algorithm that can be expressed as a polynomial function of the size of the input. It is a critical concept in computational complexity theory, as problems that can be solved or verified in polynomial time are considered tractable, while those that cannot are often deemed intractable. This distinction is central to the P vs NP question."
           },
           {
             "section": "Reasons to believe P ≠ NP or P = NP - DLIN vs NLIN",
             "section_index": 9,
             "variant": "polynomial time",
-            "evidence": "Polynomial time is a complexity class that describes problems for which a solution can be found in a time that is a polynomial function of the size of the input. This concept is crucial in computer science as it helps differentiate between problems that can be solved efficiently and those that cannot."
+            "evidence": "Polynomial time is a complexity class that describes problems for which a solution can be found in a time that is a polynomial function of the size of the input. This concept is crucial in computer science as it distinguishes between problems that can be solved efficiently and those that cannot, forming the basis for the P vs NP question."
           },
           {
             "section": "Polynomial-time algorithms",
             "section_index": 13,
             "variant": "polynomial time",
-            "evidence": "Polynomial time refers to the time complexity of an algorithm that can be expressed as a polynomial function of the size of the input. It is a key concept in computational complexity theory, as problems that can be solved in polynomial time are generally considered tractable or feasible."
+            "evidence": "Polynomial time refers to the time complexity of an algorithm that can be expressed as a polynomial function of the size of the input. It is significant because problems that can be solved in polynomial time are generally considered tractable, making this concept central to computational theory."
           },
           {
             "section": "Formal definitions - P and NP",
             "section_index": 14,
             "variant": "polynomial time",
-            "evidence": "Polynomial time refers to the computational complexity of an algorithm where the time taken to complete is a polynomial function of the size of the input. This concept is significant because it helps categorize problems into those that can be efficiently solved (class P) and those that may not be."
+            "evidence": "Polynomial time refers to the complexity class of problems that can be solved by an algorithm in a time that is a polynomial function of the size of the input. This concept is essential for classifying problems based on their computational feasibility and efficiency."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "p versus np problem",
+        "frequency": 7,
+        "section_count": 7,
+        "variants": [
+          "p versus np problem",
+          "p vs np problem"
+        ],
+        "appearances": [
+          {
+            "section": "Introduction",
+            "section_index": 1,
+            "variant": "p versus np problem",
+            "evidence": "The P versus NP problem is a fundamental question in theoretical computer science that explores the relationship between problems that can be quickly verified and those that can be quickly solved. Understanding this problem is crucial as it has implications across various fields, including mathematics and computer science."
+          },
+          {
+            "section": "History",
+            "section_index": 3,
+            "variant": "p versus np problem",
+            "evidence": "The P versus NP problem is a major unsolved question in computer science that asks whether every problem whose solution can be quickly verified (NP) can also be quickly solved (P). This concept is fundamental because it has implications for fields such as cryptography, algorithm design, and computational theory."
+          },
+          {
+            "section": "Harder problems",
+            "section_index": 6,
+            "variant": "p vs np problem",
+            "evidence": "The P vs NP problem is a major unsolved question in computer science that asks whether every problem whose solution can be quickly verified can also be quickly solved. Understanding this problem is crucial because it has implications for fields such as cryptography, optimization, and algorithm design."
+          },
+          {
+            "section": "Claimed solutions",
+            "section_index": 15,
+            "variant": "p versus np problem",
+            "evidence": "The P versus NP problem is a major unsolved question in computer science that asks whether every problem whose solution can be quickly verified can also be solved quickly. It is significant because it has implications for fields such as cryptography, algorithm design, and complexity theory."
+          },
+          {
+            "section": "Popular culture",
+            "section_index": 16,
+            "variant": "p versus np problem",
+            "evidence": "The P versus NP problem is a major unsolved question in computer science that asks whether every problem whose solution can be quickly verified can also be solved quickly. It is fundamental because it has implications for fields such as cryptography, algorithm design, and complexity theory."
+          },
+          {
+            "section": "Sources",
+            "section_index": 21,
+            "variant": "p vs np problem",
+            "evidence": "The P vs NP Problem is a major unsolved question in computer science that asks whether every problem whose solution can be quickly verified can also be quickly solved. This has profound implications for fields such as cryptography, algorithm design, and optimization."
+          },
+          {
+            "section": "Further reading",
+            "section_index": 22,
+            "variant": "p vs np problem",
+            "evidence": "The P vs NP problem is a major unsolved question in computer science that asks whether every problem whose solution can be quickly verified can also be solved quickly. This question has profound implications for mathematics, computer science, and beyond, influencing fields such as cryptography and algorithm design."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "p ≠ np",
+        "frequency": 7,
+        "section_count": 6,
+        "variants": [
+          "p ⊆ np",
+          "p ≠ np",
+          "p = np question",
+          "p = np problem"
+        ],
+        "appearances": [
+          {
+            "section": "Introduction",
+            "section_index": 1,
+            "variant": "p ≠ np",
+            "evidence": "The assertion that P does not equal NP suggests that there exist problems for which finding a solution is inherently more complex than verifying one. This distinction is pivotal in understanding the limitations of algorithmic problem-solving."
+          },
+          {
+            "section": "Context",
+            "section_index": 4,
+            "variant": "p ⊆ np",
+            "evidence": "The notation P ⊆ NP indicates that all problems that can be solved in polynomial time (class P) can also be verified in polynomial time (class NP). This relationship is fundamental in computational complexity theory and raises important questions about the nature of problem-solving and verification in computer science."
+          },
+          {
+            "section": "Context",
+            "section_index": 4,
+            "variant": "p = np question",
+            "evidence": "The P = NP question is a central unsolved problem in computer science that asks whether every problem whose solution can be verified quickly (in polynomial time) can also be solved quickly. This question has profound implications for fields such as cryptography, optimization, and algorithm design, as it challenges our understanding of computational limits."
+          },
+          {
+            "section": "Consequences of solution - P ≠ NP",
+            "section_index": 10,
+            "variant": "p ≠ np",
+            "evidence": "P ≠ NP is a fundamental question in computational complexity theory that asks whether every problem whose solution can be verified quickly (in polynomial time) can also be solved quickly. Understanding this distinction is crucial because it impacts the feasibility of solving many computational problems efficiently."
+          },
+          {
+            "section": "Results about difficulty of proof",
+            "section_index": 11,
+            "variant": "p = np problem",
+            "evidence": "The P = NP problem is a major unsolved question in computer science that asks whether every problem whose solution can be quickly verified can also be solved quickly. It is significant because resolving this question could have profound implications for fields such as cryptography, optimization, and algorithm design."
+          },
+          {
+            "section": "Logical characterizations",
+            "section_index": 12,
+            "variant": "p = np problem",
+            "evidence": "The P = NP problem is a major unsolved question in computer science that asks whether every problem whose solution can be quickly verified can also be quickly solved. It is fundamental because it relates to the efficiency of algorithms and has implications for fields such as cryptography and optimization."
+          },
+          {
+            "section": "Claimed solutions",
+            "section_index": 15,
+            "variant": "p ≠ np",
+            "evidence": "P ≠ NP is the alternative hypothesis to P = NP, positing that there are problems that can be verified quickly but cannot be solved quickly. This distinction is crucial for understanding the limitations of algorithmic problem-solving."
           }
         ],
         "layer": "priority"
       },
       {
         "id": "np-complete problems",
-        "frequency": 4,
-        "section_count": 4,
+        "frequency": 6,
+        "section_count": 5,
         "variants": [
-          "np-complete problems"
+          "subset-sum",
+          "np-complete problems",
+          "np-complete problem"
         ],
         "appearances": [
           {
             "section": "NP-completeness",
             "section_index": 5,
             "variant": "np-complete problems",
-            "evidence": "NP-complete problems are a subset of NP problems that are at least as difficult as any other problem in NP. They are significant because if any NP-complete problem can be solved quickly (in polynomial time), then all NP problems can be solved quickly, which has profound implications for computer science."
+            "evidence": "NP-complete problems are a subset of NP problems that are characterized by their reducibility to one another in polynomial time. This means that if you can solve one NP-complete problem efficiently, you can solve all NP problems efficiently. Understanding these problems is essential for researchers in computer science as they explore the boundaries of computational efficiency."
           },
           {
             "section": "Does P mean \"easy\"?",
             "section_index": 8,
             "variant": "np-complete problems",
-            "evidence": "NP-complete problems are a class of problems for which no known polynomial-time solutions exist, yet they are verifiable in polynomial time. Understanding NP-completeness is essential in computer science as it helps identify problems that are computationally challenging, while also highlighting that practical solutions may still exist for specific instances."
+            "evidence": "NP-complete problems are a class of problems for which no known polynomial-time solutions exist, yet they are verifiable in polynomial time. Understanding NP-completeness is essential in computational theory as it helps identify problems that are computationally challenging, while also recognizing that practical solutions may still exist."
           },
           {
             "section": "Consequences of solution - P = NP",
             "section_index": 10,
             "variant": "np-complete problems",
-            "evidence": "NP-complete problems are a class of problems that are both in NP and as hard as any problem in NP. They are significant because if any NP-complete problem can be solved efficiently, then every problem in NP can also be solved efficiently, impacting numerous applications."
+            "evidence": "NP-complete problems are a class of problems in computational complexity theory that are both in NP and as hard as any problem in NP. They are significant because if any NP-complete problem can be solved efficiently, then every problem in NP can also be solved efficiently, which has vast implications across various domains."
           },
           {
             "section": "Results about difficulty of proof",
             "section_index": 11,
             "variant": "np-complete problems",
-            "evidence": "NP-complete problems are a class of problems for which no known polynomial-time solutions exist, but if any NP-complete problem can be solved in polynomial time, then all problems in NP can also be solved in polynomial time. This makes them central to the P = NP discussion and highlights their importance in computational complexity."
-          }
-        ],
-        "layer": "priority"
-      },
-      {
-        "id": "np-completeness",
-        "frequency": 4,
-        "section_count": 3,
-        "variants": [
-          "conditions for np-completeness",
-          "np-completeness"
-        ],
-        "appearances": [
-          {
-            "section": "NP-completeness",
-            "section_index": 5,
-            "variant": "np-completeness",
-            "evidence": "NP-completeness is a classification of problems in computational theory that are as hard as the hardest problems in NP. Understanding NP-completeness is crucial because it helps in identifying which problems can be efficiently solved and which cannot, impacting fields like cryptography and algorithm design."
+            "evidence": "NP-complete problems are a class of problems that are both in NP and as hard as any problem in NP. They are crucial in the study of computational complexity because if any NP-complete problem can be solved in polynomial time, then all problems in NP can also be solved in polynomial time, effectively resolving the P = NP question."
           },
           {
-            "section": "Formal definitions - NP-completeness",
-            "section_index": 14,
-            "variant": "np-completeness",
-            "evidence": "NP-completeness is a classification for decision problems for which a solution can be verified quickly (in polynomial time), and any problem in NP can be transformed into it in polynomial time. Understanding NP-completeness is crucial in computer science as it helps identify problems that are computationally challenging and informs algorithm design."
+            "section": "Polynomial-time algorithms",
+            "section_index": 13,
+            "variant": "np-complete problem",
+            "evidence": "An NP-complete problem is a class of problems for which no efficient solution algorithm is known. Understanding NP-completeness is crucial in computer science as it helps identify problems that are computationally intensive and informs researchers about the limits of algorithmic efficiency."
           },
           {
-            "section": "Formal definitions - NP-completeness",
-            "section_index": 14,
-            "variant": "conditions for np-completeness",
-            "evidence": "The conditions for NP-completeness specify that a language must belong to NP and that every problem in NP can be reduced to it in polynomial time. These conditions are critical for classifying problems and understanding their computational complexity."
-          },
-          {
-            "section": "Further reading",
-            "section_index": 22,
-            "variant": "np-completeness",
-            "evidence": "NP-Completeness is a classification of problems for which no efficient solution algorithm is known. Understanding NP-Completeness is crucial for computer scientists as it helps identify the limits of what can be computed efficiently, impacting fields like cryptography and optimization."
+            "section": "Polynomial-time algorithms",
+            "section_index": 13,
+            "variant": "subset-sum",
+            "evidence": "The SUBSET-SUM problem is a classic NP-complete problem where the goal is to determine if there is a subset of a given set of integers that sums to a specific value. It serves as a benchmark for evaluating algorithms in computational complexity."
           }
         ],
         "layer": "priority"
       },
       {
         "id": "class p",
-        "frequency": 3,
-        "section_count": 3,
+        "frequency": 4,
+        "section_count": 4,
         "variants": [
-          "class p"
+          "class p",
+          "p"
         ],
         "appearances": [
           {
             "section": "Introduction",
             "section_index": 1,
             "variant": "class p",
-            "evidence": "Class P consists of decision problems for which a solution can be found in polynomial time. This classification is fundamental in computational theory as it helps to identify problems that are efficiently solvable."
+            "evidence": "Class P consists of decision problems that can be solved by an algorithm in polynomial time. This classification is significant as it helps in understanding which problems are efficiently solvable, forming a core part of computational theory."
+          },
+          {
+            "section": "Example",
+            "section_index": 2,
+            "variant": "p",
+            "evidence": "P refers to the class of problems that can be solved quickly (in polynomial time). The mention of P in relation to the generalized Sudoku problem indicates the ongoing debate in computer science regarding the efficiency of algorithms for solving such problems."
           },
           {
             "section": "Formal definitions - P and NP",
             "section_index": 14,
             "variant": "class p",
-            "evidence": "Class P is a set of decision problems that can be solved by a deterministic Turing machine in polynomial time. Understanding class P is essential for analyzing the efficiency of algorithms and the feasibility of solving computational problems."
+            "evidence": "Class P is a set of decision problems that can be solved by a deterministic Turing machine in polynomial time. Understanding class P is fundamental for analyzing the efficiency of algorithms and the boundaries of computational problems."
           },
           {
             "section": "Similar problems",
             "section_index": 17,
             "variant": "class p",
-            "evidence": "Class P refers to the set of decision problems that can be solved by a deterministic Turing machine in polynomial time. This concept is fundamental in computational theory as it helps categorize problems based on their solvability and efficiency, influencing algorithm design and complexity analysis."
+            "evidence": "Class P refers to the set of decision problems that can be solved by a deterministic Turing machine in polynomial time. This class is fundamental in computer science as it represents problems that are efficiently solvable, making it a core concept in the study of computational complexity."
           }
         ],
         "layer": "priority"
       },
       {
         "id": "class np",
-        "frequency": 3,
-        "section_count": 3,
+        "frequency": 4,
+        "section_count": 4,
         "variants": [
-          "class np"
+          "class np",
+          "np"
         ],
         "appearances": [
           {
             "section": "Introduction",
             "section_index": 1,
             "variant": "class np",
-            "evidence": "Class NP includes decision problems for which a proposed solution can be verified in polynomial time. Understanding NP is crucial for exploring the limits of computational efficiency and the nature of problem-solving."
+            "evidence": "Class NP includes decision problems for which a proposed solution can be verified in polynomial time. This concept is critical in the study of computational complexity, particularly in relation to the P versus NP problem."
+          },
+          {
+            "section": "Example",
+            "section_index": 2,
+            "variant": "np",
+            "evidence": "NP, or nondeterministic polynomial time, refers to a class of problems for which a proposed solution can be verified quickly. The classification of the generalized Sudoku problem as NP highlights its complexity and the difficulty of finding efficient algorithms for all instances."
           },
           {
             "section": "Formal definitions - P and NP",
             "section_index": 14,
             "variant": "class np",
-            "evidence": "Class NP consists of decision problems for which a proposed solution can be verified in polynomial time by a deterministic Turing machine. This class is crucial for understanding the complexity of problems and the relationship between verification and computation."
+            "evidence": "Class NP consists of decision problems for which a proposed solution can be verified in polynomial time by a deterministic Turing machine. This class is significant for understanding the relationship between problem-solving and verification in computational complexity."
           },
           {
             "section": "Similar problems",
             "section_index": 17,
             "variant": "class np",
-            "evidence": "Class NP consists of decision problems for which a given solution can be verified in polynomial time by a deterministic Turing machine. This class is significant in understanding computational complexity, particularly in relation to the famous P vs. NP question, which asks whether every problem whose solution can be quickly verified can also be quickly solved."
+            "evidence": "Class NP consists of decision problems for which a given solution can be verified in polynomial time by a deterministic Turing machine. This class is significant because it includes many important computational problems, and understanding its relationship with class P is central to the P vs. NP question, one of the most critical open problems in computer science."
           }
         ],
         "layer": "priority"
       },
       {
-        "id": "np",
-        "frequency": 3,
-        "section_count": 3,
+        "id": "historical context of np-completeness",
+        "frequency": 4,
+        "section_count": 4,
         "variants": [
-          "np-problem",
-          "np"
+          "historical context of np-completeness",
+          "historical context of computational theory",
+          "historical context",
+          "historical context of computational complexity"
         ],
         "appearances": [
           {
-            "section": "Example",
-            "section_index": 2,
-            "variant": "np",
-            "evidence": "NP, or nondeterministic polynomial time, refers to a class of problems for which a proposed solution can be verified quickly (in polynomial time). Understanding that generalized Sudoku is in NP is crucial for recognizing its computational complexity and the challenges in finding efficient algorithms for solving it."
+            "section": "NP-completeness",
+            "section_index": 5,
+            "variant": "historical context of np-completeness",
+            "evidence": "The historical context of NP-completeness includes the development of the theory in the 1970s, which revolutionized the understanding of computational problems. The existence of NP-complete problems was initially counterintuitive, leading to significant research and exploration in the field. Understanding this context helps to appreciate the evolution of computational theory and its implications."
           },
           {
-            "section": "Logical characterizations",
-            "section_index": 12,
-            "variant": "np",
-            "evidence": "NP (nondeterministic polynomial time) is a complexity class that contains decision problems for which a given solution can be verified quickly. Understanding NP is crucial for exploring the limits of efficient computation."
+            "section": "Polynomial-time algorithms",
+            "section_index": 13,
+            "variant": "historical context",
+            "evidence": "The historical context of the P vs NP problem and its implications for algorithm design has shaped much of modern computational theory. Understanding this context helps in grasping the significance of ongoing research in this area."
           },
           {
-            "section": "Sources",
-            "section_index": 21,
-            "variant": "np-problem",
-            "evidence": "An NP-problem is a class of problems for which a proposed solution can be verified quickly, but finding that solution may take an impractically long time. Understanding NP-problems is crucial for computer scientists as they explore the limits of computational efficiency and problem-solving."
+            "section": "Formal definitions - P and NP",
+            "section_index": 14,
+            "variant": "historical context of computational theory",
+            "evidence": "The historical context of computational theory includes the evolution of concepts like NP and P, which have shaped our understanding of algorithmic efficiency and problem-solving. Recognizing this context helps in appreciating the development of modern computational models."
+          },
+          {
+            "section": "Further reading",
+            "section_index": 22,
+            "variant": "historical context of computational complexity",
+            "evidence": "The historical context of computational complexity includes the development of key theories and concepts from the 20th century, which laid the groundwork for modern computer science. Understanding this history is crucial for appreciating the evolution of algorithms and complexity theory."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "np-completeness",
+        "frequency": 5,
+        "section_count": 3,
+        "variants": [
+          "np-completeness",
+          "conditions for np-completeness",
+          "case studies in np-completeness"
+        ],
+        "appearances": [
+          {
+            "section": "NP-completeness",
+            "section_index": 5,
+            "variant": "np-completeness",
+            "evidence": "NP-completeness is a fundamental concept in computational theory that categorizes certain problems based on their difficulty. An NP-complete problem is one that is at least as hard as the hardest problems in NP, meaning that if a polynomial-time solution exists for one NP-complete problem, it exists for all problems in NP. This concept is crucial for understanding the limits of efficient computation."
+          },
+          {
+            "section": "Formal definitions - NP-completeness",
+            "section_index": 14,
+            "variant": "np-completeness",
+            "evidence": "NP-completeness is a classification for decision problems for which a solution can be verified quickly (in polynomial time) and any problem in NP can be transformed into it in polynomial time. Understanding NP-completeness is crucial in computer science as it helps identify problems that are computationally difficult and guides researchers in finding efficient algorithms."
+          },
+          {
+            "section": "Formal definitions - NP-completeness",
+            "section_index": 14,
+            "variant": "conditions for np-completeness",
+            "evidence": "The conditions for NP-completeness provide a clear criterion for determining whether a problem is NP-complete. These conditions are essential for researchers and practitioners in computer science as they guide the classification of problems and the development of algorithms."
+          },
+          {
+            "section": "Further reading",
+            "section_index": 22,
+            "variant": "np-completeness",
+            "evidence": "NP-Completeness is a classification of problems for which no efficient solution algorithm is known, yet a solution can be verified quickly. This concept is central to computational theory and helps in understanding the limits of what can be computed efficiently. It has significant implications for fields such as cryptography and optimization."
+          },
+          {
+            "section": "Further reading",
+            "section_index": 22,
+            "variant": "case studies in np-completeness",
+            "evidence": "Case studies in NP-Completeness provide concrete examples of problems that are NP-complete, illustrating the theory's practical implications. These examples help students and researchers understand the challenges of solving complex problems and the importance of approximation algorithms."
           }
         ],
         "layer": "priority"
@@ -292,7 +384,6 @@
         "frequency": 3,
         "section_count": 3,
         "variants": [
-          "computational complexity",
           "computational complexity theory"
         ],
         "appearances": [
@@ -300,19 +391,19 @@
             "section": "Context",
             "section_index": 4,
             "variant": "computational complexity theory",
-            "evidence": "Computational complexity theory is a branch of computer science that focuses on classifying computational problems based on their inherent difficulty and the resources needed to solve them. It is crucial for understanding the limits of what can be computed efficiently and has implications for fields such as cryptography and algorithm design."
+            "evidence": "Computational complexity theory is a branch of theoretical computer science that focuses on classifying computational problems based on their inherent difficulty and the resources needed to solve them. Understanding this theory is crucial for determining the efficiency of algorithms and the feasibility of solving various computational problems."
           },
           {
             "section": "Consequences of solution - P ≠ NP",
             "section_index": 10,
             "variant": "computational complexity theory",
-            "evidence": "Computational complexity theory is a branch of computer science that studies the resources required to solve computational problems, particularly in terms of time and space. It helps classify problems based on their inherent difficulty and efficiency, making it essential for understanding algorithm performance and limitations."
+            "evidence": "Computational complexity theory is a branch of computer science that studies the resources required to solve computational problems, particularly focusing on classifying problems based on their inherent difficulty. This field is essential for understanding the limits of what can be computed efficiently."
           },
           {
-            "section": "Further reading",
-            "section_index": 22,
-            "variant": "computational complexity",
-            "evidence": "Computational complexity is the study of the resources required for solving computational problems, including time and space. It provides a framework for analyzing the efficiency of algorithms and understanding the feasibility of solving various problems."
+            "section": "Results about difficulty of proof",
+            "section_index": 11,
+            "variant": "computational complexity theory",
+            "evidence": "Computational complexity theory is the study of the resources required to solve computational problems. It is fundamental to understanding the P = NP problem, as it provides the framework for classifying problems based on their inherent difficulty."
           }
         ],
         "layer": "priority"
@@ -322,50 +413,26 @@
         "frequency": 3,
         "section_count": 3,
         "variants": [
-          "p = np",
-          "p = np problem"
+          "p = np"
         ],
         "appearances": [
           {
             "section": "Consequences of solution - P = NP",
             "section_index": 10,
             "variant": "p = np",
-            "evidence": "P = NP is a major unsolved problem in computer science that questions whether every problem whose solution can be quickly verified can also be solved quickly. Its resolution could revolutionize various fields by providing efficient solutions to complex problems."
-          },
-          {
-            "section": "Results about difficulty of proof",
-            "section_index": 11,
-            "variant": "p = np problem",
-            "evidence": "The P = NP problem is a major unsolved question in computer science that asks whether every problem whose solution can be quickly verified can also be solved quickly. It is significant because resolving this question has profound implications for fields such as cryptography, algorithm design, and computational theory."
+            "evidence": "P = NP is a major unsolved problem in computer science that asks whether every problem whose solution can be quickly verified can also be solved quickly. Its resolution could revolutionize fields such as cryptography, operations research, and mathematics, making previously intractable problems solvable."
           },
           {
             "section": "Polynomial-time algorithms",
             "section_index": 13,
             "variant": "p = np",
-            "evidence": "The P vs NP problem is a major unsolved question in computer science that asks whether every problem whose solution can be quickly verified (NP) can also be quickly solved (P). Its resolution has profound implications for fields such as cryptography, optimization, and algorithm design."
-          }
-        ],
-        "layer": "priority"
-      },
-      {
-        "id": "p ≠ np",
-        "frequency": 2,
-        "section_count": 2,
-        "variants": [
-          "p ≠ np"
-        ],
-        "appearances": [
-          {
-            "section": "Introduction",
-            "section_index": 1,
-            "variant": "p ≠ np",
-            "evidence": "The conjecture that P does not equal NP suggests that there exist problems that can be verified quickly but cannot be solved quickly. This distinction is significant as it impacts the understanding of computational limits and the feasibility of solving complex problems."
+            "evidence": "The P vs NP problem is a major unsolved question in computer science that asks whether every problem whose solution can be quickly verified can also be solved quickly. This question is fundamental to understanding the limits of computation and algorithm design."
           },
           {
-            "section": "Consequences of solution - P ≠ NP",
-            "section_index": 10,
-            "variant": "p ≠ np",
-            "evidence": "P ≠ NP is a fundamental question in computational complexity theory that asks whether every problem whose solution can be verified quickly (in polynomial time) can also be solved quickly. This concept is crucial because it has significant implications for computer science, particularly in understanding the limits of algorithmic efficiency and the nature of computational problems."
+            "section": "Claimed solutions",
+            "section_index": 15,
+            "variant": "p = np",
+            "evidence": "P = NP is one of the two main hypotheses regarding the P versus NP problem, suggesting that problems that can be verified quickly can also be solved quickly. This hypothesis has profound implications for computational theory and practical applications in various fields."
           }
         ],
         "layer": "priority"
@@ -382,7 +449,7 @@
             "section": "Introduction",
             "section_index": 1,
             "variant": "millennium prize problems",
-            "evidence": "The Millennium Prize Problems are a set of seven unsolved problems in mathematics, each with a reward for a correct solution. The P versus NP problem is included in this list, highlighting its importance and the challenge it presents to mathematicians and computer scientists."
+            "evidence": "The Millennium Prize Problems are a set of seven unsolved problems in mathematics, each with a reward for a correct solution. The P versus NP problem is included in this list, highlighting its significance and the high level of interest it generates in the mathematical community."
           },
           {
             "section": "Sources",
@@ -391,30 +458,78 @@
             "evidence": "The Millennium Prize Problems are a set of seven unsolved problems in mathematics, each with a reward of one million dollars for a correct solution. They represent some of the most challenging and significant questions in the field, highlighting the depth and complexity of mathematical inquiry."
           }
         ],
-        "layer": "secondary"
+        "layer": "priority"
       },
       {
-        "id": "theoretical computer science",
+        "id": "algorithm research",
         "frequency": 2,
         "section_count": 2,
         "variants": [
-          "theoretical computer science"
+          "algorithm research",
+          "algorithm"
         ],
         "appearances": [
           {
             "section": "Introduction",
             "section_index": 1,
-            "variant": "theoretical computer science",
-            "evidence": "Theoretical computer science is a branch of computer science that deals with the abstract and mathematical aspects of computation. The P versus NP problem is a central issue in this field, influencing both theoretical and practical applications."
+            "variant": "algorithm research",
+            "evidence": "Algorithm research focuses on developing methods for solving computational problems efficiently. The P versus NP problem is central to this field, as it questions the limits of what can be computed quickly."
+          },
+          {
+            "section": "Polynomial-time algorithms",
+            "section_index": 13,
+            "variant": "algorithm",
+            "evidence": "An algorithm is a step-by-step procedure for solving a problem or performing a computation. In the context of NP-complete problems, algorithms are crucial for exploring potential solutions and understanding computational limits."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "finite number of possible grids",
+        "frequency": 2,
+        "section_count": 2,
+        "variants": [
+          "finite number of possible grids",
+          "finite alphabet"
+        ],
+        "appearances": [
+          {
+            "section": "Example",
+            "section_index": 2,
+            "variant": "finite number of possible grids",
+            "evidence": "The concept of a finite number of possible grids refers to the limited configurations available for a fixed-size Sudoku puzzle. This characteristic allows for simpler solutions, such as table lookup, which can be efficiently executed, contrasting with the complexities of the generalized version."
+          },
+          {
+            "section": "Formal definitions - P and NP",
+            "section_index": 14,
+            "variant": "finite alphabet",
+            "evidence": "A finite alphabet is a limited set of symbols used to construct strings in formal languages. This concept is foundational in the study of computational languages and their classifications."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "computational complexity",
+        "frequency": 2,
+        "section_count": 2,
+        "variants": [
+          "computational complexity"
+        ],
+        "appearances": [
+          {
+            "section": "Example",
+            "section_index": 2,
+            "variant": "computational complexity",
+            "evidence": "Computational complexity is a field of study that focuses on classifying problems based on their inherent difficulty and the resources required to solve them. The generalized Sudoku problem serves as an important case study in this discipline, illustrating the challenges of algorithmic efficiency."
           },
           {
             "section": "Further reading",
             "section_index": 22,
-            "variant": "theoretical computer science",
-            "evidence": "Theoretical computer science is a branch of computer science that focuses on the abstract and mathematical aspects of computation. It provides the foundational principles that guide the development of algorithms and the understanding of computational limits."
+            "variant": "computational complexity",
+            "evidence": "Computational complexity is the study of the resources required to solve computational problems, particularly in terms of time and space. It provides a framework for analyzing the efficiency of algorithms and understanding the feasibility of solving various problems. This field is foundational for both theoretical and practical aspects of computer science."
           }
         ],
-        "layer": "secondary"
+        "layer": "priority"
       },
       {
         "id": "co-np-complete",
@@ -429,13 +544,13 @@
             "section": "History",
             "section_index": 3,
             "variant": "co-np-complete",
-            "evidence": "Co-NP-complete refers to a class of problems for which a solution can be verified in polynomial time, but finding a solution may be computationally difficult. Understanding co-NP-completeness is essential for grasping the broader implications of the P versus NP problem and its impact on computational theory."
+            "evidence": "Co-NP-complete refers to a class of problems for which a solution can be verified in polynomial time, but finding a solution may be computationally difficult. Understanding co-NP-completeness is essential for grasping the broader implications of the P versus NP problem."
           },
           {
             "section": "Logical characterizations",
             "section_index": 12,
             "variant": "co-np",
-            "evidence": "Co-NP is the complexity class of decision problems for which a 'no' answer can be verified quickly. Its relationship with NP is central to the P vs NP question and has implications for computational theory."
+            "evidence": "Co-NP is the complexity class of decision problems for which a 'no' answer can be verified in polynomial time. The relationship between NP and co-NP is central to the P vs NP debate, as proving P = NP would imply that these two classes are equivalent."
           }
         ],
         "layer": "secondary"
@@ -453,40 +568,39 @@
             "section": "Context",
             "section_index": 4,
             "variant": "non-deterministic machine",
-            "evidence": "A non-deterministic machine is a theoretical model that can explore multiple possibilities simultaneously. This concept is crucial for understanding the complexity class NP, where solutions can be verified quickly, even if they cannot be found quickly."
+            "evidence": "A non-deterministic machine is a theoretical model that can explore multiple possible solutions simultaneously. This concept is crucial in the context of NP problems, as it allows for the verification of solutions in polynomial time, even if finding those solutions may not be feasible in the same timeframe."
           },
           {
             "section": "Formal definitions - P and NP",
             "section_index": 14,
             "variant": "nondeterministic turing machine",
-            "evidence": "A nondeterministic Turing machine is a theoretical model that can explore multiple computation paths simultaneously. This concept is pivotal in the study of NP problems, as it provides a framework for understanding how solutions can be verified quickly."
+            "evidence": "A nondeterministic Turing machine is a theoretical model that can explore multiple computation paths simultaneously. This concept is pivotal in understanding the nature of NP problems and their verification processes."
           }
         ],
         "layer": "secondary"
       },
       {
-        "id": "3-sat",
+        "id": "boolean satisfiability problem",
         "frequency": 2,
         "section_count": 2,
         "variants": [
-          "3-sat",
-          "3-sat problem"
+          "boolean satisfiability problem"
         ],
         "appearances": [
           {
             "section": "NP-completeness",
             "section_index": 5,
-            "variant": "3-sat",
-            "evidence": "3-SAT is a specific version of the Boolean satisfiability problem that is also NP-complete. Its study is important because it helps in understanding the complexity of satisfiability problems and their applications in various fields, including optimization and artificial intelligence."
+            "variant": "boolean satisfiability problem",
+            "evidence": "The Boolean satisfiability problem (SAT) is the first problem that was proven to be NP-complete, as established by the Cook–Levin theorem. This theorem is significant because it provides a foundational example of NP-completeness and serves as a basis for proving that many other problems are also NP-complete. SAT's importance lies in its role in theoretical computer science and practical applications in fields like artificial intelligence and optimization."
           },
           {
-            "section": "Consequences of solution - P = NP",
-            "section_index": 10,
-            "variant": "3-sat problem",
-            "evidence": "The 3-SAT problem is a specific NP-complete problem that involves determining the satisfiability of a boolean formula in conjunctive normal form with three literals per clause. Its resolution is pivotal in understanding the implications of P = NP on cryptography."
+            "section": "Does P mean \"easy\"?",
+            "section_index": 8,
+            "variant": "boolean satisfiability problem",
+            "evidence": "The Boolean satisfiability problem (SAT) is the problem of determining if there exists an interpretation that satisfies a given Boolean formula. It is the first problem that was proven to be NP-complete and is fundamental in the study of computational complexity."
           }
         ],
-        "layer": "secondary"
+        "layer": "priority"
       },
       {
         "id": "turing machine",
@@ -500,40 +614,40 @@
             "section": "NP-completeness",
             "section_index": 5,
             "variant": "turing machine",
-            "evidence": "A Turing machine is a theoretical model of computation that defines an abstract machine capable of simulating any algorithm. It is fundamental in computer science for understanding the limits of what can be computed and the complexity of problems."
+            "evidence": "A Turing machine is a theoretical computational model that defines an abstract machine capable of simulating any algorithm. In the context of NP-completeness, Turing machines are used to formalize the concepts of computation and verification, making them fundamental to understanding the complexity of problems in NP."
           },
           {
             "section": "Formal definitions - NP-completeness",
             "section_index": 14,
             "variant": "turing machine",
-            "evidence": "A Turing machine is a theoretical computational model that defines an abstract machine capable of simulating any algorithm. It is fundamental in computer science for understanding the limits of what can be computed and is often used in discussions of computational complexity."
+            "evidence": "A Turing machine is a theoretical computational model that defines an abstract machine capable of simulating any algorithm. In the context of NP-completeness, the polynomial-time Turing machine is significant because it provides a framework for understanding the efficiency of algorithms and the feasibility of solving problems within polynomial time."
           }
         ],
         "layer": "secondary"
       },
       {
-        "id": "historical context of np-completeness",
+        "id": "3-sat",
         "frequency": 2,
         "section_count": 2,
         "variants": [
-          "historical context of np-completeness",
-          "historical context"
+          "3-sat problem",
+          "3-sat"
         ],
         "appearances": [
           {
             "section": "NP-completeness",
             "section_index": 5,
-            "variant": "historical context of np-completeness",
-            "evidence": "The historical context of NP-completeness involves the development of computational theory in the 1970s, which led to the identification of NP-complete problems. Understanding this context is essential for grasping the evolution of algorithms and complexity theory."
+            "variant": "3-sat",
+            "evidence": "3-SAT is a specific case of the Boolean satisfiability problem where each clause in the formula has exactly three literals. It is a well-known NP-complete problem and serves as a critical example in the study of computational complexity. The significance of 3-SAT lies in its role in reductions and its applications in various fields, including algorithm design and optimization."
           },
           {
-            "section": "Polynomial-time algorithms",
-            "section_index": 13,
-            "variant": "historical context",
-            "evidence": "The historical context of the P vs NP problem and its implications for algorithm design has been a significant area of research in computer science since the 1970s. Understanding this context helps to appreciate the ongoing challenges and debates in the field."
+            "section": "Consequences of solution - P = NP",
+            "section_index": 10,
+            "variant": "3-sat problem",
+            "evidence": "The 3-SAT problem is a specific NP-complete problem that involves determining if there exists a truth assignment to variables that satisfies a given Boolean formula. Its significance lies in its role as a benchmark for the complexity of other NP-complete problems and its implications for cryptographic security."
           }
         ],
-        "layer": "tertiary"
+        "layer": "secondary"
       },
       {
         "id": "big o notation",
@@ -547,39 +661,40 @@
             "section": "Does P mean \"easy\"?",
             "section_index": 8,
             "variant": "big o notation",
-            "evidence": "Big O notation is a mathematical notation used to describe the upper bound of an algorithm's running time or space requirements in terms of input size. It provides a way to classify algorithms according to their performance or efficiency, but it can sometimes obscure important details, such as large constants that affect practical performance."
+            "evidence": "Big O notation is a mathematical notation used to describe the upper bound of an algorithm's running time or space requirements in terms of input size. It is crucial for analyzing algorithm efficiency, but it can sometimes obscure important details, such as constants that significantly impact practical performance."
           },
           {
             "section": "Formal definitions - P and NP",
             "section_index": 14,
             "variant": "big o notation",
-            "evidence": "Big O notation is a mathematical notation used to describe the upper bound of an algorithm's running time or space requirements in terms of input size. It is a critical tool for analyzing the efficiency of algorithms and understanding their performance."
+            "evidence": "Big O notation is a mathematical notation used to describe the upper bound of an algorithm's running time or space requirements in terms of input size. It is a fundamental concept in computer science for analyzing algorithm efficiency."
           }
         ],
-        "layer": "secondary"
+        "layer": "priority"
       },
       {
-        "id": "finite alphabet",
+        "id": "np",
         "frequency": 2,
-        "section_count": 1,
+        "section_count": 2,
         "variants": [
-          "finite alphabet"
+          "np-problem",
+          "np"
         ],
         "appearances": [
           {
-            "section": "Formal definitions - P and NP",
-            "section_index": 14,
-            "variant": "finite alphabet",
-            "evidence": "A finite alphabet is a limited set of symbols used to construct strings in formal languages. This concept is fundamental in computer science, as it defines the basic building blocks for languages and computational problems."
+            "section": "Logical characterizations",
+            "section_index": 12,
+            "variant": "np",
+            "evidence": "NP (nondeterministic polynomial time) is a complexity class that includes decision problems for which a proposed solution can be verified in polynomial time. Understanding NP is critical for exploring the boundaries of efficient computation and the implications of the P = NP question."
           },
           {
-            "section": "Formal definitions - NP-completeness",
-            "section_index": 14,
-            "variant": "finite alphabet",
-            "evidence": "A finite alphabet is a limited set of symbols from which strings (or languages) are constructed. In computational theory, it is important because it defines the basic building blocks for languages and helps in analyzing their properties."
+            "section": "Sources",
+            "section_index": 21,
+            "variant": "np-problem",
+            "evidence": "An NP-problem is a class of problems for which a proposed solution can be verified quickly, but finding that solution may take an impractical amount of time. Understanding NP-problems is crucial for computer scientists as they explore the limits of computational efficiency and problem-solving."
           }
         ],
-        "layer": "tertiary"
+        "layer": "priority"
       },
       {
         "id": "implications for various fields",
@@ -593,27 +708,44 @@
             "section": "Introduction",
             "section_index": 1,
             "variant": "implications for various fields",
-            "evidence": "The resolution of the P versus NP problem could significantly impact numerous disciplines by altering the understanding of computational limits and efficiency. This makes it a pivotal issue not only in computer science but across various domains."
+            "evidence": "The resolution of the P versus NP problem would impact numerous disciplines, indicating its importance beyond theoretical computer science. Understanding its implications can help in grasping the broader significance of computational complexity."
           }
         ],
         "layer": "secondary"
       },
       {
-        "id": "algorithm research",
+        "id": "theoretical computer science",
         "frequency": 1,
         "section_count": 1,
         "variants": [
-          "algorithm research"
+          "theoretical computer science"
         ],
         "appearances": [
           {
             "section": "Introduction",
             "section_index": 1,
-            "variant": "algorithm research",
-            "evidence": "Algorithm research focuses on developing methods for solving computational problems efficiently. The P versus NP question directly influences this field by determining the boundaries of what can be computed in a reasonable timeframe."
+            "variant": "theoretical computer science",
+            "evidence": "Theoretical computer science is a branch of computer science that deals with the abstract and mathematical aspects of computation. The P versus NP problem is a cornerstone issue in this field, influencing various theoretical frameworks."
           }
         ],
         "layer": "secondary"
+      },
+      {
+        "id": "quickly verified",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "quickly verified"
+        ],
+        "appearances": [
+          {
+            "section": "Introduction",
+            "section_index": 1,
+            "variant": "quickly verified",
+            "evidence": "The term 'quickly verified' refers to the ability to check the correctness of a solution in a time-efficient manner. This concept is crucial in distinguishing between the classes P and NP."
+          }
+        ],
+        "layer": "tertiary"
       },
       {
         "id": "clay mathematics institute",
@@ -627,7 +759,7 @@
             "section": "Introduction",
             "section_index": 1,
             "variant": "clay mathematics institute",
-            "evidence": "The Clay Mathematics Institute is an organization dedicated to the promotion and funding of mathematical research. Their identification of the P versus NP problem as a Millennium Prize Problem underscores its significance in the mathematical community."
+            "evidence": "The Clay Mathematics Institute is an organization that promotes mathematical research and recognizes significant unsolved problems in mathematics. Their designation of the P versus NP problem underscores its importance in the field."
           }
         ],
         "layer": "tertiary"
@@ -644,44 +776,10 @@
             "section": "Example",
             "section_index": 2,
             "variant": "generalized sudoku problem",
-            "evidence": "The generalized Sudoku problem extends the traditional Sudoku puzzle to grids of size n^{2} by n^{2}, requiring that each row, column, and sub-grid contains all integers from 1 to n^{2}. This concept is significant as it highlights the complexity of Sudoku puzzles and sets the stage for discussions about computational complexity."
+            "evidence": "The generalized Sudoku problem extends the traditional Sudoku puzzle to grids of size n^{2} by n^{2}. It poses the challenge of determining whether a valid solution exists for any given incomplete grid, which is significant in the study of computational complexity and algorithm design."
           }
         ],
         "layer": "priority"
-      },
-      {
-        "id": "p",
-        "frequency": 1,
-        "section_count": 1,
-        "variants": [
-          "p"
-        ],
-        "appearances": [
-          {
-            "section": "Example",
-            "section_index": 2,
-            "variant": "p",
-            "evidence": "P refers to the class of problems that can be solved quickly (in polynomial time). The distinction between P and NP is fundamental in computer science, as it addresses whether every problem whose solution can be quickly verified can also be quickly solved. This is central to understanding the computational limits of algorithms."
-          }
-        ],
-        "layer": "priority"
-      },
-      {
-        "id": "finite number of possible grids",
-        "frequency": 1,
-        "section_count": 1,
-        "variants": [
-          "finite number of possible grids"
-        ],
-        "appearances": [
-          {
-            "section": "Example",
-            "section_index": 2,
-            "variant": "finite number of possible grids",
-            "evidence": "The concept of a finite number of possible grids refers to the limited configurations that a traditional Sudoku puzzle can have. This is important because it implies that for fixed-size puzzles, solutions can be precomputed, making them easier to solve compared to generalized versions."
-          }
-        ],
-        "layer": "secondary"
       },
       {
         "id": "table lookup",
@@ -695,10 +793,27 @@
             "section": "Example",
             "section_index": 2,
             "variant": "table lookup",
-            "evidence": "Table lookup is a method of solving problems by referencing precomputed solutions stored in a table. This approach is efficient for fixed-size Sudoku puzzles, as it allows for quick retrieval of answers without the need for complex calculations."
+            "evidence": "Table lookup is a method of solving problems by referencing precomputed solutions stored in a table. This approach is efficient for fixed-size Sudoku puzzles, illustrating a practical application of algorithmic strategies in computational problem-solving."
           }
         ],
         "layer": "secondary"
+      },
+      {
+        "id": "sudoku grid",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "sudoku grid"
+        ],
+        "appearances": [
+          {
+            "section": "Example",
+            "section_index": 2,
+            "variant": "sudoku grid",
+            "evidence": "A Sudoku grid is a square grid divided into smaller squares, where the objective is to fill the grid with numbers according to specific rules. Understanding the structure of the grid is essential for tackling Sudoku-related problems and algorithms."
+          }
+        ],
+        "layer": "tertiary"
       },
       {
         "id": "stephen cook",
@@ -712,7 +827,7 @@
             "section": "History",
             "section_index": 3,
             "variant": "stephen cook",
-            "evidence": "Stephen Cook is a prominent computer scientist known for his foundational work in computational complexity theory. His introduction of the P versus NP problem has had a lasting impact on theoretical computer science and has spurred extensive research into the nature of computational problems."
+            "evidence": "Stephen Cook is a prominent computer scientist known for his foundational work in computational complexity theory, particularly for formulating the P versus NP problem. His contributions have significantly shaped the understanding of computational limits and efficiency."
           }
         ],
         "layer": "tertiary"
@@ -729,7 +844,7 @@
             "section": "History",
             "section_index": 3,
             "variant": "leonid levin",
-            "evidence": "Leonid Levin is a mathematician and computer scientist who independently formulated the P versus NP problem, contributing to its recognition as a central question in computational complexity. His work emphasizes the collaborative nature of scientific discovery and the importance of diverse perspectives in understanding complex problems."
+            "evidence": "Leonid Levin is a mathematician and computer scientist who independently formulated the P versus NP problem around the same time as Stephen Cook. His work is crucial in the context of theoretical computer science and highlights the collaborative nature of scientific discovery."
           }
         ],
         "layer": "tertiary"
@@ -746,7 +861,7 @@
             "section": "History",
             "section_index": 3,
             "variant": "john nash",
-            "evidence": "John Nash was a mathematician whose work in game theory and complexity has influenced various fields, including economics and computer science. His speculation about the time complexity of code-breaking foreshadowed the P versus NP problem, highlighting the relationship between computational difficulty and cryptography."
+            "evidence": "John Nash was a mathematician whose insights into game theory and complexity have had a profound impact on economics and computer science. His speculation about the time complexity of code-breaking foreshadowed the P versus NP problem and its implications for cryptography."
           }
         ],
         "layer": "tertiary"
@@ -763,7 +878,7 @@
             "section": "History",
             "section_index": 3,
             "variant": "kurt gödel",
-            "evidence": "Kurt Gödel was a logician and mathematician known for his incompleteness theorems. His inquiry into the solvability of theorem-proving in polynomial time relates to the P versus NP problem, illustrating early concerns about the limits of computation and the automation of mathematical proofs."
+            "evidence": "Kurt Gödel was a logician and mathematician known for his incompleteness theorems. His inquiry into the efficiency of theorem-proving processes relates to the P versus NP problem and emphasizes the quest for automating mathematical proofs."
           }
         ],
         "layer": "tertiary"
@@ -780,24 +895,24 @@
             "section": "History",
             "section_index": 3,
             "variant": "exponential time",
-            "evidence": "Exponential time refers to a class of problems for which the time required to solve them grows exponentially with the size of the input. This concept is significant in the context of the P versus NP problem, as it highlights the potential difficulty of solving certain computational problems."
+            "evidence": "Exponential time describes algorithms whose running time grows exponentially with the input size, making them impractical for large inputs. This concept is significant in understanding the limitations of computational problem-solving, particularly in cryptography."
           }
         ],
         "layer": "secondary"
       },
       {
-        "id": "automation of mathematical proofs",
+        "id": "automated discovery of mathematical proofs",
         "frequency": 1,
         "section_count": 1,
         "variants": [
-          "automation of mathematical proofs"
+          "automated discovery of mathematical proofs"
         ],
         "appearances": [
           {
             "section": "History",
             "section_index": 3,
-            "variant": "automation of mathematical proofs",
-            "evidence": "The automation of mathematical proofs refers to the use of algorithms and computational methods to generate or verify proofs without human intervention. This concept is closely tied to the P versus NP problem, as it raises questions about the feasibility of automating complex reasoning processes in mathematics."
+            "variant": "automated discovery of mathematical proofs",
+            "evidence": "The automated discovery of mathematical proofs refers to the use of algorithms and computational methods to generate proofs without human intervention. This concept is pivotal in the field of artificial intelligence and has implications for the future of mathematics and logic."
           }
         ],
         "layer": "secondary"
@@ -814,7 +929,7 @@
             "section": "Context",
             "section_index": 4,
             "variant": "complexity classes p and np",
-            "evidence": "The complexity classes P and NP are fundamental concepts in computational complexity theory. Class P includes problems that can be solved quickly (in polynomial time) by a deterministic machine, while class NP includes problems for which solutions can be verified quickly. Understanding the relationship between these classes is central to many open questions in computer science."
+            "evidence": "Complexity classes P and NP categorize decision problems based on their solvability and verifiability. Class P includes problems that can be solved in polynomial time by a deterministic machine, while class NP includes problems for which solutions can be verified in polynomial time. This distinction is fundamental in understanding computational limits and the efficiency of algorithms."
           }
         ],
         "layer": "priority"
@@ -831,44 +946,10 @@
             "section": "Context",
             "section_index": 4,
             "variant": "deterministic machine",
-            "evidence": "A deterministic machine is a theoretical model of computation where the next state of the machine is determined solely by its current state and input. This concept is important because it underpins the definition of the complexity class P, where problems are solved in a predictable manner."
+            "evidence": "A deterministic machine is a theoretical model of computation where the outcome of each operation is predictable and determined solely by the current state and input. This concept is essential for analyzing the time complexity of algorithms, as it provides a clear framework for understanding how problems are solved step by step."
           }
         ],
         "layer": "secondary"
-      },
-      {
-        "id": "sequential computation",
-        "frequency": 1,
-        "section_count": 1,
-        "variants": [
-          "sequential computation"
-        ],
-        "appearances": [
-          {
-            "section": "Context",
-            "section_index": 4,
-            "variant": "sequential computation",
-            "evidence": "Sequential computation refers to the execution of operations in a specific order, one after the other. This model is foundational in understanding how algorithms are structured and analyzed in terms of time and space complexity."
-          }
-        ],
-        "layer": "secondary"
-      },
-      {
-        "id": "p ⊆ np",
-        "frequency": 1,
-        "section_count": 1,
-        "variants": [
-          "p ⊆ np"
-        ],
-        "appearances": [
-          {
-            "section": "Context",
-            "section_index": 4,
-            "variant": "p ⊆ np",
-            "evidence": "The notation P ⊆ NP indicates that all problems that can be solved in polynomial time (class P) can also be verified in polynomial time (class NP). This relationship is fundamental to the study of computational complexity and raises important questions about the nature of problem-solving in computer science."
-          }
-        ],
-        "layer": "priority"
       },
       {
         "id": "william gasarch",
@@ -882,7 +963,7 @@
             "section": "Context",
             "section_index": 4,
             "variant": "william gasarch",
-            "evidence": "William Gasarch is a researcher known for his work on the P vs NP problem, including conducting polls to gauge the opinions of experts in the field. His contributions help to illuminate the current state of belief regarding this major open question in theoretical computer science."
+            "evidence": "William Gasarch is a researcher known for his work on the P vs NP problem and for conducting surveys to gauge the opinions of experts in the field. His contributions help to illuminate the current state of belief regarding this fundamental question in theoretical computer science."
           }
         ],
         "layer": "tertiary"
@@ -899,7 +980,24 @@
             "section": "Context",
             "section_index": 4,
             "variant": "poll results on p vs np",
-            "evidence": "The results of polls conducted by Gasarch show a growing consensus among researchers that P is not equal to NP, reflecting the ongoing debate and uncertainty surrounding this fundamental question in computer science."
+            "evidence": "The poll results indicate a growing consensus among researchers that P is not equal to NP, reflecting the ongoing debate and uncertainty surrounding this critical question in computational complexity. These statistics provide insight into the evolving perspectives within the academic community."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "subjective opinion of this era",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "subjective opinion of this era"
+        ],
+        "appearances": [
+          {
+            "section": "Context",
+            "section_index": 4,
+            "variant": "subjective opinion of this era",
+            "evidence": "The phrase 'subjective opinion of this era' refers to the varying beliefs and attitudes of researchers regarding the P vs NP question. It highlights the complexity and uncertainty surrounding this topic, emphasizing that while opinions may shift, the fundamental problem remains unresolved."
           }
         ],
         "layer": "tertiary"
@@ -916,24 +1014,7 @@
             "section": "NP-completeness",
             "section_index": 5,
             "variant": "np-hard problems",
-            "evidence": "NP-hard problems are a broader class of problems that include NP-complete problems but do not require that solutions be verifiable in polynomial time. They are important because they represent the upper limit of problem difficulty in computational theory, influencing how we approach problem-solving in various domains."
-          }
-        ],
-        "layer": "priority"
-      },
-      {
-        "id": "boolean satisfiability problem",
-        "frequency": 1,
-        "section_count": 1,
-        "variants": [
-          "boolean satisfiability problem"
-        ],
-        "appearances": [
-          {
-            "section": "NP-completeness",
-            "section_index": 5,
-            "variant": "boolean satisfiability problem",
-            "evidence": "The Boolean satisfiability problem (SAT) is the first problem that was proven to be NP-complete. Its significance lies in its foundational role in computational theory, as it serves as a benchmark for proving the NP-completeness of other problems through reductions."
+            "evidence": "NP-hard problems are a broader class of problems that are at least as difficult as NP problems, but they do not necessarily belong to NP themselves. This means that while all NP problems can be transformed into NP-hard problems, NP-hard problems may not have solutions that can be verified in polynomial time. This distinction is important for understanding the hierarchy of computational problems."
           }
         ],
         "layer": "priority"
@@ -950,7 +1031,7 @@
             "section": "NP-completeness",
             "section_index": 5,
             "variant": "cook–levin theorem",
-            "evidence": "The Cook–Levin theorem establishes that the Boolean satisfiability problem is NP-complete, which was a groundbreaking result in computer science. It provides a method for proving that other problems are NP-complete by showing they can be transformed into SAT."
+            "evidence": "The Cook–Levin theorem is a landmark result in computational theory that established the Boolean satisfiability problem as NP-complete. This theorem is crucial because it laid the groundwork for the study of NP-completeness and provided a method for proving other problems' NP-completeness through reductions. Its implications are far-reaching in both theoretical and practical aspects of computer science."
           }
         ],
         "layer": "priority"
@@ -967,7 +1048,7 @@
             "section": "NP-completeness",
             "section_index": 5,
             "variant": "proof by reduction",
-            "evidence": "Proof by reduction is a technique used to demonstrate that one problem can be transformed into another, thereby establishing their relative difficulty. This method is essential in computational theory for categorizing problems and understanding their complexity."
+            "evidence": "Proof by reduction is a method used to demonstrate that one problem is at least as hard as another by transforming instances of one problem into instances of another. This technique is essential in the field of computational complexity as it allows researchers to classify problems based on their difficulty and to establish relationships between different problems, particularly in proving NP-completeness."
           }
         ],
         "layer": "secondary"
@@ -984,7 +1065,7 @@
             "section": "NP-completeness",
             "section_index": 5,
             "variant": "sudoku",
-            "evidence": "Sudoku is an example of an NP-complete problem, which illustrates how a solution to one NP-complete problem can be used to solve others. This highlights the interconnectedness of problems in computational theory and the implications for algorithm design."
+            "evidence": "Sudoku is a popular puzzle that has been shown to be NP-complete through proof by reduction. This means that solving Sudoku efficiently would imply that all NP problems can be solved efficiently. The connection between Sudoku and NP-completeness illustrates how seemingly simple games can have deep implications in computational theory."
           }
         ],
         "layer": "secondary"
@@ -1001,7 +1082,7 @@
             "section": "Harder problems",
             "section_index": 6,
             "variant": "exptime",
-            "evidence": "EXPTIME refers to the class of decision problems that can be solved by a deterministic Turing machine in exponential time. This concept is important in computational complexity theory as it helps categorize problems based on their solvability and the resources required to solve them."
+            "evidence": "EXPTIME refers to the class of decision problems that can be solved by a deterministic Turing machine in exponential time. This concept is important as it helps categorize problems based on their computational complexity, distinguishing them from those solvable in polynomial time."
           }
         ],
         "layer": "priority"
@@ -1018,7 +1099,7 @@
             "section": "Harder problems",
             "section_index": 6,
             "variant": "exptime-complete",
-            "evidence": "EXPTIME-complete problems are the hardest problems in the EXPTIME class, meaning that if any EXPTIME-complete problem can be solved in polynomial time, then all problems in EXPTIME can also be solved in polynomial time. This classification is significant for understanding the limits of efficient computation."
+            "evidence": "EXPTIME-complete problems are the hardest problems in the EXPTIME class, meaning that if any EXPTIME-complete problem can be solved in polynomial time, then all problems in EXPTIME can be solved in polynomial time. This classification is significant for understanding the limits of efficient computation."
           }
         ],
         "layer": "priority"
@@ -1035,7 +1116,7 @@
             "section": "Harder problems",
             "section_index": 6,
             "variant": "time hierarchy theorem",
-            "evidence": "The time hierarchy theorem establishes that there are problems that can be solved in exponential time that cannot be solved in polynomial time. This theorem is fundamental in complexity theory as it delineates the boundaries of what can be computed within different time constraints."
+            "evidence": "The time hierarchy theorem establishes that there are problems that require more time than others, specifically showing that there are problems solvable in exponential time that cannot be solved in polynomial time. This theorem is fundamental in theoretical computer science as it delineates the boundaries of computational complexity."
           }
         ],
         "layer": "priority"
@@ -1052,7 +1133,7 @@
             "section": "Harder problems",
             "section_index": 6,
             "variant": "presburger arithmetic",
-            "evidence": "Presburger arithmetic is a decidable theory of the natural numbers with addition but without multiplication. It is significant because it represents a class of problems that require more than exponential time to solve, highlighting the complexity of certain mathematical decision problems."
+            "evidence": "Presburger arithmetic is a decidable subset of arithmetic that deals with natural numbers and addition. The complexity of deciding statements in this arithmetic is significant because it highlights the limitations of algorithmic decision-making in certain mathematical frameworks."
           }
         ],
         "layer": "secondary"
@@ -1069,7 +1150,7 @@
             "section": "Harder problems",
             "section_index": 6,
             "variant": "undecidable problems",
-            "evidence": "Undecidable problems are those for which no algorithm can determine the truth of all instances. The halting problem is a classic example, illustrating fundamental limits of computation and the existence of problems that cannot be solved algorithmically."
+            "evidence": "Undecidable problems are those for which no algorithm can provide a solution for all possible inputs. The halting problem is a classic example, demonstrating fundamental limits of computation and the inherent challenges in algorithm design."
           }
         ],
         "layer": "secondary"
@@ -1086,7 +1167,7 @@
             "section": "Harder problems",
             "section_index": 6,
             "variant": "#p problems",
-            "evidence": "#P problems are a class of counting problems that ask how many solutions exist for a given decision problem. They are significant because they extend the complexity theory framework by differentiating between decision problems and counting problems, with implications for algorithm design and computational limits."
+            "evidence": "#P problems are a class of counting problems that ask how many solutions exist for a given decision problem. They are significant because they extend the complexity theory beyond decision problems, revealing deeper insights into computational difficulty."
           }
         ],
         "layer": "secondary"
@@ -1103,7 +1184,7 @@
             "section": "Harder problems",
             "section_index": 6,
             "variant": "#p-complete",
-            "evidence": "#P-complete problems are the hardest problems in the #P class, meaning that a polynomial-time solution to any one of them would imply a polynomial-time solution for all #P problems. This classification is crucial for understanding the complexity of counting problems and their relationship to decision problems."
+            "evidence": "#P-complete problems are the most challenging problems within the #P class, and solving any one of them in polynomial time would imply that all #P problems can be solved in polynomial time. This classification is crucial for understanding the landscape of computational complexity."
           }
         ],
         "layer": "secondary"
@@ -1120,7 +1201,7 @@
             "section": "Harder problems",
             "section_index": 6,
             "variant": "fischer and rabin",
-            "evidence": "Fischer and Rabin are notable for their contributions to computational complexity, particularly in establishing lower bounds for the complexity of Presburger arithmetic. Their work is significant as it provides insights into the limitations of algorithms in solving certain mathematical problems."
+            "evidence": "Fischer and Rabin are notable figures in computational theory, particularly for their work on the complexity of Presburger arithmetic. Their findings contribute to our understanding of the limits of algorithmic decision-making in mathematical logic."
           }
         ],
         "layer": "tertiary"
@@ -1137,7 +1218,7 @@
             "section": "Harder problems",
             "section_index": 6,
             "variant": "chess strategy problem",
-            "evidence": "The chess strategy problem is an example of an EXPTIME-complete problem, illustrating the complexity involved in determining optimal moves in games. This example is important for understanding how computational complexity theory applies to real-world scenarios, such as game theory."
+            "evidence": "The chess strategy problem exemplifies an EXPTIME-complete problem, illustrating the complexity involved in determining optimal moves in strategic games. Such examples are important for understanding the practical implications of computational complexity in game theory."
           }
         ],
         "layer": "tertiary"
@@ -1154,7 +1235,7 @@
             "section": "Problems in NP not known to be in P or NP-complete",
             "section_index": 7,
             "variant": "np-intermediate problems",
-            "evidence": "NP-intermediate problems are those that exist in NP but are neither in P nor NP-complete, assuming P ≠ NP. They are significant because they represent a class of problems whose complexity is not fully understood, making them a focal point in computational complexity theory."
+            "evidence": "NP-intermediate problems are those that exist in NP but are neither in P nor NP-complete, assuming P ≠ NP. They are significant because they represent a class of problems whose complexity is not fully understood, making them crucial for theoretical computer science."
           }
         ],
         "layer": "priority"
@@ -1171,7 +1252,7 @@
             "section": "Problems in NP not known to be in P or NP-complete",
             "section_index": 7,
             "variant": "graph isomorphism problem",
-            "evidence": "The graph isomorphism problem involves checking if two graphs can be transformed into each other by relabeling vertices. It is important in complexity theory as its classification (whether it is in P, NP-complete, or NP-intermediate) has implications for the polynomial time hierarchy."
+            "evidence": "The graph isomorphism problem involves checking if two graphs can be transformed into each other by renaming vertices. It is important because its classification within complexity theory (whether it is in P, NP-complete, or NP-intermediate) has implications for the understanding of computational complexity."
           }
         ],
         "layer": "priority"
@@ -1188,7 +1269,7 @@
             "section": "Problems in NP not known to be in P or NP-complete",
             "section_index": 7,
             "variant": "integer factorization problem",
-            "evidence": "This problem involves breaking down an integer into its prime components and is crucial for modern cryptography, particularly in systems like RSA. Its complexity status affects the security of these systems, making it a key area of study in computational complexity."
+            "evidence": "This problem involves breaking down an integer into its prime components and is foundational in cryptography, particularly in systems like RSA. Its complexity status affects the security of many encryption methods."
           }
         ],
         "layer": "priority"
@@ -1205,7 +1286,7 @@
             "section": "Problems in NP not known to be in P or NP-complete",
             "section_index": 7,
             "variant": "polynomial time hierarchy",
-            "evidence": "The polynomial time hierarchy is a framework that classifies problems based on their complexity and the resources required to solve them. Understanding whether certain problems are NP-complete can have profound implications for this hierarchy and computational theory as a whole."
+            "evidence": "The polynomial time hierarchy is a framework that classifies problems based on their complexity and the resources required to solve them. Understanding its structure is crucial for theoretical computer science, as it helps in analyzing the relationships between different complexity classes."
           }
         ],
         "layer": "secondary"
@@ -1222,7 +1303,7 @@
             "section": "Problems in NP not known to be in P or NP-complete",
             "section_index": 7,
             "variant": "lászló babai",
-            "evidence": "László Babai is a prominent computer scientist known for his work on algorithms, particularly in relation to the graph isomorphism problem. His contributions are significant as they provide insights into efficient problem-solving techniques in complexity theory."
+            "evidence": "László Babai is a prominent computer scientist known for his contributions to complexity theory, particularly regarding the graph isomorphism problem. His work is significant as it provides insights into efficient algorithms for complex problems."
           }
         ],
         "layer": "tertiary"
@@ -1239,7 +1320,7 @@
             "section": "Problems in NP not known to be in P or NP-complete",
             "section_index": 7,
             "variant": "rsa algorithm",
-            "evidence": "The RSA algorithm is a widely used encryption method that relies on the difficulty of the integer factorization problem. Its security hinges on the assumption that no efficient algorithm exists for this problem, making it a cornerstone of modern cryptography."
+            "evidence": "The RSA algorithm is a widely used encryption method that relies on the difficulty of the integer factorization problem. Its security is contingent upon the assumption that no efficient algorithm exists for factoring large integers, making the integer factorization problem critical in cryptography."
           }
         ],
         "layer": "tertiary"
@@ -1256,7 +1337,24 @@
             "section": "Problems in NP not known to be in P or NP-complete",
             "section_index": 7,
             "variant": "shor's algorithm",
-            "evidence": "Shor's algorithm is a quantum computing algorithm that efficiently solves the integer factorization problem, which poses a potential threat to classical cryptographic systems. Its polynomial time complexity highlights the differences between quantum and classical computational capabilities."
+            "evidence": "Shor's algorithm is a quantum computing algorithm that can factor integers efficiently, which poses a potential threat to classical cryptographic systems. Its existence highlights the differences between quantum and classical complexity classes."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "general number field sieve",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "general number field sieve"
+        ],
+        "appearances": [
+          {
+            "section": "Problems in NP not known to be in P or NP-complete",
+            "section_index": 7,
+            "variant": "general number field sieve",
+            "evidence": "The general number field sieve is the best classical algorithm for factoring large integers, and its efficiency is crucial for understanding the practical implications of the integer factorization problem in cryptography."
           }
         ],
         "layer": "secondary"
@@ -1273,7 +1371,7 @@
             "section": "Does P mean \"easy\"?",
             "section_index": 8,
             "variant": "cobham's thesis",
-            "evidence": "Cobham's thesis is a foundational concept in complexity theory that posits a distinction between problems that can be solved in polynomial time (considered 'easy') and those that cannot (considered 'difficult'). This distinction is crucial for understanding the computational feasibility of algorithms and the classification of problems in computer science."
+            "evidence": "Cobham's thesis is a foundational concept in complexity theory that posits a distinction between problems that can be solved in polynomial time (P) and those that cannot (not in P). It is significant because it underpins much of the theoretical framework for classifying computational problems based on their inherent difficulty."
           }
         ],
         "layer": "priority"
@@ -1290,10 +1388,27 @@
             "section": "Does P mean \"easy\"?",
             "section_index": 8,
             "variant": "polynomial algorithm",
-            "evidence": "A polynomial algorithm is one whose running time can be expressed as a polynomial function of the size of the input data. While these algorithms are theoretically efficient, their practical application can be hindered by large constants or exponents, making them less feasible for real-world problems despite their classification as 'easy'."
+            "evidence": "A polynomial algorithm is one whose running time can be expressed as a polynomial function of the size of the input. While these algorithms are theoretically efficient, their practical applicability can be limited by large constants or exponents that affect performance, highlighting the gap between theoretical and practical complexity."
           }
         ],
         "layer": "priority"
+      },
+      {
+        "id": "empirical average-case complexity",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "empirical average-case complexity"
+        ],
+        "appearances": [
+          {
+            "section": "Does P mean \"easy\"?",
+            "section_index": 8,
+            "variant": "empirical average-case complexity",
+            "evidence": "Empirical average-case complexity refers to the observed performance of an algorithm on typical instances of a problem, rather than the worst-case scenario. This concept is important because it highlights that algorithms can perform well in practice, even if their theoretical worst-case performance is poor."
+          }
+        ],
+        "layer": "secondary"
       },
       {
         "id": "simplex algorithm",
@@ -1307,7 +1422,7 @@
             "section": "Does P mean \"easy\"?",
             "section_index": 8,
             "variant": "simplex algorithm",
-            "evidence": "The simplex algorithm is a widely used method for solving linear programming problems. Despite its exponential worst-case time complexity, it often performs efficiently in practice, demonstrating that empirical performance can differ significantly from theoretical worst-case scenarios."
+            "evidence": "The simplex algorithm is a widely used method for solving linear programming problems. Despite its exponential worst-case time complexity, it often performs efficiently on real-world problems, illustrating the difference between theoretical analysis and practical performance."
           }
         ],
         "layer": "secondary"
@@ -1324,7 +1439,7 @@
             "section": "Does P mean \"easy\"?",
             "section_index": 8,
             "variant": "quantum computation",
-            "evidence": "Quantum computation is a type of computation that leverages the principles of quantum mechanics to process information. It represents a significant departure from classical computation models, such as the Turing machine, and has implications for the complexity classes P and NP, potentially allowing for faster solutions to certain problems."
+            "evidence": "Quantum computation is a model of computation that utilizes quantum-mechanical phenomena to perform operations on data. It is significant because it challenges traditional notions of computational complexity and introduces new paradigms for problem-solving that may not fit within the classical P vs NP framework."
           }
         ],
         "layer": "secondary"
@@ -1341,10 +1456,44 @@
             "section": "Does P mean \"easy\"?",
             "section_index": 8,
             "variant": "randomized algorithms",
-            "evidence": "Randomized algorithms use random numbers to influence their behavior and can provide solutions to problems more efficiently than deterministic algorithms in some cases. They are important in complexity theory as they expand the understanding of computational limits and capabilities beyond traditional models."
+            "evidence": "Randomized algorithms use random numbers to influence their behavior and can provide solutions to problems more efficiently than deterministic algorithms in some cases. They are important in complexity theory as they expand the landscape of computational methods beyond traditional models."
           }
         ],
         "layer": "secondary"
+      },
+      {
+        "id": "knuth's up-arrow notation",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "knuth's up-arrow notation"
+        ],
+        "appearances": [
+          {
+            "section": "Does P mean \"easy\"?",
+            "section_index": 8,
+            "variant": "knuth's up-arrow notation",
+            "evidence": "Knuth's up-arrow notation is a way to represent very large integers and is used to express operations that grow faster than exponential functions. It is relevant in complexity theory for illustrating the rapid growth of certain constants in algorithm analysis."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "traveling salesman problem",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "traveling salesman problem"
+        ],
+        "appearances": [
+          {
+            "section": "Does P mean \"easy\"?",
+            "section_index": 8,
+            "variant": "traveling salesman problem",
+            "evidence": "The traveling salesman problem is a classic NP-complete problem that seeks the shortest possible route visiting a set of cities and returning to the origin city. It serves as a benchmark for evaluating the performance of algorithms designed to tackle NP-complete challenges."
+          }
+        ],
+        "layer": "tertiary"
       },
       {
         "id": "linear time on a multitape turing machine",
@@ -1375,7 +1524,7 @@
             "section": "Reasons to believe P ≠ NP or P = NP - DLIN vs NLIN",
             "section_index": 9,
             "variant": "classes dlin and nlin",
-            "evidence": "DLIN and NLIN are complexity classes that arise from the substitution of linear time for polynomial time in the definitions of P and NP. Understanding these classes is important for researchers as they explore the relationships between different computational problems and their solvability."
+            "evidence": "DLIN and NLIN are complexity classes that arise from the substitution of linear time for polynomial time in the definitions of P and NP. Understanding these classes is important for analyzing the computational limits of algorithms and the relationships between different complexity classes."
           }
         ],
         "layer": "priority"
@@ -1392,7 +1541,7 @@
             "section": "Reasons to believe P ≠ NP or P = NP - DLIN vs NLIN",
             "section_index": 9,
             "variant": "dlin ≠ nlin",
-            "evidence": "The statement DLIN ≠ NLIN indicates that the class of problems solvable in linear time on a multitape Turing machine is not the same as the class of problems that can be solved non-deterministically in linear time. This distinction is significant in theoretical computer science as it suggests different levels of computational complexity and helps in understanding the limits of algorithmic efficiency."
+            "evidence": "The statement DLIN ≠ NLIN indicates that the class of problems solvable in linear time on a multitape Turing machine is not equivalent to the class of problems solvable in non-deterministic linear time. This distinction is significant in theoretical computer science as it suggests different levels of computational difficulty and has implications for understanding the nature of problem-solving in algorithms."
           }
         ],
         "layer": "priority"
@@ -1409,7 +1558,7 @@
             "section": "Consequences of solution - P = NP",
             "section_index": 10,
             "variant": "cryptography",
-            "evidence": "Cryptography is the practice of securing information by transforming it into an unreadable format. If P = NP, many cryptographic systems would become vulnerable, as the problems they rely on for security would be solvable in polynomial time."
+            "evidence": "Cryptography is the practice of securing communication and information through the use of codes. It relies on the difficulty of certain mathematical problems to ensure security. If P = NP, many cryptographic systems could be compromised, necessitating new security measures."
           }
         ],
         "layer": "priority"
@@ -1426,7 +1575,7 @@
             "section": "Consequences of solution - P = NP",
             "section_index": 10,
             "variant": "constructive proof",
-            "evidence": "A constructive proof provides a method to actually find a solution, as opposed to merely demonstrating that a solution exists. This is crucial in practical applications, as it directly impacts the feasibility of implementing solutions."
+            "evidence": "A constructive proof provides a method to actually find a solution, as opposed to merely demonstrating that a solution exists. This is important in computational theory because it not only confirms the existence of a solution but also offers a practical way to achieve it, which is crucial for real-world applications."
           }
         ],
         "layer": "secondary"
@@ -1443,7 +1592,7 @@
             "section": "Consequences of solution - P = NP",
             "section_index": 10,
             "variant": "operations research",
-            "evidence": "Operations research is a discipline that uses advanced analytical methods to help make better decisions. The NP-completeness of many of its problems indicates that finding efficient solutions could significantly enhance logistical and operational efficiencies."
+            "evidence": "Operations research is a discipline that uses advanced analytical methods to help make better decisions. The presence of NP-complete problems in this field indicates that many logistical and optimization challenges remain computationally difficult, and efficient solutions could lead to significant advancements in various industries."
           }
         ],
         "layer": "secondary"
@@ -1460,7 +1609,7 @@
             "section": "Consequences of solution - P = NP",
             "section_index": 10,
             "variant": "gödel's thoughts on computational complexity",
-            "evidence": "Gödel's insights highlight the profound implications of computational methods on mathematics, suggesting that if a machine could solve all problems efficiently, it would fundamentally change how mathematical inquiry is conducted."
+            "evidence": "Kurt Gödel was a mathematician known for his work on incompleteness theorems and computational complexity. His insights suggest that if a machine could solve all problems efficiently, it would fundamentally change the nature of mathematical inquiry and proof, highlighting the philosophical implications of computational capabilities."
           }
         ],
         "layer": "tertiary"
@@ -1477,7 +1626,7 @@
             "section": "Consequences of solution - P = NP",
             "section_index": 10,
             "variant": "fermat's last theorem",
-            "evidence": "Fermat's Last Theorem is a famous problem in number theory that remained unsolved for over 350 years until Andrew Wiles proved it in 1994. This example illustrates the potential impact of efficient proof-finding methods on mathematical research."
+            "evidence": "Fermat's Last Theorem is a famous problem in number theory that remained unsolved for over 350 years until Andrew Wiles proved it in 1994. This example illustrates the challenges faced in mathematical proofs and the potential impact of efficient algorithms on the field."
           }
         ],
         "layer": "tertiary"
@@ -1494,7 +1643,7 @@
             "section": "Consequences of solution - P = NP",
             "section_index": 10,
             "variant": "donald knuth",
-            "evidence": "Donald Knuth is a prominent computer scientist known for his work in algorithms and typesetting. His views on P = NP reflect a cautious optimism about the implications of such a proof, emphasizing the complexity of the problem."
+            "evidence": "Donald Knuth is a renowned computer scientist known for his work in algorithms and typesetting. His cautious stance on the implications of P = NP reflects the complexity and uncertainty surrounding the problem, emphasizing the need for careful consideration of its potential consequences."
           }
         ],
         "layer": "tertiary"
@@ -1511,7 +1660,24 @@
             "section": "Consequences of solution - P ≠ NP",
             "section_index": 10,
             "variant": "average-case complexity",
-            "evidence": "Average-case complexity refers to the expected performance of an algorithm across all possible inputs, rather than just the worst-case scenario. This concept is important because it provides a more realistic assessment of an algorithm's efficiency in practical applications, as many problems may be solvable efficiently on average even if they are hard in the worst case."
+            "evidence": "Average-case complexity refers to the expected performance of an algorithm across all possible inputs, rather than its worst-case scenario. This concept is important because it can reveal that while a problem may be hard in the worst case, it could still be efficiently solvable for most practical instances."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "sat problem",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "sat problem"
+        ],
+        "appearances": [
+          {
+            "section": "Consequences of solution - P ≠ NP",
+            "section_index": 10,
+            "variant": "sat problem",
+            "evidence": "The SAT (satisfiability) problem is a classic problem in computer science that asks whether there exists an assignment of variables that makes a given Boolean formula true. It is significant because it was the first problem proven to be NP-complete, serving as a benchmark for other problems in the NP class."
           }
         ],
         "layer": "secondary"
@@ -1528,7 +1694,7 @@
             "section": "Consequences of solution - P ≠ NP",
             "section_index": 10,
             "variant": "russell impagliazzo",
-            "evidence": "Russell Impagliazzo is a prominent computer scientist known for his work in computational complexity theory. His exploration of hypothetical 'worlds' provides a framework for understanding the implications of different outcomes regarding the P vs NP question, which can influence future research directions in the field."
+            "evidence": "Russell Impagliazzo is a prominent computer scientist known for his work on computational complexity and cryptography. His exploration of hypothetical 'worlds' provides a framework for understanding the implications of different outcomes in the P vs NP debate, which is crucial for guiding future research directions."
           }
         ],
         "layer": "tertiary"
@@ -1545,7 +1711,7 @@
             "section": "Consequences of solution - P ≠ NP",
             "section_index": 10,
             "variant": "algorithmica",
-            "evidence": "'Algorithmica' is one of the hypothetical scenarios proposed by Impagliazzo, where the P = NP conjecture holds true. In this world, problems that are currently believed to be hard, such as the SAT problem, could be solved efficiently, fundamentally changing the landscape of computational problem-solving and algorithm design."
+            "evidence": "'Algorithmica' is one of the hypothetical scenarios proposed by Impagliazzo, where all problems in NP can be solved efficiently. This scenario represents an ideal outcome for computational problem-solving, highlighting the potential for significant advancements in algorithms and efficiency."
           }
         ],
         "layer": "secondary"
@@ -1562,7 +1728,7 @@
             "section": "Consequences of solution - P ≠ NP",
             "section_index": 10,
             "variant": "cryptomania",
-            "evidence": "'Cryptomania' is another hypothetical world described by Impagliazzo, where P ≠ NP is true, and it is easy to generate hard instances of problems. This scenario emphasizes the importance of computational hardness in cryptography and security, as it suggests that secure systems could be built on the assumption that certain problems are difficult to solve."
+            "evidence": "'Cryptomania' is another hypothetical scenario where P ≠ NP holds true, and it emphasizes the ease of generating hard instances of problems. This scenario underscores the implications for cryptography and security, as it suggests that certain problems remain difficult to solve, preserving the security of cryptographic systems."
           }
         ],
         "layer": "secondary"
@@ -1579,7 +1745,7 @@
             "section": "Consequences of solution - P ≠ NP",
             "section_index": 10,
             "variant": "heuristica",
-            "evidence": "'Heuristica' represents a scenario where, despite P ≠ NP, problems in NP can be solved efficiently on average. This concept is significant as it suggests that while worst-case scenarios may remain intractable, practical solutions could still be found for many instances, impacting algorithm design and application."
+            "evidence": "'Heuristica' represents a scenario where, despite P ≠ NP, problems in NP can still be solved efficiently on average. This concept is important as it suggests that practical solutions may exist for many problems, even if they are not solvable in the worst case, influencing how researchers approach problem-solving."
           }
         ],
         "layer": "secondary"
@@ -1596,7 +1762,7 @@
             "section": "Consequences of solution - P ≠ NP",
             "section_index": 10,
             "variant": "princeton university workshop 2009",
-            "evidence": "The 2009 workshop at Princeton University focused on the implications of the P vs NP question and the various hypothetical worlds proposed by Impagliazzo. This event highlights the ongoing research and discourse surrounding computational complexity, showcasing the academic community's efforts to understand and resolve these fundamental questions."
+            "evidence": "The 2009 workshop at Princeton University focused on the implications of the P vs NP question and the various hypothetical scenarios proposed by Impagliazzo. Such gatherings are crucial for fostering collaboration and advancing understanding in the field of computational complexity."
           }
         ],
         "layer": "tertiary"
@@ -1613,24 +1779,24 @@
             "section": "Results about difficulty of proof",
             "section_index": 11,
             "variant": "proof techniques",
-            "evidence": "Proof techniques in computational complexity theory are methods used to demonstrate the relationships and properties of computational problems. Their insufficiency in proving P ≠ NP indicates the complexity and depth of the P = NP problem, suggesting that new approaches may be necessary."
+            "evidence": "Proof techniques in computational complexity theory are methods used to demonstrate the relationships and properties of computational problems. Understanding these techniques is essential for researchers as they explore the boundaries of what can be proven regarding the P = NP problem."
           }
         ],
         "layer": "secondary"
       },
       {
-        "id": "independence from axiom systems",
+        "id": "independence result",
         "frequency": 1,
         "section_count": 1,
         "variants": [
-          "independence from axiom systems"
+          "independence result"
         ],
         "appearances": [
           {
             "section": "Results about difficulty of proof",
             "section_index": 11,
-            "variant": "independence from axiom systems",
-            "evidence": "The concept of independence from axiom systems refers to the idea that certain mathematical statements cannot be proven true or false using the axioms of a given system. In the context of the P = NP problem, this suggests that the resolution of the problem may lie outside conventional mathematical frameworks, complicating efforts to find a solution."
+            "variant": "independence result",
+            "evidence": "An independence result refers to a situation where a statement cannot be proven or disproven within a given axiomatic system, such as Zermelo-Fraenkel set theory with the Axiom of Choice (ZFC). This concept is important in understanding the limitations of formal systems in addressing fundamental questions in mathematics and computer science."
           }
         ],
         "layer": "secondary"
@@ -1647,7 +1813,7 @@
             "section": "Results about difficulty of proof",
             "section_index": 11,
             "variant": "zfc",
-            "evidence": "ZFC, or Zermelo-Fraenkel set theory with the Axiom of Choice, is a foundational system for mathematics. Its relevance to the P = NP problem lies in the potential for the problem's resolution to be unprovable within this framework, indicating deep connections between computational theory and mathematical logic."
+            "evidence": "ZFC, or Zermelo-Fraenkel set theory with the Axiom of Choice, is a foundational system for mathematics. It is relevant to the P = NP problem because discussions about the provability of P = NP often involve whether the problem can be resolved within this framework."
           }
         ],
         "layer": "tertiary"
@@ -1664,44 +1830,10 @@
             "section": "Results about difficulty of proof",
             "section_index": 11,
             "variant": "peano axioms",
-            "evidence": "The Peano axioms are a set of axioms for the natural numbers that form a foundation for arithmetic. Their extension in the context of the P = NP problem suggests that even under simpler assumptions, the complexity of NP problems remains significant, indicating the robustness of the challenges posed by these problems."
+            "evidence": "The Peano axioms are a set of axioms for the natural numbers that form the basis for arithmetic. Their extension is relevant in discussions about the decidability of problems in computational complexity, particularly in relation to the P = NP problem."
           }
         ],
         "layer": "tertiary"
-      },
-      {
-        "id": "current techniques",
-        "frequency": 1,
-        "section_count": 1,
-        "variants": [
-          "current techniques"
-        ],
-        "appearances": [
-          {
-            "section": "Results about difficulty of proof",
-            "section_index": 11,
-            "variant": "current techniques",
-            "evidence": "Current techniques refer to the methodologies and approaches used in contemporary research to tackle problems in computational complexity. The statement highlights the limitations of these techniques in resolving fundamental questions about NP problems, emphasizing the need for innovative methods."
-          }
-        ],
-        "layer": "secondary"
-      },
-      {
-        "id": "p = np problem",
-        "frequency": 1,
-        "section_count": 1,
-        "variants": [
-          "p = np problem"
-        ],
-        "appearances": [
-          {
-            "section": "Logical characterizations",
-            "section_index": 12,
-            "variant": "p = np problem",
-            "evidence": "The P = NP problem is a major unsolved question in computer science that asks whether every problem whose solution can be quickly verified can also be quickly solved. It is fundamental because it relates to the efficiency of algorithms and the limits of computation."
-          }
-        ],
-        "layer": "priority"
       },
       {
         "id": "descriptive complexity",
@@ -1715,7 +1847,7 @@
             "section": "Logical characterizations",
             "section_index": 12,
             "variant": "descriptive complexity",
-            "evidence": "Descriptive complexity is a branch of computational complexity theory that characterizes complexity classes in terms of the expressiveness of logical languages. It helps in understanding the relationship between computational problems and the logical statements that can describe them."
+            "evidence": "Descriptive complexity is a branch of computational complexity theory that characterizes complexity classes in terms of the expressiveness of logical languages. It helps in understanding the relationship between computational problems and the logical frameworks used to describe them."
           }
         ],
         "layer": "priority"
@@ -1732,7 +1864,7 @@
             "section": "Logical characterizations",
             "section_index": 12,
             "variant": "first-order logic",
-            "evidence": "First-order logic is a formal logical system used to express statements about objects and their relationships. It is significant in computer science for defining computational problems and understanding their complexity."
+            "evidence": "First-order logic is a formal logical system that allows quantification over individual variables but not over predicates or functions. It is significant in computer science for its role in defining computational problems and understanding their complexity."
           }
         ],
         "layer": "priority"
@@ -1749,7 +1881,7 @@
             "section": "Logical characterizations",
             "section_index": 12,
             "variant": "least fixed-point combinator",
-            "evidence": "A least fixed-point combinator is a mathematical construct that allows for the definition of recursive functions in logic. It is crucial for expressing certain computational problems within first-order logic."
+            "evidence": "A least fixed-point combinator is a mathematical construct that allows the definition of recursive functions in a logical framework. It is crucial for expressing certain computational problems within first-order logic, particularly in the context of the P = NP problem."
           }
         ],
         "layer": "secondary"
@@ -1766,7 +1898,7 @@
             "section": "Logical characterizations",
             "section_index": 12,
             "variant": "recursive functions",
-            "evidence": "Recursive functions are functions that are defined in terms of themselves, allowing for complex computations to be expressed. They are essential in theoretical computer science for understanding computability and complexity."
+            "evidence": "Recursive functions are functions that can be defined in terms of themselves, allowing for the construction of complex algorithms. They are essential in computer science for modeling computation and understanding the limits of what can be computed."
           }
         ],
         "layer": "secondary"
@@ -1783,7 +1915,7 @@
             "section": "Logical characterizations",
             "section_index": 12,
             "variant": "existential second-order logic",
-            "evidence": "Existential second-order logic is a logical framework that allows quantification over sets but not over relations or functions. It is important for characterizing the complexity class NP and understanding the expressiveness of logical systems."
+            "evidence": "Existential second-order logic is a logical framework that allows quantification over sets and relations but restricts universal quantification. It is important for characterizing the complexity class NP and understanding the expressiveness of different logical systems."
           }
         ],
         "layer": "secondary"
@@ -1800,78 +1932,10 @@
             "section": "Logical characterizations",
             "section_index": 12,
             "variant": "polynomial hierarchy (ph)",
-            "evidence": "The polynomial hierarchy is a hierarchy of complexity classes that generalizes NP and co-NP. It is significant for understanding the relationships between different complexity classes and the nature of computational problems."
+            "evidence": "The polynomial hierarchy is a hierarchy of complexity classes that generalizes NP and co-NP. It is significant in theoretical computer science as it helps to classify problems based on their computational complexity and relationships between different classes."
           }
         ],
-        "layer": "priority"
-      },
-      {
-        "id": "logical statements",
-        "frequency": 1,
-        "section_count": 1,
-        "variants": [
-          "logical statements"
-        ],
-        "appearances": [
-          {
-            "section": "Logical characterizations",
-            "section_index": 12,
-            "variant": "logical statements",
-            "evidence": "Logical statements are formal expressions that can represent propositions in logic. They are fundamental in the study of computational complexity as they help in defining and analyzing problems within various complexity classes."
-          }
-        ],
-        "layer": "tertiary"
-      },
-      {
-        "id": "finite structures",
-        "frequency": 1,
-        "section_count": 1,
-        "variants": [
-          "finite structures"
-        ],
-        "appearances": [
-          {
-            "section": "Logical characterizations",
-            "section_index": 12,
-            "variant": "finite structures",
-            "evidence": "Finite structures are mathematical objects with a finite number of elements, often used in logic and computer science to model various computational problems. They are essential for understanding the expressiveness of different logical systems."
-          }
-        ],
-        "layer": "tertiary"
-      },
-      {
-        "id": "np-complete problem",
-        "frequency": 1,
-        "section_count": 1,
-        "variants": [
-          "np-complete problem"
-        ],
-        "appearances": [
-          {
-            "section": "Polynomial-time algorithms",
-            "section_index": 13,
-            "variant": "np-complete problem",
-            "evidence": "NP-complete problems are a class of problems for which no polynomial-time algorithms are known. They are significant in computational theory because they represent some of the most challenging problems in computer science, and understanding them is crucial for advancements in algorithm design."
-          }
-        ],
-        "layer": "priority"
-      },
-      {
-        "id": "subset-sum",
-        "frequency": 1,
-        "section_count": 1,
-        "variants": [
-          "subset-sum"
-        ],
-        "appearances": [
-          {
-            "section": "Polynomial-time algorithms",
-            "section_index": 13,
-            "variant": "subset-sum",
-            "evidence": "The SUBSET-SUM problem is a classic NP-complete problem that asks whether a subset of a given set of integers can sum to a specific target value. It is important in theoretical computer science and has practical applications in areas like cryptography and resource allocation."
-          }
-        ],
-        "layer": "priority"
+        "layer": "secondary"
       },
       {
         "id": "semi-algorithm",
@@ -1885,24 +1949,7 @@
             "section": "Polynomial-time algorithms",
             "section_index": 13,
             "variant": "semi-algorithm",
-            "evidence": "A semi-algorithm is a type of algorithm that may not provide an answer for all inputs, specifically allowing for indefinite running time on certain instances. This concept is relevant in the context of decision problems where a definitive 'no' answer may not be computable in finite time."
-          }
-        ],
-        "layer": "secondary"
-      },
-      {
-        "id": "algorithm",
-        "frequency": 1,
-        "section_count": 1,
-        "variants": [
-          "algorithm"
-        ],
-        "appearances": [
-          {
-            "section": "Polynomial-time algorithms",
-            "section_index": 13,
-            "variant": "algorithm",
-            "evidence": "An algorithm is a step-by-step procedure or formula for solving a problem. In the context of NP-complete problems, algorithms are crucial for exploring potential solutions and understanding the limits of computational feasibility."
+            "evidence": "A semi-algorithm is a type of algorithm that may not provide an answer for all inputs, specifically running indefinitely for certain cases. This concept is important in understanding the behavior of algorithms in the context of decision problems."
           }
         ],
         "layer": "secondary"
@@ -1919,7 +1966,7 @@
             "section": "Polynomial-time algorithms",
             "section_index": 13,
             "variant": "levin's algorithm",
-            "evidence": "Levin's algorithm is an example of a theoretical approach to solving NP-complete problems. It illustrates the complexities involved in algorithm design and the implications of the P vs NP question, particularly in relation to the SUBSET-SUM problem."
+            "evidence": "Levin's algorithm is an example of a theoretical approach to solving NP-complete problems, specifically SUBSET-SUM. It illustrates the complexities involved in algorithm design and the implications of the P vs NP question."
           }
         ],
         "layer": "secondary"
@@ -1936,7 +1983,7 @@
             "section": "Polynomial-time algorithms",
             "section_index": 13,
             "variant": "input",
-            "evidence": "In the context of algorithms, an input refers to the data that is fed into the algorithm for processing. Understanding the nature of inputs is essential for analyzing algorithm performance and correctness, especially in problems like SUBSET-SUM."
+            "evidence": "In the context of algorithms, input refers to the data provided to the algorithm for processing. Understanding the nature of input is essential for analyzing algorithm performance and behavior."
           }
         ],
         "layer": "tertiary"
@@ -1953,7 +2000,7 @@
             "section": "Polynomial-time algorithms",
             "section_index": 13,
             "variant": "output",
-            "evidence": "Output refers to the result produced by an algorithm after processing the input. In decision problems, outputs are typically binary (yes/no), and understanding the expected output is crucial for evaluating the effectiveness of an algorithm."
+            "evidence": "Output refers to the result produced by an algorithm after processing the input. It is a critical aspect of algorithm design, as it determines the effectiveness of the solution provided."
           }
         ],
         "layer": "tertiary"
@@ -1970,7 +2017,7 @@
             "section": "Formal definitions - P and NP",
             "section_index": 14,
             "variant": "decision problem",
-            "evidence": "A decision problem is a fundamental concept in computational theory that involves determining a yes or no answer based on input strings. It is crucial for classifying problems based on their solvability and complexity, particularly in relation to algorithm efficiency."
+            "evidence": "A decision problem is a fundamental concept in computational theory that involves determining a binary outcome (yes or no) based on input strings. It is crucial for understanding how algorithms classify problems and their solvability within computational limits."
           }
         ],
         "layer": "priority"
@@ -1987,7 +2034,7 @@
             "section": "Formal definitions - P and NP",
             "section_index": 14,
             "variant": "deterministic polynomial-time turing machine",
-            "evidence": "A deterministic polynomial-time Turing machine is a theoretical model of computation that guarantees a solution in polynomial time for all inputs. This concept is foundational in computational theory, as it defines the limits of efficient computation."
+            "evidence": "A deterministic polynomial-time Turing machine is a theoretical model of computation that guarantees a solution in polynomial time for all inputs. This concept is critical for understanding the formal definitions of complexity classes in computational theory."
           }
         ],
         "layer": "priority"
@@ -2004,7 +2051,7 @@
             "section": "Formal definitions - P and NP",
             "section_index": 14,
             "variant": "verifier",
-            "evidence": "A verifier is an algorithm that checks whether a given solution (certificate) is valid for a decision problem in NP. This concept is important because it highlights the distinction between finding a solution and verifying one, which is central to the study of computational complexity."
+            "evidence": "A verifier is an algorithm that checks whether a given solution (certificate) is valid for a decision problem. This concept is essential in the context of NP problems, where verification is often easier than finding a solution."
           }
         ],
         "layer": "secondary"
@@ -2021,27 +2068,10 @@
             "section": "Formal definitions - P and NP",
             "section_index": 14,
             "variant": "certificate",
-            "evidence": "A certificate is a piece of information that helps verify whether a particular input belongs to a language in NP. Understanding certificates is essential for grasping how NP problems can be efficiently checked even if finding solutions is hard."
+            "evidence": "A certificate is a piece of information that helps verify whether a certain input belongs to a language in NP. Understanding certificates is crucial for grasping how NP problems can be efficiently checked even if they are hard to solve."
           }
         ],
         "layer": "secondary"
-      },
-      {
-        "id": "historical context of computational theory",
-        "frequency": 1,
-        "section_count": 1,
-        "variants": [
-          "historical context of computational theory"
-        ],
-        "appearances": [
-          {
-            "section": "Formal definitions - P and NP",
-            "section_index": 14,
-            "variant": "historical context of computational theory",
-            "evidence": "The historical context of computational theory includes the evolution of concepts like NP and P, which have shaped our understanding of algorithm efficiency and problem-solving. Recognizing this context helps in appreciating the significance of current computational models."
-          }
-        ],
-        "layer": "tertiary"
       },
       {
         "id": "polynomial-time reduction",
@@ -2055,24 +2085,41 @@
             "section": "Formal definitions - NP-completeness",
             "section_index": 14,
             "variant": "polynomial-time reduction",
-            "evidence": "Polynomial-time reduction is a process that transforms one problem into another in such a way that a solution to the second problem can be used to solve the first problem efficiently. This concept is essential in proving the NP-completeness of problems, as it establishes a relationship between different computational problems."
+            "evidence": "Polynomial-time reduction is a method of transforming one problem into another in such a way that a solution to the second problem can be used to solve the first problem efficiently. This concept is essential in proving NP-completeness, as it establishes a relationship between problems and helps determine their relative difficulty."
           }
         ],
         "layer": "priority"
       },
       {
-        "id": "common proof technique",
+        "id": "finite alphabet σ",
         "frequency": 1,
         "section_count": 1,
         "variants": [
-          "common proof technique"
+          "finite alphabet σ"
         ],
         "appearances": [
           {
             "section": "Formal definitions - NP-completeness",
             "section_index": 14,
-            "variant": "common proof technique",
-            "evidence": "The common proof technique for establishing NP-completeness involves demonstrating that a known NP-complete problem can be polynomial-time reduced to the new problem. This method is significant as it provides a systematic approach to classifying new problems within the NP-complete framework."
+            "variant": "finite alphabet σ",
+            "evidence": "A finite alphabet is a limited set of symbols from which strings (or languages) can be formed. In computational theory, the concept of a finite alphabet is foundational as it underpins the definition of languages and the problems associated with them, including NP-completeness."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "common methods of proving np-completeness",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "common methods of proving np-completeness"
+        ],
+        "appearances": [
+          {
+            "section": "Formal definitions - NP-completeness",
+            "section_index": 14,
+            "variant": "common methods of proving np-completeness",
+            "evidence": "Common methods of proving NP-completeness often involve demonstrating that a known NP-complete problem can be polynomial-time reduced to the new problem. This approach is vital for establishing the computational complexity of new problems and understanding their place within the broader landscape of computational theory."
           }
         ],
         "layer": "tertiary"
@@ -2089,7 +2136,7 @@
             "section": "Claimed solutions",
             "section_index": 15,
             "variant": "gerhard j. woeginger",
-            "evidence": "Gerhard J. Woeginger is a notable researcher in the field of computer science, particularly known for his work on the P versus NP problem. His compilation of purported proofs highlights the ongoing interest and debate surrounding this fundamental question in theoretical computer science."
+            "evidence": "Gerhard J. Woeginger is a notable researcher in the field of computer science, particularly known for his work on the P versus NP problem. His compilation of purported proofs highlights the ongoing interest and debate surrounding this fundamental question."
           }
         ],
         "layer": "tertiary"
@@ -2106,7 +2153,7 @@
             "section": "Claimed solutions",
             "section_index": 15,
             "variant": "purported proofs",
-            "evidence": "Purported proofs refer to claims made by researchers that they have solved the P versus NP problem, either proving P = NP or P ≠ NP. These proofs are significant as they reflect the ongoing efforts and challenges in resolving one of the most critical questions in computer science."
+            "evidence": "Purported proofs refer to claims made by researchers that they have solved the P versus NP problem. These proofs are significant as they reflect the ongoing efforts and challenges in resolving one of the most critical questions in theoretical computer science."
           }
         ],
         "layer": "secondary"
@@ -2123,7 +2170,7 @@
             "section": "Claimed solutions",
             "section_index": 15,
             "variant": "media attention",
-            "evidence": "Media attention refers to the coverage and public interest generated by various claims of solutions to the P versus NP problem. This attention can influence public perception and funding for research in theoretical computer science, although many claims have been refuted."
+            "evidence": "Media attention refers to the public and media coverage that certain claims or attempts to solve the P versus NP problem have received. This is important as it influences public perception and awareness of the complexities involved in such theoretical issues."
           }
         ],
         "layer": "tertiary"
@@ -2140,10 +2187,10 @@
             "section": "Claimed solutions",
             "section_index": 15,
             "variant": "undecidable",
-            "evidence": "The term undecidable refers to problems for which no algorithm can be constructed that always leads to a correct yes-or-no answer. In the context of the P versus NP problem, proving it undecidable would imply that it cannot be resolved within the framework of classical computation, which has significant implications for the field."
+            "evidence": "The term 'undecidable' refers to problems for which no algorithm can be constructed that always leads to a correct yes-or-no answer. This concept is crucial in understanding the limits of computation and the boundaries of what can be solved within computer science."
           }
         ],
-        "layer": "secondary"
+        "layer": "priority"
       },
       {
         "id": "refuted attempts",
@@ -2157,10 +2204,27 @@
             "section": "Claimed solutions",
             "section_index": 15,
             "variant": "refuted attempts",
-            "evidence": "Refuted attempts refer to the claims made by researchers that have been shown to be incorrect or invalid. This highlights the complexity and difficulty of the P versus NP problem, as many proposed solutions have not withstand scrutiny, emphasizing the need for rigorous proof in theoretical computer science."
+            "evidence": "Refuted attempts are claims or proofs that have been shown to be incorrect or invalid. Understanding these refutations is essential for grasping the complexities and challenges in proving or disproving the P versus NP problem."
           }
         ],
         "layer": "secondary"
+      },
+      {
+        "id": "116 purported proofs",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "116 purported proofs"
+        ],
+        "appearances": [
+          {
+            "section": "Claimed solutions",
+            "section_index": 15,
+            "variant": "116 purported proofs",
+            "evidence": "The 116 purported proofs represent various claims made by researchers regarding the P versus NP problem. This number illustrates the extensive interest and the multitude of approaches taken to tackle this significant question in computer science."
+          }
+        ],
+        "layer": "tertiary"
       },
       {
         "id": "mathematicians",
@@ -2174,27 +2238,10 @@
             "section": "Popular culture",
             "section_index": 16,
             "variant": "mathematicians",
-            "evidence": "Mathematicians are professionals who specialize in the study of mathematics, including its theories, applications, and problem-solving techniques. In the context of the film, they represent the intellectual effort to tackle one of the most significant challenges in theoretical computer science."
+            "evidence": "Mathematicians are professionals who specialize in the study of mathematics, including its theories, applications, and problem-solving techniques. In this context, they are crucial as they represent the intellectual effort to tackle one of the most significant challenges in theoretical computer science."
           }
         ],
         "layer": "secondary"
-      },
-      {
-        "id": "timothy lanzone",
-        "frequency": 1,
-        "section_count": 1,
-        "variants": [
-          "timothy lanzone"
-        ],
-        "appearances": [
-          {
-            "section": "Popular culture",
-            "section_index": 16,
-            "variant": "timothy lanzone",
-            "evidence": "Timothy Lanzone is the director of the film 'Travelling Salesman', which explores complex mathematical concepts through a narrative. His work contributes to the popularization of mathematical ideas in mainstream media, making them accessible to a broader audience."
-          }
-        ],
-        "layer": "tertiary"
       },
       {
         "id": "the simpsons",
@@ -2208,7 +2255,7 @@
             "section": "Popular culture",
             "section_index": 16,
             "variant": "the simpsons",
-            "evidence": "The Simpsons is an animated television series known for its satirical take on American culture and society. The inclusion of the P = NP equation in an episode highlights the show's engagement with complex scientific and mathematical ideas, often using humor to provoke thought."
+            "evidence": "The Simpsons is an animated television series known for its satirical depiction of American life. Its inclusion of complex mathematical concepts like P = NP highlights the show's blend of humor and intellectual commentary, making advanced topics accessible to a broader audience."
           }
         ],
         "layer": "tertiary"
@@ -2225,24 +2272,24 @@
             "section": "Popular culture",
             "section_index": 16,
             "variant": "elementary",
-            "evidence": "Elementary is a modern adaptation of Sherlock Holmes that incorporates contemporary themes and issues, including mathematics. The episode 'Solve for X' illustrates how mathematical problems can intersect with crime and mystery, showcasing the relevance of mathematics in various contexts."
+            "evidence": "Elementary is a modern adaptation of Sherlock Holmes that incorporates contemporary themes and issues. The episode's focus on mathematicians and the P versus NP problem illustrates how popular media can engage with complex scientific ideas, raising awareness and interest in mathematical research."
           }
         ],
         "layer": "tertiary"
       },
       {
-        "id": "treehouse of horror vi",
+        "id": "us government",
         "frequency": 1,
         "section_count": 1,
         "variants": [
-          "treehouse of horror vi"
+          "us government"
         ],
         "appearances": [
           {
             "section": "Popular culture",
             "section_index": 16,
-            "variant": "treehouse of horror vi",
-            "evidence": "'Treehouse of Horror VI' is a Halloween-themed episode of The Simpsons that parodies horror and science fiction tropes. Its reference to the P = NP equation serves as an example of how popular media can introduce complex scientific concepts to a general audience."
+            "variant": "us government",
+            "evidence": "The US government plays a role in funding and supporting research in various fields, including mathematics and computer science. Their involvement in the P versus NP problem underscores the significance of this issue for national security and technological advancement."
           }
         ],
         "layer": "tertiary"
@@ -2259,7 +2306,7 @@
             "section": "Similar problems",
             "section_index": 17,
             "variant": "r vs. re problem",
-            "evidence": "The R vs. RE problem is a theoretical concept in computational complexity that compares two classes of problems: R, which is analogous to class P (problems solvable in polynomial time), and RE, which is analogous to class NP (problems verifiable in polynomial time). Understanding this distinction is crucial for exploring the limits of computation and the nature of problem-solving in computer science."
+            "evidence": "The R vs. RE problem is a theoretical concept in computational complexity theory that compares two classes of problems: R, which is analogous to class P (problems solvable in polynomial time), and RE, which is analogous to class NP (nondeterministic polynomial time). Understanding this distinction is crucial for exploring the limits of what can be computed efficiently and what remains undecidable."
           }
         ],
         "layer": "priority"
@@ -2276,7 +2323,7 @@
             "section": "Similar problems",
             "section_index": 17,
             "variant": "undecidable but verifiable problems",
-            "evidence": "Undecidable but verifiable problems are those for which no algorithm can determine a solution in all cases, yet if a solution is provided, it can be verified as correct. This concept is important in theoretical computer science as it highlights the limitations of algorithmic problem-solving and the existence of problems that challenge our understanding of computation."
+            "evidence": "Undecidable but verifiable problems are those for which no algorithm can determine a solution in all cases, yet if a solution is provided, it can be checked for correctness. This concept is important in understanding the limitations of computation and the nature of problems that can be addressed within the realms of R and RE."
           }
         ],
         "layer": "priority"
@@ -2293,7 +2340,7 @@
             "section": "Similar problems",
             "section_index": 17,
             "variant": "hilbert's tenth problem",
-            "evidence": "Hilbert's tenth problem is a famous example in mathematical logic and computer science that asks whether there is an algorithm to determine the solvability of Diophantine equations. It is classified as RE-complete, meaning it is among the hardest problems in the class of recursively enumerable problems, illustrating the complexities of decidability and verification."
+            "evidence": "Hilbert's tenth problem is a famous example of an undecidable problem that is RE-complete, meaning it is among the hardest problems in the class RE. This problem's significance lies in its implications for number theory and the limits of algorithmic solvability, making it a key example in discussions of computational complexity."
           }
         ],
         "layer": "secondary"
@@ -2310,7 +2357,7 @@
             "section": "Similar problems",
             "section_index": 17,
             "variant": "vp vs. vnp problem",
-            "evidence": "The VP vs. VNP problem is a central question in algebraic complexity theory, analogous to the P vs. NP problem but focused on polynomial functions. It seeks to determine whether the class of polynomial functions that can be computed efficiently (VP) is the same as those for which solutions can be verified efficiently (VNP), highlighting the challenges in understanding computational resources in algebra."
+            "evidence": "The VP vs. VNP problem is a central question in algebraic complexity theory, analogous to the P vs. NP problem in classical complexity. It concerns the classification of problems based on their solvability and the efficiency of algorithms for polynomial equations, highlighting the complexity of algebraic computations."
           }
         ],
         "layer": "priority"
@@ -2327,7 +2374,7 @@
             "section": "Similar problems",
             "section_index": 17,
             "variant": "unknown answer",
-            "evidence": "The statement that the answer to the VP vs. VNP problem is currently unknown underscores the ongoing research and debate in theoretical computer science regarding the relationships between different complexity classes. This uncertainty reflects the broader challenges in resolving fundamental questions about computation and efficiency."
+            "evidence": "The statement that the answer to the VP vs. VNP problem is currently unknown emphasizes the ongoing research and open questions in the field of computational complexity. This uncertainty reflects the broader challenges in understanding the limits of computation and the relationships between different complexity classes."
           }
         ],
         "layer": "tertiary"
@@ -2344,24 +2391,7 @@
             "section": "Sources",
             "section_index": 21,
             "variant": "incompatible students",
-            "evidence": "In the context of the NP-problem example, incompatible students represent constraints that complicate the selection process. This illustrates how real-world problems can be modeled mathematically, making it easier to analyze and solve complex logistical issues."
-          }
-        ],
-        "layer": "tertiary"
-      },
-      {
-        "id": "housing accommodations",
-        "frequency": 1,
-        "section_count": 1,
-        "variants": [
-          "housing accommodations"
-        ],
-        "appearances": [
-          {
-            "section": "Sources",
-            "section_index": 21,
-            "variant": "housing accommodations",
-            "evidence": "Housing accommodations in this scenario serve as a practical application of the P vs NP Problem, demonstrating how theoretical concepts in computer science can be applied to everyday situations, such as managing limited resources and optimizing choices."
+            "evidence": "In the context of the NP-problem example, incompatible students represent constraints that complicate the selection process. This illustrates how real-world problems can often be modeled as NP-problems, making them relevant for practical applications in scheduling and resource allocation."
           }
         ],
         "layer": "tertiary"
@@ -2378,7 +2408,24 @@
             "section": "Sources",
             "section_index": 21,
             "variant": "william l. hosch",
-            "evidence": "William L. Hosch is an author who has contributed to the understanding of the P vs NP Problem through his writings. His work helps disseminate complex mathematical concepts to a broader audience, making them more accessible."
+            "evidence": "William L. Hosch is an author who has contributed to the understanding of the P vs NP problem through his writings. His work helps disseminate complex mathematical concepts to a broader audience, making them more accessible."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "example of housing accommodations problem",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "example of housing accommodations problem"
+        ],
+        "appearances": [
+          {
+            "section": "Sources",
+            "section_index": 21,
+            "variant": "example of housing accommodations problem",
+            "evidence": "This example illustrates a practical application of the P vs NP problem, where the challenge of selecting students for limited housing while adhering to constraints mirrors the complexities faced in NP-problems. It serves to contextualize theoretical concepts in real-world scenarios."
           }
         ],
         "layer": "tertiary"
@@ -2395,7 +2442,7 @@
             "section": "Further reading",
             "section_index": 22,
             "variant": "algorithms",
-            "evidence": "Algorithms are step-by-step procedures or formulas for solving problems. They are fundamental to computer science and are used in various applications, from data processing to artificial intelligence, making them essential for understanding computational processes."
+            "evidence": "Algorithms are step-by-step procedures or formulas for solving problems. They are fundamental to computer science and are used in various applications, from data processing to artificial intelligence. Understanding algorithms is crucial for developing efficient software and solving computational problems."
           }
         ],
         "layer": "priority"
@@ -2412,75 +2459,24 @@
             "section": "Further reading",
             "section_index": 22,
             "variant": "complexity classes",
-            "evidence": "Complexity classes are categories used to classify computational problems based on their inherent difficulty and the resources required to solve them. They are important for understanding the theoretical limits of computation and the efficiency of algorithms."
-          }
-        ],
-        "layer": "priority"
-      },
-      {
-        "id": "algorithm design",
-        "frequency": 1,
-        "section_count": 1,
-        "variants": [
-          "algorithm design"
-        ],
-        "appearances": [
-          {
-            "section": "Further reading",
-            "section_index": 22,
-            "variant": "algorithm design",
-            "evidence": "Algorithm design refers to the process of defining a step-by-step procedure for solving a specific problem. It is a critical skill in computer science, as well-designed algorithms can significantly improve the efficiency and effectiveness of computing solutions."
+            "evidence": "Complexity classes are categories used to classify computational problems based on their resource requirements, such as time and space. They help in understanding the efficiency of algorithms and the inherent difficulty of problems. This classification is essential for theoretical computer science and algorithm design."
           }
         ],
         "layer": "secondary"
       },
       {
-        "id": "case studies in np-completeness",
+        "id": "isbn",
         "frequency": 1,
         "section_count": 1,
         "variants": [
-          "case studies in np-completeness"
+          "isbn"
         ],
         "appearances": [
           {
             "section": "Further reading",
             "section_index": 22,
-            "variant": "case studies in np-completeness",
-            "evidence": "Case studies in NP-Completeness illustrate specific problems that are NP-complete, helping to understand the practical implications of these theoretical concepts. They provide concrete examples of how NP-completeness affects real-world problem-solving."
-          }
-        ],
-        "layer": "tertiary"
-      },
-      {
-        "id": "historical development of complexity theory",
-        "frequency": 1,
-        "section_count": 1,
-        "variants": [
-          "historical development of complexity theory"
-        ],
-        "appearances": [
-          {
-            "section": "Further reading",
-            "section_index": 22,
-            "variant": "historical development of complexity theory",
-            "evidence": "The historical development of complexity theory traces the evolution of ideas regarding computational limits and efficiency. Understanding this history is essential for grasping current debates and advancements in the field."
-          }
-        ],
-        "layer": "tertiary"
-      },
-      {
-        "id": "isbn references",
-        "frequency": 1,
-        "section_count": 1,
-        "variants": [
-          "isbn references"
-        ],
-        "appearances": [
-          {
-            "section": "Further reading",
-            "section_index": 22,
-            "variant": "isbn references",
-            "evidence": "ISBN references provide a standardized way to identify books and publications. They are important for academic referencing and ensuring the credibility of sources in research."
+            "variant": "isbn",
+            "evidence": "ISBN stands for International Standard Book Number, a unique identifier for books. It is used to simplify the distribution and purchase of books, ensuring that each title can be easily found and referenced. Understanding ISBNs is important for academic research and library sciences."
           }
         ],
         "layer": "tertiary"

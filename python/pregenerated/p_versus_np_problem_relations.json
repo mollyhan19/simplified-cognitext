@@ -2,356 +2,12 @@
   "metadata": {
     "type": "master_relations",
     "processing_mode": "subsection",
-    "timestamp": "2025-03-06T00:46:29.000000"
+    "timestamp": "2025-04-23T15:20:04.000000"
   },
   "articles": {
     "P versus NP problem": {
       "category": "general",
       "relations": [
-        {
-          "source": "p versus np problem",
-          "relation_type": "is a major unsolved problem in",
-          "target": "theoretical computer science",
-          "evidence": "The P versus NP problem is a major unsolved problem in theoretical computer science.",
-          "section_name": "Introduction",
-          "section_index": 1
-        },
-        {
-          "source": "historical development of complexity theory",
-          "relation_type": "includes works on",
-          "target": "p versus np problem",
-          "evidence": "The historical development of complexity theory encompasses significant contributions related to the p versus np problem.",
-          "section_name": "Further reading",
-          "section_index": 22
-        },
-        {
-          "source": "dlin",
-          "relation_type": "is not equal to",
-          "target": "nlin",
-          "evidence": "It is known that DLIN ≠ NLIN.",
-          "section_name": "Reasons to believe P ≠ NP or P = NP - DLIN vs NLIN",
-          "section_index": 9
-        },
-        {
-          "source": "Millennium Prize Problems",
-          "relation_type": "are selected by",
-          "target": "Clay Mathematics Institute",
-          "evidence": "It is one of the seven Millennium Prize Problems selected by the Clay Mathematics Institute.",
-          "section_name": "Introduction",
-          "section_index": 1
-        },
-        {
-          "source": "Algorithmica",
-          "relation_type": "represents",
-          "target": "P = NP",
-          "evidence": "Algorithmica, where P = NP and problems like SAT can be solved efficiently in all instances.",
-          "section_name": "Consequences of solution - P ≠ NP",
-          "section_index": 10
-        },
-        {
-          "source": "#P problems",
-          "relation_type": "are at least as hard as",
-          "target": "NP problems",
-          "evidence": "a #P problem must be at least as hard as the corresponding NP problem, since a count of solutions immediately tells if at least one solution exists.",
-          "section_name": "Harder problems",
-          "section_index": 6
-        },
-        {
-          "source": "class NP",
-          "relation_type": "can be solved in polynomial time on",
-          "target": "non-deterministic machine",
-          "evidence": "or equivalently, whose solution can be found in polynomial time on a non-deterministic machine.",
-          "section_name": "Context",
-          "section_index": 4
-        },
-        {
-          "source": "big o notation",
-          "relation_type": "describes complexity",
-          "target": "np-complete problems",
-          "evidence": "The big O notation hides a constant that depends superexponentially on H.",
-          "section_name": "Does P mean \"easy\"?",
-          "section_index": 8
-        },
-        {
-          "source": "refuted attempts",
-          "relation_type": "are related to",
-          "target": "p versus np problem",
-          "evidence": "Some attempts at resolving P versus NP have been refuted.",
-          "section_name": "Claimed solutions",
-          "section_index": 15
-        },
-        {
-          "source": "integer factorization problem",
-          "relation_type": "is solved by",
-          "target": "Shor's algorithm",
-          "evidence": "The best known quantum algorithm for this problem, Shor's algorithm, runs in polynomial time.",
-          "section_name": "Problems in NP not known to be in P or NP-complete",
-          "section_index": 7
-        },
-        {
-          "source": "np-intermediate problems",
-          "relation_type": "examples of",
-          "target": "integer factorization problem",
-          "evidence": "The graph isomorphism problem, the discrete logarithm problem, and the integer factorization problem are examples of problems believed to be NP-intermediate.",
-          "section_name": "Problems in NP not known to be in P or NP-complete",
-          "section_index": 7
-        },
-        {
-          "source": "media attention",
-          "relation_type": "received by",
-          "target": "refuted attempts",
-          "evidence": "Some attempts at resolving P versus NP have received brief media attention, though these attempts have been refuted.",
-          "section_name": "Claimed solutions",
-          "section_index": 15
-        },
-        {
-          "source": "np-complete problems",
-          "relation_type": "subset of",
-          "target": "class np",
-          "evidence": "NP-complete problems are a specific subset of problems within class NP, representing the most challenging problems in terms of computational complexity.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "co-np-complete",
-          "relation_type": "could lead to",
-          "target": "automation of mathematical proofs",
-          "evidence": "Gödel pointed out one of the most important consequences—that if so, then the discovery of mathematical proofs could be automated.",
-          "section_name": "History",
-          "section_index": 3
-        },
-        {
-          "source": "p = np",
-          "relation_type": "is a hypothesis related to",
-          "target": "algorithm research",
-          "evidence": "The hypothesis that p equals np has profound implications for algorithm research, as it would mean that problems currently deemed intractable could be solved efficiently.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "theoretical computer science",
-          "relation_type": "includes the study of",
-          "target": "p versus np problem",
-          "evidence": "The P versus NP problem is a major unsolved problem in theoretical computer science.",
-          "section_name": "Introduction",
-          "section_index": 1
-        },
-        {
-          "source": "p versus np problem",
-          "relation_type": "is related to",
-          "target": "EXPTIME",
-          "evidence": "Because it can be shown that P ≠ EXPTIME, these problems are outside P, and so require more than polynomial time.",
-          "section_name": "Harder problems",
-          "section_index": 6
-        },
-        {
-          "source": "average-case complexity",
-          "relation_type": "remains open in",
-          "target": "hard problems in NP",
-          "evidence": "P ≠ NP still leaves open the average-case complexity of hard problems in NP.",
-          "section_name": "Consequences of solution - P ≠ NP",
-          "section_index": 10
-        },
-        {
-          "source": "historical context of np-completeness",
-          "relation_type": "informs the understanding of",
-          "target": "current techniques in algorithm research",
-          "evidence": "Understanding the historical context of NP-completeness helps researchers appreciate the evolution of algorithmic techniques and the ongoing challenges in computational complexity.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "polynomial time",
-          "relation_type": "is a characteristic of",
-          "target": "class P",
-          "evidence": "If there is an algorithm... that produces the correct answer... in at most cnk steps... then we say that the problem can be solved in polynomial time and we place it in the class P.",
-          "section_name": "Formal definitions - P and NP",
-          "section_index": 14
-        },
-        {
-          "source": "timothy lanzone",
-          "relation_type": "directs",
-          "target": "p versus np problem",
-          "evidence": "The film Travelling Salesman, by director Timothy Lanzone, is the story of four mathematicians hired by the US government to solve the P versus NP problem.",
-          "section_name": "Popular culture",
-          "section_index": 16
-        },
-        {
-          "source": "case studies in np-completeness",
-          "relation_type": "provide examples for",
-          "target": "algorithms",
-          "evidence": "Case studies in NP-completeness illustrate the challenges and strategies in algorithm design.",
-          "section_name": "Further reading",
-          "section_index": 22
-        },
-        {
-          "source": "isbn references",
-          "relation_type": "are associated with",
-          "target": "theoretical computer science",
-          "evidence": "ISBN references are provided for key texts in theoretical computer science.",
-          "section_name": "Further reading",
-          "section_index": 22
-        },
-        {
-          "source": "computational complexity theory",
-          "relation_type": "is a branch of",
-          "target": "theoretical computer science",
-          "evidence": "Computational complexity theory is a key area within theoretical computer science.",
-          "section_name": "Further reading",
-          "section_index": 22
-        },
-        {
-          "source": "the simpsons",
-          "relation_type": "includes",
-          "target": "treehouse of horror vi",
-          "evidence": "In the sixth episode of The Simpsons' seventh season 'Treehouse of Horror VI', the equation P = NP is seen shortly after Homer accidentally stumbles into the 'third dimension'.",
-          "section_name": "Popular culture",
-          "section_index": 16
-        },
-        {
-          "source": "p ≠ np",
-          "relation_type": "advances",
-          "target": "computational complexity theory",
-          "evidence": "A proof of P ≠ NP would represent a great advance in computational complexity theory.",
-          "section_name": "Consequences of solution - P ≠ NP",
-          "section_index": 10
-        },
-        {
-          "source": "#P-complete",
-          "relation_type": "are among the hardest problems in",
-          "target": "#P",
-          "evidence": "Many of these problems are #P-complete, and hence among the hardest problems in #P.",
-          "section_name": "Harder problems",
-          "section_index": 6
-        },
-        {
-          "source": "historical context of computational theory",
-          "relation_type": "provides background for understanding",
-          "target": "class P and class NP",
-          "evidence": "The text discusses the definitions and characteristics of class P and class NP, which are foundational concepts in computational theory.",
-          "section_name": "Formal definitions - P and NP",
-          "section_index": 14
-        },
-        {
-          "source": "L",
-          "relation_type": "is an element of",
-          "target": "class np",
-          "evidence": "L is NP-complete if, and only if, the following two conditions are satisfied: L ∈ NP",
-          "section_name": "Formal definitions - NP-completeness",
-          "section_index": 14
-        },
-        {
-          "source": "np-completeness",
-          "relation_type": "is a concept used to understand",
-          "target": "P = NP question",
-          "evidence": "To attack the P = NP question, the concept of NP-completeness is very useful.",
-          "section_name": "NP-completeness",
-          "section_index": 5
-        },
-        {
-          "source": "p = np",
-          "relation_type": "conditional relationship with",
-          "target": "polynomial time",
-          "evidence": "it runs in polynomial time on accepting instances if P = NP.",
-          "section_name": "Polynomial-time algorithms",
-          "section_index": 13
-        },
-        {
-          "source": "p versus np problem",
-          "relation_type": "involves",
-          "target": "polynomial time",
-          "evidence": "since a proposed key can be verified in polynomial time.",
-          "section_name": "History",
-          "section_index": 3
-        },
-        {
-          "source": "generalized sudoku problem",
-          "relation_type": "example of",
-          "target": "np",
-          "evidence": "The generalized sudoku problem serves as an example of an NP problem, illustrating the complexity and challenges associated with problems in this class.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "algorithm design",
-          "relation_type": "is influenced by",
-          "target": "complexity classes",
-          "evidence": "The design of algorithms is heavily influenced by the understanding of complexity classes, as it determines the feasibility of solving problems within those classes.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "millennium prize problems",
-          "relation_type": "includes",
-          "target": "p versus np problem",
-          "evidence": "The p versus np problem is one of the seven Millennium Prize Problems established by the Clay Mathematics Institute, highlighting its importance in mathematics and computer science.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "p = np",
-          "relation_type": "leads to",
-          "target": "np-complete problems",
-          "evidence": "A proof that P = NP could have stunning practical consequences if the proof leads to efficient methods for solving some of the important problems in NP.",
-          "section_name": "Consequences of solution - P = NP",
-          "section_index": 10
-        },
-        {
-          "source": "polynomial time",
-          "relation_type": "defines the time complexity for",
-          "target": "class P",
-          "evidence": "Here, 'quickly' means an algorithm that solves the task and runs in polynomial time.",
-          "section_name": "Introduction",
-          "section_index": 1
-        },
-        {
-          "source": "fixed size Sudoku",
-          "relation_type": "is in",
-          "target": "p",
-          "evidence": "in this case the problem is in P, as the answer can be found by table lookup",
-          "section_name": "Example",
-          "section_index": 2
-        },
-        {
-          "source": "computational complexity theory",
-          "relation_type": "deals with",
-          "target": "resources required during computation",
-          "evidence": "the part of the theory of computation dealing with the resources required during computation to solve a given problem.",
-          "section_name": "Context",
-          "section_index": 4
-        },
-        {
-          "source": "first-order logic",
-          "relation_type": "uses",
-          "target": "least fixed-point combinator",
-          "evidence": "all such languages in P are expressible in first-order logic with the addition of a suitable least fixed-point combinator.",
-          "section_name": "Logical characterizations",
-          "section_index": 12
-        },
-        {
-          "source": "p ≠ np",
-          "relation_type": "implies that there are problems in",
-          "target": "class NP that are harder to compute than to verify",
-          "evidence": "If P ≠ NP, which is widely believed, it would mean that there are problems in NP that are harder to compute than to verify.",
-          "section_name": "Introduction",
-          "section_index": 1
-        },
-        {
-          "source": "deterministic machine",
-          "relation_type": "is a model for analyzing",
-          "target": "time",
-          "evidence": "Typically such models assume that the computer is deterministic (given the computer's present state and any inputs, there is only one possible action that the computer might take) and sequential.",
-          "section_name": "Context",
-          "section_index": 4
-        },
-        {
-          "source": "3-sat",
-          "relation_type": "example of",
-          "target": "np-complete problems",
-          "evidence": "A constructive and efficient solution to an NP-complete problem such as 3-SAT would break most existing cryptosystems.",
-          "section_name": "Consequences of solution - P = NP",
-          "section_index": 10
-        },
         {
           "source": "deterministic polynomial-time Turing machine",
           "relation_type": "is characterized by",
@@ -361,26 +17,170 @@
           "section_index": 14
         },
         {
-          "source": "finite alphabet",
-          "relation_type": "is a requirement for",
-          "target": "class NP",
-          "evidence": "NP is the set of languages with a finite alphabet and verifier that runs in polynomial time.",
-          "section_name": "Formal definitions - P and NP",
-          "section_index": 14
+          "source": "cryptography",
+          "relation_type": "relies on the difficulty of",
+          "target": "integer factorization problem",
+          "evidence": "Many cryptographic systems, such as RSA, rely on the assumption that integer factorization is a hard problem, which is related to the broader discussions of computational complexity.",
+          "section_name": "global",
+          "section_index": -1
         },
         {
-          "source": "william l. hosch",
-          "relation_type": "is an author of",
+          "source": "deterministic machine",
+          "relation_type": "comparison with non-deterministic machine",
+          "target": "non-deterministic machine",
+          "evidence": "The distinction between deterministic and non-deterministic machines is crucial for understanding the classes p and np, as it defines the capabilities and limitations of different computational models.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "p versus np problem",
+          "relation_type": "is one of the",
+          "target": "millennium prize problems",
+          "evidence": "It is one of the seven Millennium Prize Problems selected by the Clay Mathematics Institute.",
+          "section_name": "Introduction",
+          "section_index": 1
+        },
+        {
+          "source": "levin's algorithm",
+          "relation_type": "is an example of a",
+          "target": "semi-algorithm",
+          "evidence": "This is a polynomial-time algorithm accepting an NP-complete language only if P = NP. 'Accepting' means it gives 'yes' answers in polynomial time, but is allowed to run forever when the answer is 'no' (also known as a semi-algorithm).",
+          "section_name": "Polynomial-time algorithms",
+          "section_index": 13
+        },
+        {
+          "source": "np-hard problems",
+          "relation_type": "are at least as hard as",
+          "target": "NP problems",
+          "evidence": "NP-hard problems are those at least as hard as NP problems.",
+          "section_name": "NP-completeness",
+          "section_index": 5
+        },
+        {
+          "source": "Peano axioms",
+          "relation_type": "are weaker than",
+          "target": "ZFC",
+          "evidence": "if the problem is undecidable even with much weaker assumptions extending the Peano axioms",
+          "section_name": "Results about difficulty of proof",
+          "section_index": 11
+        },
+        {
+          "source": "integer factorization problem",
+          "relation_type": "most efficient algorithm is",
+          "target": "general number field sieve",
+          "evidence": "The most efficient known algorithm for integer factorization is the general number field sieve.",
+          "section_name": "Problems in NP not known to be in P or NP-complete",
+          "section_index": 7
+        },
+        {
+          "source": "Russell Impagliazzo",
+          "relation_type": "described",
+          "target": "five hypothetical 'worlds'",
+          "evidence": "Russell Impagliazzo has described five hypothetical 'worlds' that could result from different possible resolutions to the average-case complexity question.",
+          "section_name": "Consequences of solution - P ≠ NP",
+          "section_index": 10
+        },
+        {
+          "source": "millennium prize problems",
+          "relation_type": "significance in mathematics",
           "target": "p versus np problem",
-          "evidence": "Hosch, William L (11 August 2009). 'P versus NP problem mathematics'.",
+          "evidence": "The p versus np problem is one of the millennium prize problems, highlighting its importance and the potential implications for various fields if resolved.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "historical context of np-completeness",
+          "relation_type": "provides insight into",
+          "target": "theoretical computer science",
+          "evidence": "Understanding the historical development of np-completeness helps to contextualize current research and theories in theoretical computer science, illustrating how past discoveries shape present inquiries.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "confidence that P ≠ NP",
+          "relation_type": "increased",
+          "target": "poll results on p vs np",
+          "evidence": "Confidence that P ≠ NP has been increasing – in 2019, 88% believed P ≠ NP.",
+          "section_name": "Context",
+          "section_index": 4
+        },
+        {
+          "source": "Boolean satisfiability problem",
+          "relation_type": "is one of many",
+          "target": "NP-complete problems",
+          "evidence": "The Boolean satisfiability problem is one of many NP-complete problems.",
+          "section_name": "NP-completeness",
+          "section_index": 5
+        },
+        {
+          "source": "np-complete problems",
+          "relation_type": "examples include",
+          "target": "traveling salesman problem",
+          "evidence": "There are algorithms for many NP-complete problems, such as the knapsack problem, the traveling salesman problem, and the Boolean satisfiability problem.",
+          "section_name": "Does P mean \"easy\"?",
+          "section_index": 8
+        },
+        {
+          "source": "cook–levin theorem",
+          "relation_type": "foundational result",
+          "target": "boolean satisfiability problem",
+          "evidence": "The cook–levin theorem demonstrates that the boolean satisfiability problem is np-complete, serving as a cornerstone for the study of computational complexity and influencing subsequent research on other np-complete problems.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "p versus np problem",
+          "relation_type": "is a type of",
+          "target": "millennium prize problems",
+          "evidence": "This problem concerns the issue of whether questions that are easy to verify (a class of queries called NP) also have solutions that are easy to find (a class called P).",
           "section_name": "Sources",
           "section_index": 21
         },
         {
-          "source": "p = np",
-          "relation_type": "has implications for",
-          "target": "algorithm research",
-          "evidence": "If p equals np, it would revolutionize algorithm research by providing polynomial-time solutions to many currently intractable problems, impacting various fields such as cryptography and operations research.",
+          "source": "big o notation",
+          "relation_type": "describes complexity",
+          "target": "knuth's up-arrow notation",
+          "evidence": "The big O notation hides a constant that depends superexponentially on H.",
+          "section_name": "Does P mean \"easy\"?",
+          "section_index": 8
+        },
+        {
+          "source": "cobham's thesis",
+          "relation_type": "assumption about complexity",
+          "target": "np-complete problems",
+          "evidence": "All of the above discussion has assumed that P means 'easy' and 'not in P' means 'difficult', an assumption known as Cobham's thesis.",
+          "section_name": "Does P mean \"easy\"?",
+          "section_index": 8
+        },
+        {
+          "source": "Boolean satisfiability problem",
+          "relation_type": "is NP-complete by",
+          "target": "Cook–Levin theorem",
+          "evidence": "the Boolean satisfiability problem is NP-complete by the Cook–Levin theorem.",
+          "section_name": "NP-completeness",
+          "section_index": 5
+        },
+        {
+          "source": "elementary",
+          "relation_type": "features",
+          "target": "mathematicians",
+          "evidence": "In the second episode of season 2 of Elementary, 'Solve for X' Sherlock and Watson investigate the murders of mathematicians who were attempting to solve P versus NP.",
+          "section_name": "Popular culture",
+          "section_index": 16
+        },
+        {
+          "source": "p versus np problem",
+          "relation_type": "is a problem addressed by",
+          "target": "mathematicians",
+          "evidence": "The film Travelling Salesman... is the story of four mathematicians hired by the US government to solve the P versus NP problem.",
+          "section_name": "Popular culture",
+          "section_index": 16
+        },
+        {
+          "source": "p ≠ np",
+          "relation_type": "implications for",
+          "target": "computational complexity",
+          "evidence": "The assertion that p does not equal np has profound implications for computational complexity, as it suggests that certain problems cannot be solved efficiently, affecting various fields reliant on computational methods.",
           "section_name": "global",
           "section_index": -1
         },
@@ -393,796 +193,52 @@
           "section_index": 17
         },
         {
-          "source": "p ≠ np",
-          "relation_type": "implications for",
-          "target": "millennium prize problems",
-          "evidence": "The assertion that p does not equal np (p ≠ np) is one of the millennium prize problems, highlighting its significance in the field of mathematics and computer science.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "quantum computation",
-          "relation_type": "potential to solve",
-          "target": "integer factorization problem",
-          "evidence": "Quantum computation, exemplified by Shor's algorithm, has the potential to efficiently solve the integer factorization problem, which is believed to be hard for classical computers, thus influencing the field of cryptography.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "polynomial time",
-          "relation_type": "substituted for",
-          "target": "linear time on a multitape turing machine",
-          "evidence": "When one substitutes 'linear time on a multitape Turing machine' for 'polynomial time' in the definitions of P and NP, one obtains the classes DLIN and NLIN.",
-          "section_name": "Reasons to believe P ≠ NP or P = NP - DLIN vs NLIN",
-          "section_index": 9
-        },
-        {
-          "source": "mathematicians",
-          "relation_type": "involved in",
-          "target": "p versus np problem",
-          "evidence": "The film Travelling Salesman, by director Timothy Lanzone, is the story of four mathematicians hired by the US government to solve the P versus NP problem.",
-          "section_name": "Popular culture",
-          "section_index": 16
-        },
-        {
-          "source": "np-complete problems",
-          "relation_type": "exist effective approaches",
-          "target": "simplex algorithm",
-          "evidence": "There are algorithms for many NP-complete problems... that can solve to optimality many real-world instances in reasonable time.",
-          "section_name": "Does P mean \"easy\"?",
-          "section_index": 8
-        },
-        {
           "source": "class P",
-          "relation_type": "consists of",
-          "target": "decision problems solvable on a deterministic sequential machine",
-          "evidence": "the class P consists of all decision problems... solvable on a deterministic sequential machine in a duration polynomial in the size of the input.",
-          "section_name": "Context",
-          "section_index": 4
-        },
-        {
-          "source": "the simpsons",
-          "relation_type": "features",
-          "target": "p versus np problem",
-          "evidence": "In the sixth episode of The Simpsons' seventh season 'Treehouse of Horror VI', the equation P = NP is seen shortly after Homer accidentally stumbles into the 'third dimension'.",
-          "section_name": "Popular culture",
-          "section_index": 16
-        },
-        {
-          "source": "class p",
           "relation_type": "comparison with",
-          "target": "class np",
-          "evidence": "Class P consists of problems that can be solved in polynomial time, while class NP includes problems for which solutions can be verified in polynomial time, leading to the critical question of whether P equals NP.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "class NP",
-          "relation_type": "is characterized by",
-          "target": "verifier that runs in polynomial time",
-          "evidence": "However, a modern approach uses the concept of certificate and verifier... for L to be in NP, there must be a verifier that runs in polynomial time.",
-          "section_name": "Formal definitions - P and NP",
-          "section_index": 14
-        },
-        {
-          "source": "polynomial-time Turing machine",
-          "relation_type": "is used to determine",
-          "target": "polynomial-time reduction",
-          "evidence": "there exists a polynomial-time Turing machine that halts with f(w) on its tape on any input w",
+          "target": "class NP",
+          "evidence": "The relationship between class P and class NP is central to the discussion of NP-completeness.",
           "section_name": "Formal definitions - NP-completeness",
           "section_index": 14
         },
         {
-          "source": "polynomial hierarchy (ph)",
-          "relation_type": "corresponds to",
-          "target": "second-order logic",
+          "source": "william l. hosch",
+          "relation_type": "has written about",
+          "target": "p versus np problem",
+          "evidence": "Hosch, William L (11 August 2009). 'P versus NP problem mathematics'.",
+          "section_name": "Sources",
+          "section_index": 21
+        },
+        {
+          "source": "quickly verified",
+          "relation_type": "is a characteristic of problems in",
+          "target": "class np",
+          "evidence": "the class of questions where an answer can be verified in polynomial time is 'NP'.",
+          "section_name": "Introduction",
+          "section_index": 1
+        },
+        {
+          "source": "np-intermediate problems",
+          "relation_type": "examples of",
+          "target": "integer factorization problem",
+          "evidence": "The graph isomorphism problem, the discrete logarithm problem, and the integer factorization problem are examples of problems believed to be NP-intermediate.",
+          "section_name": "Problems in NP not known to be in P or NP-complete",
+          "section_index": 7
+        },
+        {
+          "source": "polynomial hierarchy (PH)",
+          "relation_type": "correspondence to second-order logic",
+          "target": "all of second-order logic",
           "evidence": "The languages in the polynomial hierarchy, PH, correspond to all of second-order logic.",
           "section_name": "Logical characterizations",
           "section_index": 12
         },
         {
-          "source": "Presburger arithmetic",
-          "relation_type": "requires more time than",
-          "target": "EXPTIME",
-          "evidence": "the problem of deciding the truth of a statement in Presburger arithmetic requires even more time.",
-          "section_name": "Harder problems",
-          "section_index": 6
-        },
-        {
-          "source": "algorithm research",
-          "relation_type": "influences",
-          "target": "implications for various fields",
-          "evidence": "Advancements in algorithm research have far-reaching implications across various fields, including cryptography, optimization, and artificial intelligence, as they rely on the efficiency of algorithms.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "algorithm research",
-          "relation_type": "is influenced by findings in",
-          "target": "complexity classes p and np",
-          "evidence": "Research in algorithms is deeply intertwined with the properties of complexity classes p and np, as advancements in understanding these classes can lead to new algorithmic strategies.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "current techniques",
-          "relation_type": "are no easier than",
-          "target": "proof of independence from PA or ZFC",
-          "evidence": "proving independence from PA or ZFC with current techniques is no easier than proving all NP problems have efficient algorithms",
-          "section_name": "Results about difficulty of proof",
-          "section_index": 11
-        },
-        {
-          "source": "vp vs. vnp problem",
-          "relation_type": "is similar to",
-          "target": "r vs. re problem",
-          "evidence": "A similar problem exists in the theory of algebraic complexity",
-          "section_name": "Similar problems",
-          "section_index": 17
-        },
-        {
-          "source": "np-complete problems",
-          "relation_type": "are examples of",
-          "target": "np-completeness",
-          "evidence": "NP-complete problems are a subset of NP problems that are as hard as the hardest problems in NP, illustrating the concept of np-completeness.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "p ≠ np",
-          "relation_type": "focuses research on",
-          "target": "partial solutions or solutions to other problems",
-          "evidence": "It would demonstrate that many common problems cannot be solved efficiently, so that the attention of researchers can be focused on partial solutions or solutions to other problems.",
-          "section_name": "Consequences of solution - P ≠ NP",
-          "section_index": 10
-        },
-        {
-          "source": "EXPTIME",
-          "relation_type": "includes",
-          "target": "EXPTIME-complete",
-          "evidence": "A decision problem is EXPTIME-complete if it is in EXPTIME, and every problem in EXPTIME has a polynomial-time many-one reduction to it.",
-          "section_name": "Harder problems",
-          "section_index": 6
-        },
-        {
-          "source": "class NP",
-          "relation_type": "is a class of problems that can be verified in",
-          "target": "polynomial time",
-          "evidence": "The class of questions where an answer can be verified in polynomial time is 'NP', standing for 'nondeterministic polynomial time'.",
-          "section_name": "Introduction",
-          "section_index": 1
-        },
-        {
-          "source": "p versus np problem",
-          "relation_type": "implication for",
-          "target": "algorithm research",
-          "evidence": "The p versus np problem is central to algorithm research as it questions the efficiency of algorithms in solving NP-complete problems, influencing the development of new algorithms and computational techniques.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "generalized sudoku problem",
-          "relation_type": "is related to",
-          "target": "np-complete problems",
-          "evidence": "The generalized sudoku problem is a specific instance of NP-complete problems, illustrating the complexity involved in solving such combinatorial puzzles.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "p versus np problem",
-          "relation_type": "independently introduced by",
-          "target": "leonid levin",
-          "evidence": "and independently by Leonid Levin in 1973.",
-          "section_name": "History",
-          "section_index": 3
-        },
-        {
-          "source": "incompatible students",
-          "relation_type": "are a factor in",
-          "target": "housing accommodations",
-          "evidence": "the Dean has provided you with a list of pairs of incompatible students, and requested that no pair from this list appear in your final choice.",
-          "section_name": "Sources",
-          "section_index": 21
-        },
-        {
-          "source": "undecidable but verifiable problems",
-          "relation_type": "includes example of",
-          "target": "hilbert's tenth problem",
-          "evidence": "for example, Hilbert's tenth problem which is RE-complete",
-          "section_name": "Similar problems",
-          "section_index": 17
-        },
-        {
-          "source": "linear time on a multitape turing machine",
-          "relation_type": "leads to the creation of",
-          "target": "classes dlin and nlin",
-          "evidence": "one obtains the classes DLIN and NLIN.",
-          "section_name": "Reasons to believe P ≠ NP or P = NP - DLIN vs NLIN",
-          "section_index": 9
-        },
-        {
-          "source": "class NP",
-          "relation_type": "consists of",
-          "target": "decision problems whose positive solutions are verifiable in polynomial time",
-          "evidence": "the class NP consists of all decision problems whose positive solutions are verifiable in polynomial time given the right information.",
-          "section_name": "Context",
-          "section_index": 4
-        },
-        {
-          "source": "cryptography",
-          "relation_type": "relies on the difficulty of",
-          "target": "integer factorization problem",
-          "evidence": "Cryptography often relies on the assumption that certain problems, like integer factorization, are hard to solve, which is closely related to discussions around NP problems.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "recursive functions",
-          "relation_type": "can be defined with",
-          "target": "least fixed-point combinator",
-          "evidence": "Recursive functions can be defined with this and the order relation.",
-          "section_name": "Logical characterizations",
-          "section_index": 12
-        },
-        {
-          "source": "exponential time",
-          "relation_type": "implies",
-          "target": "p ≠ np",
-          "evidence": "If proved (and Nash was suitably skeptical), this would imply what is now called P ≠ NP.",
-          "section_name": "History",
-          "section_index": 3
-        },
-        {
-          "source": "algorithm research",
-          "relation_type": "is impacted by the",
-          "target": "p versus np problem",
-          "evidence": "A proof either way would have profound implications for... algorithm research.",
-          "section_name": "Introduction",
-          "section_index": 1
-        },
-        {
-          "source": "np-complete problems",
-          "relation_type": "are reducible to",
-          "target": "any other NP problem",
-          "evidence": "NP-complete problems are problems that any other NP problem is reducible to in polynomial time.",
-          "section_name": "NP-completeness",
-          "section_index": 5
-        },
-        {
-          "source": "exponential time",
-          "relation_type": "contrasts with",
-          "target": "polynomial time",
-          "evidence": "Exponential time algorithms contrast sharply with polynomial time algorithms, highlighting the efficiency differences that are central to the p versus np discussion.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "historical context of np-completeness",
-          "relation_type": "informs the understanding of",
-          "target": "theoretical computer science",
-          "evidence": "The historical development of NP-completeness provides insights into the evolution of theoretical computer science, highlighting key figures and milestones that shaped the field.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "p = np",
-          "relation_type": "impacts",
-          "target": "cryptography",
-          "evidence": "A solution showing P = NP could upend the field of cryptography, which relies on certain problems being difficult.",
-          "section_name": "Consequences of solution - P = NP",
-          "section_index": 10
-        },
-        {
-          "source": "input",
-          "relation_type": "is required for",
-          "target": "levin's algorithm",
-          "evidence": "Input: S = a finite set of integers.",
-          "section_name": "Polynomial-time algorithms",
-          "section_index": 13
-        },
-        {
-          "source": "quantum computation",
-          "relation_type": "challenges traditional views on",
-          "target": "p versus np problem",
-          "evidence": "Quantum computation introduces new paradigms that may alter our understanding of the p versus np problem, suggesting that certain problems could be solved more efficiently than previously thought.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "np-complete problems",
-          "relation_type": "are a subset of",
+          "source": "r vs. re problem",
+          "relation_type": "is analogous to",
           "target": "class np",
-          "evidence": "By definition, np-complete problems are the hardest problems in the class np, meaning that if any np-complete problem can be solved in polynomial time, then all problems in np can be solved in polynomial time.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "cobham's thesis",
-          "relation_type": "assumption about complexity",
-          "target": "np-complete problems",
-          "evidence": "All of the above discussion has assumed that P means 'easy' and 'not in P' means 'difficult', an assumption known as Cobham's thesis.",
-          "section_name": "Does P mean \"easy\"?",
-          "section_index": 8
-        },
-        {
-          "source": "p versus np problem",
-          "relation_type": "has profound implications for",
-          "target": "various fields",
-          "evidence": "A proof either way would have profound implications for mathematics, cryptography, algorithm research, artificial intelligence, game theory, multimedia processing, philosophy, economics and many other fields.",
-          "section_name": "Introduction",
-          "section_index": 1
-        },
-        {
-          "source": "class np",
-          "relation_type": "is not equal to",
-          "target": "class p",
-          "evidence": "These classes are not equal",
+          "evidence": "RE is analog class NP",
           "section_name": "Similar problems",
           "section_index": 17
-        },
-        {
-          "source": "boolean satisfiability problem",
-          "relation_type": "example of",
-          "target": "np-complete problems",
-          "evidence": "The boolean satisfiability problem is a classic example of an NP-complete problem, illustrating the challenges of determining satisfiability in logical expressions.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "subset-sum",
-          "relation_type": "is an example of",
-          "target": "np-complete problem",
-          "evidence": "It correctly accepts the NP-complete language SUBSET-SUM.",
-          "section_name": "Polynomial-time algorithms",
-          "section_index": 13
-        },
-        {
-          "source": "quantum computation",
-          "relation_type": "may influence",
-          "target": "p versus np problem",
-          "evidence": "Quantum computation introduces new paradigms that could potentially alter our understanding of the p versus np problem, suggesting that quantum algorithms might solve certain NP problems more efficiently.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "cook–levin theorem",
-          "relation_type": "establishes the equivalence of",
-          "target": "np-complete problems",
-          "evidence": "The cook–levin theorem demonstrates that the boolean satisfiability problem is NP-complete, providing a foundational result in the theory of NP-completeness.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "algorithm",
-          "relation_type": "is related to",
-          "target": "np-complete problem",
-          "evidence": "However, there are algorithms known for NP-complete problems.",
-          "section_name": "Polynomial-time algorithms",
-          "section_index": 13
-        },
-        {
-          "source": "algorithm research",
-          "relation_type": "is driven by challenges in",
-          "target": "np-completeness",
-          "evidence": "The study of NP-complete problems motivates algorithm research, as finding efficient solutions to these problems has significant implications across various fields.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "algorithm design",
-          "relation_type": "is influenced by",
-          "target": "np-completeness",
-          "evidence": "Algorithm design often takes into account the implications of NP-completeness.",
-          "section_name": "Further reading",
-          "section_index": 22
-        },
-        {
-          "source": "p versus np problem",
-          "relation_type": "related to",
-          "target": "co-np-complete",
-          "evidence": "Gödel asked whether theorem-proving (now known to be co-NP-complete) could be solved in quadratic or linear time.",
-          "section_name": "History",
-          "section_index": 3
-        },
-        {
-          "source": "cook–levin theorem",
-          "relation_type": "establishes a connection between",
-          "target": "boolean satisfiability problem",
-          "evidence": "The cook–levin theorem demonstrates that the boolean satisfiability problem is np-complete, serving as a foundational result that links various computational problems.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "cook–levin theorem",
-          "relation_type": "foundation for",
-          "target": "np-completeness",
-          "evidence": "The cook–levin theorem established the first NP-complete problem, providing a foundational framework for understanding the concept of NP-completeness and its implications in computational complexity theory.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "class p",
-          "relation_type": "is a subset of",
-          "target": "class np",
-          "evidence": "Class P consists of problems that can be solved in polynomial time, which is a subset of the broader class NP that includes problems verifiable in polynomial time.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "cook–levin theorem",
-          "relation_type": "establishes the equivalence of",
-          "target": "boolean satisfiability problem and np-complete problems",
-          "evidence": "The cook–levin theorem demonstrates that the boolean satisfiability problem is NP-complete, serving as a foundational result that connects various NP-complete problems.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "cryptography",
-          "relation_type": "is impacted by",
-          "target": "p versus np problem",
-          "evidence": "The resolution of the p versus np problem has significant implications for cryptography, particularly regarding the security of encryption algorithms that rely on the difficulty of certain NP problems.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "fixed size Sudoku",
-          "relation_type": "has",
-          "target": "finite number of possible grids",
-          "evidence": "any fixed size Sudoku has only a finite number of possible grids",
-          "section_name": "Example",
-          "section_index": 2
-        },
-        {
-          "source": "donald knuth",
-          "relation_type": "opinion on",
-          "target": "p = np",
-          "evidence": "Donald Knuth has stated that he has come to believe that P = NP, but is reserved about the impact of a possible proof.",
-          "section_name": "Consequences of solution - P = NP",
-          "section_index": 10
-        },
-        {
-          "source": "algorithms",
-          "relation_type": "are used to solve problems in",
-          "target": "complexity classes",
-          "evidence": "Algorithms are designed to address problems categorized within various complexity classes.",
-          "section_name": "Further reading",
-          "section_index": 22
-        },
-        {
-          "source": "Cryptomania",
-          "relation_type": "represents",
-          "target": "P ≠ NP",
-          "evidence": "Cryptomania, where P ≠ NP and generating hard instances of problems outside P is easy.",
-          "section_name": "Consequences of solution - P ≠ NP",
-          "section_index": 10
-        },
-        {
-          "source": "cryptography",
-          "relation_type": "is affected by the outcome of",
-          "target": "p versus np problem",
-          "evidence": "The security of many cryptographic systems relies on the assumption that certain problems are hard to solve, which is directly tied to the unresolved p versus np question.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "sudoku",
-          "relation_type": "leads to a polynomial-time solution of",
-          "target": "satisfiability",
-          "evidence": "a polynomial-time solution to Sudoku leads, by a series of mechanical transformations, to a polynomial time solution of satisfiability.",
-          "section_name": "NP-completeness",
-          "section_index": 5
-        },
-        {
-          "source": "Russell Impagliazzo",
-          "relation_type": "described",
-          "target": "five hypothetical 'worlds'",
-          "evidence": "Russell Impagliazzo has described five hypothetical 'worlds' that could result from different possible resolutions to the average-case complexity question.",
-          "section_name": "Consequences of solution - P ≠ NP",
-          "section_index": 10
-        },
-        {
-          "source": "class P",
-          "relation_type": "is a class of problems that can be solved in",
-          "target": "polynomial time",
-          "evidence": "The general class of questions that some algorithm can answer in polynomial time is 'P' or 'class P'.",
-          "section_name": "Introduction",
-          "section_index": 1
-        },
-        {
-          "source": "purported proofs",
-          "relation_type": "includes",
-          "target": "proofs of P ≠ NP",
-          "evidence": "49 were proofs of P ≠ NP.",
-          "section_name": "Claimed solutions",
-          "section_index": 15
-        },
-        {
-          "source": "proof techniques",
-          "relation_type": "are essential for understanding",
-          "target": "np-completeness",
-          "evidence": "Various proof techniques, such as proof by reduction, are crucial for establishing the np-completeness of problems, thereby enhancing our understanding of computational complexity.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "np-completeness",
-          "relation_type": "is a concept within",
-          "target": "computational complexity theory",
-          "evidence": "NP-completeness is a central concept in computational complexity theory.",
-          "section_name": "Further reading",
-          "section_index": 22
-        },
-        {
-          "source": "finite alphabet",
-          "relation_type": "is the basis for",
-          "target": "language L",
-          "evidence": "Let L be a language over a finite alphabet Σ",
-          "section_name": "Formal definitions - NP-completeness",
-          "section_index": 14
-        },
-        {
-          "source": "p = np",
-          "relation_type": "practical benefits",
-          "target": "computational complexity theory",
-          "evidence": "A proof that P = NP would lack the practical computational benefits of a proof that P ≠ NP.",
-          "section_name": "Consequences of solution - P ≠ NP",
-          "section_index": 10
-        },
-        {
-          "source": "historical context of np-completeness",
-          "relation_type": "provides background for understanding",
-          "target": "algorithm research",
-          "evidence": "Understanding the historical context of NP-completeness helps frame current algorithm research and the challenges posed by NP-complete problems.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "complexity classes p and np",
-          "relation_type": "is studied in",
-          "target": "computational complexity theory",
-          "evidence": "The relation between the complexity classes P and NP is studied in computational complexity theory.",
-          "section_name": "Context",
-          "section_index": 4
-        },
-        {
-          "source": "L'",
-          "relation_type": "is polynomial-time reducible to",
-          "target": "L",
-          "evidence": "any L' in NP is polynomial-time-reducible to L",
-          "section_name": "Formal definitions - NP-completeness",
-          "section_index": 14
-        },
-        {
-          "source": "np",
-          "relation_type": "is related to",
-          "target": "p versus np problem",
-          "evidence": "This problem concerns the issue of whether questions that are easy to verify (a class of queries called NP) also have solutions that are easy to find (a class called P).",
-          "section_name": "Sources",
-          "section_index": 21
-        },
-        {
-          "source": "Heuristica",
-          "relation_type": "describes",
-          "target": "P ≠ NP but all problems in NP are tractable in the average case",
-          "evidence": "The 'world' where P ≠ NP but all problems in NP are tractable in the average case is called 'Heuristica' in the paper.",
-          "section_name": "Consequences of solution - P ≠ NP",
-          "section_index": 10
-        },
-        {
-          "source": "Fischer and Rabin",
-          "relation_type": "proved",
-          "target": "runtime of Presburger statements",
-          "evidence": "Fischer and Rabin proved in 1974 that every algorithm that decides the truth of Presburger statements of length n has a runtime of at least 2^{2^{cn}} for some constant c.",
-          "section_name": "Harder problems",
-          "section_index": 6
-        },
-        {
-          "source": "p = np problem",
-          "relation_type": "can be restated as",
-          "target": "logical statements",
-          "evidence": "The P = NP problem can be restated as certain classes of logical statements, as a result of work in descriptive complexity.",
-          "section_name": "Logical characterizations",
-          "section_index": 12
-        },
-        {
-          "source": "p versus np problem",
-          "relation_type": "is a central question in",
-          "target": "computational complexity theory",
-          "evidence": "The p versus np problem is a fundamental question that explores the relationship between the complexity classes P and NP, which are central to the field of computational complexity theory.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "big O notation",
-          "relation_type": "is used to describe",
-          "target": "polynomial time complexity",
-          "evidence": "where O refers to the big O notation.",
-          "section_name": "Formal definitions - P and NP",
-          "section_index": 14
-        },
-        {
-          "source": "p versus np problem",
-          "relation_type": "is considered",
-          "target": "undecidable",
-          "evidence": "6 proved other results, e.g. that the problem is undecidable.",
-          "section_name": "Claimed solutions",
-          "section_index": 15
-        },
-        {
-          "source": "housing accommodations",
-          "relation_type": "is an example of",
-          "target": "np",
-          "evidence": "To complicate matters, the Dean has provided you with a list of pairs of incompatible students, and requested that no pair from this list appear in your final choice. This is an example of what computer scientists call an NP-problem.",
-          "section_name": "Sources",
-          "section_index": 21
-        },
-        {
-          "source": "p versus np problem",
-          "relation_type": "is one of the",
-          "target": "Millennium Prize Problems",
-          "evidence": "It is one of the seven Millennium Prize Problems selected by the Clay Mathematics Institute.",
-          "section_name": "Introduction",
-          "section_index": 1
-        },
-        {
-          "source": "np-complete problem",
-          "relation_type": "is characterized by",
-          "target": "polynomial time",
-          "evidence": "No known algorithm for a NP-complete problem runs in polynomial time.",
-          "section_name": "Polynomial-time algorithms",
-          "section_index": 13
-        },
-        {
-          "source": "graph isomorphism problem",
-          "relation_type": "affects",
-          "target": "polynomial time hierarchy",
-          "evidence": "If graph isomorphism is NP-complete, the polynomial time hierarchy collapses to its second level.",
-          "section_name": "Problems in NP not known to be in P or NP-complete",
-          "section_index": 7
-        },
-        {
-          "source": "László Babai",
-          "relation_type": "developed",
-          "target": "algorithm for graph isomorphism problem",
-          "evidence": "The best algorithm for this problem, due to László Babai, runs in quasi-polynomial time.",
-          "section_name": "Problems in NP not known to be in P or NP-complete",
-          "section_index": 7
-        },
-        {
-          "source": "L",
-          "relation_type": "is NP-complete if",
-          "target": "another NP-complete problem",
-          "evidence": "if L ∈ NP, and there is another NP-complete problem that can be polynomial-time reduced to L, then L is NP-complete",
-          "section_name": "Formal definitions - NP-completeness",
-          "section_index": 14
-        },
-        {
-          "source": "P",
-          "relation_type": "is a subset of",
-          "target": "NP",
-          "evidence": "Clearly, P ⊆ NP.",
-          "section_name": "Context",
-          "section_index": 4
-        },
-        {
-          "source": "p = np",
-          "relation_type": "is related to",
-          "target": "np-complete problems",
-          "evidence": "if a polynomial-time algorithm can be demonstrated for an NP-complete problem, this would solve the P = NP problem",
-          "section_name": "Results about difficulty of proof",
-          "section_index": 11
-        },
-        {
-          "source": "peano axioms",
-          "relation_type": "are weaker than",
-          "target": "zfc",
-          "evidence": "if the problem is undecidable even with much weaker assumptions extending the Peano axioms",
-          "section_name": "Results about difficulty of proof",
-          "section_index": 11
-        },
-        {
-          "source": "class P",
-          "relation_type": "is defined by",
-          "target": "deterministic polynomial-time Turing machine",
-          "evidence": "Formally, P is the set of languages that can be decided by a deterministic polynomial-time Turing machine.",
-          "section_name": "Formal definitions - P and NP",
-          "section_index": 14
-        },
-        {
-          "source": "proof by reduction",
-          "relation_type": "is a technique used in",
-          "target": "establishing np-completeness",
-          "evidence": "Proof by reduction is a fundamental technique in computational complexity that is used to show that one problem is at least as hard as another, which is essential for proving that a problem is NP-complete.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "np-hard problems",
-          "relation_type": "are at least as hard as",
-          "target": "NP problems",
-          "evidence": "NP-hard problems are those at least as hard as NP problems.",
-          "section_name": "NP-completeness",
-          "section_index": 5
-        },
-        {
-          "source": "sudoku",
-          "relation_type": "is reducible to",
-          "target": "Latin squares",
-          "evidence": "the proof shows that a solution of Sudoku in polynomial time could also be used to complete Latin squares in polynomial time.",
-          "section_name": "NP-completeness",
-          "section_index": 5
-        },
-        {
-          "source": "elementary",
-          "relation_type": "depicts",
-          "target": "mathematicians",
-          "evidence": "In the second episode of season 2 of Elementary, 'Solve for X' Sherlock and Watson investigate the murders of mathematicians who were attempting to solve P versus NP.",
-          "section_name": "Popular culture",
-          "section_index": 16
-        },
-        {
-          "source": "np-complete problems",
-          "relation_type": "relevant to",
-          "target": "operations research",
-          "evidence": "There are also enormous benefits that would follow from rendering tractable many currently mathematically intractable problems. For instance, many problems in operations research are NP-complete.",
-          "section_name": "Consequences of solution - P = NP",
-          "section_index": 10
-        },
-        {
-          "source": "kurt gödel",
-          "relation_type": "influenced",
-          "target": "automation of mathematical proofs",
-          "evidence": "Kurt Gödel's work on incompleteness has influenced the field of automation of mathematical proofs, as it raises questions about the limits of formal systems.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "boolean satisfiability problem",
-          "relation_type": "is one of many",
-          "target": "NP-complete problems",
-          "evidence": "The Boolean satisfiability problem is one of many NP-complete problems.",
-          "section_name": "NP-completeness",
-          "section_index": 5
-        },
-        {
-          "source": "resources required during computation",
-          "relation_type": "includes",
-          "target": "time",
-          "evidence": "The most common resources are time (how many steps it takes to solve a problem) and space (how much memory it takes to solve a problem).",
-          "section_name": "Context",
-          "section_index": 4
-        },
-        {
-          "source": "sequential computation",
-          "relation_type": "is a characteristic of",
-          "target": "deterministic machine",
-          "evidence": "Typically such models assume that the computer is deterministic and sequential (it performs actions one after the other).",
-          "section_name": "Context",
-          "section_index": 4
-        },
-        {
-          "source": "output",
-          "relation_type": "is produced by",
-          "target": "levin's algorithm",
-          "evidence": "Output: 'yes' if any subset of S adds up to 0.",
-          "section_name": "Polynomial-time algorithms",
-          "section_index": 13
-        },
-        {
-          "source": "algorithm",
-          "relation_type": "is a fundamental concept in",
-          "target": "computational complexity theory",
-          "evidence": "Algorithms are central to computational complexity theory as they define the methods by which problems are solved and classified based on their time and space requirements.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "deterministic machine",
-          "relation_type": "is a type of",
-          "target": "sequential computation",
-          "evidence": "Deterministic machines operate under a model of sequential computation, which is a fundamental concept in understanding how algorithms are executed.",
-          "section_name": "global",
-          "section_index": -1
         },
         {
           "source": "verifier",
@@ -1193,202 +249,90 @@
           "section_index": 14
         },
         {
-          "source": "cook–levin theorem",
-          "relation_type": "establishes a relationship between",
-          "target": "boolean satisfiability problem",
-          "evidence": "The cook–levin theorem demonstrates that the boolean satisfiability problem is NP-complete, serving as a cornerstone for proving the NP-completeness of other problems through reductions.",
-          "section_name": "global",
-          "section_index": -1
+          "source": "example of housing accommodations problem",
+          "relation_type": "is an example of",
+          "target": "np",
+          "evidence": "To complicate matters, the Dean has provided you with a list of pairs of incompatible students, and requested that no pair from this list appear in your final choice. This is an example of what computer scientists call an NP-problem.",
+          "section_name": "Sources",
+          "section_index": 21
         },
         {
-          "source": "simplex algorithm",
-          "relation_type": "practical performance",
-          "target": "polynomial algorithm",
-          "evidence": "The simplex algorithm in linear programming... despite having exponential worst-case time complexity, it runs on par with the best known polynomial-time algorithms.",
-          "section_name": "Does P mean \"easy\"?",
-          "section_index": 8
-        },
-        {
-          "source": "p = np",
-          "relation_type": "may be independent from",
-          "target": "axiom systems",
-          "evidence": "some computer scientists to suggest the P versus NP problem may be independent of standard axiom systems like ZFC",
-          "section_name": "Results about difficulty of proof",
-          "section_index": 11
-        },
-        {
-          "source": "np-completeness",
-          "relation_type": "is a concept that arises from",
-          "target": "cook–levin theorem",
-          "evidence": "The cook–levin theorem established the first NP-complete problem, which is foundational to the concept of NP-completeness and its implications in theoretical computer science.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "gödel's thoughts on computational complexity",
-          "relation_type": "suggests",
-          "target": "p = np",
-          "evidence": "Gödel, in his early thoughts on computational complexity, noted that a mechanical method that could solve any problem would revolutionize mathematics.",
-          "section_name": "Consequences of solution - P = NP",
+          "source": "Heuristica",
+          "relation_type": "is a world where",
+          "target": "P ≠ NP but all problems in NP are tractable in the average case",
+          "evidence": "The 'world' where P ≠ NP but all problems in NP are tractable in the average case is called 'Heuristica' in the paper.",
+          "section_name": "Consequences of solution - P ≠ NP",
           "section_index": 10
         },
         {
-          "source": "historical context of np-completeness",
-          "relation_type": "informs",
-          "target": "theoretical computer science",
-          "evidence": "Understanding the historical context of NP-completeness provides insights into the evolution of theoretical computer science and the development of complexity classes.",
+          "source": "gerhard j. woeginger",
+          "relation_type": "compiled",
+          "target": "116 purported proofs",
+          "evidence": "Gerhard J. Woeginger compiled a list of 116 purported proofs from 1986 to 2016",
+          "section_name": "Claimed solutions",
+          "section_index": 15
+        },
+        {
+          "source": "116 purported proofs",
+          "relation_type": "includes",
+          "target": "6 proved other results",
+          "evidence": "and 6 proved other results, e.g. that the problem is undecidable",
+          "section_name": "Claimed solutions",
+          "section_index": 15
+        },
+        {
+          "source": "class p",
+          "relation_type": "subset of complexity classes",
+          "target": "class np",
+          "evidence": "Class p is a subset of class np, indicating that problems that can be solved in polynomial time can also be verified in polynomial time, which is a foundational concept in computational complexity theory.",
           "section_name": "global",
           "section_index": -1
         },
         {
-          "source": "john nash",
-          "relation_type": "related to",
-          "target": "algorithm research",
-          "evidence": "John Nash's contributions to game theory have implications for algorithm research, particularly in developing algorithms for strategic decision-making.",
+          "source": "computational complexity",
+          "relation_type": "is related to",
+          "target": "class p",
+          "evidence": "the discussion of polynomial-time algorithms relates to computational complexity",
+          "section_name": "Example",
+          "section_index": 2
+        },
+        {
+          "source": "quantum computation",
+          "relation_type": "may provide insights into",
+          "target": "p versus np problem",
+          "evidence": "Quantum computation introduces new paradigms for solving problems, which could potentially lead to breakthroughs in understanding the p versus np problem.",
           "section_name": "global",
           "section_index": -1
         },
         {
-          "source": "graph isomorphism problem",
-          "relation_type": "is believed to be",
-          "target": "not NP-complete",
-          "evidence": "It is believed that the problem is at least not NP-complete.",
-          "section_name": "Problems in NP not known to be in P or NP-complete",
-          "section_index": 7
-        },
-        {
-          "source": "decision problem",
-          "relation_type": "is defined as",
-          "target": "problem that takes as input some string w over an alphabet Σ, and outputs 'yes' or 'no'",
-          "evidence": "A decision problem is a problem that takes as input some string w over an alphabet Σ, and outputs 'yes' or 'no'.",
-          "section_name": "Formal definitions - P and NP",
-          "section_index": 14
-        },
-        {
-          "source": "p ≠ np",
-          "relation_type": "implies significant consequences for",
-          "target": "algorithm research",
-          "evidence": "If p is not equal to np, it would imply that certain problems cannot be solved efficiently, thus shaping the direction of algorithm research and development.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "descriptive complexity",
-          "relation_type": "involves",
-          "target": "first-order logic",
-          "evidence": "all such languages in P are expressible in first-order logic with the addition of a suitable least fixed-point combinator.",
-          "section_name": "Logical characterizations",
-          "section_index": 12
-        },
-        {
-          "source": "integer factorization problem",
-          "relation_type": "is in",
-          "target": "NP",
-          "evidence": "The integer factorization problem is in NP and in co-NP.",
-          "section_name": "Problems in NP not known to be in P or NP-complete",
-          "section_index": 7
-        },
-        {
-          "source": "poll results on p vs np",
-          "relation_type": "indicate confidence in",
-          "target": "P ≠ NP",
-          "evidence": "Confidence that P ≠ NP has been increasing – in 2019, 88% believed P ≠ NP.",
-          "section_name": "Context",
-          "section_index": 4
-        },
-        {
-          "source": "p = np",
-          "relation_type": "is a hypothesis regarding",
-          "target": "algorithm research",
-          "evidence": "The hypothesis that p equals np has profound implications for algorithm research, as it would suggest that many problems currently believed to be intractable could be solved efficiently.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "class NP",
-          "relation_type": "is defined using",
-          "target": "nondeterministic Turing machines",
-          "evidence": "NP can be defined similarly using nondeterministic Turing machines (the traditional way).",
-          "section_name": "Formal definitions - P and NP",
-          "section_index": 14
-        },
-        {
-          "source": "semi-algorithm",
-          "relation_type": "is defined as",
-          "target": "algorithm",
-          "evidence": "Accepting means it gives 'yes' answers in polynomial time, but is allowed to run forever when the answer is 'no'.",
+          "source": "algorithm research",
+          "relation_type": "is concerned with",
+          "target": "np-complete problems",
+          "evidence": "However, there are algorithms known for NP-complete problems...",
           "section_name": "Polynomial-time algorithms",
           "section_index": 13
         },
         {
-          "source": "zfc",
-          "relation_type": "is an example of",
-          "target": "axiom systems",
-          "evidence": "independent of standard axiom systems like ZFC",
-          "section_name": "Results about difficulty of proof",
-          "section_index": 11
+          "source": "np-completeness",
+          "relation_type": "is a concept within",
+          "target": "computational complexity",
+          "evidence": "NP-completeness is a key concept that arises in the study of computational complexity.",
+          "section_name": "Further reading",
+          "section_index": 22
         },
         {
-          "source": "quantum computation",
-          "relation_type": "may provide solutions to",
-          "target": "p versus np problem",
-          "evidence": "Quantum computation introduces new paradigms that could potentially resolve the p versus np problem, as seen with algorithms like Shor's algorithm that efficiently solve problems believed to be hard for classical computers.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "exponential time",
-          "relation_type": "is contrasted with",
-          "target": "polynomial time",
-          "evidence": "Exponential time algorithms are often contrasted with polynomial time algorithms, as they represent a significant increase in computational resources required to solve problems.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "boolean satisfiability problem",
-          "relation_type": "is NP-complete by",
-          "target": "Cook–Levin theorem",
-          "evidence": "the Boolean satisfiability problem is NP-complete by the Cook–Levin theorem.",
-          "section_name": "NP-completeness",
-          "section_index": 5
-        },
-        {
-          "source": "np-intermediate problems",
-          "relation_type": "examples of",
-          "target": "graph isomorphism problem",
-          "evidence": "The graph isomorphism problem, the discrete logarithm problem, and the integer factorization problem are examples of problems believed to be NP-intermediate.",
-          "section_name": "Problems in NP not known to be in P or NP-complete",
-          "section_index": 7
-        },
-        {
-          "source": "integer factorization problem",
-          "relation_type": "basis for",
-          "target": "RSA algorithm",
-          "evidence": "No efficient integer factorization algorithm is known, and this fact forms the basis of several modern cryptographic systems, such as the RSA algorithm.",
-          "section_name": "Problems in NP not known to be in P or NP-complete",
-          "section_index": 7
-        },
-        {
-          "source": "resources required during computation",
-          "relation_type": "includes",
-          "target": "space",
-          "evidence": "The most common resources are time (how many steps it takes to solve a problem) and space (how much memory it takes to solve a problem).",
-          "section_name": "Context",
-          "section_index": 4
-        },
-        {
-          "source": "fermat's last theorem",
-          "relation_type": "example of",
-          "target": "theorems that are hard to prove",
-          "evidence": "Research mathematicians spend their careers trying to prove theorems, and some proofs have taken decades or even centuries to find after problems have been stated—for instance, Fermat's Last Theorem took over three centuries to prove.",
+          "source": "3-sat",
+          "relation_type": "example of NP-complete problem",
+          "target": "np-complete problems",
+          "evidence": "A constructive and efficient solution to an NP-complete problem such as 3-SAT would break most existing cryptosystems.",
           "section_name": "Consequences of solution - P = NP",
           "section_index": 10
         },
         {
-          "source": "undecidable problems",
-          "relation_type": "are more difficult than",
-          "target": "EXPTIME",
-          "evidence": "Even more difficult are the undecidable problems, such as the halting problem.",
+          "source": "Presburger arithmetic",
+          "relation_type": "requires more time than",
+          "target": "EXPTIME-complete problems",
+          "evidence": "The problem of deciding the truth of a statement in Presburger arithmetic requires even more time.",
           "section_name": "Harder problems",
           "section_index": 6
         },
@@ -1402,147 +346,99 @@
         },
         {
           "source": "p versus np problem",
-          "relation_type": "challenges",
-          "target": "algorithm research",
-          "evidence": "The p versus np problem is a central question in theoretical computer science that directly influences algorithm research, as it determines the feasibility of solving problems efficiently.",
-          "section_name": "global",
-          "section_index": -1
+          "relation_type": "involves verification in",
+          "target": "polynomial time",
+          "evidence": "since a proposed key can be verified in polynomial time.",
+          "section_name": "History",
+          "section_index": 3
         },
         {
-          "source": "class p",
-          "relation_type": "subset of",
-          "target": "class np",
-          "evidence": "Class P is a subset of Class NP, indicating that all problems that can be solved in polynomial time can also be verified in polynomial time, which is a foundational concept in computational complexity.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "quantum computation",
-          "relation_type": "offers alternative approaches to",
-          "target": "classical computational problems",
-          "evidence": "Quantum computation introduces new paradigms for solving problems, potentially affecting the classification of problems within complexity classes such as P and NP.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "clay mathematics institute",
-          "relation_type": "sponsor of",
-          "target": "millennium prize problems",
-          "evidence": "The Clay Mathematics Institute sponsors the millennium prize problems, including the p versus np problem, emphasizing its importance in the mathematical community.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "william gasarch",
-          "relation_type": "conducted polls on",
-          "target": "p versus np problem",
-          "evidence": "Since 2002, William Gasarch has conducted three polls of researchers concerning this and related questions.",
+          "source": "poll results on p vs np",
+          "relation_type": "reflects",
+          "target": "subjective opinion of this era",
+          "evidence": "These polls do not imply whether P = NP... but it attempts to be an objective report on the subjective opinion of this era.",
           "section_name": "Context",
           "section_index": 4
         },
         {
-          "source": "boolean satisfiability problem",
-          "relation_type": "is an example of",
-          "target": "np-complete problems",
-          "evidence": "The boolean satisfiability problem (SAT) is the first problem that was proven to be NP-complete, serving as a benchmark for other NP-complete problems.",
+          "source": "automated discovery of mathematical proofs",
+          "relation_type": "influenced by",
+          "target": "algorithm research",
+          "evidence": "The automated discovery of mathematical proofs is influenced by advancements in algorithm research, particularly in the context of solving complex problems like those in class NP.",
           "section_name": "global",
           "section_index": -1
         },
         {
-          "source": "generalized sudoku problem",
-          "relation_type": "is in",
-          "target": "np",
-          "evidence": "generalized Sudoku is in NP (quickly verifiable)",
-          "section_name": "Example",
-          "section_index": 2
-        },
-        {
-          "source": "time hierarchy theorem",
-          "relation_type": "implies",
-          "target": "EXPTIME",
-          "evidence": "by the time hierarchy theorem, they cannot be solved in significantly less than exponential time.",
-          "section_name": "Harder problems",
-          "section_index": 6
-        },
-        {
-          "source": "exponential time",
-          "relation_type": "is associated with",
-          "target": "np-hard problems",
-          "evidence": "NP-hard problems are often characterized by their requirement for exponential time solutions, highlighting the complexity and difficulty of these problems.",
+          "source": "cook–levin theorem",
+          "relation_type": "establishes the equivalence of",
+          "target": "boolean satisfiability problem and np-complete problems",
+          "evidence": "The Cook-Levin theorem shows that the boolean satisfiability problem is NP-complete, which is a pivotal result in understanding the nature of NP-completeness.",
           "section_name": "global",
           "section_index": -1
         },
         {
-          "source": "purported proofs",
-          "relation_type": "includes",
-          "target": "proofs of P = NP",
-          "evidence": "of which 61 were proofs of P = NP.",
-          "section_name": "Claimed solutions",
-          "section_index": 15
-        },
-        {
-          "source": "p = np",
-          "relation_type": "could lead to",
-          "target": "efficient algorithms",
-          "evidence": "Even if the proof is constructive, showing an explicit bounding polynomial and algorithmic details, if the polynomial is not very low-order the algorithm might not be sufficiently efficient in practice.",
-          "section_name": "Consequences of solution - P = NP",
-          "section_index": 10
-        },
-        {
-          "source": "Turing machine",
-          "relation_type": "is used to verify",
-          "target": "NP-complete problems",
-          "evidence": "it is NP-complete because the verifier for any particular instance of a problem in NP can be encoded as a polynomial-time machine M.",
-          "section_name": "NP-completeness",
-          "section_index": 5
+          "source": "the simpsons",
+          "relation_type": "references",
+          "target": "p versus np problem",
+          "evidence": "In the sixth episode of The Simpsons' seventh season 'Treehouse of Horror VI', the equation P = NP is seen...",
+          "section_name": "Popular culture",
+          "section_index": 16
         },
         {
           "source": "table lookup",
-          "relation_type": "is a method for",
-          "target": "solving fixed size Sudoku",
+          "relation_type": "is a method for solving",
+          "target": "class p",
           "evidence": "the answer can be found by table lookup",
           "section_name": "Example",
           "section_index": 2
         },
         {
-          "source": "p versus np problem",
-          "relation_type": "is a central problem in",
-          "target": "theoretical computer science",
-          "evidence": "The p versus np problem is a fundamental question in theoretical computer science.",
-          "section_name": "Further reading",
-          "section_index": 22
+          "source": "proof by reduction",
+          "relation_type": "provides a method to show",
+          "target": "many other problems are NP-complete",
+          "evidence": "proof by reduction provided a simpler way to show that many other problems are also NP-complete.",
+          "section_name": "NP-completeness",
+          "section_index": 5
         },
         {
-          "source": "exponential time",
-          "relation_type": "characteristic of",
-          "target": "np-hard problems",
-          "evidence": "NP-hard problems are characterized by their requirement for exponential time to solve, indicating their complexity and the challenges they pose in computational theory.",
+          "source": "vp vs. vnp problem",
+          "relation_type": "is similar to",
+          "target": "r vs. re problem",
+          "evidence": "A similar problem exists in the theory of algebraic complexity: VP vs. VNP problem",
+          "section_name": "Similar problems",
+          "section_index": 17
+        },
+        {
+          "source": "Turing machine",
+          "relation_type": "is used to define",
+          "target": "NP",
+          "evidence": "a trivial NP-complete problem can be formulated as follows: given a Turing machine M guaranteed to halt in polynomial time.",
+          "section_name": "NP-completeness",
+          "section_index": 5
+        },
+        {
+          "source": "clay mathematics institute",
+          "relation_type": "selected the",
+          "target": "millennium prize problems",
+          "evidence": "It is one of the seven Millennium Prize Problems selected by the Clay Mathematics Institute.",
+          "section_name": "Introduction",
+          "section_index": 1
+        },
+        {
+          "source": "operations research",
+          "relation_type": "field impacted by NP-complete problems",
+          "target": "np-complete problems",
+          "evidence": "Many problems in operations research are NP-complete, such as types of integer programming and the travelling salesman problem.",
+          "section_name": "Consequences of solution - P = NP",
+          "section_index": 10
+        },
+        {
+          "source": "p = np",
+          "relation_type": "is a hypothesis that impacts",
+          "target": "algorithm research",
+          "evidence": "If p equals np, it would revolutionize algorithm research by allowing efficient solutions to many currently intractable problems.",
           "section_name": "global",
           "section_index": -1
-        },
-        {
-          "source": "generalized sudoku problem",
-          "relation_type": "may or may not be in",
-          "target": "p",
-          "evidence": "it is not known whether there is a polynomial-time algorithm that can correctly answer 'yes' or 'no' to all instances of this problem",
-          "section_name": "Example",
-          "section_index": 2
-        },
-        {
-          "source": "proof techniques",
-          "relation_type": "are insufficient for",
-          "target": "p = np",
-          "evidence": "existing proof techniques are insufficient for answering the question",
-          "section_name": "Results about difficulty of proof",
-          "section_index": 11
-        },
-        {
-          "source": "levin's algorithm",
-          "relation_type": "is an example of",
-          "target": "semi-algorithm",
-          "evidence": "This is a polynomial-time algorithm accepting an NP-complete language only if P = NP.",
-          "section_name": "Polynomial-time algorithms",
-          "section_index": 13
         },
         {
           "source": "3-SAT",
@@ -1553,188 +449,204 @@
           "section_index": 5
         },
         {
-          "source": "proof by reduction",
-          "relation_type": "method used in",
-          "target": "np-completeness",
-          "evidence": "Proof by reduction is a fundamental method used to demonstrate the NP-completeness of various problems, establishing their computational difficulty relative to known NP-complete problems.",
+          "source": "p = np",
+          "relation_type": "condition for",
+          "target": "polynomial time",
+          "evidence": "it runs in polynomial time on inputs that are in SUBSET-SUM if and only if P = NP.",
+          "section_name": "Polynomial-time algorithms",
+          "section_index": 13
+        },
+        {
+          "source": "william gasarch",
+          "relation_type": "conducted",
+          "target": "poll results on p vs np",
+          "evidence": "Since 2002, William Gasarch has conducted three polls of researchers concerning this and related questions.",
+          "section_name": "Context",
+          "section_index": 4
+        },
+        {
+          "source": "p versus np problem",
+          "relation_type": "is related to",
+          "target": "EXPTIME",
+          "evidence": "Although it is unknown whether P = NP, problems outside of P are known.",
+          "section_name": "Harder problems",
+          "section_index": 6
+        },
+        {
+          "source": "cook–levin theorem",
+          "relation_type": "establishes a connection between",
+          "target": "boolean satisfiability problem",
+          "evidence": "The cook–levin theorem shows that the boolean satisfiability problem is np-complete, thus linking it to the broader class of np-complete problems.",
           "section_name": "global",
           "section_index": -1
         },
         {
-          "source": "gerhard j. woeginger",
-          "relation_type": "compiled",
-          "target": "purported proofs",
-          "evidence": "Gerhard J. Woeginger compiled a list of 116 purported proofs from 1986 to 2016.",
+          "source": "Algorithmica",
+          "relation_type": "represents",
+          "target": "P = NP",
+          "evidence": "Algorithmica, where P = NP and problems like SAT can be solved efficiently in all instances.",
+          "section_name": "Consequences of solution - P ≠ NP",
+          "section_index": 10
+        },
+        {
+          "source": "116 purported proofs",
+          "relation_type": "includes",
+          "target": "49 proofs of P ≠ NP",
+          "evidence": "49 were proofs of P ≠ NP",
           "section_name": "Claimed solutions",
           "section_index": 15
-        },
-        {
-          "source": "p = np problem",
-          "relation_type": "is equivalent to",
-          "target": "p = ph",
-          "evidence": "P = NP if and only if P = PH.",
-          "section_name": "Logical characterizations",
-          "section_index": 12
-        },
-        {
-          "source": "randomized algorithms",
-          "relation_type": "alternative computation model",
-          "target": "np-complete problems",
-          "evidence": "there are types of computations which do not conform to the Turing machine model on which P and NP are defined, such as randomized algorithms.",
-          "section_name": "Does P mean \"easy\"?",
-          "section_index": 8
-        },
-        {
-          "source": "john nash",
-          "relation_type": "speculated about",
-          "target": "exponential time",
-          "evidence": "In 1955, mathematician John Nash wrote a letter to the NSA, speculating that cracking a sufficiently complex code would require time exponential in the length of the key.",
-          "section_name": "History",
-          "section_index": 3
-        },
-        {
-          "source": "proof by reduction",
-          "relation_type": "provides a method to show",
-          "target": "other problems are NP-complete",
-          "evidence": "proof by reduction provided a simpler way to show that many other problems are also NP-complete.",
-          "section_name": "NP-completeness",
-          "section_index": 5
-        },
-        {
-          "source": "polynomial algorithm",
-          "relation_type": "theoretical vs practical",
-          "target": "big o notation",
-          "evidence": "A theoretical polynomial algorithm may have extremely large constant factors or exponents, rendering it impractical.",
-          "section_name": "Does P mean \"easy\"?",
-          "section_index": 8
-        },
-        {
-          "source": "vp vs. vnp problem",
-          "relation_type": "has unknown answer",
-          "target": "unknown answer",
-          "evidence": "Like P vs. NP, the answer is currently unknown",
-          "section_name": "Similar problems",
-          "section_index": 17
-        },
-        {
-          "source": "polynomial time",
-          "relation_type": "is a measure of",
-          "target": "class p",
-          "evidence": "Class P consists of problems that can be solved in polynomial time, which is a key characteristic that differentiates it from NP problems.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "np-complete problems",
-          "relation_type": "are at least as tough as",
-          "target": "any other problem in NP",
-          "evidence": "an NP-complete problem is an NP problem that is at least as 'tough' as any other problem in NP.",
-          "section_name": "NP-completeness",
-          "section_index": 5
-        },
-        {
-          "source": "NP-completeness",
-          "relation_type": "is characterized by",
-          "target": "common proof technique",
-          "evidence": "this is a common way of proving some new problem is NP-complete",
-          "section_name": "Formal definitions - NP-completeness",
-          "section_index": 14
         },
         {
           "source": "co-np-complete",
           "relation_type": "related to",
           "target": "class np",
-          "evidence": "Co-np-complete problems are closely related to class NP, as they involve the complement of NP problems, further enriching the understanding of computational complexity.",
+          "evidence": "Co-np-complete problems are related to class NP, as they represent the complement of NP problems, further illustrating the complexity landscape in theoretical computer science.",
           "section_name": "global",
           "section_index": -1
         },
         {
-          "source": "algorithm",
-          "relation_type": "is central to the study of",
-          "target": "computational complexity theory",
-          "evidence": "Algorithms are the primary focus of computational complexity theory, as they define the methods for solving problems and are evaluated based on their efficiency and resource requirements.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "non-deterministic machine",
-          "relation_type": "is a theoretical model for",
-          "target": "class np",
-          "evidence": "Non-deterministic machines are used to define class NP, where solutions can be verified in polynomial time, highlighting the difference from deterministic machines.",
-          "section_name": "global",
-          "section_index": -1
-        },
-        {
-          "source": "Princeton University workshop 2009",
-          "relation_type": "studied",
-          "target": "status of the five worlds",
-          "evidence": "A Princeton University workshop in 2009 studied the status of the five worlds.",
-          "section_name": "Consequences of solution - P ≠ NP",
-          "section_index": 10
-        },
-        {
-          "source": "p versus np problem",
-          "relation_type": "is a type of",
+          "source": "clay mathematics institute",
+          "relation_type": "established",
           "target": "millennium prize problems",
-          "evidence": "This problem concerns the issue of whether questions that are easy to verify (a class of queries called NP) also have solutions that are easy to find (a class called P).",
-          "section_name": "Sources",
-          "section_index": 21
-        },
-        {
-          "source": "p = np problem",
-          "relation_type": "is reformulated as",
-          "target": "existential second-order logic",
-          "evidence": "the question 'is P a proper subset of NP' can be reformulated as 'is existential second-order logic able to describe languages...'",
-          "section_name": "Logical characterizations",
-          "section_index": 12
-        },
-        {
-          "source": "cryptography",
-          "relation_type": "relies on the difficulty of solving",
-          "target": "np-hard problems",
-          "evidence": "Many cryptographic systems are based on the assumption that certain NP-hard problems, such as integer factorization, are difficult to solve, which is crucial for their security.",
+          "evidence": "The Clay Mathematics Institute established the millennium prize problems to incentivize research in critical areas of mathematics, including the p versus np problem.",
           "section_name": "global",
           "section_index": -1
         },
         {
-          "source": "NP",
-          "relation_type": "is the set of languages expressible in",
-          "target": "existential second-order logic",
-          "evidence": "Similarly, NP is the set of languages expressible in existential second-order logic.",
-          "section_name": "Logical characterizations",
-          "section_index": 12
+          "source": "polynomial time",
+          "relation_type": "is the time complexity for problems in",
+          "target": "class p",
+          "evidence": "the general class of questions that some algorithm can answer in polynomial time is 'P' or 'class P'.",
+          "section_name": "Introduction",
+          "section_index": 1
         },
         {
-          "source": "r vs. re problem",
-          "relation_type": "is analogous to",
-          "target": "class np",
-          "evidence": "RE is analog class NP",
-          "section_name": "Similar problems",
-          "section_index": 17
+          "source": "independence result",
+          "relation_type": "could imply that",
+          "target": "P ≠ NP",
+          "evidence": "an independence result could imply that either P ≠ NP and this is unprovable in ZFC",
+          "section_name": "Results about difficulty of proof",
+          "section_index": 11
         },
         {
-          "source": "historical context of np-completeness",
-          "relation_type": "provides insight into",
-          "target": "theoretical computer science",
-          "evidence": "Understanding the historical development of np-completeness helps contextualize current research and the evolution of theoretical computer science.",
+          "source": "isbn",
+          "relation_type": "is a reference for",
+          "target": "books on computational complexity",
+          "evidence": "The ISBNs listed correspond to significant texts in the field of computational complexity.",
+          "section_name": "Further reading",
+          "section_index": 22
+        },
+        {
+          "source": "decision problem",
+          "relation_type": "is a fundamental concept in",
+          "target": "computational complexity",
+          "evidence": "The decision problem serves as a basis for classifying problems within computational complexity, influencing the understanding of classes like p and np.",
           "section_name": "global",
           "section_index": -1
         },
         {
-          "source": "chess strategy problem",
-          "relation_type": "is an example of",
-          "target": "EXPTIME-complete",
-          "evidence": "Examples include finding a perfect strategy for chess positions on an N × N board and similar problems for other board games.",
+          "source": "computational complexity theory",
+          "relation_type": "studies",
+          "target": "complexity classes p and np",
+          "evidence": "The relation between the complexity classes P and NP is studied in computational complexity theory.",
+          "section_name": "Context",
+          "section_index": 4
+        },
+        {
+          "source": "decision problem",
+          "relation_type": "is defined as",
+          "target": "a problem that takes as input some string w over an alphabet Σ, and outputs 'yes' or 'no'",
+          "evidence": "A decision problem is a problem that takes as input some string w over an alphabet Σ, and outputs 'yes' or 'no'.",
+          "section_name": "Formal definitions - P and NP",
+          "section_index": 14
+        },
+        {
+          "source": "EXPTIME",
+          "relation_type": "is defined as",
+          "target": "set of all decision problems with exponential running time",
+          "evidence": "the class EXPTIME is the set of all decision problems that have exponential running time.",
           "section_name": "Harder problems",
           "section_index": 6
         },
         {
+          "source": "exponential time",
+          "relation_type": "contrasts with",
+          "target": "polynomial time",
+          "evidence": "Exponential time algorithms are significantly less efficient than polynomial time algorithms, which are central to the P vs NP discussion.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "cryptography",
+          "relation_type": "relies on the difficulty of solving",
+          "target": "integer factorization problem",
+          "evidence": "Many cryptographic systems, such as RSA, depend on the assumption that integer factorization is hard, which is related to the broader discussions of complexity classes and the p versus np problem.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "average-case complexity",
+          "relation_type": "is a consideration in",
+          "target": "algorithm research",
+          "evidence": "Research in algorithms often takes into account average-case complexity to better understand the performance of algorithms beyond worst-case scenarios.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
           "source": "quantum computation",
-          "relation_type": "alternative computation model",
-          "target": "np-complete problems",
-          "evidence": "there are types of computations which do not conform to the Turing machine model on which P and NP are defined, such as quantum computation.",
+          "relation_type": "type of computation",
+          "target": "p and np",
+          "evidence": "Finally, there are types of computations which do not conform to the Turing machine model on which P and NP are defined, such as quantum computation and randomized algorithms.",
           "section_name": "Does P mean \"easy\"?",
           "section_index": 8
+        },
+        {
+          "source": "p = np",
+          "relation_type": "impact on NP-complete problems",
+          "target": "np-complete problems",
+          "evidence": "A proof that P = NP could have stunning practical consequences if the proof leads to efficient methods for solving some of the important problems in NP.",
+          "section_name": "Consequences of solution - P = NP",
+          "section_index": 10
+        },
+        {
+          "source": "big O notation",
+          "relation_type": "is used to describe",
+          "target": "the upper bound of the time complexity of algorithms",
+          "evidence": "where O refers to the big O notation.",
+          "section_name": "Formal definitions - P and NP",
+          "section_index": 14
+        },
+        {
+          "source": "class NP",
+          "relation_type": "includes",
+          "target": "NP-complete problems",
+          "evidence": "L is NP-complete if, and only if, L ∈ NP.",
+          "section_name": "Formal definitions - NP-completeness",
+          "section_index": 14
+        },
+        {
+          "source": "complexity classes",
+          "relation_type": "are defined by",
+          "target": "computational complexity",
+          "evidence": "Complexity classes are a fundamental aspect of the study of computational complexity.",
+          "section_name": "Further reading",
+          "section_index": 22
+        },
+        {
+          "source": "these attempts",
+          "relation_type": "have been",
+          "target": "refuted",
+          "evidence": "though these attempts have been refuted",
+          "section_name": "Claimed solutions",
+          "section_index": 15
+        },
+        {
+          "source": "generalized sudoku problem",
+          "relation_type": "is in",
+          "target": "class np",
+          "evidence": "generalized Sudoku is in NP (quickly verifiable)",
+          "section_name": "Example",
+          "section_index": 2
         },
         {
           "source": "stephen cook",
@@ -1745,12 +657,1020 @@
           "section_index": -1
         },
         {
-          "source": "NP",
+          "source": "p versus np problem",
+          "relation_type": "is considered",
+          "target": "unsolved",
+          "evidence": "While the P versus NP problem is generally considered unsolved",
+          "section_name": "Claimed solutions",
+          "section_index": 15
+        },
+        {
+          "source": "generalized sudoku problem",
+          "relation_type": "example of",
+          "target": "class np",
+          "evidence": "The generalized sudoku problem serves as an example of a problem in class NP, as it can be verified quickly, illustrating the characteristics of NP problems.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "non-deterministic machine",
+          "relation_type": "is used in the definition of",
+          "target": "class NP",
+          "evidence": "NP can be defined similarly using nondeterministic Turing machines.",
+          "section_name": "Formal definitions - P and NP",
+          "section_index": 14
+        },
+        {
+          "source": "p ≠ np",
+          "relation_type": "is a central problem in",
+          "target": "computational complexity theory",
+          "evidence": "the P = NP problem itself remains open despite a million-dollar prize and a huge amount of dedicated research",
+          "section_name": "Results about difficulty of proof",
+          "section_index": 11
+        },
+        {
+          "source": "finite number of possible grids",
           "relation_type": "implies",
+          "target": "class p",
+          "evidence": "any fixed size Sudoku has only a finite number of possible grids. In this case the problem is in P",
+          "section_name": "Example",
+          "section_index": 2
+        },
+        {
+          "source": "p versus np problem",
+          "relation_type": "challenges understanding of",
+          "target": "computational complexity",
+          "evidence": "The P vs NP problem is a central question in computational complexity theory, questioning whether every problem whose solution can be quickly verified can also be quickly solved.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "finite alphabet Σ",
+          "relation_type": "context for",
+          "target": "language L",
+          "evidence": "Let L be a language over a finite alphabet Σ.",
+          "section_name": "Formal definitions - NP-completeness",
+          "section_index": 14
+        },
+        {
+          "source": "Sudoku",
+          "relation_type": "is reducible to",
+          "target": "Latin squares",
+          "evidence": "the proof shows that a solution of Sudoku in polynomial time could also be used to complete Latin squares in polynomial time.",
+          "section_name": "NP-completeness",
+          "section_index": 5
+        },
+        {
+          "source": "polynomial time",
+          "relation_type": "substituted for",
+          "target": "linear time on a multitape turing machine",
+          "evidence": "When one substitutes 'linear time on a multitape Turing machine' for 'polynomial time' in the definitions of P and NP, one obtains the classes DLIN and NLIN.",
+          "section_name": "Reasons to believe P ≠ NP or P = NP - DLIN vs NLIN",
+          "section_index": 9
+        },
+        {
+          "source": "time hierarchy theorem",
+          "relation_type": "implies that",
+          "target": "EXPTIME-complete problems cannot be solved in significantly less than exponential time",
+          "evidence": "by the time hierarchy theorem, they cannot be solved in significantly less than exponential time.",
+          "section_name": "Harder problems",
+          "section_index": 6
+        },
+        {
+          "source": "historical context of np-completeness",
+          "relation_type": "provides background for understanding",
+          "target": "current computational complexity challenges",
+          "evidence": "Understanding the historical context of np-completeness helps frame the ongoing challenges and research directions in computational complexity.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "vp vs. vnp problem",
+          "relation_type": "has unknown answer",
+          "target": "unknown answer",
+          "evidence": "Like P vs. NP, the answer is currently unknown",
+          "section_name": "Similar problems",
+          "section_index": 17
+        },
+        {
+          "source": "historical context of np-completeness",
+          "relation_type": "development of theoretical concepts",
+          "target": "stephen cook",
+          "evidence": "Stephen Cook's work laid the foundation for the historical context of np-completeness, influencing the evolution of theoretical computer science and the understanding of computational problems.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "quantum computation",
+          "relation_type": "challenges traditional views on",
+          "target": "p versus np problem",
+          "evidence": "Quantum algorithms, such as Shor's algorithm, suggest that certain problems may be solvable more efficiently than previously thought, prompting reevaluation of the p versus np question.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "p versus np problem",
+          "relation_type": "introduced independently by",
+          "target": "leonid levin",
+          "evidence": "and independently by Leonid Levin in 1973.",
+          "section_name": "History",
+          "section_index": 3
+        },
+        {
+          "source": "p ≠ np",
+          "relation_type": "focuses research on",
+          "target": "partial solutions or solutions to other problems",
+          "evidence": "It would demonstrate that many common problems cannot be solved efficiently, so that the attention of researchers can be focused on partial solutions or solutions to other problems.",
+          "section_name": "Consequences of solution - P ≠ NP",
+          "section_index": 10
+        },
+        {
+          "source": "historical context of np-completeness",
+          "relation_type": "is relevant to understanding",
+          "target": "p = np",
+          "evidence": "The historical context of NP-completeness is important in discussions about P = NP.",
+          "section_name": "Polynomial-time algorithms",
+          "section_index": 13
+        },
+        {
+          "source": "exponential time",
+          "relation_type": "implies",
+          "target": "p ≠ np",
+          "evidence": "If proved (and Nash was suitably skeptical), this would imply what is now called P ≠ NP.",
+          "section_name": "History",
+          "section_index": 3
+        },
+        {
+          "source": "proof techniques",
+          "relation_type": "are essential for establishing",
+          "target": "np-completeness",
+          "evidence": "Various proof techniques, such as polynomial-time reductions, are crucial for demonstrating that a problem is np-complete, linking the methods of proof to the classification of problems.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "p versus np problem",
+          "relation_type": "is a major unsolved problem in",
+          "target": "theoretical computer science",
+          "evidence": "The P versus NP problem is a major unsolved problem in theoretical computer science.",
+          "section_name": "Introduction",
+          "section_index": 1
+        },
+        {
+          "source": "p versus np problem",
+          "relation_type": "is a central question in",
+          "target": "computational complexity theory",
+          "evidence": "The p versus np problem is foundational in computational complexity theory, as it questions whether every problem whose solution can be quickly verified can also be quickly solved.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "undecidable but verifiable problems",
+          "relation_type": "includes example of",
+          "target": "hilbert's tenth problem",
+          "evidence": "for example, Hilbert's tenth problem which is RE-complete",
+          "section_name": "Similar problems",
+          "section_index": 17
+        },
+        {
+          "source": "descriptive complexity",
+          "relation_type": "context for logical statements",
+          "target": "P = NP problem",
+          "evidence": "The P = NP problem can be restated as certain classes of logical statements, as a result of work in descriptive complexity.",
+          "section_name": "Logical characterizations",
+          "section_index": 12
+        },
+        {
+          "source": "empirical average-case complexity",
+          "relation_type": "describes performance",
+          "target": "simplex algorithm",
+          "evidence": "An example is the simplex algorithm in linear programming, which works surprisingly well in practice.",
+          "section_name": "Does P mean \"easy\"?",
+          "section_index": 8
+        },
+        {
+          "source": "cook–levin theorem",
+          "relation_type": "establishes the equivalence of",
+          "target": "boolean satisfiability problem",
+          "evidence": "The Cook-Levin theorem shows that the boolean satisfiability problem is NP-complete, linking it to the broader class of NP problems.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "P versus NP problem",
+          "relation_type": "may be independent of",
+          "target": "standard axiom systems like ZFC",
+          "evidence": "some computer scientists suggest the P versus NP problem may be independent of standard axiom systems like ZFC",
+          "section_name": "Results about difficulty of proof",
+          "section_index": 11
+        },
+        {
+          "source": "proof techniques",
+          "relation_type": "are essential for understanding",
+          "target": "np-completeness",
+          "evidence": "Various proof techniques, such as proof by reduction, are crucial for establishing the np-completeness of problems, thereby linking them to the broader framework of computational complexity.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "L is NP-complete",
+          "relation_type": "definition",
+          "target": "L ∈ NP",
+          "evidence": "L is NP-complete if, and only if, the following two conditions are satisfied: L ∈ NP",
+          "section_name": "Formal definitions - NP-completeness",
+          "section_index": 14
+        },
+        {
+          "source": "NP",
+          "relation_type": "expressibility of languages",
+          "target": "existential second-order logic",
+          "evidence": "NP is the set of languages expressible in existential second-order logic.",
+          "section_name": "Logical characterizations",
+          "section_index": 12
+        },
+        {
+          "source": "input",
+          "relation_type": "is required for",
+          "target": "levin's algorithm",
+          "evidence": "Input: S = a finite set of integers",
+          "section_name": "Polynomial-time algorithms",
+          "section_index": 13
+        },
+        {
+          "source": "proof techniques",
+          "relation_type": "are essential for demonstrating",
+          "target": "np-completeness",
+          "evidence": "Various proof techniques, such as proof by reduction, are fundamental in establishing the NP-completeness of problems, which is a key aspect of computational complexity theory.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "first-order logic",
+          "relation_type": "expressibility of languages in P",
+          "target": "languages in P",
+          "evidence": "all such languages in P are expressible in first-order logic with the addition of a suitable least fixed-point combinator.",
+          "section_name": "Logical characterizations",
+          "section_index": 12
+        },
+        {
+          "source": "np-complete problems",
+          "relation_type": "are at least as tough as",
+          "target": "any other problem in NP",
+          "evidence": "Informally, an NP-complete problem is an NP problem that is at least as 'tough' as any other problem in NP.",
+          "section_name": "NP-completeness",
+          "section_index": 5
+        },
+        {
+          "source": "exponential time",
+          "relation_type": "is contrasted with",
+          "target": "polynomial time",
+          "evidence": "The distinction between problems solvable in polynomial time versus those requiring exponential time is crucial in computational complexity, particularly in the context of NP-completeness.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "László Babai",
+          "relation_type": "developed algorithm for",
+          "target": "graph isomorphism problem",
+          "evidence": "The best algorithm for this problem, due to László Babai, runs in quasi-polynomial time.",
+          "section_name": "Problems in NP not known to be in P or NP-complete",
+          "section_index": 7
+        },
+        {
+          "source": "proofs of independence",
+          "relation_type": "are impossible with",
+          "target": "current techniques",
+          "evidence": "proofs of independence with those techniques are impossible",
+          "section_name": "Results about difficulty of proof",
+          "section_index": 11
+        },
+        {
+          "source": "graph isomorphism problem",
+          "relation_type": "affects",
+          "target": "polynomial time hierarchy",
+          "evidence": "If graph isomorphism is NP-complete, the polynomial time hierarchy collapses to its second level.",
+          "section_name": "Problems in NP not known to be in P or NP-complete",
+          "section_index": 7
+        },
+        {
+          "source": "historical context of np-completeness",
+          "relation_type": "provides background for understanding",
+          "target": "np-completeness",
+          "evidence": "The historical context of np-completeness helps to understand its development and significance.",
+          "section_name": "Further reading",
+          "section_index": 22
+        },
+        {
+          "source": "sudoku grid",
+          "relation_type": "example of computational problem",
+          "target": "generalized sudoku problem",
+          "evidence": "The sudoku grid serves as a specific instance of the generalized sudoku problem, illustrating practical applications of concepts in computational complexity and algorithm design.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "classes dlin and nlin",
+          "relation_type": "not equal to",
+          "target": "dlin ≠ nlin",
+          "evidence": "It is known that DLIN ≠ NLIN.",
+          "section_name": "Reasons to believe P ≠ NP or P = NP - DLIN vs NLIN",
+          "section_index": 9
+        },
+        {
+          "source": "average-case complexity",
+          "relation_type": "remains open in",
+          "target": "hard problems in NP",
+          "evidence": "P ≠ NP still leaves open the average-case complexity of hard problems in NP.",
+          "section_name": "Consequences of solution - P ≠ NP",
+          "section_index": 10
+        },
+        {
+          "source": "kurt gödel",
+          "relation_type": "inquired about",
+          "target": "co-np-complete",
+          "evidence": "Gödel asked whether theorem-proving (now known to be co-NP-complete) could be solved in quadratic or linear time.",
+          "section_name": "History",
+          "section_index": 3
+        },
+        {
+          "source": "complexity classes p and np",
+          "relation_type": "defined by",
+          "target": "deterministic machine",
+          "evidence": "The class P consists of all decision problems solvable on a deterministic sequential machine.",
+          "section_name": "Context",
+          "section_index": 4
+        },
+        {
+          "source": "SAT",
+          "relation_type": "may require",
+          "target": "exponential time in the worst case",
+          "evidence": "it is possible that SAT requires exponential time in the worst case.",
+          "section_name": "Consequences of solution - P ≠ NP",
+          "section_index": 10
+        },
+        {
+          "source": "class p",
+          "relation_type": "subset of",
+          "target": "class np",
+          "evidence": "Class P consists of problems that can be solved in polynomial time, which is a subset of Class NP, where problems can be verified in polynomial time, highlighting the relationship between solvability and verifiability.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "complexity classes p and np",
+          "relation_type": "defined by",
+          "target": "non-deterministic machine",
+          "evidence": "The class NP consists of all decision problems whose positive solutions are verifiable in polynomial time... on a non-deterministic machine.",
+          "section_name": "Context",
+          "section_index": 4
+        },
+        {
+          "source": "fermat's last theorem",
+          "relation_type": "example of long-standing mathematical problem",
+          "target": "p = np",
+          "evidence": "A method guaranteed to find a proof if a 'reasonable' size proof exists, would essentially end this struggle.",
+          "section_name": "Consequences of solution - P = NP",
+          "section_index": 10
+        },
+        {
+          "source": "graph isomorphism problem",
+          "relation_type": "is believed to be",
+          "target": "not NP-complete",
+          "evidence": "It is believed that the problem is at least not NP-complete.",
+          "section_name": "Problems in NP not known to be in P or NP-complete",
+          "section_index": 7
+        },
+        {
+          "source": "p versus np problem",
+          "relation_type": "challenges",
+          "target": "algorithm research",
+          "evidence": "The p versus np problem is a central question in theoretical computer science that directly influences algorithm research, as it determines the feasibility of solving problems efficiently.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "algorithm research",
+          "relation_type": "is influenced by",
+          "target": "p versus np problem",
+          "evidence": "The ongoing research into algorithms is heavily motivated by the implications of the P vs NP problem, as solving it could revolutionize algorithm efficiency.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "np-complete problems",
+          "relation_type": "are a subset of",
+          "target": "class np",
+          "evidence": "NP-complete problems are defined as the hardest problems in NP, meaning that if any NP-complete problem can be solved in polynomial time, then all problems in NP can also be solved in polynomial time.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "np-complete problems",
+          "relation_type": "has no known algorithm that runs in",
+          "target": "polynomial time",
+          "evidence": "No known algorithm for a NP-complete problem runs in polynomial time.",
+          "section_name": "Polynomial-time algorithms",
+          "section_index": 13
+        },
+        {
+          "source": "linear time on a multitape turing machine",
+          "relation_type": "defines",
+          "target": "classes dlin and nlin",
+          "evidence": "When one substitutes 'linear time on a multitape Turing machine' for 'polynomial time' in the definitions of P and NP, one obtains the classes DLIN and NLIN.",
+          "section_name": "Reasons to believe P ≠ NP or P = NP - DLIN vs NLIN",
+          "section_index": 9
+        },
+        {
+          "source": "media attention",
+          "relation_type": "reflects public interest in",
+          "target": "millennium prize problems",
+          "evidence": "The media's coverage of the millennium prize problems, including the p versus np problem, highlights the significance and intrigue surrounding these unresolved questions in mathematics.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "p ≠ np",
+          "relation_type": "advances",
+          "target": "computational complexity theory",
+          "evidence": "A proof of P ≠ NP would represent a great advance in computational complexity theory.",
+          "section_name": "Consequences of solution - P ≠ NP",
+          "section_index": 10
+        },
+        {
+          "source": "sudoku grid",
+          "relation_type": "is a type of",
+          "target": "generalized sudoku problem",
+          "evidence": "given an incomplete Sudoku grid of size n^2 × n^2",
+          "section_name": "Example",
+          "section_index": 2
+        },
+        {
+          "source": "p versus np problem",
+          "relation_type": "is a central question in",
+          "target": "computational complexity",
+          "evidence": "The p versus np problem is a fundamental question in the field of computational complexity.",
+          "section_name": "Further reading",
+          "section_index": 22
+        },
+        {
+          "source": "us government",
+          "relation_type": "hires",
+          "target": "mathematicians",
+          "evidence": "The film Travelling Salesman... is the story of four mathematicians hired by the US government to solve the P versus NP problem.",
+          "section_name": "Popular culture",
+          "section_index": 16
+        },
+        {
+          "source": "NP",
+          "relation_type": "implication of co-NP",
           "target": "co-NP",
           "evidence": "the former would establish that NP = co-NP.",
           "section_name": "Logical characterizations",
           "section_index": 12
+        },
+        {
+          "source": "cook–levin theorem",
+          "relation_type": "establishes the equivalence of",
+          "target": "np-completeness and polynomial-time verification",
+          "evidence": "The cook–levin theorem demonstrates that a problem is np-complete if it can be verified in polynomial time, linking the concepts of verification and computational difficulty.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "randomized algorithms",
+          "relation_type": "are a strategy for",
+          "target": "solving complex problems",
+          "evidence": "Randomized algorithms provide alternative methods for tackling problems that may be intractable under deterministic approaches, relevant to NP-completeness.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "hilbert's tenth problem",
+          "relation_type": "is classified as",
+          "target": "undecidable but verifiable problems",
+          "evidence": "Hilbert's tenth problem which is RE-complete",
+          "section_name": "Similar problems",
+          "section_index": 17
+        },
+        {
+          "source": "sudoku",
+          "relation_type": "is an example of",
+          "target": "np-complete problems",
+          "evidence": "The generalized sudoku problem is NP-complete, illustrating the practical implications of NP-completeness in puzzle-solving.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "P = NP",
+          "relation_type": "equivalence to PH",
+          "target": "P = PH",
+          "evidence": "P = NP if and only if P = PH.",
+          "section_name": "Logical characterizations",
+          "section_index": 12
+        },
+        {
+          "source": "decision problem",
+          "relation_type": "related to",
+          "target": "NP-completeness",
+          "evidence": "There are many equivalent ways of describing NP-completeness.",
+          "section_name": "Formal definitions - NP-completeness",
+          "section_index": 14
+        },
+        {
+          "source": "randomized algorithms",
+          "relation_type": "type of computation",
+          "target": "p and np",
+          "evidence": "Finally, there are types of computations which do not conform to the Turing machine model on which P and NP are defined, such as quantum computation and randomized algorithms.",
+          "section_name": "Does P mean \"easy\"?",
+          "section_index": 8
+        },
+        {
+          "source": "np-complete problems",
+          "relation_type": "are reducible to",
+          "target": "any other NP problem",
+          "evidence": "NP-complete problems are problems that any other NP problem is reducible to in polynomial time.",
+          "section_name": "NP-completeness",
+          "section_index": 5
+        },
+        {
+          "source": "np-complete problems",
+          "relation_type": "examples include",
+          "target": "boolean satisfiability problem",
+          "evidence": "There are algorithms for many NP-complete problems, such as the knapsack problem, the traveling salesman problem, and the Boolean satisfiability problem.",
+          "section_name": "Does P mean \"easy\"?",
+          "section_index": 8
+        },
+        {
+          "source": "p ⊆ np",
+          "relation_type": "relationship",
+          "target": "p ≠ np",
+          "evidence": "Clearly, P ⊆ NP. Arguably, the biggest open question in theoretical computer science concerns the relationship between those two classes: Is P equal to NP?",
+          "section_name": "Context",
+          "section_index": 4
+        },
+        {
+          "source": "millennium prize problems",
+          "relation_type": "includes the",
+          "target": "p versus np problem",
+          "evidence": "The p versus np problem is one of the seven Millennium Prize Problems, highlighting its significance in mathematics and computer science.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "p = np",
+          "relation_type": "potential consequence",
+          "target": "cryptography",
+          "evidence": "A solution showing P = NP could upend the field of cryptography, which relies on certain problems being difficult.",
+          "section_name": "Consequences of solution - P = NP",
+          "section_index": 10
+        },
+        {
+          "source": "john nash",
+          "relation_type": "speculated about",
+          "target": "exponential time",
+          "evidence": "In 1955, mathematician John Nash wrote a letter to the NSA, speculating that cracking a sufficiently complex code would require time exponential in the length of the key.",
+          "section_name": "History",
+          "section_index": 3
+        },
+        {
+          "source": "L is NP-complete",
+          "relation_type": "definition",
+          "target": "any L' in NP is polynomial-time-reducible to L",
+          "evidence": "L is NP-complete if, and only if, the following two conditions are satisfied: any L' in NP is polynomial-time-reducible to L",
+          "section_name": "Formal definitions - NP-completeness",
+          "section_index": 14
+        },
+        {
+          "source": "co-np-complete",
+          "relation_type": "could lead to",
+          "target": "automated discovery of mathematical proofs",
+          "evidence": "pointed out one of the most important consequences—that if so, then the discovery of mathematical proofs could be automated.",
+          "section_name": "History",
+          "section_index": 3
+        },
+        {
+          "source": "undecidable problems",
+          "relation_type": "are more difficult than",
+          "target": "EXPTIME-complete problems",
+          "evidence": "Even more difficult are the undecidable problems, such as the halting problem.",
+          "section_name": "Harder problems",
+          "section_index": 6
+        },
+        {
+          "source": "gödel's thoughts on computational complexity",
+          "relation_type": "historical perspective",
+          "target": "p = np",
+          "evidence": "Gödel, in his early thoughts on computational complexity, noted that a mechanical method that could solve any problem would revolutionize mathematics.",
+          "section_name": "Consequences of solution - P = NP",
+          "section_index": 10
+        },
+        {
+          "source": "constructive proof",
+          "relation_type": "type of proof relevant to p = np",
+          "target": "p = np",
+          "evidence": "A non-constructive proof might show a solution exists without specifying either an algorithm to obtain it or a specific bound.",
+          "section_name": "Consequences of solution - P = NP",
+          "section_index": 10
+        },
+        {
+          "source": "least fixed-point combinator",
+          "relation_type": "definition tool for recursive functions",
+          "target": "recursive functions",
+          "evidence": "Recursive functions can be defined with this and the order relation.",
+          "section_name": "Logical characterizations",
+          "section_index": 12
+        },
+        {
+          "source": "polynomial-time reduction",
+          "relation_type": "method of proving",
+          "target": "NP-completeness",
+          "evidence": "Alternatively, if L ∈ NP, and there is another NP-complete problem that can be polynomial-time reduced to L, then L is NP-complete.",
+          "section_name": "Formal definitions - NP-completeness",
+          "section_index": 14
+        },
+        {
+          "source": "integer factorization problem",
+          "relation_type": "is related to",
+          "target": "np-hard problems",
+          "evidence": "The integer factorization problem is considered NP-hard, indicating its difficulty and relevance in the context of computational complexity.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "#P-complete",
+          "relation_type": "is a subset of",
+          "target": "#P problems",
+          "evidence": "Many of these problems are #P-complete, and hence among the hardest problems in #P.",
+          "section_name": "Harder problems",
+          "section_index": 6
+        },
+        {
+          "source": "output",
+          "relation_type": "is produced by",
+          "target": "levin's algorithm",
+          "evidence": "Output: 'yes' if any subset of S adds up to 0.",
+          "section_name": "Polynomial-time algorithms",
+          "section_index": 13
+        },
+        {
+          "source": "generalized sudoku problem",
+          "relation_type": "may or may not be in",
+          "target": "class p",
+          "evidence": "it is not known whether there is a polynomial-time algorithm that can correctly answer 'yes' or 'no' to all instances of this problem",
+          "section_name": "Example",
+          "section_index": 2
+        },
+        {
+          "source": "#P problems",
+          "relation_type": "are at least as hard as",
+          "target": "NP problems",
+          "evidence": "a #P problem must be at least as hard as the corresponding NP problem.",
+          "section_name": "Harder problems",
+          "section_index": 6
+        },
+        {
+          "source": "quantum computation",
+          "relation_type": "offers potential solutions to",
+          "target": "classical NP-complete problems",
+          "evidence": "Quantum algorithms, such as Shor's algorithm, suggest that quantum computation may provide efficient solutions to problems that are classically NP-complete, thus impacting the understanding of computational complexity.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "116 purported proofs",
+          "relation_type": "includes",
+          "target": "61 proofs of P = NP",
+          "evidence": "of which 61 were proofs of P = NP",
+          "section_name": "Claimed solutions",
+          "section_index": 15
+        },
+        {
+          "source": "polynomial-time solution to Sudoku",
+          "relation_type": "leads to",
+          "target": "polynomial time solution of satisfiability",
+          "evidence": "a polynomial-time solution to Sudoku leads, by a series of mechanical transformations, to a polynomial time solution of satisfiability.",
+          "section_name": "NP-completeness",
+          "section_index": 5
+        },
+        {
+          "source": "time hierarchy theorem",
+          "relation_type": "provides insights into",
+          "target": "complexity classes p and np",
+          "evidence": "The time hierarchy theorem helps to understand the relationships and separations between different complexity classes, including P and NP.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "np-complete problems",
+          "relation_type": "are useful for",
+          "target": "solving the P = NP problem",
+          "evidence": "if a polynomial-time algorithm can be demonstrated for an NP-complete problem, this would solve the P = NP problem",
+          "section_name": "Results about difficulty of proof",
+          "section_index": 11
+        },
+        {
+          "source": "p versus np problem",
+          "relation_type": "implication for research",
+          "target": "algorithm research",
+          "evidence": "The p versus np problem is central to algorithm research as it determines the feasibility of solving problems efficiently, influencing the direction of research in theoretical computer science.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "chess strategy problem",
+          "relation_type": "is an example of",
+          "target": "EXPTIME-complete problems",
+          "evidence": "Examples include finding a perfect strategy for chess positions on an N × N board.",
+          "section_name": "Harder problems",
+          "section_index": 6
+        },
+        {
+          "source": "Princeton University workshop 2009",
+          "relation_type": "studied",
+          "target": "the status of the five worlds",
+          "evidence": "A Princeton University workshop in 2009 studied the status of the five worlds.",
+          "section_name": "Consequences of solution - P ≠ NP",
+          "section_index": 10
+        },
+        {
+          "source": "cryptography",
+          "relation_type": "is influenced by the outcomes of",
+          "target": "p versus np problem",
+          "evidence": "The security of many cryptographic systems relies on the assumption that certain problems are hard to solve, which is directly related to the p versus np question.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "algorithm research",
+          "relation_type": "is driven by the need to solve",
+          "target": "np-hard problems",
+          "evidence": "Research in algorithms often focuses on finding efficient solutions or approximations for NP-hard problems, which are critical in various applications.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "proof techniques",
+          "relation_type": "are insufficient for proving",
+          "target": "p ≠ np",
+          "evidence": "existing proof techniques are insufficient for answering the question",
+          "section_name": "Results about difficulty of proof",
+          "section_index": 11
+        },
+        {
+          "source": "certificate",
+          "relation_type": "is required for",
+          "target": "membership in NP",
+          "evidence": "for L to be in NP, there must be a verifier that runs in polynomial time.",
+          "section_name": "Formal definitions - P and NP",
+          "section_index": 14
+        },
+        {
+          "source": "quantum computation",
+          "relation_type": "offers potential solutions to",
+          "target": "p versus np problem",
+          "evidence": "Quantum computation may provide new approaches to solving NP problems more efficiently, suggesting a possible resolution to the P vs NP question.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "verifier",
+          "relation_type": "associated with",
+          "target": "certificate",
+          "evidence": "A verifier checks the validity of a certificate for a decision problem.",
+          "section_name": "Formal definitions - NP-completeness",
+          "section_index": 14
+        },
+        {
+          "source": "elementary",
+          "relation_type": "involves solving",
+          "target": "p versus np problem",
+          "evidence": "In the second episode of season 2 of Elementary, 'Solve for X' Sherlock and Watson investigate the murders of mathematicians who were attempting to solve P versus NP.",
+          "section_name": "Popular culture",
+          "section_index": 16
+        },
+        {
+          "source": "EXPTIME-complete",
+          "relation_type": "is a subset of",
+          "target": "EXPTIME",
+          "evidence": "A decision problem is EXPTIME-complete if it is in EXPTIME.",
+          "section_name": "Harder problems",
+          "section_index": 6
+        },
+        {
+          "source": "integer factorization problem",
+          "relation_type": "best known quantum algorithm is",
+          "target": "Shor's algorithm",
+          "evidence": "The best known quantum algorithm for this problem, Shor's algorithm, runs in polynomial time.",
+          "section_name": "Problems in NP not known to be in P or NP-complete",
+          "section_index": 7
+        },
+        {
+          "source": "donald knuth",
+          "relation_type": "opinion on p = np",
+          "target": "p = np",
+          "evidence": "Donald Knuth has stated that he has come to believe that P = NP, but is reserved about the impact of a possible proof.",
+          "section_name": "Consequences of solution - P = NP",
+          "section_index": 10
+        },
+        {
+          "source": "theoretical computer science",
+          "relation_type": "field of study",
+          "target": "computational complexity theory",
+          "evidence": "Theoretical computer science encompasses computational complexity theory, which studies the classification of problems based on their inherent difficulty and the resources required to solve them.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "polynomial-time Turing machine",
+          "relation_type": "required for",
+          "target": "polynomial-time reduction",
+          "evidence": "there exists a polynomial-time Turing machine that halts with f(w) on its tape on any input w.",
+          "section_name": "Formal definitions - NP-completeness",
+          "section_index": 14
+        },
+        {
+          "source": "exponential time",
+          "relation_type": "contrast with polynomial time",
+          "target": "polynomial time",
+          "evidence": "Exponential time algorithms are contrasted with polynomial time algorithms, emphasizing the efficiency gap that is central to the p versus np problem and its implications for algorithm research.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "np",
+          "relation_type": "is related to",
+          "target": "p versus np problem",
+          "evidence": "This problem concerns the issue of whether questions that are easy to verify (a class of queries called NP) also have solutions that are easy to find (a class called P).",
+          "section_name": "Sources",
+          "section_index": 21
+        },
+        {
+          "source": "algorithms",
+          "relation_type": "are used to solve problems in",
+          "target": "computational complexity",
+          "evidence": "Algorithms are essential for addressing problems categorized within computational complexity.",
+          "section_name": "Further reading",
+          "section_index": 22
+        },
+        {
+          "source": "exponential time",
+          "relation_type": "contrast with",
+          "target": "polynomial time",
+          "evidence": "Exponential time algorithms are contrasted with polynomial time algorithms, as the former are generally impractical for large inputs, highlighting the importance of efficient algorithms in computational complexity.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "p versus np problem",
+          "relation_type": "has implications for",
+          "target": "various fields",
+          "evidence": "a proof either way would have profound implications for mathematics, cryptography, algorithm research, artificial intelligence, game theory, multimedia processing, philosophy, economics and many other fields.",
+          "section_name": "Introduction",
+          "section_index": 1
+        },
+        {
+          "source": "finite number of possible grids",
+          "relation_type": "is relevant to",
+          "target": "decision problems in NP",
+          "evidence": "The following defines a 'verifier': Let L be a language over a finite alphabet, Σ.",
+          "section_name": "Formal definitions - P and NP",
+          "section_index": 14
+        },
+        {
+          "source": "np-completeness",
+          "relation_type": "relationship to problem difficulty",
+          "target": "np-complete problems",
+          "evidence": "The concept of np-completeness categorizes certain problems as being as hard as the hardest problems in np, establishing a critical framework for understanding problem difficulty in computational complexity.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "class P",
+          "relation_type": "contains",
+          "target": "languages that can be decided by a deterministic polynomial-time Turing machine",
+          "evidence": "we say that the problem can be solved in polynomial time and we place it in the class P.",
+          "section_name": "Formal definitions - P and NP",
+          "section_index": 14
+        },
+        {
+          "source": "some attempts at resolving P versus NP",
+          "relation_type": "received",
+          "target": "media attention",
+          "evidence": "Some attempts at resolving P versus NP have received brief media attention",
+          "section_name": "Claimed solutions",
+          "section_index": 15
+        },
+        {
+          "source": "np-intermediate problems",
+          "relation_type": "examples of",
+          "target": "graph isomorphism problem",
+          "evidence": "The graph isomorphism problem, the discrete logarithm problem, and the integer factorization problem are examples of problems believed to be NP-intermediate.",
+          "section_name": "Problems in NP not known to be in P or NP-complete",
+          "section_index": 7
+        },
+        {
+          "source": "millennium prize problems",
+          "relation_type": "includes",
+          "target": "p versus np problem",
+          "evidence": "The p versus np problem is one of the seven millennium prize problems established by the Clay Mathematics Institute, emphasizing its significance in mathematics and computer science.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "np-complete problems",
+          "relation_type": "are examples of",
+          "target": "class np",
+          "evidence": "NP-complete problems are a subset of NP problems that are as hard as the hardest problems in NP, illustrating the complexity of this class.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "historical context of np-completeness",
+          "relation_type": "provides background for understanding",
+          "target": "computational complexity theory",
+          "evidence": "Understanding the historical context of NP-completeness helps to frame the development of computational complexity theory and its key concepts.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "Fischer and Rabin",
+          "relation_type": "proved that",
+          "target": "Presburger arithmetic requires more than exponential run time",
+          "evidence": "Fischer and Rabin proved in 1974 that every algorithm that decides the truth of Presburger statements of length n has a runtime of at least 2^{2^{cn}}.",
+          "section_name": "Harder problems",
+          "section_index": 6
+        },
+        {
+          "source": "class NP",
+          "relation_type": "is defined as",
+          "target": "the set of languages with a finite alphabet and verifier that runs in polynomial time",
+          "evidence": "NP can be defined similarly using nondeterministic Turing machines... Formally, NP is the set of languages with a finite alphabet and verifier that runs in polynomial time.",
+          "section_name": "Formal definitions - P and NP",
+          "section_index": 14
+        },
+        {
+          "source": "p ≠ np",
+          "relation_type": "reformulation of a question",
+          "target": "is P a proper subset of NP",
+          "evidence": "the question 'is P a proper subset of NP' can be reformulated as 'is existential second-order logic able to describe languages that first-order logic with least fixed point cannot?'",
+          "section_name": "Logical characterizations",
+          "section_index": 12
+        },
+        {
+          "source": "p ≠ np",
+          "relation_type": "is widely believed to be true",
+          "target": "p versus np problem",
+          "evidence": "If P ≠ NP, which is widely believed, it would mean that there are problems in NP that are harder to compute than to verify.",
+          "section_name": "Introduction",
+          "section_index": 1
+        },
+        {
+          "source": "computational complexity",
+          "relation_type": "is related to",
+          "target": "class np",
+          "evidence": "the discussion of NP relates to computational complexity",
+          "section_name": "Example",
+          "section_index": 2
+        },
+        {
+          "source": "Cryptomania",
+          "relation_type": "represents",
+          "target": "P ≠ NP",
+          "evidence": "Cryptomania, where P ≠ NP and generating hard instances of problems outside P is easy.",
+          "section_name": "Consequences of solution - P ≠ NP",
+          "section_index": 10
+        },
+        {
+          "source": "quantum computation",
+          "relation_type": "offers potential solutions to",
+          "target": "classical computational problems",
+          "evidence": "Quantum algorithms, such as Shor's algorithm for integer factorization, suggest that quantum computation may provide efficient solutions to problems that are currently believed to be hard in classical settings.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "np-completeness",
+          "relation_type": "is a concept used to understand",
+          "target": "P = NP question",
+          "evidence": "To attack the P = NP question, the concept of NP-completeness is very useful.",
+          "section_name": "NP-completeness",
+          "section_index": 5
+        },
+        {
+          "source": "integer factorization problem",
+          "relation_type": "basis for",
+          "target": "RSA algorithm",
+          "evidence": "No efficient integer factorization algorithm is known, and this fact forms the basis of several modern cryptographic systems, such as the RSA algorithm.",
+          "section_name": "Problems in NP not known to be in P or NP-complete",
+          "section_index": 7
+        },
+        {
+          "source": "polynomial algorithm",
+          "relation_type": "practical limitations",
+          "target": "big o notation",
+          "evidence": "A theoretical polynomial algorithm may have extremely large constant factors or exponents, rendering it impractical.",
+          "section_name": "Does P mean \"easy\"?",
+          "section_index": 8
         }
       ]
     }
