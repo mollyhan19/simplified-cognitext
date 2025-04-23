@@ -339,6 +339,20 @@ def init_api_services():
 
 st.set_page_config(layout="wide", page_title="Concept Map Generator")
 
+hide_streamlit_style = """
+    <style>
+    footer {visibility: hidden;}
+    #MainMenu {visibility: hidden;}
+    header {visibility: hidden;}
+
+    /* Hide GitHub corner link - adjust selector as needed */
+    .github-corner, .github-fork-ribbon, a[href*="github.com"] {
+        visibility: hidden !important;
+    }
+    </style>
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 # Sidebar for API key input
 with st.sidebar:
     st.title("API Key Configuration")
