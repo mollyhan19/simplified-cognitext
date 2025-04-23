@@ -1,0 +1,2125 @@
+{
+  "metadata": {
+    "processing_mode": "subsection",
+    "timestamp": "2025-03-06T22:26:06.000000"
+  },
+  "Microchimerism": {
+    "category": "general",
+    "total_entities": 114,
+    "entities": [
+      {
+        "id": "autoimmune diseases",
+        "frequency": 5,
+        "section_count": 5,
+        "variants": [
+          "autoimmune diseases",
+          "autoimmune disorders",
+          "autoimmune thyroid diseases"
+        ],
+        "appearances": [
+          {
+            "section": "Introduction",
+            "section_index": 1,
+            "variant": "autoimmune diseases",
+            "evidence": "Autoimmune diseases occur when the immune system mistakenly attacks the body's own cells, and microchimerism may play a role in this process. Understanding the connection between microchimerism and autoimmune diseases could provide insights into disease mechanisms and potential therapeutic approaches."
+          },
+          {
+            "section": "Types - Human",
+            "section_index": 2,
+            "variant": "autoimmune diseases",
+            "evidence": "Autoimmune diseases occur when the immune system mistakenly attacks the body's own tissues. The potential link between fetal cells and autoimmune diseases in women is an important area of research that could lead to better understanding and treatment options."
+          },
+          {
+            "section": "Maternal tolerance to paternal-fetal antigens",
+            "section_index": 4,
+            "variant": "autoimmune disorders",
+            "evidence": "Autoimmune disorders are conditions where the immune system mistakenly attacks the body's own cells. The improvement of these conditions during pregnancy is significant as it suggests that pregnancy induces beneficial immune adaptations."
+          },
+          {
+            "section": "Benefits of microchimeric cells",
+            "section_index": 7,
+            "variant": "autoimmune disorders",
+            "evidence": "Autoimmune disorders occur when the immune system mistakenly attacks the body's own tissues. Understanding how pregnancy influences these disorders can provide insights into potential treatments and the role of fetal microchimeric cells in immune modulation."
+          },
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Thyroid disease",
+            "section_index": 8,
+            "variant": "autoimmune thyroid diseases",
+            "evidence": "Autoimmune thyroid diseases, such as Hashimoto's thyroiditis and Graves' disease, occur when the immune system mistakenly attacks the thyroid gland. Understanding these diseases is crucial as they can lead to significant health issues, including hormonal imbalances and metabolic disorders."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "fetal cells",
+        "frequency": 8,
+        "section_count": 3,
+        "variants": [
+          "fetal-derived cells",
+          "microchimeric fetal cells",
+          "fetal cells",
+          "y chromosome detection"
+        ],
+        "appearances": [
+          {
+            "section": "Types - Human",
+            "section_index": 2,
+            "variant": "fetal cells",
+            "evidence": "Fetal cells are the cells that originate from the fetus and can remain in the mother's body long after pregnancy. Their persistence raises important questions about their role in maternal health and potential impacts on autoimmune conditions."
+          },
+          {
+            "section": "Fetomaternal microchimerism in the brain",
+            "section_index": 3,
+            "variant": "fetal-derived cells",
+            "evidence": "Fetal-derived cells are cells that originate from a fetus and can persist in the mother's body after pregnancy. Their ability to differentiate and present immunomarkers is crucial for understanding immune responses and potential implications for maternal health."
+          },
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Systemic lupus erythematosus",
+            "section_index": 8,
+            "variant": "fetal cells",
+            "evidence": "Fetal cells are cells that originate from a fetus and can persist in the mother's body after pregnancy. Their presence has been linked to potential benefits in managing autoimmune diseases, suggesting a complex interaction between maternal and fetal immune systems."
+          },
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Thyroid disease",
+            "section_index": 8,
+            "variant": "fetal cells",
+            "evidence": "Fetal cells are the cells from the fetus that can persist in the mother's body post-delivery. Their activation after childbirth may contribute to the onset of autoimmune diseases, indicating a potential link between pregnancy and autoimmune pathology."
+          },
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Breast cancer",
+            "section_index": 8,
+            "variant": "fetal cells",
+            "evidence": "Fetal cells are cells that originate from the fetus and can persist in the mother's body after pregnancy. Their presence is significant because they may interact with the mother's immune system and potentially influence cancer progression, which is a key area of research in understanding breast cancer prognosis."
+          },
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Other cancers",
+            "section_index": 8,
+            "variant": "y chromosome detection",
+            "evidence": "Y chromosome detection is a method used to identify male fetal cells in a woman's bloodstream, which is a key aspect of studying microchimerism. This technique is significant for understanding the implications of fetal cells on maternal health and cancer risk."
+          },
+          {
+            "section": "Role of microchimerism in wound healing",
+            "section_index": 9,
+            "variant": "microchimeric fetal cells",
+            "evidence": "Microchimeric fetal cells are cells that originate from a fetus and persist in the mother's body after pregnancy. Their presence in maternal tissues, such as healed scars, indicates a potential role in tissue repair and regeneration, which is significant for understanding maternal-fetal interactions and healing processes."
+          },
+          {
+            "section": "Stem cells - Animal models",
+            "section_index": 10,
+            "variant": "fetal cells",
+            "evidence": "Fetal cells are cells derived from the developing fetus that can migrate into the maternal body. Their ability to differentiate into neural cells during pregnancy suggests a complex interaction between maternal and fetal health, with implications for understanding maternal brain changes."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "fetomaternal microchimerism",
+        "frequency": 4,
+        "section_count": 3,
+        "variants": [
+          "fetomaternal microchimerism",
+          "fetal microchimerism",
+          "fetal maternal microchimerism"
+        ],
+        "appearances": [
+          {
+            "section": "Types - Human",
+            "section_index": 2,
+            "variant": "fetomaternal microchimerism",
+            "evidence": "Fetomaternal microchimerism refers to the phenomenon where fetal cells cross the placenta and persist in the mother's body for extended periods, potentially influencing maternal health. This concept is significant as it highlights the biological connection between mother and fetus beyond birth, raising questions about the implications for autoimmune diseases and tissue repair."
+          },
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Thyroid disease",
+            "section_index": 8,
+            "variant": "fetal maternal microchimerism",
+            "evidence": "Fetal maternal microchimerism refers to the presence of fetal cells within the mother's body, which can persist long after pregnancy. This concept is significant because it suggests that these fetal cells may play a role in the development of autoimmune conditions, particularly thyroid diseases, highlighting a complex interaction between maternal and fetal immune systems."
+          },
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Sjögren syndrome",
+            "section_index": 8,
+            "variant": "fetal microchimerism",
+            "evidence": "Fetal microchimerism refers to the presence of fetal cells in the mother's body, which can persist long after pregnancy. This concept is important in the context of SS as it suggests a potential mechanism by which pregnancy may influence the development of autoimmune conditions."
+          },
+          {
+            "section": "Stem cells - Animal models",
+            "section_index": 10,
+            "variant": "fetomaternal microchimerism",
+            "evidence": "Fetomaternal microchimerism refers to the presence of fetal cells within the maternal body, which can occur during pregnancy. This concept is significant because it suggests that fetal cells may have the ability to influence maternal health and recovery processes, particularly in the context of brain injuries."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "graft-versus-host reaction",
+        "frequency": 3,
+        "section_count": 3,
+        "variants": [
+          "graft-versus-host reaction",
+          "bone marrow transplantation graft-versus-host disease",
+          "graft vs host disease"
+        ],
+        "appearances": [
+          {
+            "section": "Types - Human",
+            "section_index": 2,
+            "variant": "graft-versus-host reaction",
+            "evidence": "A graft-versus-host reaction occurs when cells from one individual attack the tissues of another. This hypothesis suggests that fetal cells could provoke such a reaction in the mother, potentially leading to autoimmune diseases, which is particularly relevant for understanding women's health."
+          },
+          {
+            "section": "Postnatal tolerance to NIMAs",
+            "section_index": 6,
+            "variant": "bone marrow transplantation graft-versus-host disease",
+            "evidence": "Graft-versus-host disease (GVHD) occurs when donor immune cells attack the recipient's tissues. The reduction in acuteness of GVHD in NIMA-matched recipients indicates that NIMA-specific tolerance may play a protective role in transplantation, which is important for improving patient outcomes."
+          },
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Thyroid disease",
+            "section_index": 8,
+            "variant": "graft vs host disease",
+            "evidence": "Graft vs host disease occurs when donor immune cells attack the recipient's tissues after a stem cell transplant. This concept is relevant as it provides insight into the mechanisms of immune response and the potential implications for understanding autoimmune diseases."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "microchimerism",
+        "frequency": 4,
+        "section_count": 2,
+        "variants": [
+          "microchimerism",
+          "fetal microchimerism"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Breast cancer",
+            "section_index": 8,
+            "variant": "microchimerism",
+            "evidence": "Microchimerism refers to the presence of a small number of cells that originate from another individual, such as fetal cells in a mother. This concept is important as it highlights how varying levels of these cells can impact health outcomes, particularly in the context of cancer prognosis."
+          },
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Other cancers",
+            "section_index": 8,
+            "variant": "microchimerism",
+            "evidence": "Microchimerism refers to the presence of a small number of cells in an individual that originated from another individual, often seen in the context of pregnancy where fetal cells persist in the mother's body. This concept is significant because it suggests potential implications for women's health, particularly in relation to cancer risks and immune responses."
+          },
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Other cancers",
+            "section_index": 8,
+            "variant": "fetal microchimerism",
+            "evidence": "Fetal microchimerism is the phenomenon where fetal cells persist in the mother's body after pregnancy. This concept is important as it indicates that these cells might have protective effects against certain cancers, such as ovarian cancer, thereby influencing maternal health."
+          },
+          {
+            "section": "Health implications",
+            "section_index": 11,
+            "variant": "fetal microchimerism",
+            "evidence": "Fetal microchimerism refers to the presence of fetal cells within the maternal body during and after pregnancy. This phenomenon is significant because it suggests that fetal cells may influence maternal health, potentially leading to both beneficial and adverse effects."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "parkinson's disease",
+        "frequency": 2,
+        "section_count": 2,
+        "variants": [
+          "parkinson's disease",
+          "ovarian cancer risk"
+        ],
+        "appearances": [
+          {
+            "section": "Benefits of microchimeric cells",
+            "section_index": 7,
+            "variant": "parkinson's disease",
+            "evidence": "Parkinson's disease is a neurodegenerative disorder characterized by the loss of dopamine-producing neurons. The ability of fetal microchimeric cells to replace injured cells in this context suggests potential therapeutic avenues for neurodegenerative diseases."
+          },
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Other cancers",
+            "section_index": 8,
+            "variant": "ovarian cancer risk",
+            "evidence": "Ovarian cancer risk refers to the likelihood of developing cancer in the ovaries, which can be influenced by various biological factors, including the presence of microchimeric cells. Understanding this risk is crucial for developing preventive strategies and improving women's health outcomes."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "studies",
+        "frequency": 2,
+        "section_count": 2,
+        "variants": [
+          "studies"
+        ],
+        "appearances": [
+          {
+            "section": "Fetomaternal microchimerism in the brain",
+            "section_index": 3,
+            "variant": "studies",
+            "evidence": "Studies in this context refer to scientific investigations that explore the presence of male DNA in maternal brains, contributing to the understanding of microchimerism and its implications for health. These studies are foundational for establishing the relationship between fetal cells and maternal health outcomes."
+          },
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Sjögren syndrome",
+            "section_index": 8,
+            "variant": "studies",
+            "evidence": "Research studies are essential for validating hypotheses in medical science. The findings regarding fetal cells in women with SS provide empirical evidence that supports the theory of fetal microchimerism's involvement in the disease."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "microchimeric cells",
+        "frequency": 2,
+        "section_count": 2,
+        "variants": [
+          "fetal microchimeric cells",
+          "microchimeric cells"
+        ],
+        "appearances": [
+          {
+            "section": "Fetal tolerance to noninherited maternal antigens",
+            "section_index": 5,
+            "variant": "microchimeric cells",
+            "evidence": "Microchimeric cells are cells that originate from one individual and are found in another, such as fetal cells persisting in maternal tissues. Their retention is significant as it may have implications for maternal health and immune responses, as well as for understanding long-term effects of pregnancy on the maternal immune system."
+          },
+          {
+            "section": "Benefits of microchimeric cells",
+            "section_index": 7,
+            "variant": "fetal microchimeric cells",
+            "evidence": "Fetal microchimeric cells are cells that originate from the fetus and can persist in the mother's body during and after pregnancy. They play a significant role in modulating the maternal immune response and have potential therapeutic implications for tissue repair and regeneration."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "tissue repair",
+        "frequency": 2,
+        "section_count": 2,
+        "variants": [
+          "tissue repair"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Systemic lupus erythematosus",
+            "section_index": 8,
+            "variant": "tissue repair",
+            "evidence": "Tissue repair refers to the biological processes that restore tissue integrity after injury. The involvement of fetal microchimeric cells in this process suggests a potential therapeutic role in managing autoimmune conditions."
+          },
+          {
+            "section": "Role of microchimerism in wound healing",
+            "section_index": 9,
+            "variant": "tissue repair",
+            "evidence": "Tissue repair is the biological process through which the body restores damaged tissues. The involvement of microchimeric fetal cells in this process highlights the complex interactions between maternal and fetal cells and their implications for healing and recovery."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "blood brain barrier",
+        "frequency": 2,
+        "section_count": 2,
+        "variants": [
+          "blood brain barrier"
+        ],
+        "appearances": [
+          {
+            "section": "Stem cells - Animal models",
+            "section_index": 10,
+            "variant": "blood brain barrier",
+            "evidence": "The blood brain barrier is a selective permeability barrier that protects the brain from harmful substances while allowing essential nutrients to pass through. Understanding how fetal cells can cross this barrier is crucial for exploring potential therapeutic applications in treating brain injuries."
+          },
+          {
+            "section": "Health implications",
+            "section_index": 11,
+            "variant": "blood brain barrier",
+            "evidence": "The blood brain barrier is a selective permeability barrier that protects the brain from harmful substances while allowing essential nutrients to pass. Fetal cells that can cross this barrier may have therapeutic implications for neurological conditions, making their study crucial."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "pathogenesis",
+        "frequency": 3,
+        "section_count": 1,
+        "variants": [
+          "pathogenesis"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Thyroid disease",
+            "section_index": 8,
+            "variant": "pathogenesis",
+            "evidence": "Pathogenesis refers to the development and progression of a disease. Understanding the pathogenesis of autoimmune thyroid diseases is essential for developing targeted therapies and improving patient outcomes."
+          },
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Sjögren syndrome",
+            "section_index": 8,
+            "variant": "pathogenesis",
+            "evidence": "Pathogenesis is the process by which a disease develops and progresses. Understanding the pathogenesis of SS is essential for developing targeted therapies and improving patient outcomes."
+          },
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Oral lichen planus",
+            "section_index": 8,
+            "variant": "pathogenesis",
+            "evidence": "Pathogenesis is the process by which a disease develops and progresses. Understanding the pathogenesis of LP is essential for developing effective treatments and interventions for this autoimmune condition."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "case studies on fetal cells",
+        "frequency": 2,
+        "section_count": 1,
+        "variants": [
+          "case studies on fetal cells",
+          "case studies"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Systemic lupus erythematosus",
+            "section_index": 8,
+            "variant": "case studies on fetal cells",
+            "evidence": "This observation serves as a case study illustrating the potential benefits of fetal cells in autoimmune diseases, particularly in improving kidney function in affected mothers."
+          },
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Thyroid disease",
+            "section_index": 8,
+            "variant": "case studies",
+            "evidence": "Case studies provide specific instances of fetal cells being found in patients with autoimmune thyroid diseases, illustrating the real-world implications of fetal maternal microchimerism and its potential role in disease development."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "chimera of greek mythology",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "chimera of greek mythology"
+        ],
+        "appearances": [
+          {
+            "section": "Introduction",
+            "section_index": 1,
+            "variant": "chimera of greek mythology",
+            "evidence": "The term 'microchimerism' is derived from the mythological Chimera, a creature composed of parts from different animals, symbolizing the genetic mixing that occurs in microchimerism. This etymology highlights the concept's foundational idea of genetic diversity within an individual."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "1960s discovery",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "1960s discovery"
+        ],
+        "appearances": [
+          {
+            "section": "Introduction",
+            "section_index": 1,
+            "variant": "1960s discovery",
+            "evidence": "Microchimerism was first identified in the 1960s, marking a significant advancement in the understanding of genetic relationships between individuals. The subsequent adoption of the term in the 1970s reflects its growing importance in medical and biological research."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "kir ligands",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "kir ligands"
+        ],
+        "appearances": [
+          {
+            "section": "Types - Human",
+            "section_index": 2,
+            "variant": "kir ligands",
+            "evidence": "KIR ligands are molecules that interact with natural killer cells and may influence the extent of fetomaternal microchimerism. Understanding their role is crucial for exploring how maternal immune responses are shaped during and after pregnancy."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "natural killer cells",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "natural killer cells"
+        ],
+        "appearances": [
+          {
+            "section": "Types - Human",
+            "section_index": 2,
+            "variant": "natural killer cells",
+            "evidence": "Natural killer cells are a type of lymphocyte that plays a significant role in the immune response during pregnancy. Their prevalence in early pregnancy suggests they may be key players in the establishment and maintenance of fetomaternal microchimerism."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "maternal→fetal microchimerism",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "maternal→fetal microchimerism"
+        ],
+        "appearances": [
+          {
+            "section": "Types - Human",
+            "section_index": 2,
+            "variant": "maternal→fetal microchimerism",
+            "evidence": "Maternal→fetal microchimerism refers to the transfer of maternal cells to the fetus. This reciprocal exchange of cells highlights the complex interactions between mother and child and may have implications for both maternal and fetal health."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "fred hutchinson cancer research center",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "fred hutchinson cancer research center"
+        ],
+        "appearances": [
+          {
+            "section": "Types - Human",
+            "section_index": 2,
+            "variant": "fred hutchinson cancer research center",
+            "evidence": "The Fred Hutchinson Cancer Research Center is notable for its research contributions, including studies on fetomaternal microchimerism. Their findings provide empirical evidence of fetal cells in maternal tissues, which is crucial for understanding the long-term effects of these cells."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "microchimerism after blood transfusions",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "microchimerism after blood transfusions"
+        ],
+        "appearances": [
+          {
+            "section": "Types - Human",
+            "section_index": 2,
+            "variant": "microchimerism after blood transfusions",
+            "evidence": "Microchimerism can occur not only during pregnancy but also through blood transfusions, indicating that the transfer of cells between individuals can have significant implications for immune responses and health outcomes."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "gestation",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "gestation"
+        ],
+        "appearances": [
+          {
+            "section": "Types - Human",
+            "section_index": 2,
+            "variant": "gestation",
+            "evidence": "Gestation refers to the period of development of the fetus in the womb. It is a critical context for understanding how microchimerism can arise from various sources, emphasizing the complexity of cellular exchanges in human development."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "fraternal twins",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "fraternal twins"
+        ],
+        "appearances": [
+          {
+            "section": "Types - Animal",
+            "section_index": 2,
+            "variant": "fraternal twins",
+            "evidence": "Fraternal twins are siblings that develop from two separate eggs fertilized by two separate sperm cells. In cattle, the fusion of placentas allows for shared blood circulation, which is a key factor in the occurrence of microchimerism. This concept is important for understanding genetic exchanges and reproductive outcomes in twin births."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "xx/xy microchimerism",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "xx/xy microchimerism"
+        ],
+        "appearances": [
+          {
+            "section": "Types - Animal",
+            "section_index": 2,
+            "variant": "xx/xy microchimerism",
+            "evidence": "XX/XY microchimerism occurs when a male and female twin share blood circulation, leading to the presence of male genetic material in the female twin. This can result in hormonal influences that affect the development of the female twin, such as partial masculinization. This concept is significant for understanding the biological implications of twin births and their reproductive capabilities."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "martin heifer (freemartin)",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "martin heifer (freemartin)"
+        ],
+        "appearances": [
+          {
+            "section": "Types - Animal",
+            "section_index": 2,
+            "variant": "martin heifer (freemartin)",
+            "evidence": "A martin heifer, commonly known as a freemartin, is a female twin that is born alongside a male twin and is typically infertile due to the influence of male hormones during development. This condition is significant in cattle breeding as freemartins cannot be used for reproduction or dairy production, impacting herd management and genetic diversity."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "diagnosis of microchimerism",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "diagnosis of microchimerism"
+        ],
+        "appearances": [
+          {
+            "section": "Types - Animal",
+            "section_index": 2,
+            "variant": "diagnosis of microchimerism",
+            "evidence": "The diagnosis of microchimerism involves detecting male genetic material in the blood of female twins, which indicates the presence of male cells due to shared circulation during gestation. This diagnostic method is important for identifying reproductive issues and understanding the genetic health of cattle."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "cattle reproductive biology",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "cattle reproductive biology"
+        ],
+        "appearances": [
+          {
+            "section": "Types - Animal",
+            "section_index": 2,
+            "variant": "cattle reproductive biology",
+            "evidence": "Cattle reproductive biology encompasses the study of reproductive processes and outcomes in cattle, including the implications of conditions like freemartinism. Understanding these biological principles is essential for effective breeding practices and managing cattle populations."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "alzheimer's disease",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "alzheimer's disease"
+        ],
+        "appearances": [
+          {
+            "section": "Fetomaternal microchimerism in the brain",
+            "section_index": 3,
+            "variant": "alzheimer's disease",
+            "evidence": "Alzheimer's disease is a progressive neurodegenerative disorder that leads to cognitive decline and memory loss. The inverse relationship between fetal-derived cells and Alzheimer's incidence raises intriguing questions about the protective or detrimental roles of these cells in brain health."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "immunomarkers",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "immunomarkers"
+        ],
+        "appearances": [
+          {
+            "section": "Fetomaternal microchimerism in the brain",
+            "section_index": 3,
+            "variant": "immunomarkers",
+            "evidence": "Immunomarkers are molecules expressed on the surface of cells that can indicate the presence of specific immune responses. Understanding how fetal-derived cells present these markers is important for exploring their role in maternal immune tolerance and potential health outcomes."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "correlation",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "correlation"
+        ],
+        "appearances": [
+          {
+            "section": "Fetomaternal microchimerism in the brain",
+            "section_index": 3,
+            "variant": "correlation",
+            "evidence": "Correlation refers to a statistical relationship between two variables, indicating how one may change in relation to the other. In this context, the correlation between Parkinson's disease and microchimerism suggests a need for further research to understand the underlying mechanisms."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "human and mouse models",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "human and mouse models"
+        ],
+        "appearances": [
+          {
+            "section": "Fetomaternal microchimerism in the brain",
+            "section_index": 3,
+            "variant": "human and mouse models",
+            "evidence": "Human and mouse models are often used in research to study biological processes and diseases. Their use in microchimerism studies allows for comparative analysis and insights into the mechanisms at play in both species."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "maternal-fetal interface",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "maternal-fetal interface"
+        ],
+        "appearances": [
+          {
+            "section": "Maternal tolerance to paternal-fetal antigens",
+            "section_index": 4,
+            "variant": "maternal-fetal interface",
+            "evidence": "The maternal-fetal interface is a critical area where maternal immune responses are modulated to prevent the rejection of fetal cells. Understanding this interface is essential for comprehending how pregnancy can occur despite the genetic differences between the mother and fetus."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "immune rejection",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "immune rejection"
+        ],
+        "appearances": [
+          {
+            "section": "Maternal tolerance to paternal-fetal antigens",
+            "section_index": 4,
+            "variant": "immune rejection",
+            "evidence": "Immune rejection refers to the body's immune system attacking foreign cells, which in the context of pregnancy, would mean the mother rejecting the fetus. This concept is vital as it highlights the unique immunological adaptations that occur during pregnancy."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "systemic immunological changes",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "systemic immunological changes"
+        ],
+        "appearances": [
+          {
+            "section": "Maternal tolerance to paternal-fetal antigens",
+            "section_index": 4,
+            "variant": "systemic immunological changes",
+            "evidence": "Systemic immunological changes are alterations in the immune system that affect the entire body, which occur during pregnancy. These changes are crucial for maintaining a healthy pregnancy and preventing complications."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "feto-maternal cell transfer",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "feto-maternal cell transfer"
+        ],
+        "appearances": [
+          {
+            "section": "Maternal tolerance to paternal-fetal antigens",
+            "section_index": 4,
+            "variant": "feto-maternal cell transfer",
+            "evidence": "Feto-maternal cell transfer refers to the exchange of cells between the fetus and the mother during pregnancy. This process is important for establishing tolerance to fetal antigens and is a key mechanism in preventing immune rejection."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "cd4+ regulatory t cells (tregs)",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "cd4+ regulatory t cells (tregs)"
+        ],
+        "appearances": [
+          {
+            "section": "Maternal tolerance to paternal-fetal antigens",
+            "section_index": 4,
+            "variant": "cd4+ regulatory t cells (tregs)",
+            "evidence": "CD4+ regulatory T cells (Tregs) are a subset of T cells that help regulate the immune response and maintain tolerance to the fetus. Their expansion during pregnancy is crucial for preventing complications and ensuring a successful pregnancy."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "preeclampsia",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "preeclampsia"
+        ],
+        "appearances": [
+          {
+            "section": "Maternal tolerance to paternal-fetal antigens",
+            "section_index": 4,
+            "variant": "preeclampsia",
+            "evidence": "Preeclampsia is a pregnancy complication characterized by high blood pressure and signs of damage to other organ systems. Understanding its link to Treg cell dynamics is important for developing interventions to improve pregnancy outcomes."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "clonal deletion",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "clonal deletion"
+        ],
+        "appearances": [
+          {
+            "section": "Maternal tolerance to paternal-fetal antigens",
+            "section_index": 4,
+            "variant": "clonal deletion",
+            "evidence": "Clonal deletion is a process by which specific immune cells are eliminated to prevent autoimmunity. In the context of pregnancy, this process helps to prevent the mother's immune system from attacking fetal cells."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "foxp3 expression",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "foxp3 expression"
+        ],
+        "appearances": [
+          {
+            "section": "Maternal tolerance to paternal-fetal antigens",
+            "section_index": 4,
+            "variant": "foxp3 expression",
+            "evidence": "FOXP3 is a transcription factor critical for the development and function of Treg cells. Its expression in fetal-specific CD4+ T cells is essential for promoting immune tolerance during pregnancy."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "mice models",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "mice models"
+        ],
+        "appearances": [
+          {
+            "section": "Maternal tolerance to paternal-fetal antigens",
+            "section_index": 4,
+            "variant": "mice models",
+            "evidence": "Mice models are experimental systems used to study biological processes. Their use in understanding the role of fetal-specific Treg cells provides insights into the mechanisms of immune tolerance during pregnancy."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "fetal t cells",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "fetal t cells"
+        ],
+        "appearances": [
+          {
+            "section": "Fetal tolerance to noninherited maternal antigens",
+            "section_index": 5,
+            "variant": "fetal t cells",
+            "evidence": "Fetal T cells are immune cells that develop in the fetus and play a crucial role in the immune system's response to antigens. Their accumulation during development is significant because it sets the stage for how the immune system will function after birth, particularly in relation to maternal antigens."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "noninherited maternal antigens (nimas)",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "noninherited maternal antigens (nimas)"
+        ],
+        "appearances": [
+          {
+            "section": "Fetal tolerance to noninherited maternal antigens",
+            "section_index": 5,
+            "variant": "noninherited maternal antigens (nimas)",
+            "evidence": "NIMAs are antigens from the mother that are not genetically inherited by the fetus. The exposure of the fetus to these antigens is important because it influences the development of the fetal immune system and its ability to tolerate maternal tissues, which is crucial for preventing immune rejection during pregnancy."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "cd4+ t cells",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "cd4+ t cells"
+        ],
+        "appearances": [
+          {
+            "section": "Fetal tolerance to noninherited maternal antigens",
+            "section_index": 5,
+            "variant": "cd4+ t cells",
+            "evidence": "CD4+ T cells are a type of immune cell that helps orchestrate the immune response. Their ability to proliferate in response to alloantigens (foreign antigens) is essential for understanding how the fetal immune system can differentiate between self and non-self, which is vital for maintaining tolerance during pregnancy."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "treg cells",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "treg cells"
+        ],
+        "appearances": [
+          {
+            "section": "Fetal tolerance to noninherited maternal antigens",
+            "section_index": 5,
+            "variant": "treg cells",
+            "evidence": "Treg cells, or regulatory T cells, are a subset of T cells that play a key role in maintaining immune tolerance and preventing autoimmune responses. Their preferential differentiation from fetal CD4+ T cells is significant because it helps the fetus avoid an immune response against maternal antigens, ensuring a successful pregnancy."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "immune tolerance",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "immune tolerance"
+        ],
+        "appearances": [
+          {
+            "section": "Fetal tolerance to noninherited maternal antigens",
+            "section_index": 5,
+            "variant": "immune tolerance",
+            "evidence": "Immune tolerance refers to the immune system's ability to recognize and accept certain antigens as 'self' rather than attacking them. This concept is crucial in the context of pregnancy, as it allows the fetus to coexist with maternal tissues without triggering an immune response, which is vital for the health of both mother and child."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "alloantigen-induced proliferation",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "alloantigen-induced proliferation"
+        ],
+        "appearances": [
+          {
+            "section": "Fetal tolerance to noninherited maternal antigens",
+            "section_index": 5,
+            "variant": "alloantigen-induced proliferation",
+            "evidence": "Alloantigen-induced proliferation refers to the process by which T cells multiply in response to foreign antigens. This process is important for understanding how the fetal immune system can respond to external antigens while still maintaining tolerance to maternal tissues, which is critical for a successful pregnancy."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "maternal immune response",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "maternal immune response"
+        ],
+        "appearances": [
+          {
+            "section": "Fetal tolerance to noninherited maternal antigens",
+            "section_index": 5,
+            "variant": "maternal immune response",
+            "evidence": "The maternal immune response is the body's reaction to foreign antigens, including those from the fetus. Understanding how fetal T cells prevent this response is essential for comprehending the dynamics of pregnancy and the mechanisms that allow for fetal development without rejection."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "in utero development",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "in utero development"
+        ],
+        "appearances": [
+          {
+            "section": "Fetal tolerance to noninherited maternal antigens",
+            "section_index": 5,
+            "variant": "in utero development",
+            "evidence": "In utero development refers to the growth and maturation of the fetus within the womb. This period is critical for the establishment of the immune system, as it shapes how the fetus will respond to antigens after birth, influencing long-term health outcomes."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "post-birth immune dynamics",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "post-birth immune dynamics"
+        ],
+        "appearances": [
+          {
+            "section": "Fetal tolerance to noninherited maternal antigens",
+            "section_index": 5,
+            "variant": "post-birth immune dynamics",
+            "evidence": "Post-birth immune dynamics refer to the interactions and adaptations of the immune system following delivery. The persistence of immune tolerance established during pregnancy is significant for understanding how maternal and offspring immune systems interact and the implications for health in both."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "nima-specific tolerance",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "nima-specific tolerance"
+        ],
+        "appearances": [
+          {
+            "section": "Postnatal tolerance to NIMAs",
+            "section_index": 6,
+            "variant": "nima-specific tolerance",
+            "evidence": "NIMA-specific tolerance refers to the immune system's ability to tolerate non-inherited maternal antigens (NIMA) without mounting an immune response. This concept is crucial in understanding how maternal cells influence the offspring's immune system and can lead to reduced sensitization to certain antigens, which has implications for pregnancy and organ transplantation."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "immunological phenotypes",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "immunological phenotypes"
+        ],
+        "appearances": [
+          {
+            "section": "Postnatal tolerance to NIMAs",
+            "section_index": 6,
+            "variant": "immunological phenotypes",
+            "evidence": "Immunological phenotypes are observable characteristics of the immune system that result from genetic and environmental influences. In this context, they highlight how NIMA-specific tolerance can lead to variations in immune responses, which is important for understanding individual differences in health and disease."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "rh antigens sensitization",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "rh antigens sensitization"
+        ],
+        "appearances": [
+          {
+            "section": "Postnatal tolerance to NIMAs",
+            "section_index": 6,
+            "variant": "rh antigens sensitization",
+            "evidence": "Rh antigens sensitization refers to the immune response that occurs when an Rh-negative individual is exposed to Rh-positive blood. The reduction of sensitization among Rh- women born to Rh+ mothers illustrates the protective role of NIMA-specific tolerance, which is significant for preventing hemolytic disease in newborns."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "long-term kidney allograft survival",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "long-term kidney allograft survival"
+        ],
+        "appearances": [
+          {
+            "section": "Postnatal tolerance to NIMAs",
+            "section_index": 6,
+            "variant": "long-term kidney allograft survival",
+            "evidence": "Long-term kidney allograft survival refers to the successful functioning of a transplanted kidney over an extended period. The improvement in survival rates among NIMA-matched pairs suggests that NIMA-specific tolerance can enhance transplant outcomes, which is vital for advancing transplant medicine."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "cross-fostering animal studies",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "cross-fostering animal studies"
+        ],
+        "appearances": [
+          {
+            "section": "Postnatal tolerance to NIMAs",
+            "section_index": 6,
+            "variant": "cross-fostering animal studies",
+            "evidence": "Cross-fostering animal studies involve raising young animals by a mother that is not their biological parent, allowing researchers to study the effects of maternal influence on offspring. These studies provide insights into the importance of maternal cells in establishing NIMA-specific tolerance, which is critical for understanding immune development."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "breastfeeding and nima exposure",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "breastfeeding and nima exposure"
+        ],
+        "appearances": [
+          {
+            "section": "Postnatal tolerance to NIMAs",
+            "section_index": 6,
+            "variant": "breastfeeding and nima exposure",
+            "evidence": "Breastfeeding and NIMA exposure refer to the transfer of maternal cells through breast milk, which is essential for developing NIMA-specific tolerance in offspring. This concept underscores the importance of maternal influence on the immune system during early development."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "prenatal and postnatal exposure",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "prenatal and postnatal exposure"
+        ],
+        "appearances": [
+          {
+            "section": "Postnatal tolerance to NIMAs",
+            "section_index": 6,
+            "variant": "prenatal and postnatal exposure",
+            "evidence": "Prenatal and postnatal exposure refers to the influence of maternal cells on the offspring's immune system both before and after birth. This dual exposure is necessary for establishing and maintaining NIMA-specific tolerance, which is significant for preventing immune-related complications."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "neoangiogenesis",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "neoangiogenesis"
+        ],
+        "appearances": [
+          {
+            "section": "Benefits of microchimeric cells",
+            "section_index": 7,
+            "variant": "neoangiogenesis",
+            "evidence": "Neoangiogenesis is the process of forming new blood vessels from existing ones, which is crucial for healing and tissue repair. Fetal microchimeric cells contribute to this process, highlighting their importance in recovery from injuries."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "tissue function recovery",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "tissue function recovery"
+        ],
+        "appearances": [
+          {
+            "section": "Benefits of microchimeric cells",
+            "section_index": 7,
+            "variant": "tissue function recovery",
+            "evidence": "Tissue function recovery refers to the restoration of normal function in damaged tissues. Fetal microchimeric cells have the ability to differentiate into various cell types, aiding in the repair of injured tissues, which is particularly relevant in conditions like type I diabetes."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "type i diabetes mouse model",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "type i diabetes mouse model"
+        ],
+        "appearances": [
+          {
+            "section": "Benefits of microchimeric cells",
+            "section_index": 7,
+            "variant": "type i diabetes mouse model",
+            "evidence": "The type I diabetes mouse model is used to study the disease's mechanisms and potential treatments. In this context, it demonstrates how fetal-derived cells can replace defective maternal cells, offering insights into regenerative medicine."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "myocardial infarction",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "myocardial infarction"
+        ],
+        "appearances": [
+          {
+            "section": "Benefits of microchimeric cells",
+            "section_index": 7,
+            "variant": "myocardial infarction",
+            "evidence": "Myocardial infarction, commonly known as a heart attack, occurs when blood flow to the heart is blocked. The role of fetal microchimeric cells in repairing heart tissue after such an event underscores their potential in cardiac regeneration therapies."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "seeding of fetal microchimeric cells",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "seeding of fetal microchimeric cells"
+        ],
+        "appearances": [
+          {
+            "section": "Benefits of microchimeric cells",
+            "section_index": 7,
+            "variant": "seeding of fetal microchimeric cells",
+            "evidence": "Seeding refers to the introduction of fetal microchimeric cells into maternal tissues, which may enhance maternal functions such as lactation and attention to offspring. This concept highlights the potential long-term benefits of fetal cells on maternal health and caregiving."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "maternal breast tissue",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "maternal breast tissue"
+        ],
+        "appearances": [
+          {
+            "section": "Benefits of microchimeric cells",
+            "section_index": 7,
+            "variant": "maternal breast tissue",
+            "evidence": "Maternal breast tissue is crucial for breastfeeding, and the introduction of fetal microchimeric cells may enhance lactation, thereby improving the nutritional support for the newborn. This connection emphasizes the interplay between fetal and maternal health."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "maternal attention",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "maternal attention"
+        ],
+        "appearances": [
+          {
+            "section": "Benefits of microchimeric cells",
+            "section_index": 7,
+            "variant": "maternal attention",
+            "evidence": "Maternal attention refers to the cognitive and emotional engagement of a mother with her offspring. The potential enhancement of this attention through fetal microchimeric cells suggests a biological basis for maternal behaviors that support child development."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "systemic lupus erythematosus",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "systemic lupus erythematosus"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Systemic lupus erythematosus",
+            "section_index": 8,
+            "variant": "systemic lupus erythematosus",
+            "evidence": "Systemic lupus erythematosus (SLE) is a chronic autoimmune disease where the immune system attacks its own tissues. The relationship between male fetal cells and SLE indicates that these cells may play a role in modulating the immune response in affected mothers."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "lupus nephritis",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "lupus nephritis"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Systemic lupus erythematosus",
+            "section_index": 8,
+            "variant": "lupus nephritis",
+            "evidence": "Lupus nephritis is a serious complication of systemic lupus erythematosus that affects the kidneys. It is characterized by inflammation and damage to the kidney tissues, making it a critical area of study for understanding the impact of fetal cells on maternal health."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "pcr (polymerase chain reaction)",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "pcr (polymerase chain reaction)"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Systemic lupus erythematosus",
+            "section_index": 8,
+            "variant": "pcr (polymerase chain reaction)",
+            "evidence": "PCR is a widely used technique in molecular biology to amplify specific DNA sequences. In this context, it is crucial for detecting male fetal DNA in maternal kidney biopsies, which helps in understanding the relationship between fetal cells and autoimmune diseases."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "serum creatinine",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "serum creatinine"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Systemic lupus erythematosus",
+            "section_index": 8,
+            "variant": "serum creatinine",
+            "evidence": "Serum creatinine is a waste product measured to assess kidney function. Lower levels in mothers with male fetal cells suggest a protective effect of these cells against kidney damage in lupus nephritis."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "glomerulonephritis",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "glomerulonephritis"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Systemic lupus erythematosus",
+            "section_index": 8,
+            "variant": "glomerulonephritis",
+            "evidence": "Glomerulonephritis is an inflammation of the kidney's filtering units. The severity of this condition in the absence of male fetal cells highlights the potential protective role these cells may play in autoimmune kidney diseases."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "antigens",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "antigens"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Systemic lupus erythematosus",
+            "section_index": 8,
+            "variant": "antigens",
+            "evidence": "Antigens are substances that induce an immune response. In the context of fetal cells, their role in supplying antigens could explain some of the inflammatory processes associated with autoimmune diseases."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "hypothesis of fetal cell function",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "hypothesis of fetal cell function"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Systemic lupus erythematosus",
+            "section_index": 8,
+            "variant": "hypothesis of fetal cell function",
+            "evidence": "This hypothesis posits that fetal cells may contribute to autoimmune disease by introducing foreign antigens that provoke an immune response. Understanding this function is crucial for exploring the dual roles of fetal cells in maternal health."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "hashimoto's thyroiditis (ht)",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "hashimoto's thyroiditis (ht)"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Thyroid disease",
+            "section_index": 8,
+            "variant": "hashimoto's thyroiditis (ht)",
+            "evidence": "Hashimoto's thyroiditis is an autoimmune disorder characterized by chronic inflammation of the thyroid gland, leading to hypothyroidism. It is important to recognize this condition as it can significantly affect a person's energy levels, weight, and overall health."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "graves' disease (gd)",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "graves' disease (gd)"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Thyroid disease",
+            "section_index": 8,
+            "variant": "graves' disease (gd)",
+            "evidence": "Graves' disease is another autoimmune disorder that results in hyperthyroidism due to the overproduction of thyroid hormones. This condition is critical to understand as it can lead to symptoms such as anxiety, weight loss, and increased heart rate, impacting the quality of life."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "thyroid gland",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "thyroid gland"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Thyroid disease",
+            "section_index": 8,
+            "variant": "thyroid gland",
+            "evidence": "The thyroid gland is a vital endocrine organ that regulates metabolism through hormone production. Its involvement in fetal maternal microchimerism highlights the complex interactions between maternal and fetal health."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "postpartum",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "postpartum"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Thyroid disease",
+            "section_index": 8,
+            "variant": "postpartum",
+            "evidence": "Postpartum refers to the period following childbirth. This context is important as it marks a time when maternal immune responses may change, potentially influencing the activation of fetal cells and the development of autoimmune diseases."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "immune suppression",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "immune suppression"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Thyroid disease",
+            "section_index": 8,
+            "variant": "immune suppression",
+            "evidence": "Immune suppression refers to the reduced ability of the immune system to respond to pathogens. This concept is crucial in understanding why fetal cells may become activated postpartum, as the mother's immune system is typically suppressed during pregnancy to protect the fetus."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "sjögren syndrome (ss)",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "sjögren syndrome (ss)"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Sjögren syndrome",
+            "section_index": 8,
+            "variant": "sjögren syndrome (ss)",
+            "evidence": "Sjögren syndrome is a chronic autoimmune condition that primarily affects the exocrine glands, leading to symptoms such as dry mouth and dry eyes. Understanding SS is crucial as it highlights the complexities of autoimmune diseases and their impact on the body's glandular functions."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "autoimmune rheumatic disease",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "autoimmune rheumatic disease"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Sjögren syndrome",
+            "section_index": 8,
+            "variant": "autoimmune rheumatic disease",
+            "evidence": "Autoimmune rheumatic diseases are conditions where the immune system mistakenly attacks the body's own tissues, often affecting joints and glands. This classification is important for understanding the broader implications of immune system dysfunction and its role in various diseases."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "exocrine glands",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "exocrine glands"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Sjögren syndrome",
+            "section_index": 8,
+            "variant": "exocrine glands",
+            "evidence": "Exocrine glands are glands that secrete substances through ducts to the surface of an organ or tissue, such as saliva from salivary glands. Their involvement in SS is significant as it explains the symptoms related to dryness in affected individuals."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "y-chromosome-positive fetal cells",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "y-chromosome-positive fetal cells"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Sjögren syndrome",
+            "section_index": 8,
+            "variant": "y-chromosome-positive fetal cells",
+            "evidence": "Y-chromosome-positive fetal cells indicate the presence of male fetal cells in the mother's body, which can provide insights into the relationship between pregnancy and autoimmune diseases like SS. Their detection in salivary glands of women with SS supports the hypothesis of fetal microchimerism's role in the disease."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "salivary glands",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "salivary glands"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Sjögren syndrome",
+            "section_index": 8,
+            "variant": "salivary glands",
+            "evidence": "Salivary glands are exocrine glands responsible for producing saliva. Their involvement in SS is critical as it relates to the symptoms of dryness and the potential mechanisms of disease development."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "relationship between ss and pregnancy",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "relationship between ss and pregnancy"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Sjögren syndrome",
+            "section_index": 8,
+            "variant": "relationship between ss and pregnancy",
+            "evidence": "The relationship between SS and pregnancy is significant as it highlights how hormonal and physiological changes during and after pregnancy may influence the onset or exacerbation of autoimmune diseases. This understanding can guide clinical approaches to managing SS in postpartum women."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "incidence of ss after childbirth",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "incidence of ss after childbirth"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Sjögren syndrome",
+            "section_index": 8,
+            "variant": "incidence of ss after childbirth",
+            "evidence": "The increased incidence of SS after childbirth indicates that pregnancy may trigger or worsen autoimmune responses in susceptible individuals. This temporal factor is crucial for understanding the dynamics of autoimmune diseases in relation to reproductive health."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "lichen planus (lp)",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "lichen planus (lp)"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Oral lichen planus",
+            "section_index": 8,
+            "variant": "lichen planus (lp)",
+            "evidence": "Lichen planus is a chronic autoimmune disease characterized by the infiltration of T lymphocytes in the epithelium, leading to damage of basal cells. Understanding LP is crucial as it highlights the role of the immune system in skin disorders and the complexities of autoimmune diseases."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "t-cell-mediated autoimmune disease",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "t-cell-mediated autoimmune disease"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Oral lichen planus",
+            "section_index": 8,
+            "variant": "t-cell-mediated autoimmune disease",
+            "evidence": "This term refers to diseases where T cells, a type of white blood cell, mistakenly attack the body's own tissues. It is significant because it underscores the immune system's role in various chronic conditions, including skin diseases like LP."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "prevalence",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "prevalence"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Oral lichen planus",
+            "section_index": 8,
+            "variant": "prevalence",
+            "evidence": "Prevalence refers to how common a disease is within a specific population. In the case of LP, understanding its higher prevalence in females can inform research and treatment approaches tailored to gender differences in autoimmune responses."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "t lymphocytes infiltration",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "t lymphocytes infiltration"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Oral lichen planus",
+            "section_index": 8,
+            "variant": "t lymphocytes infiltration",
+            "evidence": "T lymphocytes infiltration is a process where T cells invade tissues, leading to cellular damage. This mechanism is central to understanding how autoimmune diseases like LP develop and progress."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "apoptosis",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "apoptosis"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Oral lichen planus",
+            "section_index": 8,
+            "variant": "apoptosis",
+            "evidence": "Apoptosis is a form of programmed cell death that occurs in multicellular organisms. In the context of LP, it is significant because the destruction of basal cells contributes to the disease's pathology."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "pregnancy and breast cancer prognosis",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "pregnancy and breast cancer prognosis"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Breast cancer",
+            "section_index": 8,
+            "variant": "pregnancy and breast cancer prognosis",
+            "evidence": "This concept refers to the observed relationship between pregnancy and improved outcomes for women diagnosed with breast cancer. Understanding this relationship is crucial as it can influence treatment decisions and patient counseling regarding pregnancy during or after cancer treatment."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "mechanisms of fetal cell influence",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "mechanisms of fetal cell influence"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Breast cancer",
+            "section_index": 8,
+            "variant": "mechanisms of fetal cell influence",
+            "evidence": "This concept encompasses the proposed ways in which fetal cells may positively influence breast cancer outcomes. Understanding these mechanisms is essential for developing potential therapeutic strategies and improving patient care."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "immune system interaction",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "immune system interaction"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Breast cancer",
+            "section_index": 8,
+            "variant": "immune system interaction",
+            "evidence": "This concept describes how fetal cells might interact with cancer cells and the immune system, potentially enhancing the body's ability to fight cancer. This interaction is crucial for understanding how pregnancy might alter cancer dynamics."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "down-regulation of the immune system",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "down-regulation of the immune system"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Breast cancer",
+            "section_index": 8,
+            "variant": "down-regulation of the immune system",
+            "evidence": "This concept refers to the idea that fetal cells may suppress the immune response, which could paradoxically help prevent cancer development. This is significant as it suggests a complex relationship between immune function and cancer progression."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "allogeneic fetal cells",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "allogeneic fetal cells"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Breast cancer",
+            "section_index": 8,
+            "variant": "allogeneic fetal cells",
+            "evidence": "Allogeneic fetal cells are those that come from a genetically different individual, such as a fetus. This concept is relevant as it indicates that the ability to retain these cells may be linked to cancer prognosis, highlighting a potential area for further research."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "inflammatory mediators",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "inflammatory mediators"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Breast cancer",
+            "section_index": 8,
+            "variant": "inflammatory mediators",
+            "evidence": "Inflammatory mediators are substances that can promote inflammation in the body. This concept is important because it connects inflammation to cancer development, suggesting that managing inflammation could be a strategy for improving cancer outcomes."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "case studies on pregnancy and breast cancer",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "case studies on pregnancy and breast cancer"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Breast cancer",
+            "section_index": 8,
+            "variant": "case studies on pregnancy and breast cancer",
+            "evidence": "This concept refers to the body of research that investigates the relationship between pregnancy and breast cancer outcomes. These studies provide empirical evidence that can inform clinical practices and patient management."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "historical context of breast cancer research",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "historical context of breast cancer research"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Breast cancer",
+            "section_index": 8,
+            "variant": "historical context of breast cancer research",
+            "evidence": "The historical context includes the evolution of research on breast cancer and pregnancy, which has shaped current understanding and treatment approaches. Recognizing this context is important for appreciating how scientific knowledge develops over time."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "cervical cancer",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "cervical cancer"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Other cancers",
+            "section_index": 8,
+            "variant": "cervical cancer",
+            "evidence": "Cervical cancer is a type of cancer that occurs in the cervix and can be influenced by various factors, including the presence of microchimeric cells. This association highlights the potential role of fetal cells in cancer development and the immune response."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "hpv infection",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "hpv infection"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Other cancers",
+            "section_index": 8,
+            "variant": "hpv infection",
+            "evidence": "HPV infection refers to the presence of the human papillomavirus, which is a significant risk factor for cervical cancer. Understanding how microchimeric cells may affect susceptibility to HPV is crucial for developing preventive measures and treatments."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "tumor microenvironment",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "tumor microenvironment"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Other cancers",
+            "section_index": 8,
+            "variant": "tumor microenvironment",
+            "evidence": "The tumor microenvironment refers to the surrounding cells and conditions that influence tumor growth and progression. The clustering of microchimeric cells in tumors suggests they may play a role in tissue repair or tumor dynamics, which is important for cancer research."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "pregnancy at older ages",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "pregnancy at older ages"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Other cancers",
+            "section_index": 8,
+            "variant": "pregnancy at older ages",
+            "evidence": "The concept of pregnancy at older ages refers to the implications of maternal age on health outcomes, particularly regarding cancer risks. This finding is significant as it challenges traditional views on age-related cancer risks and highlights the complex interactions between pregnancy and cancer."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "s. hallum",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "s. hallum"
+        ],
+        "appearances": [
+          {
+            "section": "Relationship with autoimmune diseases and breast cancer - Other cancers",
+            "section_index": 8,
+            "variant": "s. hallum",
+            "evidence": "S. Hallum is the author of a study that investigates the relationship between male origin fetal cells and ovarian cancer risk. Their contributions are important for advancing the understanding of microchimerism and its implications for women's health."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "collagen i and iii",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "collagen i and iii"
+        ],
+        "appearances": [
+          {
+            "section": "Role of microchimerism in wound healing",
+            "section_index": 9,
+            "variant": "collagen i and iii",
+            "evidence": "Collagen I and III are types of collagen proteins that provide structural support in various tissues. Their expression by microchimeric fetal cells suggests these cells may contribute to the healing process by aiding in the formation of new tissue, which is crucial for recovery from injuries such as cesarean section scars."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "tgf-β3",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "tgf-β3"
+        ],
+        "appearances": [
+          {
+            "section": "Role of microchimerism in wound healing",
+            "section_index": 9,
+            "variant": "tgf-β3",
+            "evidence": "Transforming Growth Factor Beta 3 (TGF-β3) is a cytokine involved in tissue repair and regeneration. Its expression by microchimeric fetal cells indicates a role in modulating the healing process, making it an important factor in understanding how fetal cells can influence maternal tissue recovery."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "maternal skin injury signals",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "maternal skin injury signals"
+        ],
+        "appearances": [
+          {
+            "section": "Role of microchimerism in wound healing",
+            "section_index": 9,
+            "variant": "maternal skin injury signals",
+            "evidence": "Maternal skin injury signals refer to biochemical cues released in response to skin damage that attract cells to the injury site. Understanding these signals is essential for elucidating the mechanisms of tissue repair and the role of microchimeric cells in healing."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "healed maternal cesarean section scars",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "healed maternal cesarean section scars"
+        ],
+        "appearances": [
+          {
+            "section": "Role of microchimerism in wound healing",
+            "section_index": 9,
+            "variant": "healed maternal cesarean section scars",
+            "evidence": "Healed maternal cesarean section scars are the result of surgical intervention during childbirth. The study of these scars provides insights into the healing process and the potential contributions of fetal cells to maternal recovery, which is important for improving surgical outcomes."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "umbilical cord blood cells",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "umbilical cord blood cells"
+        ],
+        "appearances": [
+          {
+            "section": "Stem cells - Animal models",
+            "section_index": 10,
+            "variant": "umbilical cord blood cells",
+            "evidence": "Umbilical cord blood cells are stem cells derived from the umbilical cord that have the potential to differentiate into various cell types, including neural cells. Their ability to express neuron-like proteins is important for their therapeutic potential in brain injury recovery."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "neural cells",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "neural cells"
+        ],
+        "appearances": [
+          {
+            "section": "Stem cells - Animal models",
+            "section_index": 10,
+            "variant": "neural cells",
+            "evidence": "Neural cells are specialized cells in the nervous system that transmit signals and support brain function. The differentiation of umbilical cord blood cells into neural cells highlights the potential for regenerative medicine in treating neurological conditions."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "maternal mouse brain",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "maternal mouse brain"
+        ],
+        "appearances": [
+          {
+            "section": "Stem cells - Animal models",
+            "section_index": 10,
+            "variant": "maternal mouse brain",
+            "evidence": "The maternal mouse brain serves as a model for studying how fetal cells can influence maternal health. This concept is important for understanding the biological mechanisms that may affect maternal brain function and recovery."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "experimental investigations",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "experimental investigations"
+        ],
+        "appearances": [
+          {
+            "section": "Stem cells - Animal models",
+            "section_index": 10,
+            "variant": "experimental investigations",
+            "evidence": "Experimental investigations refer to scientific studies designed to test hypotheses and explore biological phenomena. These investigations are crucial for validating the mechanisms by which fetal cells interact with maternal tissues, particularly in the context of brain health."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "brain injury",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "brain injury"
+        ],
+        "appearances": [
+          {
+            "section": "Stem cells - Animal models",
+            "section_index": 10,
+            "variant": "brain injury",
+            "evidence": "Brain injury refers to damage to the brain that can result from various causes, including trauma or stroke. Understanding how fetal cells can aid recovery from brain injury is vital for developing new therapeutic strategies."
+          }
+        ],
+        "layer": "tertiary"
+      },
+      {
+        "id": "stem cells",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "stem cells"
+        ],
+        "appearances": [
+          {
+            "section": "Health implications",
+            "section_index": 11,
+            "variant": "stem cells",
+            "evidence": "Stem cells are undifferentiated cells with the potential to develop into various cell types. In the context of pregnancy, fetal stem cells can be studied directly in the maternal environment, which may provide insights into their roles and effects on maternal health."
+          }
+        ],
+        "layer": "priority"
+      },
+      {
+        "id": "umbilical cord",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "umbilical cord"
+        ],
+        "appearances": [
+          {
+            "section": "Health implications",
+            "section_index": 11,
+            "variant": "umbilical cord",
+            "evidence": "The umbilical cord is a vital structure that connects the fetus to the placenta, providing nutrients and oxygen. It is also a rich source of stem cells, which can be harvested for medical treatments, particularly in regenerative medicine."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "intravenous infusion",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "intravenous infusion"
+        ],
+        "appearances": [
+          {
+            "section": "Health implications",
+            "section_index": 11,
+            "variant": "intravenous infusion",
+            "evidence": "Intravenous infusion is a method of delivering substances directly into the bloodstream. Using fetal stem cells in this way could potentially aid in repairing damaged brain tissue, highlighting the therapeutic potential of these cells."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "neurogenesis",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "neurogenesis"
+        ],
+        "appearances": [
+          {
+            "section": "Health implications",
+            "section_index": 11,
+            "variant": "neurogenesis",
+            "evidence": "Neurogenesis is the process of generating new neurons in the brain. During pregnancy, hormonal changes may enhance neurogenesis, possibly improving the ability of fetal cells to aid in brain repair and recovery from injury."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "health effects of fetal cells",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "health effects of fetal cells"
+        ],
+        "appearances": [
+          {
+            "section": "Health implications",
+            "section_index": 11,
+            "variant": "health effects of fetal cells",
+            "evidence": "Fetal cells can have both beneficial and detrimental effects on maternal health, which is an area of ongoing research. Understanding these effects is important for assessing the implications of fetal microchimerism on maternal well-being."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "resource allocation",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "resource allocation"
+        ],
+        "appearances": [
+          {
+            "section": "Health implications",
+            "section_index": 11,
+            "variant": "resource allocation",
+            "evidence": "Resource allocation refers to how resources are distributed between the fetus and the mother. Imbalances in this allocation can lead to health complications, as the fetus may manipulate maternal resources for its own growth."
+          }
+        ],
+        "layer": "secondary"
+      },
+      {
+        "id": "placenta",
+        "frequency": 1,
+        "section_count": 1,
+        "variants": [
+          "placenta"
+        ],
+        "appearances": [
+          {
+            "section": "Health implications",
+            "section_index": 11,
+            "variant": "placenta",
+            "evidence": "The placenta is an organ that develops during pregnancy to provide nutrients and oxygen to the fetus. Its role is crucial in the context of fetal microchimerism, as it serves as a source of resources that the fetus may exploit, potentially leading to conflicts with maternal health."
+          }
+        ],
+        "layer": "tertiary"
+      }
+    ]
+  }
+}

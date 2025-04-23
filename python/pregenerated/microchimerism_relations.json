@@ -1,0 +1,1614 @@
+{
+  "metadata": {
+    "type": "master_relations",
+    "processing_mode": "subsection",
+    "timestamp": "2025-03-06T22:26:06.000000"
+  },
+  "articles": {
+    "Microchimerism": {
+      "category": "general",
+      "relations": [
+        {
+          "source": "long-term kidney allograft survival",
+          "relation_type": "influence of fetal cells",
+          "target": "immune tolerance",
+          "evidence": "The presence of fetal cells in the maternal circulation has been associated with improved long-term kidney allograft survival, suggesting that these cells may enhance immune tolerance mechanisms.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "fetal microchimeric cells",
+          "relation_type": "involved in",
+          "target": "models of Parkinson's disease",
+          "evidence": "Fetal microchimeric cells can differentiate into cell types that infiltrate and replace injured cells in models of Parkinson's disease.",
+          "section_name": "Benefits of microchimeric cells",
+          "section_index": 7
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "express",
+          "target": "collagen I and III",
+          "evidence": "Microchimeric fetal cells expressed collagen I, III and TGF-β3.",
+          "section_name": "Role of microchimerism in wound healing",
+          "section_index": 9
+        },
+        {
+          "source": "maternal-fetal interface",
+          "relation_type": "prevents",
+          "target": "immune rejection",
+          "evidence": "There are many mechanisms at the maternal-fetal interface to prevent immune rejection of fetal cells.",
+          "section_name": "Maternal tolerance to paternal-fetal antigens",
+          "section_index": 4
+        },
+        {
+          "source": "fraternal twins",
+          "relation_type": "result in",
+          "target": "microchimerism",
+          "evidence": "Microchimerism occurs in most pairs of twins in cattle.",
+          "section_name": "Types - Animal",
+          "section_index": 2
+        },
+        {
+          "source": "feto-maternal cell transfer",
+          "relation_type": "increases",
+          "target": "numbers of fetal cells in maternal tissues",
+          "evidence": "These changes in immune responses during pregnancy extend to maternal components specific to fetal antigens, because of feto-maternal cell transfer and their retention in mother tissues.",
+          "section_name": "Maternal tolerance to paternal-fetal antigens",
+          "section_index": 4
+        },
+        {
+          "source": "male hormones",
+          "relation_type": "partially masculinize",
+          "target": "heifer",
+          "evidence": "male hormones partially masculinize the heifer (female).",
+          "section_name": "Types - Animal",
+          "section_index": 2
+        },
+        {
+          "source": "fetal t cells",
+          "relation_type": "capable of",
+          "target": "alloantigen-induced proliferation",
+          "evidence": "fetal CD4+ T cells are capable of alloantigen-induced proliferation",
+          "section_name": "Fetal tolerance to noninherited maternal antigens",
+          "section_index": 5
+        },
+        {
+          "source": "fetal microchimerism",
+          "relation_type": "may play a role in",
+          "target": "pathogenesis of autoimmune diseases",
+          "evidence": "The fetal microchimerism may trigger a fetus versus host reaction and therefore may play a role in the pathogenesis of autoimmune diseases including LP.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Oral lichen planus",
+          "section_index": 8
+        },
+        {
+          "source": "gestation",
+          "relation_type": "context for immune dynamics",
+          "target": "post-birth immune dynamics",
+          "evidence": "The immune system undergoes significant changes during gestation, which can affect post-birth immune dynamics and influence the incidence of autoimmune diseases in mothers.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "type I diabetes mouse model",
+          "relation_type": "research context for",
+          "target": "maternal immune response",
+          "evidence": "Studies using type I diabetes mouse models can provide insights into how maternal immune responses are altered by fetal microchimerism, potentially revealing mechanisms that contribute to autoimmune disease development.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "sharing of genes",
+          "relation_type": "leads to",
+          "target": "benefits",
+          "evidence": "the sharing of genes between the fetus and mother may lead to benefits.",
+          "section_name": "Health implications",
+          "section_index": 11
+        },
+        {
+          "source": "fetal microchimeric cells",
+          "relation_type": "aid in",
+          "target": "wound healing",
+          "evidence": "They also help in wound healing by neoangiogenesis.",
+          "section_name": "Benefits of microchimeric cells",
+          "section_index": 7
+        },
+        {
+          "source": "immunological phenotypes",
+          "relation_type": "variation",
+          "target": "systemic immunological changes",
+          "evidence": "Different immunological phenotypes can result from systemic immunological changes during pregnancy, affecting how the body responds to both fetal cells and potential autoimmune triggers.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "fred hutchinson cancer research center",
+          "relation_type": "conducts research on",
+          "target": "microchimerism",
+          "evidence": "The Fred Hutchinson Cancer Research Center is involved in research that explores the implications of microchimerism in cancer and other diseases, linking basic science to clinical outcomes.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "maternal-fetal interface",
+          "relation_type": "site of interaction",
+          "target": "feto-maternal cell transfer",
+          "evidence": "The maternal-fetal interface is where feto-maternal cell transfer occurs, facilitating the exchange of cells that can influence maternal immune tolerance and potentially affect long-term health outcomes.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "mice models",
+          "relation_type": "demonstrate",
+          "target": "clonal deletion of fetal-specific CD8+ T cells",
+          "evidence": "In mice models, most mother's fetal-specific CD8+ T cells undergo clonal deletion.",
+          "section_name": "Maternal tolerance to paternal-fetal antigens",
+          "section_index": 4
+        },
+        {
+          "source": "fetal t cells",
+          "relation_type": "exposed to",
+          "target": "noninherited maternal antigens (nimas)",
+          "evidence": "the fetus is exposed to noninherited maternal antigens (NIMAs)",
+          "section_name": "Fetal tolerance to noninherited maternal antigens",
+          "section_index": 5
+        },
+        {
+          "source": "KIR patterns",
+          "relation_type": "affect",
+          "target": "fetomaternal microchimerism",
+          "evidence": "KIR patterns on maternal natural killer cells of the mother and KIR ligands on the fetal cells could have an effect on fetomaternal microchimerism",
+          "section_name": "Types - Human",
+          "section_index": 2
+        },
+        {
+          "source": "preeclampsia",
+          "relation_type": "associated with",
+          "target": "systemic immunological changes",
+          "evidence": "Preeclampsia is associated with systemic immunological changes that can affect the maternal-fetal relationship, indicating a complex interplay between maternal health and fetal development.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "decreased expansion and decidual accumulation of Treg",
+          "relation_type": "causes",
+          "target": "pregnancy complications",
+          "evidence": "Decreased expansion and decidual accumulation of Treg cause pregnancy complications (preeclampsia, abortions).",
+          "section_name": "Maternal tolerance to paternal-fetal antigens",
+          "section_index": 4
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "decrease concentration near",
+          "target": "healthy breast tissue",
+          "evidence": "one their concentration decreases as they get closer to the healthy breast tissue.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Breast cancer",
+          "section_index": 8
+        },
+        {
+          "source": "systemic immunological changes",
+          "relation_type": "result of fetal cell presence",
+          "target": "post-birth immune dynamics",
+          "evidence": "The presence of fetal cells in the maternal system can lead to systemic immunological changes that affect immune dynamics after birth, influencing susceptibility to autoimmune diseases.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "male fetal cells",
+          "relation_type": "related to",
+          "target": "lupus nephritis",
+          "evidence": "Women with lupus nephritis containing male fetal cells in their kidney biopsies exhibited better renal system functioning.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Systemic lupus erythematosus",
+          "section_index": 8
+        },
+        {
+          "source": "fetal microchimeric cells",
+          "relation_type": "differentiate into",
+          "target": "cell types that infiltrate and replace injured cells",
+          "evidence": "Fetal microchimeric cells can differentiate into cell types that infiltrate and replace injured cells in models of Parkinson's disease or myocardial infarction.",
+          "section_name": "Benefits of microchimeric cells",
+          "section_index": 7
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "involved in",
+          "target": "pathogenesis",
+          "evidence": "suggesting a role of fetal cells in the pathogenesis of such diseases.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Thyroid disease",
+          "section_index": 8
+        },
+        {
+          "source": "feto-maternal cell transfer",
+          "relation_type": "biological process",
+          "target": "maternal-fetal interface",
+          "evidence": "Feto-maternal cell transfer occurs at the maternal-fetal interface and is essential for establishing immune tolerance, which is critical for the health of both the mother and the fetus.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "graft-versus-host reaction",
+          "relation_type": "is related to",
+          "target": "microchimerism after blood transfusions",
+          "evidence": "The graft-versus-host reaction can occur in the context of microchimerism after blood transfusions, where donor cells may engraft in the recipient, leading to immune responses that are similar to those seen in microchimerism.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "treg cells",
+          "relation_type": "prevent",
+          "target": "fetal immune response",
+          "evidence": "preventing a fetal immune response to maternal antigens",
+          "section_name": "Fetal tolerance to noninherited maternal antigens",
+          "section_index": 5
+        },
+        {
+          "source": "human and mouse models",
+          "relation_type": "used to investigate",
+          "target": "diagnosis of microchimerism",
+          "evidence": "Human and mouse models are often used to investigate the diagnosis of microchimerism, providing insights into the mechanisms and implications of microchimeric cell presence.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "graft-versus-host reaction",
+          "relation_type": "may trigger",
+          "target": "autoimmune diseases",
+          "evidence": "this fetal cells might trigger a graft-versus-host reaction leading to autoimmune disease",
+          "section_name": "Types - Human",
+          "section_index": 2
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "involved in",
+          "target": "microchimerism",
+          "evidence": "The specific role that fetal cells play in microchimerism related to certain autoimmune diseases is not fully understood.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Systemic lupus erythematosus",
+          "section_index": 8
+        },
+        {
+          "source": "autoimmune diseases",
+          "relation_type": "influence",
+          "target": "microchimerism",
+          "evidence": "Autoimmune diseases may be influenced by microchimerism, as the presence of microchimeric cells can alter immune responses, potentially leading to autoimmune conditions.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "fetal microchimerism (FMC)",
+          "relation_type": "affects",
+          "target": "breast cancer prognosis",
+          "evidence": "Hyperchimerism and hypochimerism can be related to the negative effect of FMC and thus can promote a worse prognosis of breast cancer.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Breast cancer",
+          "section_index": 8
+        },
+        {
+          "source": "collagen I and III",
+          "relation_type": "involved in",
+          "target": "tissue repair",
+          "evidence": "Microchimeric fetal cells expressed collagen I, III.",
+          "section_name": "Role of microchimerism in wound healing",
+          "section_index": 9
+        },
+        {
+          "source": "immunomarkers",
+          "relation_type": "indicate",
+          "target": "maternal immune response",
+          "evidence": "Immunomarkers can indicate the status of the maternal immune response, which is crucial for understanding how microchimerism affects pregnancy outcomes.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "fetal microchimeric cells",
+          "relation_type": "replace",
+          "target": "injured maternal cells",
+          "evidence": "These cells can also replace injured maternal cells and recover tissue function.",
+          "section_name": "Benefits of microchimeric cells",
+          "section_index": 7
+        },
+        {
+          "source": "microchimerism",
+          "relation_type": "is present in",
+          "target": "maternal brain",
+          "evidence": "Several studies have identified male DNA in the brains of both humans and mice who have previously been pregnant with a male fetus.",
+          "section_name": "Fetomaternal microchimerism in the brain",
+          "section_index": 3
+        },
+        {
+          "source": "FOXP3 expression",
+          "relation_type": "leads to",
+          "target": "differentiation into Treg cells",
+          "evidence": "Mother's fetal-specific CD4+ T cells proliferate, and due to FOXP3 expression, differentiate into Treg cells.",
+          "section_name": "Maternal tolerance to paternal-fetal antigens",
+          "section_index": 4
+        },
+        {
+          "source": "fraternal twins",
+          "relation_type": "share",
+          "target": "blood circulation",
+          "evidence": "the placentas of fraternal twins usually fuse and the twins share blood circulation.",
+          "section_name": "Types - Animal",
+          "section_index": 2
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "help",
+          "target": "tissue repair",
+          "evidence": "help repair tissue.",
+          "section_name": "Role of microchimerism in wound healing",
+          "section_index": 9
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "component of",
+          "target": "microchimerism",
+          "evidence": "Fetal cells are a key component of microchimerism, as they can persist in the maternal body and contribute to the complex interactions between maternal and fetal immune systems.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "microchimeric cells",
+          "relation_type": "might induce alteration of",
+          "target": "woman's immune system",
+          "evidence": "Microchimeric cells might induce the alteration of the woman's immune system.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Other cancers",
+          "section_index": 8
+        },
+        {
+          "source": "fetal microchimeric cells",
+          "relation_type": "involved in",
+          "target": "neoangiogenesis",
+          "evidence": "They also help in wound healing by neoangiogenesis.",
+          "section_name": "Benefits of microchimeric cells",
+          "section_index": 7
+        },
+        {
+          "source": "fetal microchimerism",
+          "relation_type": "may be involved in the",
+          "target": "pathogenesis of SS",
+          "evidence": "this led to the hypothesis that fetal microchimerism may be involved in SS pathogenesis.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Sjögren syndrome",
+          "section_index": 8
+        },
+        {
+          "source": "lupus nephritis",
+          "relation_type": "measured by",
+          "target": "serum creatinine",
+          "evidence": "Levels of serum creatinine, which is related to kidney failure, were low in mothers with high levels of male fetal cells.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Systemic lupus erythematosus",
+          "section_index": 8
+        },
+        {
+          "source": "fetal microchimeric cells",
+          "relation_type": "highest levels during",
+          "target": "last trimester",
+          "evidence": "it is most apparent when fetal microchimeric cells levels are highest - during the last trimester.",
+          "section_name": "Benefits of microchimeric cells",
+          "section_index": 7
+        },
+        {
+          "source": "microchimeric cells",
+          "relation_type": "retained in",
+          "target": "tissues",
+          "evidence": "allows microchimeric cells to be retained in tissues",
+          "section_name": "Fetal tolerance to noninherited maternal antigens",
+          "section_index": 5
+        },
+        {
+          "source": "male–female pair of twins",
+          "relation_type": "results in",
+          "target": "XX/XY microchimerism",
+          "evidence": "If the twins are a male–female pair, then XX/XY microchimerism results.",
+          "section_name": "Types - Animal",
+          "section_index": 2
+        },
+        {
+          "source": "pregnancy",
+          "relation_type": "has positive effect on",
+          "target": "breast cancer prognosis",
+          "evidence": "Pregnancy has a positive effect on the prognosis of breast cancer according to several studies.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Breast cancer",
+          "section_index": 8
+        },
+        {
+          "source": "cd4+ regulatory t cells (tregs)",
+          "relation_type": "regulate",
+          "target": "immune tolerance",
+          "evidence": "CD4+ regulatory T cells (Tregs) are vital for establishing immune tolerance during pregnancy, helping to prevent the maternal immune system from attacking fetal cells.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "case studies on fetal cells",
+          "relation_type": "evidence for hypothesis",
+          "target": "hypothesis of fetal cell function",
+          "evidence": "Case studies on fetal cells provide empirical evidence supporting the hypothesis that these cells have functional roles in maternal health, including immune modulation and tissue repair.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "immune tolerance",
+          "relation_type": "mechanism of protection",
+          "target": "long-term kidney allograft survival",
+          "evidence": "Immune tolerance mechanisms, potentially influenced by fetal cells, are essential for achieving long-term survival of kidney allografts, highlighting the relevance of fetal-maternal interactions in transplantation outcomes.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "natural killer cells",
+          "relation_type": "interact with",
+          "target": "kir ligands",
+          "evidence": "Natural killer cells play a crucial role in the immune response and interact with KIR ligands, which are important for recognizing and responding to microchimeric cells, thereby influencing the dynamics of microchimerism.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "autoimmune diseases",
+          "relation_type": "reduction in severity during",
+          "target": "pregnancy",
+          "evidence": "The severity of preexisting autoimmune disorders is reduced during pregnancy.",
+          "section_name": "Benefits of microchimeric cells",
+          "section_index": 7
+        },
+        {
+          "source": "nima-specific tolerance",
+          "relation_type": "improves",
+          "target": "long-term kidney allograft survival",
+          "evidence": "long-term kidney allograft survival is improved in NIMA-matched donor-recipient sibling pairs.",
+          "section_name": "Postnatal tolerance to NIMAs",
+          "section_index": 6
+        },
+        {
+          "source": "studies",
+          "relation_type": "showed presence of",
+          "target": "Y-chromosome-positive fetal cells",
+          "evidence": "Studies showed the presence of Y-chromosome-positive fetal cells in minor salivary glands in 11 of 20 women with SS.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Sjögren syndrome",
+          "section_index": 8
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "activated after",
+          "target": "delivery of the baby",
+          "evidence": "These cells could become activated after delivery of the baby after immune suppression in the mother is lost.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Thyroid disease",
+          "section_index": 8
+        },
+        {
+          "source": "t lymphocytes infiltration",
+          "relation_type": "causes",
+          "target": "apoptosis",
+          "evidence": "LP is characterized by T lymphocytes infiltration of the lower levels of epithelium, where they damage basal cells and cause apoptosis.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Oral lichen planus",
+          "section_index": 8
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "can differentiate into",
+          "target": "immunomarkers",
+          "evidence": "It has been suggested that the fetal-derived cells can differentiate into those capable of presenting immunomarkers on their surface.",
+          "section_name": "Fetomaternal microchimerism in the brain",
+          "section_index": 3
+        },
+        {
+          "source": "male cells",
+          "relation_type": "observed in",
+          "target": "patients with cervical cancer",
+          "evidence": "Male cells were observed in patients with cervical cancer but not in positive controls.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Other cancers",
+          "section_index": 8
+        },
+        {
+          "source": "microchimerism",
+          "relation_type": "correlates with",
+          "target": "parkinson's disease",
+          "evidence": "Parkinson's disease correlates with a higher incidence of brain microchimeras.",
+          "section_name": "Fetomaternal microchimerism in the brain",
+          "section_index": 3
+        },
+        {
+          "source": "autoimmune diseases",
+          "relation_type": "improves during",
+          "target": "pregnancy",
+          "evidence": "condition of women suffering from autoimmune disorders (e.g. rheumatoid arthritis, multiple sclerosis) improves during pregnancy.",
+          "section_name": "Maternal tolerance to paternal-fetal antigens",
+          "section_index": 4
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "impact on health",
+          "target": "immune tolerance",
+          "evidence": "Fetal cells can contribute to immune tolerance in the mother, which is crucial for the successful maintenance of pregnancy and may influence the development of autoimmune conditions post-birth.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "manipulate",
+          "target": "maternal system",
+          "evidence": "fetal cells are able to manipulate the maternal system to draw resources from the placenta.",
+          "section_name": "Health implications",
+          "section_index": 11
+        },
+        {
+          "source": "absence of male fetal cells",
+          "relation_type": "associated with",
+          "target": "glomerulonephritis",
+          "evidence": "women without male fetal cells who had lupus nephritis showed a more serious form of glomerulonephritis.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Systemic lupus erythematosus",
+          "section_index": 8
+        },
+        {
+          "source": "microchimerism",
+          "relation_type": "exists after",
+          "target": "blood transfusions",
+          "evidence": "Microchimerism had also been shown to exist after blood transfusions to a severely immunocompromised population",
+          "section_name": "Types - Human",
+          "section_index": 2
+        },
+        {
+          "source": "women with breast cancer",
+          "relation_type": "fail in",
+          "target": "obtaining and maintaining allogeneic fetal cells",
+          "evidence": "women with breast cancer may fail in the process of obtaining and maintaining allogeneic fetal cells.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Breast cancer",
+          "section_index": 8
+        },
+        {
+          "source": "maternal attention",
+          "relation_type": "influences",
+          "target": "fetal cell transfer",
+          "evidence": "Maternal attention and care during pregnancy can influence the dynamics of fetal cell transfer and the subsequent immunological outcomes for both mother and child.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "may be involved in the",
+          "target": "development of SS",
+          "evidence": "Fetal cells in salivary glands suggest that they may be involved in the development of SS.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Sjögren syndrome",
+          "section_index": 8
+        },
+        {
+          "source": "studies",
+          "relation_type": "utilize",
+          "target": "human and mouse models",
+          "evidence": "Several studies have identified male DNA in the brains of both humans and mice.",
+          "section_name": "Fetomaternal microchimerism in the brain",
+          "section_index": 3
+        },
+        {
+          "source": "microchimerism",
+          "relation_type": "mechanism",
+          "target": "tissue repair",
+          "evidence": "Microchimerism, the presence of fetal cells in the maternal body, has been linked to tissue repair processes, suggesting that these cells may play a role in recovery from injuries such as myocardial infarction.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "post-birth immune dynamics",
+          "relation_type": "affected by",
+          "target": "maternal-fetal microchimerism",
+          "evidence": "Post-birth immune dynamics can be significantly influenced by the presence of microchimeric cells, which may alter the maternal immune landscape and contribute to the development of autoimmune conditions.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "settle in",
+          "target": "tumor stroma",
+          "evidence": "they are preferentially settled in the tumor stroma.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Breast cancer",
+          "section_index": 8
+        },
+        {
+          "source": "maternal-fetal interface",
+          "relation_type": "critical for",
+          "target": "feto-maternal microchimerism",
+          "evidence": "The maternal-fetal interface is essential for the establishment of fetomaternal microchimerism, facilitating the exchange of cells that can influence maternal immune responses and health outcomes.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "influence",
+          "target": "immune tolerance",
+          "evidence": "Fetal cells are known to contribute to immune tolerance during pregnancy, which can affect maternal immune responses and potentially influence the incidence of autoimmune diseases post-birth.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "fetomaternal microchimerism",
+          "relation_type": "is a type of",
+          "target": "microchimerism",
+          "evidence": "Fetomaternal microchimerism specifically refers to the transfer of fetal cells into the maternal circulation during pregnancy, highlighting a specific instance of microchimerism that has implications for maternal health.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "nima-specific tolerance",
+          "relation_type": "causes",
+          "target": "immunological phenotypes",
+          "evidence": "NIMA-specific tolerance causes some interesting immunological phenotypes.",
+          "section_name": "Postnatal tolerance to NIMAs",
+          "section_index": 6
+        },
+        {
+          "source": "Sjögren syndrome (SS)",
+          "relation_type": "is a type of",
+          "target": "autoimmune rheumatic disease",
+          "evidence": "Sjögren syndrome (SS) is an autoimmune rheumatic disease of the exocrine glands.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Sjögren syndrome",
+          "section_index": 8
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "persist in",
+          "target": "mother",
+          "evidence": "Fetal cells have been documented to persist and multiply in the mother for several decades",
+          "section_name": "Types - Human",
+          "section_index": 2
+        },
+        {
+          "source": "microchimerism after blood transfusions",
+          "relation_type": "similarity in cellular exchange",
+          "target": "feto-maternal microchimerism",
+          "evidence": "Both microchimerism after blood transfusions and feto-maternal microchimerism involve the transfer of cells between individuals, suggesting that similar immunological principles may govern their effects on health.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "maternal immune cells",
+          "relation_type": "found in",
+          "target": "offspring",
+          "evidence": "Maternal immune cells are also found in the offspring yielding in maternal→fetal microchimerism",
+          "section_name": "Types - Human",
+          "section_index": 2
+        },
+        {
+          "source": "studies",
+          "relation_type": "support",
+          "target": "hypothesis of fetal cell function",
+          "evidence": "Numerous studies, including case studies on fetal cells, provide evidence supporting the hypothesis that these cells play a role in tissue repair and immune modulation, influencing both maternal and fetal health.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "gestation",
+          "relation_type": "facilitates",
+          "target": "maternal→fetal microchimerism",
+          "evidence": "Gestation is the period during which maternal-fetal microchimerism occurs, as fetal cells are transferred to the mother, establishing a biological connection that can have lasting effects on maternal health.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "hormonal changes in pregnancy",
+          "relation_type": "alter",
+          "target": "neurogenesis",
+          "evidence": "Hormonal changes in pregnancy alter neurogenesis.",
+          "section_name": "Health implications",
+          "section_index": 11
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "may act as",
+          "target": "stem cells",
+          "evidence": "fetal cells might home to injured or diseased maternal tissue where they act as stem cells and participate in repair",
+          "section_name": "Types - Human",
+          "section_index": 2
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "can cross",
+          "target": "blood brain barrier",
+          "evidence": "The properties of these cells allow them to cross the blood brain barrier and target injured brain tissue.",
+          "section_name": "Stem cells - Animal models",
+          "section_index": 10
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "induce",
+          "target": "down-regulation of the immune system",
+          "evidence": "the down-regulation of the immune system induced by the presence of fetal cells.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Breast cancer",
+          "section_index": 8
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "produce",
+          "target": "lower concentrations of inflammatory mediators",
+          "evidence": "women in whom FMC is present produce lower concentrations of inflammatory mediators.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Breast cancer",
+          "section_index": 8
+        },
+        {
+          "source": "graft-versus-host reaction",
+          "relation_type": "similar mechanism to",
+          "target": "microchimerism",
+          "evidence": "Both graft-versus-host reactions and microchimerism involve the interaction of immune cells with non-self antigens, highlighting a shared mechanism in immune tolerance and rejection.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "neurogenesis",
+          "relation_type": "process influenced by fetal cells",
+          "target": "brain injury",
+          "evidence": "Fetal cells have been shown to contribute to neurogenesis, which can aid in recovery from brain injury, indicating their potential therapeutic role in neurological conditions.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "Y-chromosome-positive fetal cells",
+          "relation_type": "found in",
+          "target": "minor salivary glands",
+          "evidence": "Y-chromosome-positive fetal cells in minor salivary glands in 11 of 20 women with SS.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Sjögren syndrome",
+          "section_index": 8
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "oversee",
+          "target": "cancer cells",
+          "evidence": "the first mechanism suggests that fetal cells only oversee cancer cells.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Breast cancer",
+          "section_index": 8
+        },
+        {
+          "source": "cd4+ regulatory t cells (tregs)",
+          "relation_type": "role in",
+          "target": "immune tolerance",
+          "evidence": "CD4+ Tregs are essential for maintaining immune tolerance, particularly in the context of maternal-fetal interactions. Their role in preventing immune rejection of fetal cells underscores the importance of these cells in both pregnancy and autoimmune disease mechanisms.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "case studies on fetal cells",
+          "relation_type": "evidence for hypotheses",
+          "target": "hypothesis of fetal cell function",
+          "evidence": "Case studies on fetal cells provide empirical evidence that supports the hypothesis of fetal cell function in maternal health, particularly in relation to autoimmune diseases and tissue repair.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "fetal microchimeric cells",
+          "relation_type": "show up in",
+          "target": "blood of women affected by thyroid diseases",
+          "evidence": "These fetal microchimeric cells in the thyroid show up in the blood of women affected by thyroid diseases.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Thyroid disease",
+          "section_index": 8
+        },
+        {
+          "source": "fraternal twins",
+          "relation_type": "exemplify",
+          "target": "microchimerism",
+          "evidence": "Fraternal twins can exhibit microchimerism, as they may share cells with each other during gestation, providing a unique context to study the effects of microchimerism on health and development.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "maternal-fetal interface",
+          "relation_type": "context for",
+          "target": "feto-maternal cell transfer",
+          "evidence": "The maternal-fetal interface is the site where feto-maternal cell transfer occurs, highlighting the biological mechanisms that facilitate the exchange of cells between mother and fetus.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "diagnosis of microchimerism",
+          "relation_type": "method for understanding",
+          "target": "autoimmune diseases",
+          "evidence": "The diagnosis of microchimerism can provide valuable insights into the role of fetal cells in autoimmune diseases, potentially leading to better understanding and management of these conditions.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "autoimmune diseases",
+          "relation_type": "influence",
+          "target": "maternal immune response",
+          "evidence": "Autoimmune diseases often involve dysregulation of the immune system, which can affect the maternal immune response during pregnancy, leading to complications such as preeclampsia and systemic lupus erythematosus.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "Y chromosome",
+          "relation_type": "used to detect",
+          "target": "foreign cells in women's blood",
+          "evidence": "Presence of Y chromosome was used to detect foreign cells in women's blood.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Other cancers",
+          "section_index": 8
+        },
+        {
+          "source": "TGF-β3",
+          "relation_type": "involved in",
+          "target": "tissue repair",
+          "evidence": "Microchimeric fetal cells expressed TGF-β3.",
+          "section_name": "Role of microchimerism in wound healing",
+          "section_index": 9
+        },
+        {
+          "source": "pregnancy and breast cancer prognosis",
+          "relation_type": "contextual relationship",
+          "target": "case studies on pregnancy and breast cancer",
+          "evidence": "Research on pregnancy and breast cancer prognosis often references case studies to illustrate how pregnancy may influence cancer outcomes, highlighting the complex interplay between hormonal changes and immune responses.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "resource allocation",
+          "relation_type": "causes",
+          "target": "health complications",
+          "evidence": "health complications may arise as a result of resource allocation.",
+          "section_name": "Health implications",
+          "section_index": 11
+        },
+        {
+          "source": "fetal microchimeric cells",
+          "relation_type": "survive for",
+          "target": "many years postpartum",
+          "evidence": "These fetal microchimeric cells in the thyroid show up in the blood of women affected by thyroid diseases.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Thyroid disease",
+          "section_index": 8
+        },
+        {
+          "source": "feto-maternal cell transfer",
+          "relation_type": "consequence of",
+          "target": "immunological phenotypes",
+          "evidence": "The transfer of fetal cells to the maternal circulation can lead to distinct immunological phenotypes in mothers, which may influence their susceptibility to autoimmune diseases and other health conditions.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "found in",
+          "target": "thyroid gland",
+          "evidence": "There have been reports of fetal cells in the lining of the blood and thyroid glands of patients with autoimmune thyroid disease.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Thyroid disease",
+          "section_index": 8
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "colonize",
+          "target": "maternal tissues",
+          "evidence": "Fetal cells colonize maternal tissues like the thyroid gland.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Thyroid disease",
+          "section_index": 8
+        },
+        {
+          "source": "fetal microchimeric cells",
+          "relation_type": "involved in",
+          "target": "tissue repair",
+          "evidence": "a different hypothesis states that fetal microchimeric cells are involved in repairing tissues.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Systemic lupus erythematosus",
+          "section_index": 8
+        },
+        {
+          "source": "lichen planus (lp)",
+          "relation_type": "has higher prevalence in",
+          "target": "females",
+          "evidence": "Females have a three times higher prevalence than men.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Oral lichen planus",
+          "section_index": 8
+        },
+        {
+          "source": "graft-versus-host reaction",
+          "relation_type": "comparison",
+          "target": "maternal immune response",
+          "evidence": "Both graft-versus-host reactions and maternal immune responses involve the recognition of non-self antigens. Understanding these processes can provide insights into how the maternal immune system tolerates fetal cells and how this tolerance might break down in autoimmune diseases.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "cd4+ regulatory t cells (tregs)",
+          "relation_type": "involved in",
+          "target": "immune tolerance",
+          "evidence": "CD4+ Tregs are crucial for maintaining immune tolerance during pregnancy, and their interaction with fetal cells may help prevent maternal immune rejection of the fetus.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "systemic immunological changes",
+          "relation_type": "impact on",
+          "target": "long-term kidney allograft survival",
+          "evidence": "Systemic immunological changes, influenced by factors such as microchimerism, can affect the success of organ transplants. Understanding these changes is crucial for improving long-term outcomes in transplant patients.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "pregnancy at older ages",
+          "relation_type": "can reduce",
+          "target": "risk of ovarian cancer",
+          "evidence": "Pregnancy at older ages can reduce risk of ovarian cancer.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Other cancers",
+          "section_index": 8
+        },
+        {
+          "source": "seeding of brain",
+          "relation_type": "may enhance",
+          "target": "maternal attention",
+          "evidence": "seeding of brain may enhance maternal attention.",
+          "section_name": "Benefits of microchimeric cells",
+          "section_index": 7
+        },
+        {
+          "source": "incidence of SS after childbirth",
+          "relation_type": "suggests a relationship with",
+          "target": "pregnancy",
+          "evidence": "Increased incidence of SS after childbirth suggests a relationship between SS and pregnancy.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Sjögren syndrome",
+          "section_index": 8
+        },
+        {
+          "source": "fetal microchimerism",
+          "relation_type": "implication for",
+          "target": "maternal health",
+          "evidence": "Fetal microchimerism could have an implication on maternal health.",
+          "section_name": "Health implications",
+          "section_index": 11
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "pass through",
+          "target": "placenta",
+          "evidence": "cells from a fetus pass through the placenta and establish cell lineages within the mother",
+          "section_name": "Types - Human",
+          "section_index": 2
+        },
+        {
+          "source": "fetomaternal microchimerism",
+          "relation_type": "may be related to",
+          "target": "autoimmune diseases",
+          "evidence": "Fetal maternal microchimerism may be related to autoimmune thyroid diseases.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Thyroid disease",
+          "section_index": 8
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "crosses",
+          "target": "blood brain barrier",
+          "evidence": "fetal cells that are able to cross the blood brain barrier could impact certain procedures.",
+          "section_name": "Health implications",
+          "section_index": 11
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "respond to",
+          "target": "injury",
+          "evidence": "favorable environments for fetal cells to respond to injury.",
+          "section_name": "Health implications",
+          "section_index": 11
+        },
+        {
+          "source": "freemartin",
+          "relation_type": "is a type of",
+          "target": "martin heifer",
+          "evidence": "creating a martin heifer or freemartin.",
+          "section_name": "Types - Animal",
+          "section_index": 2
+        },
+        {
+          "source": "microchimerism",
+          "relation_type": "result of",
+          "target": "pregnancy",
+          "evidence": "Microchimerism is a result of pregnancy.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Other cancers",
+          "section_index": 8
+        },
+        {
+          "source": "fetal cd4+ t cells",
+          "relation_type": "differentiate to",
+          "target": "treg cells",
+          "evidence": "preferentially differentiating to Treg cells",
+          "section_name": "Fetal tolerance to noninherited maternal antigens",
+          "section_index": 5
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "correlates with",
+          "target": "alzheimer's disease",
+          "evidence": "Alzheimer's disease studies support nearly the opposite correlation: the more fetal-derived cells present, the lower the chance of the patient having had Alzheimer's.",
+          "section_name": "Fetomaternal microchimerism in the brain",
+          "section_index": 3
+        },
+        {
+          "source": "fetal microchimerism",
+          "relation_type": "can occur in",
+          "target": "maternal mouse brain",
+          "evidence": "Fetal microchimerism can occur in the maternal mouse brain, responding to certain cues in the maternal body.",
+          "section_name": "Stem cells - Animal models",
+          "section_index": 10
+        },
+        {
+          "source": "xx/xy microchimerism",
+          "relation_type": "is a form of",
+          "target": "microchimerism",
+          "evidence": "XX/XY microchimerism refers to the presence of cells from one sex in an individual of the opposite sex, illustrating the diverse manifestations of microchimerism and its implications for understanding sex-specific health issues.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "associated with",
+          "target": "systemic lupus erythematosus",
+          "evidence": "the presence of fetal cells in mothers can be associated with benefits when it comes to certain autoimmune diseases, particularly systemic lupus erythematosus.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Systemic lupus erythematosus",
+          "section_index": 8
+        },
+        {
+          "source": "placenta",
+          "relation_type": "provides resources to",
+          "target": "fetal cells",
+          "evidence": "the maternal system tries to limit it.",
+          "section_name": "Health implications",
+          "section_index": 11
+        },
+        {
+          "source": "KIR ligands",
+          "relation_type": "influence",
+          "target": "fetomaternal microchimerism",
+          "evidence": "fetomaternal microchimerism could be influenced by killer-cell immunoglobulin-like (KIR) ligands",
+          "section_name": "Types - Human",
+          "section_index": 2
+        },
+        {
+          "source": "down-regulation of the immune system",
+          "relation_type": "leads to",
+          "target": "cancer prevention",
+          "evidence": "could ultimately lead to cancer prevention.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Breast cancer",
+          "section_index": 8
+        },
+        {
+          "source": "microchimeric cells",
+          "relation_type": "decline after",
+          "target": "pregnancy",
+          "evidence": "Numbers of microchimeric cells declines after pregnancy.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Other cancers",
+          "section_index": 8
+        },
+        {
+          "source": "altered immune system",
+          "relation_type": "provides suitable environment for",
+          "target": "tumor growth",
+          "evidence": "Microchimeric cells might induce the alteration of the woman's immune system... or provide a suitable environment for tumor growth.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Other cancers",
+          "section_index": 8
+        },
+        {
+          "source": "type I diabetes mouse model",
+          "relation_type": "used to study",
+          "target": "autoimmune diseases",
+          "evidence": "The type I diabetes mouse model is often utilized to study the mechanisms of autoimmune diseases, including the role of microchimerism and immune tolerance in disease progression.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "microchimerism of fetomaternal cell trafficking origin",
+          "relation_type": "might be associated with",
+          "target": "pathogenesis or progression of cervical cancer",
+          "evidence": "Microchimerism of fetomaternal cell trafficking origin might be associated with the pathogenesis or progression of cervical cancer.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Other cancers",
+          "section_index": 8
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "influence on immune response",
+          "target": "maternal immune response",
+          "evidence": "Fetal cells can modulate the maternal immune response, leading to immune tolerance, which is crucial for the success of pregnancy and may influence autoimmune disease outcomes.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "fetal t cells",
+          "relation_type": "impact on",
+          "target": "post-birth immune dynamics",
+          "evidence": "Fetal T cells can impact post-birth immune dynamics, influencing the long-term health of the offspring and their immune system development.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "feto-maternal cell transfer",
+          "relation_type": "leads to",
+          "target": "systemic immunological changes",
+          "evidence": "The transfer of fetal cells to the maternal circulation during gestation can lead to systemic immunological changes that may have long-term effects on maternal health and disease susceptibility.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "hypothesis of fetal cell function",
+          "relation_type": "suggests",
+          "target": "antigens",
+          "evidence": "one hypothesis states that these cells supply antigens, causing inflammation and triggering the release of different foreign antigens.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Systemic lupus erythematosus",
+          "section_index": 8
+        },
+        {
+          "source": "natural killer cells",
+          "relation_type": "compose about",
+          "target": "lymphocytes",
+          "evidence": "natural killer cells compose about 70% of lymphocytes in the first trimester of pregnancy",
+          "section_name": "Types - Human",
+          "section_index": 2
+        },
+        {
+          "source": "fetomaternal microchimerism",
+          "relation_type": "is a form of",
+          "target": "microchimerism",
+          "evidence": "the most common form is fetomaternal microchimerism (also known as fetal cell microchimerism or fetal chimerism)",
+          "section_name": "Types - Human",
+          "section_index": 2
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "migrate to",
+          "target": "tumor tissue",
+          "evidence": "Fetal cells are probably actively migrating from peripheral blood into the tumor tissue.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Breast cancer",
+          "section_index": 8
+        },
+        {
+          "source": "gestation",
+          "relation_type": "is a source of",
+          "target": "microchimerism",
+          "evidence": "Other possible sources of microchimerism include gestation",
+          "section_name": "Types - Human",
+          "section_index": 2
+        },
+        {
+          "source": "fetal stem cells",
+          "relation_type": "used in",
+          "target": "intravenous infusion",
+          "evidence": "These fetal stem cells can be used in intravenous infusion to repair the brain tissue.",
+          "section_name": "Health implications",
+          "section_index": 11
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "can differentiate into",
+          "target": "neural cells",
+          "evidence": "Due to this process, fetal cells could enter the brain during pregnancy and become differentiated into neural cells.",
+          "section_name": "Stem cells - Animal models",
+          "section_index": 10
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "mechanism of action",
+          "target": "maternal immune response",
+          "evidence": "Fetal cells can transfer to the maternal circulation during gestation, potentially modulating the maternal immune response. This interaction is crucial for understanding how maternal-fetal microchimerism affects maternal health and immune tolerance.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "studies",
+          "relation_type": "support findings on",
+          "target": "correlation",
+          "evidence": "Numerous studies have demonstrated a correlation between microchimerism and various health outcomes, suggesting that the presence of microchimeric cells can have significant implications for maternal and fetal health.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "fetal-specific Treg cells",
+          "relation_type": "necessary for",
+          "target": "successful pregnancy",
+          "evidence": "Mice models show that fetal-specific Treg cells are necessary for successful pregnancy.",
+          "section_name": "Maternal tolerance to paternal-fetal antigens",
+          "section_index": 4
+        },
+        {
+          "source": "fetal microchimerism",
+          "relation_type": "may play a role in",
+          "target": "protective role in ovarian cancer",
+          "evidence": "This suggests that fetal microchimerism may play a protective role in ovarian cancer as well.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Other cancers",
+          "section_index": 8
+        },
+        {
+          "source": "natural killer cells",
+          "relation_type": "interaction with",
+          "target": "maternal immune response",
+          "evidence": "Natural killer cells play a crucial role in modulating the maternal immune response, which is essential for maintaining pregnancy and preventing immune rejection of fetal cells.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "male origin fetal cells",
+          "relation_type": "association with",
+          "target": "ovarian cancer risk",
+          "evidence": "Study of S. Hallum shows association between male origin fetal cells and ovarian cancer risk.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Other cancers",
+          "section_index": 8
+        },
+        {
+          "source": "fetal t cells",
+          "relation_type": "accumulate during",
+          "target": "in utero development",
+          "evidence": "Fetal T cells accumulate during in utero development.",
+          "section_name": "Fetal tolerance to noninherited maternal antigens",
+          "section_index": 5
+        },
+        {
+          "source": "lichen planus (lp)",
+          "relation_type": "is a type of",
+          "target": "t-cell-mediated autoimmune disease",
+          "evidence": "Lichen planus (LP) is a T-cell-mediated autoimmune chronic disease of unknown etiology.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Oral lichen planus",
+          "section_index": 8
+        },
+        {
+          "source": "women testing positive for male origin microchimerism cells",
+          "relation_type": "had",
+          "target": "reduced hazard rates of ovarian cancer",
+          "evidence": "Women testing positive for male origin microchimerism cells had reduced hazard rates of ovarian cancer than women testing negative.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Other cancers",
+          "section_index": 8
+        },
+        {
+          "source": "microchimerism after blood transfusions",
+          "relation_type": "similarity",
+          "target": "maternal→fetal microchimerism",
+          "evidence": "Both phenomena involve the transfer of cells from one individual to another, leading to the presence of foreign cells in the recipient's body. This similarity highlights the broader implications of cell transfer in immune tolerance and potential autoimmune responses.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "rh antigens sensitization",
+          "relation_type": "is reduced among",
+          "target": "Rh- women born to Rh+ women",
+          "evidence": "sensitization to erythrocyte Rhesus factor (Rh) antigens is reduced among Rh- women born to Rh+ women.",
+          "section_name": "Postnatal tolerance to NIMAs",
+          "section_index": 6
+        },
+        {
+          "source": "fetal microchimeric cells",
+          "relation_type": "aid in",
+          "target": "regeneration of tissue",
+          "evidence": "fetal microchimeric cells go to the damaged site and aid in repair and regeneration of the tissue.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Systemic lupus erythematosus",
+          "section_index": 8
+        },
+        {
+          "source": "seeding of fetal microchimeric cells",
+          "relation_type": "proposed to promote",
+          "target": "care of offspring after birth",
+          "evidence": "Seeding of fetal microchimeric cells into maternal tissues has been proposed to promote care of offspring after birth.",
+          "section_name": "Benefits of microchimeric cells",
+          "section_index": 7
+        },
+        {
+          "source": "fetal microchimerism",
+          "relation_type": "may trigger",
+          "target": "graft-versus-host reaction",
+          "evidence": "The fetal microchimerism may trigger a fetus versus host reaction.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Oral lichen planus",
+          "section_index": 8
+        },
+        {
+          "source": "Graves' disease (GD)",
+          "relation_type": "similar to",
+          "target": "graft-versus-host reaction",
+          "evidence": "Two types of thyroid disease, Hashimoto's thyroiditis (HT) and Graves' disease (GD), show similarities to graft vs host disease.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Thyroid disease",
+          "section_index": 8
+        },
+        {
+          "source": "cross-fostering animal studies",
+          "relation_type": "show that",
+          "target": "nima-specific tolerance",
+          "evidence": "Cross-fostering animal studies show that when postnatal NIMA exposure though breastfeeding is eliminated, survival of NIMA-matched allografts is reduced.",
+          "section_name": "Postnatal tolerance to NIMAs",
+          "section_index": 6
+        },
+        {
+          "source": "altered immune system",
+          "relation_type": "makes cervical tissue more susceptible to",
+          "target": "HPV infection",
+          "evidence": "Microchimeric cells might induce the alteration of the woman's immune system and make the cervical tissue more susceptible to HPV infection.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Other cancers",
+          "section_index": 8
+        },
+        {
+          "source": "autoimmune diseases",
+          "relation_type": "associated with",
+          "target": "microchimerism",
+          "evidence": "Microchimerism, particularly maternal-fetal microchimerism, has been implicated in the pathogenesis of various autoimmune diseases, suggesting a connection between the presence of fetal cells and the development of these conditions.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "autoimmune rheumatic disease",
+          "relation_type": "association",
+          "target": "incidence of ss after childbirth",
+          "evidence": "There is a noted increase in the incidence of Sjögren syndrome after childbirth, indicating a potential link between autoimmune rheumatic diseases and postpartum immune changes.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "type I diabetes mouse model",
+          "relation_type": "demonstrates",
+          "target": "replacement of defective maternal islet cells",
+          "evidence": "type I diabetes mouse model showed replacement of defective maternal islet cells by fetal-derived pancreatic cells.",
+          "section_name": "Benefits of microchimeric cells",
+          "section_index": 7
+        },
+        {
+          "source": "male genetic material",
+          "relation_type": "can be detected in",
+          "target": "blood sample",
+          "evidence": "because male genetic material can be detected in a blood sample.",
+          "section_name": "Types - Animal",
+          "section_index": 2
+        },
+        {
+          "source": "microchimerism",
+          "relation_type": "provides a method for",
+          "target": "diagnosing the condition",
+          "evidence": "Microchimerism provides a method of diagnosing the condition.",
+          "section_name": "Types - Animal",
+          "section_index": 2
+        },
+        {
+          "source": "Hashimoto's thyroiditis (HT)",
+          "relation_type": "similar to",
+          "target": "graft-versus-host reaction",
+          "evidence": "Two types of thyroid disease, Hashimoto's thyroiditis (HT) and Graves' disease (GD), show similarities to graft vs host disease.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Thyroid disease",
+          "section_index": 8
+        },
+        {
+          "source": "cattle reproductive biology",
+          "relation_type": "is influenced by",
+          "target": "microchimerism",
+          "evidence": "Cattle reproductive biology can be impacted by microchimerism, particularly in the context of twin births and the resulting physiological interactions, which can inform broader biological principles.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "microchimerism",
+          "relation_type": "impact on autoimmune diseases",
+          "target": "autoimmune diseases",
+          "evidence": "The presence of microchimeric cells from the fetus in the mother has been linked to both protective and pathogenic effects in autoimmune diseases, suggesting a complex relationship between fetal cell presence and maternal health.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "fetal cells",
+          "relation_type": "identified in",
+          "target": "healed maternal cesarean section scars",
+          "evidence": "they were identified in healed maternal cesarean section scars.",
+          "section_name": "Role of microchimerism in wound healing",
+          "section_index": 9
+        },
+        {
+          "source": "microchimerism",
+          "relation_type": "may be related to",
+          "target": "autoimmune diseases",
+          "evidence": "This phenomenon may be related to certain types of autoimmune diseases although the responsible mechanisms are unclear.",
+          "section_name": "Introduction",
+          "section_index": 1
+        },
+        {
+          "source": "diagnosis of microchimerism",
+          "relation_type": "is important for understanding",
+          "target": "autoimmune diseases",
+          "evidence": "The diagnosis of microchimerism is crucial for understanding its role in autoimmune diseases, as it can help identify the presence of foreign cells that may contribute to immune dysregulation.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "martin heifer (freemartin)",
+          "relation_type": "is an example of",
+          "target": "microchimerism",
+          "evidence": "The condition of a freemartin, a female calf born twin to a male, exemplifies microchimerism as it involves the exchange of cells between the male and female fetuses, leading to reproductive and developmental anomalies.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "fetal microchimeric cells",
+          "relation_type": "involved in",
+          "target": "myocardial infarction",
+          "evidence": "Fetal microchimeric cells can differentiate into cell types that infiltrate and replace injured cells in models of myocardial infarction.",
+          "section_name": "Benefits of microchimeric cells",
+          "section_index": 7
+        },
+        {
+          "source": "umbilical cord",
+          "relation_type": "source of",
+          "target": "stem cells",
+          "evidence": "isolating stem cells can be accomplished through taking them from sources like the umbilical cord.",
+          "section_name": "Health implications",
+          "section_index": 11
+        },
+        {
+          "source": "fetomaternal microchimerism",
+          "relation_type": "is studied through",
+          "target": "experimental investigations",
+          "evidence": "Fetomaternal microchimerism has been shown in experimental investigations of whether fetal cells can cross the blood brain barrier in mice.",
+          "section_name": "Stem cells - Animal models",
+          "section_index": 10
+        },
+        {
+          "source": "microchimeric cells",
+          "relation_type": "cluster in",
+          "target": "lung tumors",
+          "evidence": "Microchimeric cells also cluster several times more in lung tumors than in surrounding healthy lung tissue.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Other cancers",
+          "section_index": 8
+        },
+        {
+          "source": "maternal attention",
+          "relation_type": "impact on fetal development",
+          "target": "in utero development",
+          "evidence": "Maternal attention during pregnancy can significantly impact in utero development, affecting the health and immunological outcomes of both the mother and the fetus.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "prenatal and postnatal exposure",
+          "relation_type": "is required for",
+          "target": "nima-specific tolerance",
+          "evidence": "Both prenatal and postnatal exposure to mother's cells is required to maintain NIMA-specific tolerance.",
+          "section_name": "Postnatal tolerance to NIMAs",
+          "section_index": 6
+        },
+        {
+          "source": "maternal immune response",
+          "relation_type": "affects",
+          "target": "autoimmune diseases",
+          "evidence": "The maternal immune response can be altered by the presence of fetal cells, leading to systemic immunological changes that may predispose mothers to autoimmune diseases such as systemic lupus erythematosus and Hashimoto's thyroiditis.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "fetal cells from the bone marrow",
+          "relation_type": "go to",
+          "target": "tumor sites",
+          "evidence": "Fetal cells from the bone marrow go to the tumor sites where they may have tissue repair functions.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Other cancers",
+          "section_index": 8
+        },
+        {
+          "source": "microchimerism",
+          "relation_type": "derived from",
+          "target": "chimera of greek mythology",
+          "evidence": "The term comes from the prefix 'micro' + 'chimerism' based on the hybrid Chimera of Greek mythology.",
+          "section_name": "Introduction",
+          "section_index": 1
+        },
+        {
+          "source": "umbilical cord blood cells",
+          "relation_type": "are injected in",
+          "target": "rats with brain injury or stroke",
+          "evidence": "When these umbilical cord blood cells are injected in rats with brain injury or stroke, they enter the brain and express certain nerve cell markers.",
+          "section_name": "Stem cells - Animal models",
+          "section_index": 10
+        },
+        {
+          "source": "microchimerism",
+          "relation_type": "influences",
+          "target": "autoimmune diseases",
+          "evidence": "Microchimerism, the presence of a small number of cells from one individual in another, has been linked to autoimmune diseases, suggesting that the interaction between maternal and fetal cells can influence immune responses and disease susceptibility.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "seeding of maternal breast tissue",
+          "relation_type": "may promote",
+          "target": "lactation",
+          "evidence": "seeding of maternal breast tissue may promote lactation.",
+          "section_name": "Benefits of microchimeric cells",
+          "section_index": 7
+        },
+        {
+          "source": "fetal stem cells",
+          "relation_type": "investigated through",
+          "target": "pregnancy",
+          "evidence": "the effects of fetal stem cells can be investigated without in vitro cultures.",
+          "section_name": "Health implications",
+          "section_index": 11
+        },
+        {
+          "source": "nima-specific tolerance",
+          "relation_type": "reduces",
+          "target": "graft-versus-host reaction",
+          "evidence": "acuteness of bone marrow transplantation graft-versus-host disease is reduced, when recipients of donor stem cells are NIMA-matched.",
+          "section_name": "Postnatal tolerance to NIMAs",
+          "section_index": 6
+        },
+        {
+          "source": "immune tolerance",
+          "relation_type": "persists in",
+          "target": "mother and offspring after birth",
+          "evidence": "This expanded immune tolerance persists in both mother and offspring after birth",
+          "section_name": "Fetal tolerance to noninherited maternal antigens",
+          "section_index": 5
+        },
+        {
+          "source": "low concentration of fetal cells",
+          "relation_type": "indicates",
+          "target": "predisposition to malignant process",
+          "evidence": "Low concentration and/or complete absence of fetal cells could indicate a predisposition to development of the malignant process.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Breast cancer",
+          "section_index": 8
+        },
+        {
+          "source": "CD4+ regulatory T cells (Tregs)",
+          "relation_type": "correlate with",
+          "target": "increase of fetal cells in maternal tissues",
+          "evidence": "During pregnancy, numbers of fetal cells in maternal tissues increase and correlate with expansion of CD4+ regulatory T cells (Tregs).",
+          "section_name": "Maternal tolerance to paternal-fetal antigens",
+          "section_index": 4
+        },
+        {
+          "source": "breastfeeding and nima exposure",
+          "relation_type": "relationship with",
+          "target": "post-birth immune dynamics",
+          "evidence": "Breastfeeding exposes infants to noninherited maternal antigens (NIMAs), which can shape their immune system and influence post-birth immune dynamics, highlighting the importance of maternal-fetal interactions beyond gestation.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "natural killer cells",
+          "relation_type": "interaction",
+          "target": "cd4+ regulatory t cells (tregs)",
+          "evidence": "Natural killer cells interact with CD4+ regulatory T cells to maintain immune balance during pregnancy, which is crucial for preventing immune rejection of the fetus.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "gestation",
+          "relation_type": "period of development",
+          "target": "in utero development",
+          "evidence": "Gestation is the period during which in utero development occurs, and it is critical for the establishment of fetal cells that may later influence maternal health and immune dynamics.",
+          "section_name": "global",
+          "section_index": -1
+        },
+        {
+          "source": "umbilical cord blood cells",
+          "relation_type": "express proteins similar to",
+          "target": "neurons",
+          "evidence": "This mechanism is possible because umbilical cord blood cells express some proteins similar to neurons.",
+          "section_name": "Stem cells - Animal models",
+          "section_index": 10
+        },
+        {
+          "source": "maternal skin injury signals",
+          "relation_type": "trigger migration of",
+          "target": "fetal cells",
+          "evidence": "these cells migrate to the site of damage due to maternal skin injury signals.",
+          "section_name": "Role of microchimerism in wound healing",
+          "section_index": 9
+        },
+        {
+          "source": "breastfeeding and nima exposure",
+          "relation_type": "is essential for",
+          "target": "nima-specific tolerance",
+          "evidence": "This suggests that to maintain NIMA-specific tolerance in offspring, breastfeeding is essential.",
+          "section_name": "Postnatal tolerance to NIMAs",
+          "section_index": 6
+        },
+        {
+          "source": "freemartins",
+          "relation_type": "are",
+          "target": "infertile",
+          "evidence": "Freemartins appear female, but are infertile.",
+          "section_name": "Types - Animal",
+          "section_index": 2
+        },
+        {
+          "source": "microchimerism",
+          "relation_type": "first discovered in",
+          "target": "1960s discovery",
+          "evidence": "The concept was first discovered in the 1960s with the term gaining usage in the 1970s.",
+          "section_name": "Introduction",
+          "section_index": 1
+        },
+        {
+          "source": "PCR (polymerase chain reaction)",
+          "relation_type": "used for",
+          "target": "DNA extraction",
+          "evidence": "When kidney biopsies were taken from patients with lupus nephritis, DNA was extracted and run with PCR.",
+          "section_name": "Relationship with autoimmune diseases and breast cancer - Systemic lupus erythematosus",
+          "section_index": 8
+        }
+      ]
+    }
+  }
+}

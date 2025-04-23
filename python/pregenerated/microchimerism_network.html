@@ -1,0 +1,1457 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="utf-8">
+            <title>Microchimerism</title>
+            <script src="https://d3js.org/d3.v7.min.js"></script>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    overflow: hidden;
+                }
+                .explanation-panel {
+                    position: absolute;
+                    padding: 15px;
+                    background: white;
+                    border: 1px solid #ccc;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+                    max-width: 300px;
+                    z-index: 1000;
+                    font-size: 14px;
+                    line-height: 1.4;
+                    opacity: 0;
+                    transition: opacity 0.3s;
+                    pointer-events: auto;
+                }
+                
+                .explanation-panel.visible {
+                    opacity: 1;
+                }
+                
+                .explanation-title {
+                    margin-top: 0;
+                    margin-bottom: 10px;
+                    color: #2196F3;
+                    font-size: 16px;
+                    font-weight: bold;
+                }
+                
+                .explanation-content {
+                    margin-bottom: 10px;
+                }
+                
+                .explanation-footer {
+                    display: block;
+                    margin-top: 8px;
+                    font-style: italic;
+                    color: #666;
+                    font-size: 12px;
+                }
+                
+                .close-explanation {
+                    position: absolute;
+                    top: 5px;
+                    right: 5px;
+                    background: none;
+                    border: none;
+                    font-size: 16px;
+                    cursor: pointer;
+                    color: #666;
+                }
+                .node {
+                    cursor: pointer;
+                }
+                .node circle {
+                    stroke-width: 2px;
+                    transition: all 0.3s ease;
+                }
+                .node.has-explanation circle {
+                    stroke-dasharray: 3, 3;
+                }
+                .node--pinned circle {
+                    stroke-width: 3px;
+                    stroke-dasharray: none;
+                    stroke: #f06292;
+                }
+                .node--priority circle {
+                    stroke: #7E57C2;
+                }
+                .node--secondary circle {
+                    stroke: #6596B5;
+                }
+                .node--tertiary circle {
+                    stroke: #8FC2B9;
+                }
+                .hidden-connections-highlight {
+                    stroke: #FF8A65 !important;
+                    stroke-width: 3px !important;
+                }
+                .node--expanded circle {
+                    stroke-width: 3px;
+                }
+                .node text {
+                    font: 12px sans-serif;
+                    pointer-events: none;
+                }
+                .node.faded circle {
+                    opacity: 0.2;
+                    transition: opacity 0.3s ease;
+                }
+                
+                .node.faded text {
+                    opacity: 0.1;
+                    transition: opacity 0.3s ease;
+                }
+                
+                .link.faded {
+                    opacity: 0.1;
+                    transition: opacity 0.3s ease;
+                }
+                
+                .node.focused circle {
+                    stroke-width: 4px;
+                    stroke: #FF5252;
+                }
+                .link {
+                    fill: none;
+                    stroke-width: 1.5px;
+                    cursor: pointer;
+                    transition: stroke 0.3s ease;
+                }
+                .link:hover {
+                    stroke-width: 2.5px;
+                    stroke-opacity: 0.9 !important;
+                }
+                .link-label {
+                    font-size: 10px;
+                    fill: #666;
+                    pointer-events: none;
+                }
+                .tooltip {
+                    position: absolute;
+                    padding: 8px;
+                    background: rgba(255, 255, 255, 0.95);
+                    color: #333;
+                    border-radius: 4px;
+                    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+                    pointer-events: none;
+                    font-size: 12px;
+                    max-width: 300px;
+                    z-index: 1000;
+                    border: 1px solid #ddd;
+                }
+                .evidence-tooltip {
+                    max-width: 350px;
+                    line-height: 1.4;
+                }
+                .tooltip .right-click-instruction {
+                    display: block;
+                    margin-top: 5px;
+                    font-style: italic;
+                    color: #2196F3;
+                }
+                .legend {
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    background: rgba(255, 255, 255, 0.8);
+                    border-radius: 4px;
+                    padding: 8px;
+                    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+                }
+                .legend-item {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 5px;
+                }
+                .legend-color {
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 50%;
+                    margin-right: 8px;
+                }
+                .priority-color {
+                    background-color: #9575CD;
+                    border: 1.5px solid #7E57C2;
+                }
+                .secondary-color {
+                    background-color: #97C0DB;
+                    border: 1.5px solid #6596B5;
+                }
+                .tertiary-color {
+                    background-color: #D1EDE8;
+                    border: 1.5px solid #ABD9D1;
+                }
+                @keyframes pulse-1741317966353 {
+                    0% { transform: scale(1); opacity: 0.5; }
+                    50% { transform: scale(1.2); opacity: 0.2; }
+                    100% { transform: scale(1); opacity: 0.5; }
+                }
+                .pulse-1741317966353 {
+                    animation: pulse-1741317966353 2s infinite;
+                }
+                .controls {
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    display: flex;
+                    gap: 10px;
+                }
+                button {
+                    background-color: white;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    padding: 5px 10px;
+                    cursor: pointer;
+                    font-size: 12px;
+                }
+                button:hover {
+                    background-color: #f0f0f0;
+                }
+                .center-node circle {
+                    stroke-width: 3px;
+                }
+                .highlight {
+                    font-weight: bold;
+                    color: #006400;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="controls">
+                <button id="reset-btn">Reset</button>
+                <button id="expand-all-btn">Expand All</button>
+                <button id="recenter-btn">Recenter</button>
+                <button id="unpin-btn">Unpin All</button>
+            </div>
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color priority-color"></div>
+                    <span>Priority Concepts</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color secondary-color"></div>
+                    <span>Secondary Concepts</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color tertiary-color"></div>
+                    <span>Tertiary Concepts</span>
+                </div>
+                <div class="legend-item">
+                    <div style="width:15px; height:15px; margin-right:8px; border:1.5px solid #FF8A65; border-radius:50%; background-color: rgba(255, 0, 0, 0.3);" class="pulse-1741317966353"></div>
+                    <span>Has Hidden Connections</span>
+                </div>
+            </div>
+
+            <svg id="concept-map" width="800" height="600"></svg>
+            <div id="tooltip" class="tooltip" style="display: none;"></div>
+            <div id="evidence-tooltip" class="tooltip evidence-tooltip" style="display: none;"></div>
+
+            <script>
+            // Load the data
+            const networkData = {"nodes": [{"id": "autoimmune diseases", "name": "autoimmune diseases", "frequency": 5, "degree": 14, "layer": "priority", "evidence": "Autoimmune diseases occur when the immune system mistakenly attacks the body's own cells, and microchimerism may play a role in this process. Understanding the connection between microchimerism and autoimmune diseases could provide insights into disease mechanisms and potential therapeutic approaches."}, {"id": "fetal cells", "name": "fetal cells", "frequency": 8, "degree": 33, "layer": "priority", "evidence": "Fetal cells are the cells that originate from the fetus and can remain in the mother's body long after pregnancy. Their persistence raises important questions about their role in maternal health and potential impacts on autoimmune conditions."}, {"id": "fetomaternal microchimerism", "name": "fetomaternal microchimerism", "frequency": 4, "degree": 6, "layer": "priority", "evidence": "Fetomaternal microchimerism refers to the phenomenon where fetal cells cross the placenta and persist in the mother's body for extended periods, potentially influencing maternal health. This concept is significant as it highlights the biological connection between mother and fetus beyond birth, raising questions about the implications for autoimmune diseases and tissue repair."}, {"id": "graft-versus-host reaction", "name": "graft-versus-host reaction", "frequency": 3, "degree": 8, "layer": "secondary", "evidence": "A graft-versus-host reaction occurs when cells from one individual attack the tissues of another. This hypothesis suggests that fetal cells could provoke such a reaction in the mother, potentially leading to autoimmune diseases, which is particularly relevant for understanding women's health."}, {"id": "microchimerism", "name": "microchimerism", "frequency": 4, "degree": 25, "layer": "priority", "evidence": "Microchimerism refers to the presence of a small number of cells that originate from another individual, such as fetal cells in a mother. This concept is important as it highlights how varying levels of these cells can impact health outcomes, particularly in the context of cancer prognosis."}, {"id": "parkinson's disease", "name": "parkinson's disease", "frequency": 2, "degree": 1, "layer": "priority", "evidence": "Parkinson's disease is a neurodegenerative disorder characterized by the loss of dopamine-producing neurons. The ability of fetal microchimeric cells to replace injured cells in this context suggests potential therapeutic avenues for neurodegenerative diseases."}, {"id": "studies", "name": "studies", "frequency": 2, "degree": 4, "layer": "tertiary", "evidence": "Studies in this context refer to scientific investigations that explore the presence of male DNA in maternal brains, contributing to the understanding of microchimerism and its implications for health. These studies are foundational for establishing the relationship between fetal cells and maternal health outcomes."}, {"id": "microchimeric cells", "name": "microchimeric cells", "frequency": 2, "degree": 4, "layer": "priority", "evidence": "Microchimeric cells are cells that originate from one individual and are found in another, such as fetal cells persisting in maternal tissues. Their retention is significant as it may have implications for maternal health and immune responses, as well as for understanding long-term effects of pregnancy on the maternal immune system."}, {"id": "tissue repair", "name": "tissue repair", "frequency": 2, "degree": 5, "layer": "priority", "evidence": "Tissue repair refers to the biological processes that restore tissue integrity after injury. The involvement of fetal microchimeric cells in this process suggests a potential therapeutic role in managing autoimmune conditions."}, {"id": "blood brain barrier", "name": "blood brain barrier", "frequency": 2, "degree": 2, "layer": "priority", "evidence": "The blood brain barrier is a selective permeability barrier that protects the brain from harmful substances while allowing essential nutrients to pass through. Understanding how fetal cells can cross this barrier is crucial for exploring potential therapeutic applications in treating brain injuries."}, {"id": "pathogenesis", "name": "pathogenesis", "frequency": 3, "degree": 1, "layer": "priority", "evidence": "Pathogenesis refers to the development and progression of a disease. Understanding the pathogenesis of autoimmune thyroid diseases is essential for developing targeted therapies and improving patient outcomes."}, {"id": "case studies on fetal cells", "name": "case studies on fetal cells", "frequency": 2, "degree": 2, "layer": "tertiary", "evidence": "This observation serves as a case study illustrating the potential benefits of fetal cells in autoimmune diseases, particularly in improving kidney function in affected mothers."}, {"id": "chimera of greek mythology", "name": "chimera of greek mythology", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "The term 'microchimerism' is derived from the mythological Chimera, a creature composed of parts from different animals, symbolizing the genetic mixing that occurs in microchimerism. This etymology highlights the concept's foundational idea of genetic diversity within an individual."}, {"id": "1960s discovery", "name": "1960s discovery", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "Microchimerism was first identified in the 1960s, marking a significant advancement in the understanding of genetic relationships between individuals. The subsequent adoption of the term in the 1970s reflects its growing importance in medical and biological research."}, {"id": "kir ligands", "name": "kir ligands", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "KIR ligands are molecules that interact with natural killer cells and may influence the extent of fetomaternal microchimerism. Understanding their role is crucial for exploring how maternal immune responses are shaped during and after pregnancy."}, {"id": "natural killer cells", "name": "natural killer cells", "frequency": 1, "degree": 4, "layer": "secondary", "evidence": "Natural killer cells are a type of lymphocyte that plays a significant role in the immune response during pregnancy. Their prevalence in early pregnancy suggests they may be key players in the establishment and maintenance of fetomaternal microchimerism."}, {"id": "maternal\u2192fetal microchimerism", "name": "maternal\u2192fetal microchimerism", "frequency": 1, "degree": 2, "layer": "secondary", "evidence": "Maternal\u2192fetal microchimerism refers to the transfer of maternal cells to the fetus. This reciprocal exchange of cells highlights the complex interactions between mother and child and may have implications for both maternal and fetal health."}, {"id": "fred hutchinson cancer research center", "name": "fred hutchinson cancer research center", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "The Fred Hutchinson Cancer Research Center is notable for its research contributions, including studies on fetomaternal microchimerism. Their findings provide empirical evidence of fetal cells in maternal tissues, which is crucial for understanding the long-term effects of these cells."}, {"id": "microchimerism after blood transfusions", "name": "microchimerism after blood transfusions", "frequency": 1, "degree": 3, "layer": "tertiary", "evidence": "Microchimerism can occur not only during pregnancy but also through blood transfusions, indicating that the transfer of cells between individuals can have significant implications for immune responses and health outcomes."}, {"id": "gestation", "name": "gestation", "frequency": 1, "degree": 4, "layer": "tertiary", "evidence": "Gestation refers to the period of development of the fetus in the womb. It is a critical context for understanding how microchimerism can arise from various sources, emphasizing the complexity of cellular exchanges in human development."}, {"id": "fraternal twins", "name": "fraternal twins", "frequency": 1, "degree": 3, "layer": "secondary", "evidence": "Fraternal twins are siblings that develop from two separate eggs fertilized by two separate sperm cells. In cattle, the fusion of placentas allows for shared blood circulation, which is a key factor in the occurrence of microchimerism. This concept is important for understanding genetic exchanges and reproductive outcomes in twin births."}, {"id": "xx/xy microchimerism", "name": "xx/xy microchimerism", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "XX/XY microchimerism occurs when a male and female twin share blood circulation, leading to the presence of male genetic material in the female twin. This can result in hormonal influences that affect the development of the female twin, such as partial masculinization. This concept is significant for understanding the biological implications of twin births and their reproductive capabilities."}, {"id": "martin heifer (freemartin)", "name": "martin heifer (freemartin)", "frequency": 1, "degree": 1, "layer": "priority", "evidence": "A martin heifer, commonly known as a freemartin, is a female twin that is born alongside a male twin and is typically infertile due to the influence of male hormones during development. This condition is significant in cattle breeding as freemartins cannot be used for reproduction or dairy production, impacting herd management and genetic diversity."}, {"id": "diagnosis of microchimerism", "name": "diagnosis of microchimerism", "frequency": 1, "degree": 3, "layer": "secondary", "evidence": "The diagnosis of microchimerism involves detecting male genetic material in the blood of female twins, which indicates the presence of male cells due to shared circulation during gestation. This diagnostic method is important for identifying reproductive issues and understanding the genetic health of cattle."}, {"id": "cattle reproductive biology", "name": "cattle reproductive biology", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "Cattle reproductive biology encompasses the study of reproductive processes and outcomes in cattle, including the implications of conditions like freemartinism. Understanding these biological principles is essential for effective breeding practices and managing cattle populations."}, {"id": "alzheimer's disease", "name": "alzheimer's disease", "frequency": 1, "degree": 1, "layer": "priority", "evidence": "Alzheimer's disease is a progressive neurodegenerative disorder that leads to cognitive decline and memory loss. The inverse relationship between fetal-derived cells and Alzheimer's incidence raises intriguing questions about the protective or detrimental roles of these cells in brain health."}, {"id": "immunomarkers", "name": "immunomarkers", "frequency": 1, "degree": 2, "layer": "secondary", "evidence": "Immunomarkers are molecules expressed on the surface of cells that can indicate the presence of specific immune responses. Understanding how fetal-derived cells present these markers is important for exploring their role in maternal immune tolerance and potential health outcomes."}, {"id": "correlation", "name": "correlation", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "Correlation refers to a statistical relationship between two variables, indicating how one may change in relation to the other. In this context, the correlation between Parkinson's disease and microchimerism suggests a need for further research to understand the underlying mechanisms."}, {"id": "human and mouse models", "name": "human and mouse models", "frequency": 1, "degree": 2, "layer": "tertiary", "evidence": "Human and mouse models are often used in research to study biological processes and diseases. Their use in microchimerism studies allows for comparative analysis and insights into the mechanisms at play in both species."}, {"id": "maternal-fetal interface", "name": "maternal-fetal interface", "frequency": 1, "degree": 5, "layer": "priority", "evidence": "The maternal-fetal interface is a critical area where maternal immune responses are modulated to prevent the rejection of fetal cells. Understanding this interface is essential for comprehending how pregnancy can occur despite the genetic differences between the mother and fetus."}, {"id": "immune rejection", "name": "immune rejection", "frequency": 1, "degree": 1, "layer": "priority", "evidence": "Immune rejection refers to the body's immune system attacking foreign cells, which in the context of pregnancy, would mean the mother rejecting the fetus. This concept is vital as it highlights the unique immunological adaptations that occur during pregnancy."}, {"id": "systemic immunological changes", "name": "systemic immunological changes", "frequency": 1, "degree": 5, "layer": "priority", "evidence": "Systemic immunological changes are alterations in the immune system that affect the entire body, which occur during pregnancy. These changes are crucial for maintaining a healthy pregnancy and preventing complications."}, {"id": "feto-maternal cell transfer", "name": "feto-maternal cell transfer", "frequency": 1, "degree": 6, "layer": "secondary", "evidence": "Feto-maternal cell transfer refers to the exchange of cells between the fetus and the mother during pregnancy. This process is important for establishing tolerance to fetal antigens and is a key mechanism in preventing immune rejection."}, {"id": "cd4+ regulatory t cells (tregs)", "name": "cd4+ regulatory t cells (tregs)", "frequency": 1, "degree": 4, "layer": "secondary", "evidence": "CD4+ regulatory T cells (Tregs) are a subset of T cells that help regulate the immune response and maintain tolerance to the fetus. Their expansion during pregnancy is crucial for preventing complications and ensuring a successful pregnancy."}, {"id": "preeclampsia", "name": "preeclampsia", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "Preeclampsia is a pregnancy complication characterized by high blood pressure and signs of damage to other organ systems. Understanding its link to Treg cell dynamics is important for developing interventions to improve pregnancy outcomes."}, {"id": "clonal deletion", "name": "clonal deletion", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "Clonal deletion is a process by which specific immune cells are eliminated to prevent autoimmunity. In the context of pregnancy, this process helps to prevent the mother's immune system from attacking fetal cells."}, {"id": "foxp3 expression", "name": "foxp3 expression", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "FOXP3 is a transcription factor critical for the development and function of Treg cells. Its expression in fetal-specific CD4+ T cells is essential for promoting immune tolerance during pregnancy."}, {"id": "mice models", "name": "mice models", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "Mice models are experimental systems used to study biological processes. Their use in understanding the role of fetal-specific Treg cells provides insights into the mechanisms of immune tolerance during pregnancy."}, {"id": "fetal t cells", "name": "fetal t cells", "frequency": 1, "degree": 4, "layer": "priority", "evidence": "Fetal T cells are immune cells that develop in the fetus and play a crucial role in the immune system's response to antigens. Their accumulation during development is significant because it sets the stage for how the immune system will function after birth, particularly in relation to maternal antigens."}, {"id": "noninherited maternal antigens (nimas)", "name": "noninherited maternal antigens (nimas)", "frequency": 1, "degree": 1, "layer": "priority", "evidence": "NIMAs are antigens from the mother that are not genetically inherited by the fetus. The exposure of the fetus to these antigens is important because it influences the development of the fetal immune system and its ability to tolerate maternal tissues, which is crucial for preventing immune rejection during pregnancy."}, {"id": "cd4+ t cells", "name": "cd4+ t cells", "frequency": 1, "degree": 0, "layer": "priority", "evidence": "CD4+ T cells are a type of immune cell that helps orchestrate the immune response. Their ability to proliferate in response to alloantigens (foreign antigens) is essential for understanding how the fetal immune system can differentiate between self and non-self, which is vital for maintaining tolerance during pregnancy."}, {"id": "treg cells", "name": "treg cells", "frequency": 1, "degree": 2, "layer": "priority", "evidence": "Treg cells, or regulatory T cells, are a subset of T cells that play a key role in maintaining immune tolerance and preventing autoimmune responses. Their preferential differentiation from fetal CD4+ T cells is significant because it helps the fetus avoid an immune response against maternal antigens, ensuring a successful pregnancy."}, {"id": "immune tolerance", "name": "immune tolerance", "frequency": 1, "degree": 8, "layer": "priority", "evidence": "Immune tolerance refers to the immune system's ability to recognize and accept certain antigens as 'self' rather than attacking them. This concept is crucial in the context of pregnancy, as it allows the fetus to coexist with maternal tissues without triggering an immune response, which is vital for the health of both mother and child."}, {"id": "alloantigen-induced proliferation", "name": "alloantigen-induced proliferation", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "Alloantigen-induced proliferation refers to the process by which T cells multiply in response to foreign antigens. This process is important for understanding how the fetal immune system can respond to external antigens while still maintaining tolerance to maternal tissues, which is critical for a successful pregnancy."}, {"id": "maternal immune response", "name": "maternal immune response", "frequency": 1, "degree": 8, "layer": "secondary", "evidence": "The maternal immune response is the body's reaction to foreign antigens, including those from the fetus. Understanding how fetal T cells prevent this response is essential for comprehending the dynamics of pregnancy and the mechanisms that allow for fetal development without rejection."}, {"id": "in utero development", "name": "in utero development", "frequency": 1, "degree": 3, "layer": "tertiary", "evidence": "In utero development refers to the growth and maturation of the fetus within the womb. This period is critical for the establishment of the immune system, as it shapes how the fetus will respond to antigens after birth, influencing long-term health outcomes."}, {"id": "post-birth immune dynamics", "name": "post-birth immune dynamics", "frequency": 1, "degree": 5, "layer": "tertiary", "evidence": "Post-birth immune dynamics refer to the interactions and adaptations of the immune system following delivery. The persistence of immune tolerance established during pregnancy is significant for understanding how maternal and offspring immune systems interact and the implications for health in both."}, {"id": "nima-specific tolerance", "name": "nima-specific tolerance", "frequency": 1, "degree": 6, "layer": "priority", "evidence": "NIMA-specific tolerance refers to the immune system's ability to tolerate non-inherited maternal antigens (NIMA) without mounting an immune response. This concept is crucial in understanding how maternal cells influence the offspring's immune system and can lead to reduced sensitization to certain antigens, which has implications for pregnancy and organ transplantation."}, {"id": "immunological phenotypes", "name": "immunological phenotypes", "frequency": 1, "degree": 3, "layer": "priority", "evidence": "Immunological phenotypes are observable characteristics of the immune system that result from genetic and environmental influences. In this context, they highlight how NIMA-specific tolerance can lead to variations in immune responses, which is important for understanding individual differences in health and disease."}, {"id": "rh antigens sensitization", "name": "rh antigens sensitization", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "Rh antigens sensitization refers to the immune response that occurs when an Rh-negative individual is exposed to Rh-positive blood. The reduction of sensitization among Rh- women born to Rh+ mothers illustrates the protective role of NIMA-specific tolerance, which is significant for preventing hemolytic disease in newborns."}, {"id": "long-term kidney allograft survival", "name": "long-term kidney allograft survival", "frequency": 1, "degree": 4, "layer": "secondary", "evidence": "Long-term kidney allograft survival refers to the successful functioning of a transplanted kidney over an extended period. The improvement in survival rates among NIMA-matched pairs suggests that NIMA-specific tolerance can enhance transplant outcomes, which is vital for advancing transplant medicine."}, {"id": "cross-fostering animal studies", "name": "cross-fostering animal studies", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "Cross-fostering animal studies involve raising young animals by a mother that is not their biological parent, allowing researchers to study the effects of maternal influence on offspring. These studies provide insights into the importance of maternal cells in establishing NIMA-specific tolerance, which is critical for understanding immune development."}, {"id": "breastfeeding and nima exposure", "name": "breastfeeding and nima exposure", "frequency": 1, "degree": 2, "layer": "secondary", "evidence": "Breastfeeding and NIMA exposure refer to the transfer of maternal cells through breast milk, which is essential for developing NIMA-specific tolerance in offspring. This concept underscores the importance of maternal influence on the immune system during early development."}, {"id": "prenatal and postnatal exposure", "name": "prenatal and postnatal exposure", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "Prenatal and postnatal exposure refers to the influence of maternal cells on the offspring's immune system both before and after birth. This dual exposure is necessary for establishing and maintaining NIMA-specific tolerance, which is significant for preventing immune-related complications."}, {"id": "neoangiogenesis", "name": "neoangiogenesis", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "Neoangiogenesis is the process of forming new blood vessels from existing ones, which is crucial for healing and tissue repair. Fetal microchimeric cells contribute to this process, highlighting their importance in recovery from injuries."}, {"id": "tissue function recovery", "name": "tissue function recovery", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "Tissue function recovery refers to the restoration of normal function in damaged tissues. Fetal microchimeric cells have the ability to differentiate into various cell types, aiding in the repair of injured tissues, which is particularly relevant in conditions like type I diabetes."}, {"id": "type i diabetes mouse model", "name": "type i diabetes mouse model", "frequency": 1, "degree": 0, "layer": "tertiary", "evidence": "The type I diabetes mouse model is used to study the disease's mechanisms and potential treatments. In this context, it demonstrates how fetal-derived cells can replace defective maternal cells, offering insights into regenerative medicine."}, {"id": "myocardial infarction", "name": "myocardial infarction", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "Myocardial infarction, commonly known as a heart attack, occurs when blood flow to the heart is blocked. The role of fetal microchimeric cells in repairing heart tissue after such an event underscores their potential in cardiac regeneration therapies."}, {"id": "seeding of fetal microchimeric cells", "name": "seeding of fetal microchimeric cells", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "Seeding refers to the introduction of fetal microchimeric cells into maternal tissues, which may enhance maternal functions such as lactation and attention to offspring. This concept highlights the potential long-term benefits of fetal cells on maternal health and caregiving."}, {"id": "maternal breast tissue", "name": "maternal breast tissue", "frequency": 1, "degree": 0, "layer": "tertiary", "evidence": "Maternal breast tissue is crucial for breastfeeding, and the introduction of fetal microchimeric cells may enhance lactation, thereby improving the nutritional support for the newborn. This connection emphasizes the interplay between fetal and maternal health."}, {"id": "maternal attention", "name": "maternal attention", "frequency": 1, "degree": 3, "layer": "tertiary", "evidence": "Maternal attention refers to the cognitive and emotional engagement of a mother with her offspring. The potential enhancement of this attention through fetal microchimeric cells suggests a biological basis for maternal behaviors that support child development."}, {"id": "systemic lupus erythematosus", "name": "systemic lupus erythematosus", "frequency": 1, "degree": 1, "layer": "priority", "evidence": "Systemic lupus erythematosus (SLE) is a chronic autoimmune disease where the immune system attacks its own tissues. The relationship between male fetal cells and SLE indicates that these cells may play a role in modulating the immune response in affected mothers."}, {"id": "lupus nephritis", "name": "lupus nephritis", "frequency": 1, "degree": 2, "layer": "priority", "evidence": "Lupus nephritis is a serious complication of systemic lupus erythematosus that affects the kidneys. It is characterized by inflammation and damage to the kidney tissues, making it a critical area of study for understanding the impact of fetal cells on maternal health."}, {"id": "pcr (polymerase chain reaction)", "name": "pcr (polymerase chain reaction)", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "PCR is a widely used technique in molecular biology to amplify specific DNA sequences. In this context, it is crucial for detecting male fetal DNA in maternal kidney biopsies, which helps in understanding the relationship between fetal cells and autoimmune diseases."}, {"id": "serum creatinine", "name": "serum creatinine", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "Serum creatinine is a waste product measured to assess kidney function. Lower levels in mothers with male fetal cells suggest a protective effect of these cells against kidney damage in lupus nephritis."}, {"id": "glomerulonephritis", "name": "glomerulonephritis", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "Glomerulonephritis is an inflammation of the kidney's filtering units. The severity of this condition in the absence of male fetal cells highlights the potential protective role these cells may play in autoimmune kidney diseases."}, {"id": "antigens", "name": "antigens", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "Antigens are substances that induce an immune response. In the context of fetal cells, their role in supplying antigens could explain some of the inflammatory processes associated with autoimmune diseases."}, {"id": "hypothesis of fetal cell function", "name": "hypothesis of fetal cell function", "frequency": 1, "degree": 4, "layer": "tertiary", "evidence": "This hypothesis posits that fetal cells may contribute to autoimmune disease by introducing foreign antigens that provoke an immune response. Understanding this function is crucial for exploring the dual roles of fetal cells in maternal health."}, {"id": "hashimoto's thyroiditis (ht)", "name": "hashimoto's thyroiditis (ht)", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "Hashimoto's thyroiditis is an autoimmune disorder characterized by chronic inflammation of the thyroid gland, leading to hypothyroidism. It is important to recognize this condition as it can significantly affect a person's energy levels, weight, and overall health."}, {"id": "graves' disease (gd)", "name": "graves' disease (gd)", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "Graves' disease is another autoimmune disorder that results in hyperthyroidism due to the overproduction of thyroid hormones. This condition is critical to understand as it can lead to symptoms such as anxiety, weight loss, and increased heart rate, impacting the quality of life."}, {"id": "thyroid gland", "name": "thyroid gland", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "The thyroid gland is a vital endocrine organ that regulates metabolism through hormone production. Its involvement in fetal maternal microchimerism highlights the complex interactions between maternal and fetal health."}, {"id": "postpartum", "name": "postpartum", "frequency": 1, "degree": 0, "layer": "tertiary", "evidence": "Postpartum refers to the period following childbirth. This context is important as it marks a time when maternal immune responses may change, potentially influencing the activation of fetal cells and the development of autoimmune diseases."}, {"id": "immune suppression", "name": "immune suppression", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "Immune suppression refers to the reduced ability of the immune system to respond to pathogens. This concept is crucial in understanding why fetal cells may become activated postpartum, as the mother's immune system is typically suppressed during pregnancy to protect the fetus."}, {"id": "sj\u00f6gren syndrome (ss)", "name": "sj\u00f6gren syndrome (ss)", "frequency": 1, "degree": 0, "layer": "priority", "evidence": "Sj\u00f6gren syndrome is a chronic autoimmune condition that primarily affects the exocrine glands, leading to symptoms such as dry mouth and dry eyes. Understanding SS is crucial as it highlights the complexities of autoimmune diseases and their impact on the body's glandular functions."}, {"id": "autoimmune rheumatic disease", "name": "autoimmune rheumatic disease", "frequency": 1, "degree": 2, "layer": "priority", "evidence": "Autoimmune rheumatic diseases are conditions where the immune system mistakenly attacks the body's own tissues, often affecting joints and glands. This classification is important for understanding the broader implications of immune system dysfunction and its role in various diseases."}, {"id": "exocrine glands", "name": "exocrine glands", "frequency": 1, "degree": 0, "layer": "priority", "evidence": "Exocrine glands are glands that secrete substances through ducts to the surface of an organ or tissue, such as saliva from salivary glands. Their involvement in SS is significant as it explains the symptoms related to dryness in affected individuals."}, {"id": "y-chromosome-positive fetal cells", "name": "y-chromosome-positive fetal cells", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "Y-chromosome-positive fetal cells indicate the presence of male fetal cells in the mother's body, which can provide insights into the relationship between pregnancy and autoimmune diseases like SS. Their detection in salivary glands of women with SS supports the hypothesis of fetal microchimerism's role in the disease."}, {"id": "salivary glands", "name": "salivary glands", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "Salivary glands are exocrine glands responsible for producing saliva. Their involvement in SS is critical as it relates to the symptoms of dryness and the potential mechanisms of disease development."}, {"id": "relationship between ss and pregnancy", "name": "relationship between ss and pregnancy", "frequency": 1, "degree": 0, "layer": "tertiary", "evidence": "The relationship between SS and pregnancy is significant as it highlights how hormonal and physiological changes during and after pregnancy may influence the onset or exacerbation of autoimmune diseases. This understanding can guide clinical approaches to managing SS in postpartum women."}, {"id": "incidence of ss after childbirth", "name": "incidence of ss after childbirth", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "The increased incidence of SS after childbirth indicates that pregnancy may trigger or worsen autoimmune responses in susceptible individuals. This temporal factor is crucial for understanding the dynamics of autoimmune diseases in relation to reproductive health."}, {"id": "lichen planus (lp)", "name": "lichen planus (lp)", "frequency": 1, "degree": 2, "layer": "priority", "evidence": "Lichen planus is a chronic autoimmune disease characterized by the infiltration of T lymphocytes in the epithelium, leading to damage of basal cells. Understanding LP is crucial as it highlights the role of the immune system in skin disorders and the complexities of autoimmune diseases."}, {"id": "t-cell-mediated autoimmune disease", "name": "t-cell-mediated autoimmune disease", "frequency": 1, "degree": 1, "layer": "priority", "evidence": "This term refers to diseases where T cells, a type of white blood cell, mistakenly attack the body's own tissues. It is significant because it underscores the immune system's role in various chronic conditions, including skin diseases like LP."}, {"id": "prevalence", "name": "prevalence", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "Prevalence refers to how common a disease is within a specific population. In the case of LP, understanding its higher prevalence in females can inform research and treatment approaches tailored to gender differences in autoimmune responses."}, {"id": "t lymphocytes infiltration", "name": "t lymphocytes infiltration", "frequency": 1, "degree": 1, "layer": "priority", "evidence": "T lymphocytes infiltration is a process where T cells invade tissues, leading to cellular damage. This mechanism is central to understanding how autoimmune diseases like LP develop and progress."}, {"id": "apoptosis", "name": "apoptosis", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "Apoptosis is a form of programmed cell death that occurs in multicellular organisms. In the context of LP, it is significant because the destruction of basal cells contributes to the disease's pathology."}, {"id": "pregnancy and breast cancer prognosis", "name": "pregnancy and breast cancer prognosis", "frequency": 1, "degree": 1, "layer": "priority", "evidence": "This concept refers to the observed relationship between pregnancy and improved outcomes for women diagnosed with breast cancer. Understanding this relationship is crucial as it can influence treatment decisions and patient counseling regarding pregnancy during or after cancer treatment."}, {"id": "mechanisms of fetal cell influence", "name": "mechanisms of fetal cell influence", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "This concept encompasses the proposed ways in which fetal cells may positively influence breast cancer outcomes. Understanding these mechanisms is essential for developing potential therapeutic strategies and improving patient care."}, {"id": "immune system interaction", "name": "immune system interaction", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "This concept describes how fetal cells might interact with cancer cells and the immune system, potentially enhancing the body's ability to fight cancer. This interaction is crucial for understanding how pregnancy might alter cancer dynamics."}, {"id": "down-regulation of the immune system", "name": "down-regulation of the immune system", "frequency": 1, "degree": 2, "layer": "secondary", "evidence": "This concept refers to the idea that fetal cells may suppress the immune response, which could paradoxically help prevent cancer development. This is significant as it suggests a complex relationship between immune function and cancer progression."}, {"id": "allogeneic fetal cells", "name": "allogeneic fetal cells", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "Allogeneic fetal cells are those that come from a genetically different individual, such as a fetus. This concept is relevant as it indicates that the ability to retain these cells may be linked to cancer prognosis, highlighting a potential area for further research."}, {"id": "inflammatory mediators", "name": "inflammatory mediators", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "Inflammatory mediators are substances that can promote inflammation in the body. This concept is important because it connects inflammation to cancer development, suggesting that managing inflammation could be a strategy for improving cancer outcomes."}, {"id": "case studies on pregnancy and breast cancer", "name": "case studies on pregnancy and breast cancer", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "This concept refers to the body of research that investigates the relationship between pregnancy and breast cancer outcomes. These studies provide empirical evidence that can inform clinical practices and patient management."}, {"id": "historical context of breast cancer research", "name": "historical context of breast cancer research", "frequency": 1, "degree": 0, "layer": "tertiary", "evidence": "The historical context includes the evolution of research on breast cancer and pregnancy, which has shaped current understanding and treatment approaches. Recognizing this context is important for appreciating how scientific knowledge develops over time."}, {"id": "cervical cancer", "name": "cervical cancer", "frequency": 1, "degree": 0, "layer": "priority", "evidence": "Cervical cancer is a type of cancer that occurs in the cervix and can be influenced by various factors, including the presence of microchimeric cells. This association highlights the potential role of fetal cells in cancer development and the immune response."}, {"id": "hpv infection", "name": "hpv infection", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "HPV infection refers to the presence of the human papillomavirus, which is a significant risk factor for cervical cancer. Understanding how microchimeric cells may affect susceptibility to HPV is crucial for developing preventive measures and treatments."}, {"id": "tumor microenvironment", "name": "tumor microenvironment", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "The tumor microenvironment refers to the surrounding cells and conditions that influence tumor growth and progression. The clustering of microchimeric cells in tumors suggests they may play a role in tissue repair or tumor dynamics, which is important for cancer research."}, {"id": "pregnancy at older ages", "name": "pregnancy at older ages", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "The concept of pregnancy at older ages refers to the implications of maternal age on health outcomes, particularly regarding cancer risks. This finding is significant as it challenges traditional views on age-related cancer risks and highlights the complex interactions between pregnancy and cancer."}, {"id": "s. hallum", "name": "s. hallum", "frequency": 1, "degree": 0, "layer": "tertiary", "evidence": "S. Hallum is the author of a study that investigates the relationship between male origin fetal cells and ovarian cancer risk. Their contributions are important for advancing the understanding of microchimerism and its implications for women's health."}, {"id": "collagen i and iii", "name": "collagen i and iii", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "Collagen I and III are types of collagen proteins that provide structural support in various tissues. Their expression by microchimeric fetal cells suggests these cells may contribute to the healing process by aiding in the formation of new tissue, which is crucial for recovery from injuries such as cesarean section scars."}, {"id": "tgf-\u03b23", "name": "tgf-\u03b23", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "Transforming Growth Factor Beta 3 (TGF-\u03b23) is a cytokine involved in tissue repair and regeneration. Its expression by microchimeric fetal cells indicates a role in modulating the healing process, making it an important factor in understanding how fetal cells can influence maternal tissue recovery."}, {"id": "maternal skin injury signals", "name": "maternal skin injury signals", "frequency": 1, "degree": 1, "layer": "priority", "evidence": "Maternal skin injury signals refer to biochemical cues released in response to skin damage that attract cells to the injury site. Understanding these signals is essential for elucidating the mechanisms of tissue repair and the role of microchimeric cells in healing."}, {"id": "healed maternal cesarean section scars", "name": "healed maternal cesarean section scars", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "Healed maternal cesarean section scars are the result of surgical intervention during childbirth. The study of these scars provides insights into the healing process and the potential contributions of fetal cells to maternal recovery, which is important for improving surgical outcomes."}, {"id": "umbilical cord blood cells", "name": "umbilical cord blood cells", "frequency": 1, "degree": 2, "layer": "secondary", "evidence": "Umbilical cord blood cells are stem cells derived from the umbilical cord that have the potential to differentiate into various cell types, including neural cells. Their ability to express neuron-like proteins is important for their therapeutic potential in brain injury recovery."}, {"id": "neural cells", "name": "neural cells", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "Neural cells are specialized cells in the nervous system that transmit signals and support brain function. The differentiation of umbilical cord blood cells into neural cells highlights the potential for regenerative medicine in treating neurological conditions."}, {"id": "maternal mouse brain", "name": "maternal mouse brain", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "The maternal mouse brain serves as a model for studying how fetal cells can influence maternal health. This concept is important for understanding the biological mechanisms that may affect maternal brain function and recovery."}, {"id": "experimental investigations", "name": "experimental investigations", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "Experimental investigations refer to scientific studies designed to test hypotheses and explore biological phenomena. These investigations are crucial for validating the mechanisms by which fetal cells interact with maternal tissues, particularly in the context of brain health."}, {"id": "brain injury", "name": "brain injury", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "Brain injury refers to damage to the brain that can result from various causes, including trauma or stroke. Understanding how fetal cells can aid recovery from brain injury is vital for developing new therapeutic strategies."}, {"id": "stem cells", "name": "stem cells", "frequency": 1, "degree": 2, "layer": "priority", "evidence": "Stem cells are undifferentiated cells with the potential to develop into various cell types. In the context of pregnancy, fetal stem cells can be studied directly in the maternal environment, which may provide insights into their roles and effects on maternal health."}, {"id": "umbilical cord", "name": "umbilical cord", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "The umbilical cord is a vital structure that connects the fetus to the placenta, providing nutrients and oxygen. It is also a rich source of stem cells, which can be harvested for medical treatments, particularly in regenerative medicine."}, {"id": "intravenous infusion", "name": "intravenous infusion", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "Intravenous infusion is a method of delivering substances directly into the bloodstream. Using fetal stem cells in this way could potentially aid in repairing damaged brain tissue, highlighting the therapeutic potential of these cells."}, {"id": "neurogenesis", "name": "neurogenesis", "frequency": 1, "degree": 2, "layer": "secondary", "evidence": "Neurogenesis is the process of generating new neurons in the brain. During pregnancy, hormonal changes may enhance neurogenesis, possibly improving the ability of fetal cells to aid in brain repair and recovery from injury."}, {"id": "health effects of fetal cells", "name": "health effects of fetal cells", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "Fetal cells can have both beneficial and detrimental effects on maternal health, which is an area of ongoing research. Understanding these effects is important for assessing the implications of fetal microchimerism on maternal well-being."}, {"id": "resource allocation", "name": "resource allocation", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "Resource allocation refers to how resources are distributed between the fetus and the mother. Imbalances in this allocation can lead to health complications, as the fetus may manipulate maternal resources for its own growth."}, {"id": "placenta", "name": "placenta", "frequency": 1, "degree": 2, "layer": "tertiary", "evidence": "The placenta is an organ that develops during pregnancy to provide nutrients and oxygen to the fetus. Its role is crucial in the context of fetal microchimerism, as it serves as a source of resources that the fetus may exploit, potentially leading to conflicts with maternal health."}], "links": [{"source": "long-term kidney allograft survival", "target": "immune tolerance", "type": "", "evidence": "The presence of fetal cells in the maternal circulation has been associated with improved long-term kidney allograft survival, suggesting that these cells may enhance immune tolerance mechanisms."}, {"source": "fetal microchimeric cells", "target": "models of Parkinson's disease", "type": "", "evidence": "Fetal microchimeric cells can differentiate into cell types that infiltrate and replace injured cells in models of Parkinson's disease."}, {"source": "fetal cells", "target": "collagen I and III", "type": "", "evidence": "Microchimeric fetal cells expressed collagen I, III and TGF-\u03b23."}, {"source": "maternal-fetal interface", "target": "immune rejection", "type": "", "evidence": "There are many mechanisms at the maternal-fetal interface to prevent immune rejection of fetal cells."}, {"source": "fraternal twins", "target": "microchimerism", "type": "", "evidence": "Microchimerism occurs in most pairs of twins in cattle."}, {"source": "feto-maternal cell transfer", "target": "numbers of fetal cells in maternal tissues", "type": "", "evidence": "These changes in immune responses during pregnancy extend to maternal components specific to fetal antigens, because of feto-maternal cell transfer and their retention in mother tissues."}, {"source": "male hormones", "target": "heifer", "type": "", "evidence": "male hormones partially masculinize the heifer (female)."}, {"source": "fetal t cells", "target": "alloantigen-induced proliferation", "type": "", "evidence": "fetal CD4+ T cells are capable of alloantigen-induced proliferation"}, {"source": "fetal microchimerism", "target": "pathogenesis of autoimmune diseases", "type": "", "evidence": "The fetal microchimerism may trigger a fetus versus host reaction and therefore may play a role in the pathogenesis of autoimmune diseases including LP."}, {"source": "gestation", "target": "post-birth immune dynamics", "type": "", "evidence": "The immune system undergoes significant changes during gestation, which can affect post-birth immune dynamics and influence the incidence of autoimmune diseases in mothers."}, {"source": "type I diabetes mouse model", "target": "maternal immune response", "type": "", "evidence": "Studies using type I diabetes mouse models can provide insights into how maternal immune responses are altered by fetal microchimerism, potentially revealing mechanisms that contribute to autoimmune disease development."}, {"source": "sharing of genes", "target": "benefits", "type": "", "evidence": "the sharing of genes between the fetus and mother may lead to benefits."}, {"source": "fetal microchimeric cells", "target": "wound healing", "type": "", "evidence": "They also help in wound healing by neoangiogenesis."}, {"source": "immunological phenotypes", "target": "systemic immunological changes", "type": "", "evidence": "Different immunological phenotypes can result from systemic immunological changes during pregnancy, affecting how the body responds to both fetal cells and potential autoimmune triggers."}, {"source": "fred hutchinson cancer research center", "target": "microchimerism", "type": "", "evidence": "The Fred Hutchinson Cancer Research Center is involved in research that explores the implications of microchimerism in cancer and other diseases, linking basic science to clinical outcomes."}, {"source": "maternal-fetal interface", "target": "feto-maternal cell transfer", "type": "", "evidence": "The maternal-fetal interface is where feto-maternal cell transfer occurs, facilitating the exchange of cells that can influence maternal immune tolerance and potentially affect long-term health outcomes."}, {"source": "mice models", "target": "clonal deletion of fetal-specific CD8+ T cells", "type": "", "evidence": "In mice models, most mother's fetal-specific CD8+ T cells undergo clonal deletion."}, {"source": "fetal t cells", "target": "noninherited maternal antigens (nimas)", "type": "", "evidence": "the fetus is exposed to noninherited maternal antigens (NIMAs)"}, {"source": "KIR patterns", "target": "fetomaternal microchimerism", "type": "", "evidence": "KIR patterns on maternal natural killer cells of the mother and KIR ligands on the fetal cells could have an effect on fetomaternal microchimerism"}, {"source": "preeclampsia", "target": "systemic immunological changes", "type": "", "evidence": "Preeclampsia is associated with systemic immunological changes that can affect the maternal-fetal relationship, indicating a complex interplay between maternal health and fetal development."}, {"source": "decreased expansion and decidual accumulation of Treg", "target": "pregnancy complications", "type": "", "evidence": "Decreased expansion and decidual accumulation of Treg cause pregnancy complications (preeclampsia, abortions)."}, {"source": "fetal cells", "target": "healthy breast tissue", "type": "", "evidence": "one their concentration decreases as they get closer to the healthy breast tissue."}, {"source": "systemic immunological changes", "target": "post-birth immune dynamics", "type": "", "evidence": "The presence of fetal cells in the maternal system can lead to systemic immunological changes that affect immune dynamics after birth, influencing susceptibility to autoimmune diseases."}, {"source": "male fetal cells", "target": "lupus nephritis", "type": "", "evidence": "Women with lupus nephritis containing male fetal cells in their kidney biopsies exhibited better renal system functioning."}, {"source": "fetal microchimeric cells", "target": "cell types that infiltrate and replace injured cells", "type": "", "evidence": "Fetal microchimeric cells can differentiate into cell types that infiltrate and replace injured cells in models of Parkinson's disease or myocardial infarction."}, {"source": "fetal cells", "target": "pathogenesis", "type": "", "evidence": "suggesting a role of fetal cells in the pathogenesis of such diseases."}, {"source": "feto-maternal cell transfer", "target": "maternal-fetal interface", "type": "", "evidence": "Feto-maternal cell transfer occurs at the maternal-fetal interface and is essential for establishing immune tolerance, which is critical for the health of both the mother and the fetus."}, {"source": "graft-versus-host reaction", "target": "microchimerism after blood transfusions", "type": "", "evidence": "The graft-versus-host reaction can occur in the context of microchimerism after blood transfusions, where donor cells may engraft in the recipient, leading to immune responses that are similar to those seen in microchimerism."}, {"source": "treg cells", "target": "fetal immune response", "type": "", "evidence": "preventing a fetal immune response to maternal antigens"}, {"source": "human and mouse models", "target": "diagnosis of microchimerism", "type": "", "evidence": "Human and mouse models are often used to investigate the diagnosis of microchimerism, providing insights into the mechanisms and implications of microchimeric cell presence."}, {"source": "graft-versus-host reaction", "target": "autoimmune diseases", "type": "", "evidence": "this fetal cells might trigger a graft-versus-host reaction leading to autoimmune disease"}, {"source": "fetal cells", "target": "microchimerism", "type": "", "evidence": "The specific role that fetal cells play in microchimerism related to certain autoimmune diseases is not fully understood."}, {"source": "autoimmune diseases", "target": "microchimerism", "type": "", "evidence": "Autoimmune diseases may be influenced by microchimerism, as the presence of microchimeric cells can alter immune responses, potentially leading to autoimmune conditions."}, {"source": "fetal microchimerism (FMC)", "target": "breast cancer prognosis", "type": "", "evidence": "Hyperchimerism and hypochimerism can be related to the negative effect of FMC and thus can promote a worse prognosis of breast cancer."}, {"source": "collagen I and III", "target": "tissue repair", "type": "", "evidence": "Microchimeric fetal cells expressed collagen I, III."}, {"source": "immunomarkers", "target": "maternal immune response", "type": "", "evidence": "Immunomarkers can indicate the status of the maternal immune response, which is crucial for understanding how microchimerism affects pregnancy outcomes."}, {"source": "fetal microchimeric cells", "target": "injured maternal cells", "type": "", "evidence": "These cells can also replace injured maternal cells and recover tissue function."}, {"source": "microchimerism", "target": "maternal brain", "type": "", "evidence": "Several studies have identified male DNA in the brains of both humans and mice who have previously been pregnant with a male fetus."}, {"source": "FOXP3 expression", "target": "differentiation into Treg cells", "type": "", "evidence": "Mother's fetal-specific CD4+ T cells proliferate, and due to FOXP3 expression, differentiate into Treg cells."}, {"source": "fraternal twins", "target": "blood circulation", "type": "", "evidence": "the placentas of fraternal twins usually fuse and the twins share blood circulation."}, {"source": "fetal cells", "target": "tissue repair", "type": "", "evidence": "help repair tissue."}, {"source": "fetal cells", "target": "microchimerism", "type": "", "evidence": "Fetal cells are a key component of microchimerism, as they can persist in the maternal body and contribute to the complex interactions between maternal and fetal immune systems."}, {"source": "microchimeric cells", "target": "woman's immune system", "type": "", "evidence": "Microchimeric cells might induce the alteration of the woman's immune system."}, {"source": "fetal microchimeric cells", "target": "neoangiogenesis", "type": "", "evidence": "They also help in wound healing by neoangiogenesis."}, {"source": "fetal microchimerism", "target": "pathogenesis of SS", "type": "", "evidence": "this led to the hypothesis that fetal microchimerism may be involved in SS pathogenesis."}, {"source": "lupus nephritis", "target": "serum creatinine", "type": "", "evidence": "Levels of serum creatinine, which is related to kidney failure, were low in mothers with high levels of male fetal cells."}, {"source": "fetal microchimeric cells", "target": "last trimester", "type": "", "evidence": "it is most apparent when fetal microchimeric cells levels are highest - during the last trimester."}, {"source": "microchimeric cells", "target": "tissues", "type": "", "evidence": "allows microchimeric cells to be retained in tissues"}, {"source": "male\u2013female pair of twins", "target": "XX/XY microchimerism", "type": "", "evidence": "If the twins are a male\u2013female pair, then XX/XY microchimerism results."}, {"source": "pregnancy", "target": "breast cancer prognosis", "type": "", "evidence": "Pregnancy has a positive effect on the prognosis of breast cancer according to several studies."}, {"source": "cd4+ regulatory t cells (tregs)", "target": "immune tolerance", "type": "", "evidence": "CD4+ regulatory T cells (Tregs) are vital for establishing immune tolerance during pregnancy, helping to prevent the maternal immune system from attacking fetal cells."}, {"source": "case studies on fetal cells", "target": "hypothesis of fetal cell function", "type": "", "evidence": "Case studies on fetal cells provide empirical evidence supporting the hypothesis that these cells have functional roles in maternal health, including immune modulation and tissue repair."}, {"source": "immune tolerance", "target": "long-term kidney allograft survival", "type": "", "evidence": "Immune tolerance mechanisms, potentially influenced by fetal cells, are essential for achieving long-term survival of kidney allografts, highlighting the relevance of fetal-maternal interactions in transplantation outcomes."}, {"source": "natural killer cells", "target": "kir ligands", "type": "", "evidence": "Natural killer cells play a crucial role in the immune response and interact with KIR ligands, which are important for recognizing and responding to microchimeric cells, thereby influencing the dynamics of microchimerism."}, {"source": "autoimmune diseases", "target": "pregnancy", "type": "", "evidence": "The severity of preexisting autoimmune disorders is reduced during pregnancy."}, {"source": "nima-specific tolerance", "target": "long-term kidney allograft survival", "type": "", "evidence": "long-term kidney allograft survival is improved in NIMA-matched donor-recipient sibling pairs."}, {"source": "studies", "target": "Y-chromosome-positive fetal cells", "type": "", "evidence": "Studies showed the presence of Y-chromosome-positive fetal cells in minor salivary glands in 11 of 20 women with SS."}, {"source": "fetal cells", "target": "delivery of the baby", "type": "", "evidence": "These cells could become activated after delivery of the baby after immune suppression in the mother is lost."}, {"source": "t lymphocytes infiltration", "target": "apoptosis", "type": "", "evidence": "LP is characterized by T lymphocytes infiltration of the lower levels of epithelium, where they damage basal cells and cause apoptosis."}, {"source": "fetal cells", "target": "immunomarkers", "type": "", "evidence": "It has been suggested that the fetal-derived cells can differentiate into those capable of presenting immunomarkers on their surface."}, {"source": "male cells", "target": "patients with cervical cancer", "type": "", "evidence": "Male cells were observed in patients with cervical cancer but not in positive controls."}, {"source": "microchimerism", "target": "parkinson's disease", "type": "", "evidence": "Parkinson's disease correlates with a higher incidence of brain microchimeras."}, {"source": "autoimmune diseases", "target": "pregnancy", "type": "", "evidence": "condition of women suffering from autoimmune disorders (e.g. rheumatoid arthritis, multiple sclerosis) improves during pregnancy."}, {"source": "fetal cells", "target": "immune tolerance", "type": "", "evidence": "Fetal cells can contribute to immune tolerance in the mother, which is crucial for the successful maintenance of pregnancy and may influence the development of autoimmune conditions post-birth."}, {"source": "fetal cells", "target": "maternal system", "type": "", "evidence": "fetal cells are able to manipulate the maternal system to draw resources from the placenta."}, {"source": "absence of male fetal cells", "target": "glomerulonephritis", "type": "", "evidence": "women without male fetal cells who had lupus nephritis showed a more serious form of glomerulonephritis."}, {"source": "microchimerism", "target": "blood transfusions", "type": "", "evidence": "Microchimerism had also been shown to exist after blood transfusions to a severely immunocompromised population"}, {"source": "women with breast cancer", "target": "obtaining and maintaining allogeneic fetal cells", "type": "", "evidence": "women with breast cancer may fail in the process of obtaining and maintaining allogeneic fetal cells."}, {"source": "maternal attention", "target": "fetal cell transfer", "type": "", "evidence": "Maternal attention and care during pregnancy can influence the dynamics of fetal cell transfer and the subsequent immunological outcomes for both mother and child."}, {"source": "fetal cells", "target": "development of SS", "type": "", "evidence": "Fetal cells in salivary glands suggest that they may be involved in the development of SS."}, {"source": "studies", "target": "human and mouse models", "type": "", "evidence": "Several studies have identified male DNA in the brains of both humans and mice."}, {"source": "microchimerism", "target": "tissue repair", "type": "", "evidence": "Microchimerism, the presence of fetal cells in the maternal body, has been linked to tissue repair processes, suggesting that these cells may play a role in recovery from injuries such as myocardial infarction."}, {"source": "post-birth immune dynamics", "target": "maternal-fetal microchimerism", "type": "", "evidence": "Post-birth immune dynamics can be significantly influenced by the presence of microchimeric cells, which may alter the maternal immune landscape and contribute to the development of autoimmune conditions."}, {"source": "fetal cells", "target": "tumor stroma", "type": "", "evidence": "they are preferentially settled in the tumor stroma."}, {"source": "maternal-fetal interface", "target": "feto-maternal microchimerism", "type": "", "evidence": "The maternal-fetal interface is essential for the establishment of fetomaternal microchimerism, facilitating the exchange of cells that can influence maternal immune responses and health outcomes."}, {"source": "fetal cells", "target": "immune tolerance", "type": "", "evidence": "Fetal cells are known to contribute to immune tolerance during pregnancy, which can affect maternal immune responses and potentially influence the incidence of autoimmune diseases post-birth."}, {"source": "fetomaternal microchimerism", "target": "microchimerism", "type": "", "evidence": "Fetomaternal microchimerism specifically refers to the transfer of fetal cells into the maternal circulation during pregnancy, highlighting a specific instance of microchimerism that has implications for maternal health."}, {"source": "nima-specific tolerance", "target": "immunological phenotypes", "type": "", "evidence": "NIMA-specific tolerance causes some interesting immunological phenotypes."}, {"source": "Sj\u00f6gren syndrome (SS)", "target": "autoimmune rheumatic disease", "type": "", "evidence": "Sj\u00f6gren syndrome (SS) is an autoimmune rheumatic disease of the exocrine glands."}, {"source": "fetal cells", "target": "mother", "type": "", "evidence": "Fetal cells have been documented to persist and multiply in the mother for several decades"}, {"source": "microchimerism after blood transfusions", "target": "feto-maternal microchimerism", "type": "", "evidence": "Both microchimerism after blood transfusions and feto-maternal microchimerism involve the transfer of cells between individuals, suggesting that similar immunological principles may govern their effects on health."}, {"source": "maternal immune cells", "target": "offspring", "type": "", "evidence": "Maternal immune cells are also found in the offspring yielding in maternal\u2192fetal microchimerism"}, {"source": "studies", "target": "hypothesis of fetal cell function", "type": "", "evidence": "Numerous studies, including case studies on fetal cells, provide evidence supporting the hypothesis that these cells play a role in tissue repair and immune modulation, influencing both maternal and fetal health."}, {"source": "gestation", "target": "maternal\u2192fetal microchimerism", "type": "", "evidence": "Gestation is the period during which maternal-fetal microchimerism occurs, as fetal cells are transferred to the mother, establishing a biological connection that can have lasting effects on maternal health."}, {"source": "hormonal changes in pregnancy", "target": "neurogenesis", "type": "", "evidence": "Hormonal changes in pregnancy alter neurogenesis."}, {"source": "fetal cells", "target": "stem cells", "type": "", "evidence": "fetal cells might home to injured or diseased maternal tissue where they act as stem cells and participate in repair"}, {"source": "fetal cells", "target": "blood brain barrier", "type": "", "evidence": "The properties of these cells allow them to cross the blood brain barrier and target injured brain tissue."}, {"source": "fetal cells", "target": "down-regulation of the immune system", "type": "", "evidence": "the down-regulation of the immune system induced by the presence of fetal cells."}, {"source": "fetal cells", "target": "lower concentrations of inflammatory mediators", "type": "", "evidence": "women in whom FMC is present produce lower concentrations of inflammatory mediators."}, {"source": "graft-versus-host reaction", "target": "microchimerism", "type": "", "evidence": "Both graft-versus-host reactions and microchimerism involve the interaction of immune cells with non-self antigens, highlighting a shared mechanism in immune tolerance and rejection."}, {"source": "neurogenesis", "target": "brain injury", "type": "", "evidence": "Fetal cells have been shown to contribute to neurogenesis, which can aid in recovery from brain injury, indicating their potential therapeutic role in neurological conditions."}, {"source": "Y-chromosome-positive fetal cells", "target": "minor salivary glands", "type": "", "evidence": "Y-chromosome-positive fetal cells in minor salivary glands in 11 of 20 women with SS."}, {"source": "fetal cells", "target": "cancer cells", "type": "", "evidence": "the first mechanism suggests that fetal cells only oversee cancer cells."}, {"source": "cd4+ regulatory t cells (tregs)", "target": "immune tolerance", "type": "", "evidence": "CD4+ Tregs are essential for maintaining immune tolerance, particularly in the context of maternal-fetal interactions. Their role in preventing immune rejection of fetal cells underscores the importance of these cells in both pregnancy and autoimmune disease mechanisms."}, {"source": "case studies on fetal cells", "target": "hypothesis of fetal cell function", "type": "", "evidence": "Case studies on fetal cells provide empirical evidence that supports the hypothesis of fetal cell function in maternal health, particularly in relation to autoimmune diseases and tissue repair."}, {"source": "fetal microchimeric cells", "target": "blood of women affected by thyroid diseases", "type": "", "evidence": "These fetal microchimeric cells in the thyroid show up in the blood of women affected by thyroid diseases."}, {"source": "fraternal twins", "target": "microchimerism", "type": "", "evidence": "Fraternal twins can exhibit microchimerism, as they may share cells with each other during gestation, providing a unique context to study the effects of microchimerism on health and development."}, {"source": "maternal-fetal interface", "target": "feto-maternal cell transfer", "type": "", "evidence": "The maternal-fetal interface is the site where feto-maternal cell transfer occurs, highlighting the biological mechanisms that facilitate the exchange of cells between mother and fetus."}, {"source": "diagnosis of microchimerism", "target": "autoimmune diseases", "type": "", "evidence": "The diagnosis of microchimerism can provide valuable insights into the role of fetal cells in autoimmune diseases, potentially leading to better understanding and management of these conditions."}, {"source": "autoimmune diseases", "target": "maternal immune response", "type": "", "evidence": "Autoimmune diseases often involve dysregulation of the immune system, which can affect the maternal immune response during pregnancy, leading to complications such as preeclampsia and systemic lupus erythematosus."}, {"source": "Y chromosome", "target": "foreign cells in women's blood", "type": "", "evidence": "Presence of Y chromosome was used to detect foreign cells in women's blood."}, {"source": "TGF-\u03b23", "target": "tissue repair", "type": "", "evidence": "Microchimeric fetal cells expressed TGF-\u03b23."}, {"source": "pregnancy and breast cancer prognosis", "target": "case studies on pregnancy and breast cancer", "type": "", "evidence": "Research on pregnancy and breast cancer prognosis often references case studies to illustrate how pregnancy may influence cancer outcomes, highlighting the complex interplay between hormonal changes and immune responses."}, {"source": "resource allocation", "target": "health complications", "type": "", "evidence": "health complications may arise as a result of resource allocation."}, {"source": "fetal microchimeric cells", "target": "many years postpartum", "type": "", "evidence": "These fetal microchimeric cells in the thyroid show up in the blood of women affected by thyroid diseases."}, {"source": "feto-maternal cell transfer", "target": "immunological phenotypes", "type": "", "evidence": "The transfer of fetal cells to the maternal circulation can lead to distinct immunological phenotypes in mothers, which may influence their susceptibility to autoimmune diseases and other health conditions."}, {"source": "fetal cells", "target": "thyroid gland", "type": "", "evidence": "There have been reports of fetal cells in the lining of the blood and thyroid glands of patients with autoimmune thyroid disease."}, {"source": "fetal cells", "target": "maternal tissues", "type": "", "evidence": "Fetal cells colonize maternal tissues like the thyroid gland."}, {"source": "fetal microchimeric cells", "target": "tissue repair", "type": "", "evidence": "a different hypothesis states that fetal microchimeric cells are involved in repairing tissues."}, {"source": "lichen planus (lp)", "target": "females", "type": "", "evidence": "Females have a three times higher prevalence than men."}, {"source": "graft-versus-host reaction", "target": "maternal immune response", "type": "", "evidence": "Both graft-versus-host reactions and maternal immune responses involve the recognition of non-self antigens. Understanding these processes can provide insights into how the maternal immune system tolerates fetal cells and how this tolerance might break down in autoimmune diseases."}, {"source": "cd4+ regulatory t cells (tregs)", "target": "immune tolerance", "type": "", "evidence": "CD4+ Tregs are crucial for maintaining immune tolerance during pregnancy, and their interaction with fetal cells may help prevent maternal immune rejection of the fetus."}, {"source": "systemic immunological changes", "target": "long-term kidney allograft survival", "type": "", "evidence": "Systemic immunological changes, influenced by factors such as microchimerism, can affect the success of organ transplants. Understanding these changes is crucial for improving long-term outcomes in transplant patients."}, {"source": "pregnancy at older ages", "target": "risk of ovarian cancer", "type": "", "evidence": "Pregnancy at older ages can reduce risk of ovarian cancer."}, {"source": "seeding of brain", "target": "maternal attention", "type": "", "evidence": "seeding of brain may enhance maternal attention."}, {"source": "incidence of SS after childbirth", "target": "pregnancy", "type": "", "evidence": "Increased incidence of SS after childbirth suggests a relationship between SS and pregnancy."}, {"source": "fetal microchimerism", "target": "maternal health", "type": "", "evidence": "Fetal microchimerism could have an implication on maternal health."}, {"source": "fetal cells", "target": "placenta", "type": "", "evidence": "cells from a fetus pass through the placenta and establish cell lineages within the mother"}, {"source": "fetomaternal microchimerism", "target": "autoimmune diseases", "type": "", "evidence": "Fetal maternal microchimerism may be related to autoimmune thyroid diseases."}, {"source": "fetal cells", "target": "blood brain barrier", "type": "", "evidence": "fetal cells that are able to cross the blood brain barrier could impact certain procedures."}, {"source": "fetal cells", "target": "injury", "type": "", "evidence": "favorable environments for fetal cells to respond to injury."}, {"source": "freemartin", "target": "martin heifer", "type": "", "evidence": "creating a martin heifer or freemartin."}, {"source": "microchimerism", "target": "pregnancy", "type": "", "evidence": "Microchimerism is a result of pregnancy."}, {"source": "fetal cd4+ t cells", "target": "treg cells", "type": "", "evidence": "preferentially differentiating to Treg cells"}, {"source": "fetal cells", "target": "alzheimer's disease", "type": "", "evidence": "Alzheimer's disease studies support nearly the opposite correlation: the more fetal-derived cells present, the lower the chance of the patient having had Alzheimer's."}, {"source": "fetal microchimerism", "target": "maternal mouse brain", "type": "", "evidence": "Fetal microchimerism can occur in the maternal mouse brain, responding to certain cues in the maternal body."}, {"source": "xx/xy microchimerism", "target": "microchimerism", "type": "", "evidence": "XX/XY microchimerism refers to the presence of cells from one sex in an individual of the opposite sex, illustrating the diverse manifestations of microchimerism and its implications for understanding sex-specific health issues."}, {"source": "fetal cells", "target": "systemic lupus erythematosus", "type": "", "evidence": "the presence of fetal cells in mothers can be associated with benefits when it comes to certain autoimmune diseases, particularly systemic lupus erythematosus."}, {"source": "placenta", "target": "fetal cells", "type": "", "evidence": "the maternal system tries to limit it."}, {"source": "KIR ligands", "target": "fetomaternal microchimerism", "type": "", "evidence": "fetomaternal microchimerism could be influenced by killer-cell immunoglobulin-like (KIR) ligands"}, {"source": "down-regulation of the immune system", "target": "cancer prevention", "type": "", "evidence": "could ultimately lead to cancer prevention."}, {"source": "microchimeric cells", "target": "pregnancy", "type": "", "evidence": "Numbers of microchimeric cells declines after pregnancy."}, {"source": "altered immune system", "target": "tumor growth", "type": "", "evidence": "Microchimeric cells might induce the alteration of the woman's immune system... or provide a suitable environment for tumor growth."}, {"source": "type I diabetes mouse model", "target": "autoimmune diseases", "type": "", "evidence": "The type I diabetes mouse model is often utilized to study the mechanisms of autoimmune diseases, including the role of microchimerism and immune tolerance in disease progression."}, {"source": "microchimerism of fetomaternal cell trafficking origin", "target": "pathogenesis or progression of cervical cancer", "type": "", "evidence": "Microchimerism of fetomaternal cell trafficking origin might be associated with the pathogenesis or progression of cervical cancer."}, {"source": "fetal cells", "target": "maternal immune response", "type": "", "evidence": "Fetal cells can modulate the maternal immune response, leading to immune tolerance, which is crucial for the success of pregnancy and may influence autoimmune disease outcomes."}, {"source": "fetal t cells", "target": "post-birth immune dynamics", "type": "", "evidence": "Fetal T cells can impact post-birth immune dynamics, influencing the long-term health of the offspring and their immune system development."}, {"source": "feto-maternal cell transfer", "target": "systemic immunological changes", "type": "", "evidence": "The transfer of fetal cells to the maternal circulation during gestation can lead to systemic immunological changes that may have long-term effects on maternal health and disease susceptibility."}, {"source": "hypothesis of fetal cell function", "target": "antigens", "type": "", "evidence": "one hypothesis states that these cells supply antigens, causing inflammation and triggering the release of different foreign antigens."}, {"source": "natural killer cells", "target": "lymphocytes", "type": "", "evidence": "natural killer cells compose about 70% of lymphocytes in the first trimester of pregnancy"}, {"source": "fetomaternal microchimerism", "target": "microchimerism", "type": "", "evidence": "the most common form is fetomaternal microchimerism (also known as fetal cell microchimerism or fetal chimerism)"}, {"source": "fetal cells", "target": "tumor tissue", "type": "", "evidence": "Fetal cells are probably actively migrating from peripheral blood into the tumor tissue."}, {"source": "gestation", "target": "microchimerism", "type": "", "evidence": "Other possible sources of microchimerism include gestation"}, {"source": "fetal stem cells", "target": "intravenous infusion", "type": "", "evidence": "These fetal stem cells can be used in intravenous infusion to repair the brain tissue."}, {"source": "fetal cells", "target": "neural cells", "type": "", "evidence": "Due to this process, fetal cells could enter the brain during pregnancy and become differentiated into neural cells."}, {"source": "fetal cells", "target": "maternal immune response", "type": "", "evidence": "Fetal cells can transfer to the maternal circulation during gestation, potentially modulating the maternal immune response. This interaction is crucial for understanding how maternal-fetal microchimerism affects maternal health and immune tolerance."}, {"source": "studies", "target": "correlation", "type": "", "evidence": "Numerous studies have demonstrated a correlation between microchimerism and various health outcomes, suggesting that the presence of microchimeric cells can have significant implications for maternal and fetal health."}, {"source": "fetal-specific Treg cells", "target": "successful pregnancy", "type": "", "evidence": "Mice models show that fetal-specific Treg cells are necessary for successful pregnancy."}, {"source": "fetal microchimerism", "target": "protective role in ovarian cancer", "type": "", "evidence": "This suggests that fetal microchimerism may play a protective role in ovarian cancer as well."}, {"source": "natural killer cells", "target": "maternal immune response", "type": "", "evidence": "Natural killer cells play a crucial role in modulating the maternal immune response, which is essential for maintaining pregnancy and preventing immune rejection of fetal cells."}, {"source": "male origin fetal cells", "target": "ovarian cancer risk", "type": "", "evidence": "Study of S. Hallum shows association between male origin fetal cells and ovarian cancer risk."}, {"source": "fetal t cells", "target": "in utero development", "type": "", "evidence": "Fetal T cells accumulate during in utero development."}, {"source": "lichen planus (lp)", "target": "t-cell-mediated autoimmune disease", "type": "", "evidence": "Lichen planus (LP) is a T-cell-mediated autoimmune chronic disease of unknown etiology."}, {"source": "women testing positive for male origin microchimerism cells", "target": "reduced hazard rates of ovarian cancer", "type": "", "evidence": "Women testing positive for male origin microchimerism cells had reduced hazard rates of ovarian cancer than women testing negative."}, {"source": "microchimerism after blood transfusions", "target": "maternal\u2192fetal microchimerism", "type": "", "evidence": "Both phenomena involve the transfer of cells from one individual to another, leading to the presence of foreign cells in the recipient's body. This similarity highlights the broader implications of cell transfer in immune tolerance and potential autoimmune responses."}, {"source": "rh antigens sensitization", "target": "Rh- women born to Rh+ women", "type": "", "evidence": "sensitization to erythrocyte Rhesus factor (Rh) antigens is reduced among Rh- women born to Rh+ women."}, {"source": "fetal microchimeric cells", "target": "regeneration of tissue", "type": "", "evidence": "fetal microchimeric cells go to the damaged site and aid in repair and regeneration of the tissue."}, {"source": "seeding of fetal microchimeric cells", "target": "care of offspring after birth", "type": "", "evidence": "Seeding of fetal microchimeric cells into maternal tissues has been proposed to promote care of offspring after birth."}, {"source": "fetal microchimerism", "target": "graft-versus-host reaction", "type": "", "evidence": "The fetal microchimerism may trigger a fetus versus host reaction."}, {"source": "Graves' disease (GD)", "target": "graft-versus-host reaction", "type": "", "evidence": "Two types of thyroid disease, Hashimoto's thyroiditis (HT) and Graves' disease (GD), show similarities to graft vs host disease."}, {"source": "cross-fostering animal studies", "target": "nima-specific tolerance", "type": "", "evidence": "Cross-fostering animal studies show that when postnatal NIMA exposure though breastfeeding is eliminated, survival of NIMA-matched allografts is reduced."}, {"source": "altered immune system", "target": "HPV infection", "type": "", "evidence": "Microchimeric cells might induce the alteration of the woman's immune system and make the cervical tissue more susceptible to HPV infection."}, {"source": "autoimmune diseases", "target": "microchimerism", "type": "", "evidence": "Microchimerism, particularly maternal-fetal microchimerism, has been implicated in the pathogenesis of various autoimmune diseases, suggesting a connection between the presence of fetal cells and the development of these conditions."}, {"source": "autoimmune rheumatic disease", "target": "incidence of ss after childbirth", "type": "", "evidence": "There is a noted increase in the incidence of Sj\u00f6gren syndrome after childbirth, indicating a potential link between autoimmune rheumatic diseases and postpartum immune changes."}, {"source": "type I diabetes mouse model", "target": "replacement of defective maternal islet cells", "type": "", "evidence": "type I diabetes mouse model showed replacement of defective maternal islet cells by fetal-derived pancreatic cells."}, {"source": "male genetic material", "target": "blood sample", "type": "", "evidence": "because male genetic material can be detected in a blood sample."}, {"source": "microchimerism", "target": "diagnosing the condition", "type": "", "evidence": "Microchimerism provides a method of diagnosing the condition."}, {"source": "Hashimoto's thyroiditis (HT)", "target": "graft-versus-host reaction", "type": "", "evidence": "Two types of thyroid disease, Hashimoto's thyroiditis (HT) and Graves' disease (GD), show similarities to graft vs host disease."}, {"source": "cattle reproductive biology", "target": "microchimerism", "type": "", "evidence": "Cattle reproductive biology can be impacted by microchimerism, particularly in the context of twin births and the resulting physiological interactions, which can inform broader biological principles."}, {"source": "microchimerism", "target": "autoimmune diseases", "type": "", "evidence": "The presence of microchimeric cells from the fetus in the mother has been linked to both protective and pathogenic effects in autoimmune diseases, suggesting a complex relationship between fetal cell presence and maternal health."}, {"source": "fetal cells", "target": "healed maternal cesarean section scars", "type": "", "evidence": "they were identified in healed maternal cesarean section scars."}, {"source": "microchimerism", "target": "autoimmune diseases", "type": "", "evidence": "This phenomenon may be related to certain types of autoimmune diseases although the responsible mechanisms are unclear."}, {"source": "diagnosis of microchimerism", "target": "autoimmune diseases", "type": "", "evidence": "The diagnosis of microchimerism is crucial for understanding its role in autoimmune diseases, as it can help identify the presence of foreign cells that may contribute to immune dysregulation."}, {"source": "martin heifer (freemartin)", "target": "microchimerism", "type": "", "evidence": "The condition of a freemartin, a female calf born twin to a male, exemplifies microchimerism as it involves the exchange of cells between the male and female fetuses, leading to reproductive and developmental anomalies."}, {"source": "fetal microchimeric cells", "target": "myocardial infarction", "type": "", "evidence": "Fetal microchimeric cells can differentiate into cell types that infiltrate and replace injured cells in models of myocardial infarction."}, {"source": "umbilical cord", "target": "stem cells", "type": "", "evidence": "isolating stem cells can be accomplished through taking them from sources like the umbilical cord."}, {"source": "fetomaternal microchimerism", "target": "experimental investigations", "type": "", "evidence": "Fetomaternal microchimerism has been shown in experimental investigations of whether fetal cells can cross the blood brain barrier in mice."}, {"source": "microchimeric cells", "target": "lung tumors", "type": "", "evidence": "Microchimeric cells also cluster several times more in lung tumors than in surrounding healthy lung tissue."}, {"source": "maternal attention", "target": "in utero development", "type": "", "evidence": "Maternal attention during pregnancy can significantly impact in utero development, affecting the health and immunological outcomes of both the mother and the fetus."}, {"source": "prenatal and postnatal exposure", "target": "nima-specific tolerance", "type": "", "evidence": "Both prenatal and postnatal exposure to mother's cells is required to maintain NIMA-specific tolerance."}, {"source": "maternal immune response", "target": "autoimmune diseases", "type": "", "evidence": "The maternal immune response can be altered by the presence of fetal cells, leading to systemic immunological changes that may predispose mothers to autoimmune diseases such as systemic lupus erythematosus and Hashimoto's thyroiditis."}, {"source": "fetal cells from the bone marrow", "target": "tumor sites", "type": "", "evidence": "Fetal cells from the bone marrow go to the tumor sites where they may have tissue repair functions."}, {"source": "microchimerism", "target": "chimera of greek mythology", "type": "", "evidence": "The term comes from the prefix 'micro' + 'chimerism' based on the hybrid Chimera of Greek mythology."}, {"source": "umbilical cord blood cells", "target": "rats with brain injury or stroke", "type": "", "evidence": "When these umbilical cord blood cells are injected in rats with brain injury or stroke, they enter the brain and express certain nerve cell markers."}, {"source": "microchimerism", "target": "autoimmune diseases", "type": "", "evidence": "Microchimerism, the presence of a small number of cells from one individual in another, has been linked to autoimmune diseases, suggesting that the interaction between maternal and fetal cells can influence immune responses and disease susceptibility."}, {"source": "seeding of maternal breast tissue", "target": "lactation", "type": "", "evidence": "seeding of maternal breast tissue may promote lactation."}, {"source": "fetal stem cells", "target": "pregnancy", "type": "", "evidence": "the effects of fetal stem cells can be investigated without in vitro cultures."}, {"source": "nima-specific tolerance", "target": "graft-versus-host reaction", "type": "", "evidence": "acuteness of bone marrow transplantation graft-versus-host disease is reduced, when recipients of donor stem cells are NIMA-matched."}, {"source": "immune tolerance", "target": "mother and offspring after birth", "type": "", "evidence": "This expanded immune tolerance persists in both mother and offspring after birth"}, {"source": "low concentration of fetal cells", "target": "predisposition to malignant process", "type": "", "evidence": "Low concentration and/or complete absence of fetal cells could indicate a predisposition to development of the malignant process."}, {"source": "CD4+ regulatory T cells (Tregs)", "target": "increase of fetal cells in maternal tissues", "type": "", "evidence": "During pregnancy, numbers of fetal cells in maternal tissues increase and correlate with expansion of CD4+ regulatory T cells (Tregs)."}, {"source": "breastfeeding and nima exposure", "target": "post-birth immune dynamics", "type": "", "evidence": "Breastfeeding exposes infants to noninherited maternal antigens (NIMAs), which can shape their immune system and influence post-birth immune dynamics, highlighting the importance of maternal-fetal interactions beyond gestation."}, {"source": "natural killer cells", "target": "cd4+ regulatory t cells (tregs)", "type": "", "evidence": "Natural killer cells interact with CD4+ regulatory T cells to maintain immune balance during pregnancy, which is crucial for preventing immune rejection of the fetus."}, {"source": "gestation", "target": "in utero development", "type": "", "evidence": "Gestation is the period during which in utero development occurs, and it is critical for the establishment of fetal cells that may later influence maternal health and immune dynamics."}, {"source": "umbilical cord blood cells", "target": "neurons", "type": "", "evidence": "This mechanism is possible because umbilical cord blood cells express some proteins similar to neurons."}, {"source": "maternal skin injury signals", "target": "fetal cells", "type": "", "evidence": "these cells migrate to the site of damage due to maternal skin injury signals."}, {"source": "breastfeeding and nima exposure", "target": "nima-specific tolerance", "type": "", "evidence": "This suggests that to maintain NIMA-specific tolerance in offspring, breastfeeding is essential."}, {"source": "freemartins", "target": "infertile", "type": "", "evidence": "Freemartins appear female, but are infertile."}, {"source": "microchimerism", "target": "1960s discovery", "type": "", "evidence": "The concept was first discovered in the 1960s with the term gaining usage in the 1970s."}, {"source": "PCR (polymerase chain reaction)", "target": "DNA extraction", "type": "", "evidence": "When kidney biopsies were taken from patients with lupus nephritis, DNA was extracted and run with PCR."}], "expandedNodes": []};
+
+            document.addEventListener('DOMContentLoaded', function() {
+                // Set up variables
+                let expandedNodes = new Set(networkData.expandedNodes || []);
+                let pinnedNodes = new Set(); // Track pinned/fixed nodes
+                
+                let currentSimulation = null;
+                let currentNodes = [];
+                
+                let focusedNodeId = null;
+
+                const width = 800;
+                const height = 600;
+                const centerX = width / 2;
+                const centerY = height / 2;
+
+                // Color scheme - shades of green from lightest to darkest
+                const colorScheme = [
+                    "#D1EDE8", "#ABD9D1", "#97C0DB", "#6596B5", "#9C82DE", "#9575CD"
+                ];
+
+                // Set up SVG and tooltips
+                const svg = d3.select("#concept-map");
+                const tooltip = d3.select("#tooltip");
+                const evidenceTooltip = d3.select("#evidence-tooltip");
+
+                // Create a group for zooming
+                const g = svg.append("g");
+
+                // Set up zoom behavior
+                const zoom = d3.zoom()
+                    .scaleExtent([0.5, 5])
+                    .on("zoom", function(event) {
+                        g.attr("transform", event.transform);
+                    });
+
+                svg.call(zoom);
+
+                // Ensure nodes have string IDs and links reference those IDs
+                networkData.nodes.forEach(node => {
+                    node.id = String(node.id);
+                });
+
+                networkData.links.forEach(link => {
+                    link.source = String(link.source);
+                    link.target = String(link.target);
+                });
+
+                // Validate links - only keep links where both source and target nodes exist
+                const validNodeIds = new Set(networkData.nodes.map(node => node.id));
+                networkData.links = networkData.links.filter(link => 
+                    validNodeIds.has(link.source) && validNodeIds.has(link.target)
+                );
+
+                // Function to highlight terms in evidence text
+                function highlightTermsInEvidence(evidence, source, target, relation) {
+                    if (!evidence) return "No evidence available";
+                    
+                    try {
+                        // Simple HTML display without attempting to highlight terms
+                        return evidence;
+                    } catch(e) {
+                        console.error("Error in evidence:", e);
+                        return "No evidence available";
+                    }
+                }
+
+                // Function to calculate importance score
+                function calculateImportanceScore(node) {
+                    const frequencyWeight = 0.6;
+                    const maxFrequency = Math.max(...networkData.nodes.map(n => n.frequency || 0), 1);
+                    const maxDegree = Math.max(...networkData.nodes.map(n => n.degree || 0), 1);
+                    const normalizedFrequency = (node.frequency || 0) / maxFrequency;
+                    const normalizedDegree = (node.degree || 0) / maxDegree;
+                    return (normalizedFrequency * frequencyWeight) + (normalizedDegree * (1 - frequencyWeight));
+                }
+
+                // Find the most important concept to place at the center
+                function findCentralNode(nodes) {
+                    return nodes.reduce((max, node) => {
+                        const score = calculateImportanceScore(node);
+                        return (score > calculateImportanceScore(max)) ? node : max;
+                    }, nodes[0]);
+                }
+
+                // Function to get node size based on importance
+                function getNodeSize(node) {
+                    const score = calculateImportanceScore(node);
+                    return 10 + (score * 30);  // Min 10, max 40
+                }
+
+                // Function to get node color based on layer
+                function getNodeColor(node) {
+                    let baseIntensity;
+                    switch(node.layer) {
+                        case 'priority':
+                            baseIntensity = 5; // Darkest shade
+                            break;
+                        case 'secondary':
+                            baseIntensity = 2; // Medium shade
+                            break;
+                        case 'tertiary':
+                        default:
+                            baseIntensity = 0; // Lightest shade
+                    }
+
+                    const score = calculateImportanceScore(node);
+                    const intensityVariation = Math.min(Math.floor(score * 2), 1);
+                    const colorIndex = Math.min(Math.max(baseIntensity - intensityVariation, 0), colorScheme.length - 1);
+
+                    return colorScheme[colorIndex];
+                }
+
+                // Function to get visible data based on expanded nodes
+                function getVisibleData() {
+                    console.log("Getting visible data with expanded nodes:", Array.from(expandedNodes));
+                    
+                    // Priority nodes are always visible
+                    const visibleNodeIds = new Set(
+                        networkData.nodes
+                            .filter(node => node.layer === "priority" || expandedNodes.has(node.id))
+                            .map(node => node.id)
+                    );
+                    
+                    console.log(`Initial visible nodes (priority + expanded): ${visibleNodeIds.size}`);
+                    
+                    // Keep track of how many nodes we add in this expansion pass
+                    let nodesAdded = 0;
+                    
+                    // Find all nodes connected to expanded nodes
+                    expandedNodes.forEach(expandedId => {
+                        networkData.links.forEach(link => {
+                            let sourceId, targetId;
+                            
+                            // Handle both string and object formats
+                            if (typeof link.source === 'object') {
+                                sourceId = link.source.id;
+                            } else {
+                                sourceId = String(link.source);
+                            }
+                            
+                            if (typeof link.target === 'object') {
+                                targetId = link.target.id;
+                            } else {
+                                targetId = String(link.target);
+                            }
+                            
+                            if (sourceId === expandedId && !visibleNodeIds.has(targetId)) {
+                                visibleNodeIds.add(targetId);
+                                nodesAdded++;
+                            }
+                            
+                            if (targetId === expandedId && !visibleNodeIds.has(sourceId)) {
+                                visibleNodeIds.add(sourceId);
+                                nodesAdded++;
+                            }
+                        });
+                    });
+                    
+                    console.log(`Added ${nodesAdded} connected nodes to visible set`);
+                    console.log(`Total visible nodes: ${visibleNodeIds.size}`);
+                    
+                    // Get visible nodes
+                    const visibleNodes = networkData.nodes.filter(node => 
+                        visibleNodeIds.has(node.id)
+                    );
+                    
+                    // Get visible links
+                    const visibleLinks = networkData.links.filter(link => {
+                        let sourceId, targetId;
+                        
+                        // Handle both string and object formats
+                        if (typeof link.source === 'object') {
+                            sourceId = link.source.id;
+                        } else {
+                            sourceId = String(link.source);
+                        }
+                        
+                        if (typeof link.target === 'object') {
+                            targetId = link.target.id;
+                        } else {
+                            targetId = String(link.target);
+                        }
+                        
+                        return visibleNodeIds.has(sourceId) && visibleNodeIds.has(targetId);
+                    });
+                    
+                    console.log(`Visible nodes: ${visibleNodes.length}, Visible links: ${visibleLinks.length}`);
+                    
+                    return { nodes: visibleNodes, links: visibleLinks };
+                }
+
+                // Function to find nodes with hidden connections
+                function getAllNodesWithHiddenConnections() {
+                    // Get all nodes
+                    const allNodeIds = new Set(networkData.nodes.map(n => n.id));
+                    
+                    // Get currently visible nodes
+                    const visibleData = getVisibleData();
+                    const visibleNodeIds = new Set(visibleData.nodes.map(n => n.id));
+                    
+                    // Build a map of all connections
+                    const allConnections = new Map();
+                    
+                    // Initialize map with all nodes
+                    allNodeIds.forEach(nodeId => {
+                        allConnections.set(nodeId, []);
+                    });
+                    
+                    // Add all connections
+                    networkData.links.forEach(link => {
+                        const sourceId = typeof link.source === 'object' ? link.source.id : String(link.source);
+                        const targetId = typeof link.target === 'object' ? link.target.id : String(link.target);
+                        
+                        if (allConnections.has(sourceId)) {
+                            allConnections.get(sourceId).push(targetId);
+                        }
+                        
+                        if (allConnections.has(targetId)) {
+                            allConnections.get(targetId).push(sourceId);
+                        }
+                    });
+                    
+                    // Find all nodes that have hidden connections
+                    const nodesWithHidden = new Set();
+                    
+                    // Check each visible node
+                    visibleNodeIds.forEach(nodeId => {
+                        const connections = allConnections.get(nodeId) || [];
+
+                        // If any connection is to a non-visible node, this node has hidden connections
+                        if (connections.some(connId => !visibleNodeIds.has(connId))) {
+                            nodesWithHidden.add(nodeId);
+                        }
+                    });
+
+                    // Print debug info
+                    console.log(`Found ${nodesWithHidden.size} nodes with hidden connections`);
+                    console.log("Nodes with hidden connections:", Array.from(nodesWithHidden));
+
+                    return nodesWithHidden;
+                }
+
+                // Function to assign initial positions in concentric circles
+                function assignInitialPositions(nodes, centralNodeId) {
+                    // Group nodes by layer
+                    const layerGroups = {"priority": [], "secondary": [], "tertiary": []};
+
+                    nodes.forEach(node => {
+                        if (pinnedNodes.has(node.id)) {
+                            console.log("Preserving position for pinned node:", node.id);
+                            // Make sure fx and fy are set from existing position
+                            node.fx = node.x;
+                            node.fy = node.y;
+                            return; // Skip the rest of the positioning for this node
+                        }
+                        
+                        if (node.id === centralNodeId) {
+                            // Central node stays at center
+                            node.x = centerX;
+                            node.y = centerY;
+                            node.fx = centerX; // Fix position
+                            node.fy = centerY; // Fix position
+                            node.isCenter = true;
+                        } else {
+                            // Group other nodes by layer
+                            const layer = node.layer || "tertiary";
+                            layerGroups[layer].push(node);
+                            // Clear any fixed positions
+                            node.fx = null;
+                            node.fy = null;
+                            node.isCenter = false;
+                        }
+                    });
+
+                    // Assign positions in concentric circles by layer
+                    // Priority nodes closest to center
+                    positionNodesInCircle(layerGroups["priority"], 120);
+                    positionNodesInCircle(layerGroups["secondary"], 240);
+                    positionNodesInCircle(layerGroups["tertiary"], 360);
+                }
+
+                // Helper function to position nodes in a circle
+                function positionNodesInCircle(nodes, radius) {
+                    const angleStep = (2 * Math.PI) / Math.max(nodes.length, 1);
+
+                    nodes.forEach((node, i) => {
+                        const angle = i * angleStep;
+                        node.x = centerX + radius * Math.cos(angle);
+                        node.y = centerY + radius * Math.sin(angle);
+                    });
+                }
+
+
+                // Function to update the visualization
+                function updateVisualization() {
+                    // Get current data
+                    const { nodes, links } = getVisibleData();
+                    const nodesWithHidden = getAllNodesWithHiddenConnections();
+
+                    // Find central node
+                    const centralNode = findCentralNode(nodes);
+
+                    // Clear previous elements
+                    g.selectAll("*").remove();
+
+                    // Create a node ID lookup for the simulation
+                    const nodeById = new Map(nodes.map(node => [node.id, node]));
+                    
+                    nodes.forEach(node => {
+                        if (pinnedNodes.has(node.id)) {
+                            // If this node is pinned, ensure it has fixed coordinates
+                            const pinnedNode = nodeById.get(node.id);
+                            if (pinnedNode) {
+                                node.fx = pinnedNode.x || node.x;
+                                node.fy = pinnedNode.y || node.y;
+                            }
+                        }
+                    });
+
+                    // Assign initial positions
+                    assignInitialPositions(nodes, centralNode.id);
+
+                    // Set up the simulation with proper node references and forces
+                     const simulation = d3.forceSimulation(nodes)
+                        .force("link", d3.forceLink()
+                            .id(d => d.id)
+                            .links(links.map(link => ({
+                                source: nodeById.get(String(link.source)) || String(link.source),
+                                target: nodeById.get(String(link.target)) || String(link.target),
+                                type: link.type,
+                                evidence: link.evidence
+                            })))
+                            .distance(d => {
+                                // Adjust distance based on layer and node size
+                                const source = typeof d.source === 'object' ? d.source : nodeById.get(String(d.source));
+                                const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
+                        
+                                if (!source || !target) return 120;
+                        
+                                // Get sizes of source and target nodes
+                                const sourceSize = getNodeSize(source);
+                                const targetSize = getNodeSize(target);
+                                
+                                // Base distance on node sizes + a minimum distance
+                                const baseDistance = sourceSize + targetSize + 30;
+                                
+                                // Layer-based adjustments
+                                if (source.layer === "priority" && target.layer === "priority") {
+                                    // Priority-to-priority connections are slightly closer
+                                    return baseDistance * 1.2;
+                                } else if (source.layer === "priority" || target.layer === "priority") {
+                                    // Priority-to-other connections at medium distance
+                                    return baseDistance * 1.5;
+                                }
+                                
+                                // Other connections have more space
+                                return baseDistance * 2.0;
+                            })
+                            .strength(0.3))
+                        .force("charge", d3.forceManyBody().strength(d => {
+                            // Stronger repulsion for larger nodes
+                            return d.isCenter ? -500 : -300;
+                        }))
+                        .force("center", d3.forceCenter(centerX, centerY))
+                        .force("collide", d3.forceCollide().radius(d => getNodeSize(d) + 10))
+                        .force("x", d3.forceX(centerX).strength(d => {
+                            // Layer-based strength to keep priority nodes closer to center
+                            if (d.isCenter) return 1.0;
+                            if (d.layer === "priority") return 0.1;
+                            if (d.layer === "secondary") return 0.05;
+                            return 0.01;
+                        }))
+                        .force("y", d3.forceY(centerY).strength(d => {
+                            // Layer-based strength to keep priority nodes closer to center
+                            if (d.isCenter) return 1.0;
+                            if (d.layer === "priority") return 0.1;
+                            if (d.layer === "secondary") return 0.05;
+                            return 0.01;
+                        }))
+                        .force("link-repulsion", d3.forceManyBody()
+                            .strength(-10)
+                            .distanceMax(150)
+                            .distanceMin(25))
+                        .alphaDecay(0.02);
+                    
+                    currentSimulation = simulation;
+                    currentNodes = nodes;
+
+                    // Create links with hover effects
+                    const link = g.selectAll(".link")
+                        .data(links)
+                        .join("path")
+                        .attr("class", "link")
+                        .attr("stroke", function(d) {
+                            // Get the target node
+                            const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
+                            
+                            if (!target) return "#BDBDBD"; // Default gray
+                            
+                            // Color based on target's layer
+                            switch(target.layer) {
+                                case "priority":
+                                    return "#B39DDB"; // Purple for priority
+                                case "secondary":
+                                    return "#90CAF9"; // Blue for secondary
+                                case "tertiary":
+                                    return "#B2DFDB"; // Light blue/green for tertiary
+                                default:
+                                    return "#BDBDBD"; // Default gray
+                            }
+                        })
+                        .attr("stroke-opacity", 0.6)
+                        .attr("stroke-width", function(d) {
+                            const sourceNode = nodes.find(n => n.id === String(d.source));
+                            const targetNode = nodes.find(n => n.id === String(d.target));
+                            return (sourceNode?.layer === "priority" && targetNode?.layer === "priority") ? 3 : 1.5;
+                        })
+                        .attr("fill", "none")
+                        .on("mouseover", function(event, d) {
+                            // Highlight the line on hover
+                            const currentColor = d3.select(this).attr("stroke");
+                            d3.select(this)
+                                .attr("stroke-opacity", 1)
+                                .attr("stroke-width", function() {
+                                    return parseFloat(d3.select(this).attr("stroke-width")) + 1;
+                                })
+                                .attr("stroke", function() {
+                                    // Darken the current color for hover effect
+                                    const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
+                                    
+                                    if (!target) return "#999";
+                                    
+                                    switch(target.layer) {
+                                        case "priority":
+                                            return "#9575CD"; // Slightly darker purple
+                                        case "secondary":
+                                            return "#64B5F6"; // Slightly darker blue
+                                        case "tertiary":
+                                            return "#80CBC4"; // Slightly darker teal
+                                        default:
+                                            return "#999"; // Darker gray
+                                    }
+                                });
+
+                            // Get source and target node objects
+                            const sourceNode = typeof d.source === 'object' ? d.source : nodeById.get(String(d.source));
+                            const targetNode = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
+
+                            if (sourceNode && targetNode) {
+                                // Prepare evidence with highlighted terms
+                                const evidence = d.evidence || "";
+                                const highlightedEvidence = highlightTermsInEvidence(
+                                    evidence, 
+                                    sourceNode.name || sourceNode.id,
+                                    targetNode.name || targetNode.id,
+                                    d.type
+                                );
+
+                        // Show the evidence tooltip
+                        // When showing the evidence tooltip, just display the evidence as plain text
+                        evidenceTooltip
+                            .style("display", "block")
+                            .style("left", (event.pageX + 10) + "px")
+                            .style("top", (event.pageY - 10) + "px")
+                            .html(`
+                                <strong>${sourceNode.name || sourceNode.id}</strong>
+                                <span style="margin: 0 5px;">→</span>
+                                <strong>${d.type || "relates to"}</strong>
+                                <span style="margin: 0 5px;">→</span>
+                                <strong>${targetNode.name || targetNode.id}</strong>
+                                <hr style="margin: 8px 0;">
+                                <div>${d.evidence || "No evidence available"}</div>
+                            `);
+                            }
+                        })
+                        .on("mouseout", function() {
+                            // Restore original line style                            
+                            d3.select(this)
+                                    .attr("stroke-opacity", 0.6)
+                                    .attr("stroke-width", function(d) {
+                                        const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
+                                        
+                                        if (target && target.layer === "priority") return 2;
+                                        if (target && target.layer === "secondary") return 1.8;
+                                        return 1.5;
+                                    })
+                                    .attr("stroke", function(d) {
+                                        // Restore original color
+                                        const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
+                                        
+                                        if (!target) return "#BDBDBD";
+                                        
+                                        switch(target.layer) {
+                                            case "priority":
+                                                return "#B39DDB"; // Light purple
+                                            case "secondary":
+                                                return "#90CAF9"; // Light blue
+                                            case "tertiary":
+                                                return "#B2DFDB"; // Light teal
+                                            default:
+                                                return "#BDBDBD";
+                                        }
+                                    });
+
+                            // Hide the evidence tooltip
+                            evidenceTooltip.style("display", "none");
+                        });
+
+                    // Create node groups
+                    const node = g.selectAll(".node")
+                        .data(nodes)
+                        .join("g")
+                        .attr("class", function(d) {
+                            return "node node--" + (d.layer || "tertiary") + 
+                                   (expandedNodes.has(d.id) ? " node--expanded" : "") +
+                                   (d.isCenter ? " center-node" : "");
+                        });
+                    
+                    node
+                        // Left-click for expanding/collapsing hidden connections
+                        .on("click", function(event, d) {
+                            event.stopPropagation();
+                        
+                            // Only toggle expansion if the node has hidden connections
+                            if (nodesWithHidden.has(d.id)) {
+                                // Store current positions of all nodes before expanding
+                                const nodePositions = new Map();
+                                nodes.forEach(node => {
+                                    nodePositions.set(node.id, {x: node.x, y: node.y});
+                                });
+                        
+                                // Toggle expansion state
+                                if (expandedNodes.has(d.id)) {
+                                    expandedNodes.delete(d.id);
+                                    pinnedNodes.delete(d.id);
+                                    d.fx = null;
+                                    d.fy = null;
+                                    d3.select(this).classed("node--pinned", false);
+                                    
+                                    // Remove focus if this was the focused node
+                                    if (focusedNodeId === d.id) {
+                                        focusedNodeId = null;
+                                        resetFocus();
+                                    }
+                                } else {
+                                    expandedNodes.add(d.id);
+                                    pinnedNodes.add(d.id);
+                                    d.fx = d.x;
+                                    d.fy = d.y;
+                                    console.log("Pinned node at position:", d.x, d.y);
+                                    // Add visual indicator
+                                    d3.select(this).classed("node--pinned", true);
+                                    
+                                    focusedNodeId = d.id;
+                                }
+                    
+                                // Update visualization
+                                updateVisualization();
+                        
+                                // We need to wait for the nodes to be created in the DOM
+                                setTimeout(() => {
+                                    console.log("Checking pinned nodes after update");
+                                    g.selectAll(".node").each(function(node) {
+                                        if (pinnedNodes.has(node.id)) {
+                                            console.log("Should be pinned:", node.id, "fx:", node.fx, "fy:", node.fy);
+                                        }
+                                    });
+                                    if (focusedNodeId) {
+                                        applyFocus(focusedNodeId);
+                                    }
+                                }, 500);
+                        
+                                sendMessageToStreamlit({
+                                    expandedNodes: Array.from(expandedNodes)
+                                });
+                            }
+                        })
+                        // Right-click (contextmenu) for concept explanation
+                        .on("contextmenu", function(event, d) {
+                            // Prevent the default context menu
+                            event.preventDefault();
+                            
+                            // Get the evidence for this concept
+                            const nodeData = networkData.nodes.find(n => n.id === d.id);
+                            const evidence = nodeData.evidence || "No explanation available for this concept.";
+                                                        
+                            // Create or update the explanation panel
+                            if (!d3.select("#explanation-panel").size()) {
+                                d3.select("body").append("div")
+                                    .attr("id", "explanation-panel")
+                                    .style("position", "absolute")
+                                    .style("padding", "15px")
+                                    .style("background", "white")
+                                    .style("border", "1px solid #ccc")
+                                    .style("border-radius", "8px")
+                                    .style("box-shadow", "0 2px 10px rgba(0,0,0,0.2)")
+                                    .style("max-width", "300px")
+                                    .style("z-index", "1000")
+                                    .style("font-size", "14px")
+                                    .style("line-height", "1.4");
+                                    
+                                // Add close button
+                                d3.select("#explanation-panel")
+                                    .append("button")
+                                    .attr("class", "close-explanation")
+                                    .style("position", "absolute")
+                                    .style("top", "5px")
+                                    .style("right", "5px")
+                                    .style("background", "none")
+                                    .style("border", "none")
+                                    .style("font-size", "16px")
+                                    .style("cursor", "pointer")
+                                    .style("color", "#666")
+                                    .html("&times;")
+                                    .on("click", function() {
+                                        d3.select("#explanation-panel").style("display", "none");
+                                    });
+                            }
+                            
+                            // Update and position the explanation panel
+                            d3.select("#explanation-panel")
+                                .style("display", "block")
+                                .style("left", (event.pageX + 10) + "px")
+                                .style("top", (event.pageY - 10) + "px")
+                                .html(`
+                                    <button class="close-explanation" style="position:absolute;top:5px;right:5px;background:none;border:none;font-size:16px;cursor:pointer;color:#666;">&times;</button>
+                                    <div style="margin-top: 5px;">
+                                        <h3 style="margin-top:0;margin-bottom:10px;color:#2196F3;">${d.name || d.id}</h3>
+                                        <p>${evidence}</p>
+                                        <span style="display:block;margin-top:8px;font-style:italic;color:#666;font-size:12px;">Layer: ${d.layer || "unknown"}</span>
+                                    </div>
+                                `);
+                                
+                            // Handle close button click
+                            d3.select(".close-explanation").on("click", function() {
+                                d3.select("#explanation-panel").style("display", "none");
+                            });
+                                
+                            // Visual feedback for right-click
+                            d3.select(this).select("circle")
+                                .transition()
+                                .duration(200)
+                                .attr("r", function(d) { return getNodeSize(d) * 1.2; })
+                                .transition()
+                                .duration(200)
+                                .attr("r", function(d) { return getNodeSize(d); });
+                        })
+                        .on("mouseover", function(event, d) {
+                            // Show basic node info on hover with updated instructions
+                            tooltip
+                                .style("display", "block")
+                                .style("left", (event.pageX + 10) + "px")
+                                .style("top", (event.pageY - 10) + "px")
+                                .html("<strong>" + (d.name || d.id) + "</strong><br>" +
+                                      "<em>Level: " + (d.layer || "unknown") + "</em><br>" +
+                                      "<em>Frequency: " + (d.frequency || 0) + "</em><br>" +
+                                      "<em>Connections: " + (d.degree || 0) + "</em>" +
+                                      (nodesWithHidden.has(d.id)
+                                          ? "<br><span style='color:#FF8A65'><em>Click to expand connections" + 
+                                            (pinnedNodes.has(d.id) ? " (pinned)" : "") + "</em></span>"
+                                          : "") +
+                                      "<br><span style='color:#2196F3'><em>Right-click for explanation</em></span>");
+                        })
+                        .on("mouseout", function() {
+                            tooltip.style("display", "none");
+                        })
+                        .call(d3.drag()
+                            .on("start", dragstarted)
+                            .on("drag", dragged)
+                            .on("end", dragended));
+
+                    // Add circles to nodes with filled colors
+                    const nodeCircles = node.append("circle")
+                        .attr("r", function(d) { return getNodeSize(d); })
+                        .attr("fill", function(d) { return getNodeColor(d); })  // Use color for fill
+                        .attr("stroke", "#7E57C2");  // White stroke by default
+
+                    // Apply RED highlight to nodes with hidden connections
+                    nodeCircles.filter(function(d) { return nodesWithHidden.has(d.id); })
+                        .classed("hidden-connections-highlight", true);
+
+                    // Add pulse animation to nodes with hidden connections
+                    node.filter(function(d) { return nodesWithHidden.has(d.id); })
+                        .append("circle")
+                        .attr("r", function(d) { return getNodeSize(d); })
+                        .attr("fill", "none")
+                        .attr("stroke", "#FF8A65")  // soft coral pulse animation
+                        .attr("stroke-width", 2)
+                        .attr("opacity", 0.5)
+                        .attr("class", "pulse-{unique_id}");
+
+                    // Add text labels to nodes
+                    node.append("text")
+                        .attr("class", "node-label")
+                        .attr("text-anchor", "middle")
+                        .attr("font-size", function(d) { 
+                            if (d.isCenter) return "14px";
+                            return d.layer === "priority" ? "12px" : "10px"; 
+                        })
+                        .attr("font-weight", function(d) { 
+                            if (d.isCenter) return "bold";
+                            return d.layer === "priority" ? "bold" : "normal";
+                        })
+                        .attr("fill", "#000000")
+                        .attr("opacity", function(d) {
+                            // Show all labels for priority nodes, but fewer labels for other layers
+                            return d.layer === "priority" ? 1 : 0.7;
+                        })
+                        .text(function(d) {
+                            return d.name || d.id;
+                        })
+                        .each(function(d) {
+                            // Get label width to improve positioning
+                            const bbox = this.getBBox();
+                            d.labelWidth = bbox.width;
+                            d.labelHeight = bbox.height;
+                        });
+                    
+                    node.selectAll("text")
+                        .each(function(d) {
+                            // Get accurate bounding box for each label
+                            const bbox = this.getBBox();
+                            d.labelWidth = bbox.width;
+                            d.labelHeight = bbox.height;
+                            // Store expanded bounding box for collision detection
+                            d.labelBBox = {
+                                x: -bbox.width/2 - 5,  // Add padding
+                                y: -bbox.height/2 - 2, // Add padding
+                                width: bbox.width + 10,
+                                height: bbox.height + 4
+                            };
+                        });
+                                        
+                    // Add a stronger collision detection force specifically for labels
+                    simulation.force("label-collision", d3.forceCollide()
+                        .radius(function(d) {
+                            // Use larger collision radius for nodes with visible labels
+                            const nodeRadius = getNodeSize(d);
+                            const labelOffset = Math.max(d.labelWidth || 0, d.labelHeight || 0) / 2;
+                            // Return larger of the two values plus padding
+                            return Math.max(nodeRadius, labelOffset) + 15;
+                        })
+                        .strength(0.7) // Stronger collision force for labels
+                        .iterations(3)  // More iterations for better collision resolution
+                    );
+
+                    // Add visual indicator for central node
+                    node.filter(d => d.isCenter)
+                        .append("circle")
+                        .attr("r", function(d) { return getNodeSize(d) + 5; })
+                        .attr("fill", "none")
+                        .attr("stroke", "#5D32A8")
+                        .attr("stroke-width", 1.5)
+                        .attr("opacity", 0.5);
+
+                    // Update simulation
+                    simulation.alpha(1).restart(); // Full restart for better layout
+                    
+                    node.isPinned = true;
+
+                    simulation.on("tick", function() {
+                        nodes.forEach(d => {
+                            if (pinnedNodes.has(d.id) || d.isPinned) {
+                                if (d.fx !== null && d.fy !== null) {
+                                    d.x = d.fx;
+                                    d.y = d.fy;
+                                }
+                            }
+                            
+                            if (pinnedNodes.has(d.id) && (d.fx === null || d.fy === null)) {
+                                console.warn("Pinned node lost its fixed position:", d.id);
+                            }
+                            
+                            if (d.isCenter) {
+                                d.x = centerX;
+                                d.y = centerY;
+                            }
+
+                            // Apply gentle force to keep nodes in their layer rings
+                            if (!d.isCenter) {
+                                // Calculate distance from center
+                                const dx = d.x - centerX;
+                                const dy = d.y - centerY;
+                                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                                // Target radius based on layer
+                                let targetRadius;
+                                if (d.layer === "priority") targetRadius = 120;
+                                else if (d.layer === "secondary") targetRadius = 240;
+                                else targetRadius = 360; // tertiary
+
+                                // Strength of the force (adjust as needed)
+                                const strength = 0.05;
+
+                                if (distance > 0) {
+                                    // Push/pull toward the target radius
+                                    const factor = 1 - (targetRadius / distance);
+                                    d.x -= dx * factor * strength;
+                                    d.y -= dy * factor * strength;
+                                }
+                            }
+                        });
+
+                        link.attr("d", function(d) {
+                            const source = typeof d.source === 'object' ? d.source : nodeById.get(String(d.source));
+                            const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
+                            
+                            if (!source || !target) return "";
+                            
+                            // Calculate midpoint
+                            const midX = (source.x + target.x) / 2;
+                            const midY = (source.y + target.y) / 2;
+                            
+                            // Calculate normal vector for curve control point
+                            const dx = target.x - source.x;
+                            const dy = target.y - source.y;
+                            const normalX = -dy;
+                            const normalY = dx;
+                            
+                            // Normalize and scale for curvature
+                            const len = Math.sqrt(normalX * normalX + normalY * normalY);
+                            let curvature = 0;
+                            
+                            // Determine curvature based on link context
+                            if (len > 0) {
+                                // Add more curvature for links between nodes that have many connections
+                                curvature = 20 + Math.min(source.degree + target.degree, 20);
+                                
+                                // If this is a bidirectional link, curve it more
+                                const isBidirectional = links.some(l => 
+                                    (l.source.id === target.id && l.target.id === source.id) ||
+                                    (l.source === target.id && l.target === source.id)
+                                );
+                                if (isBidirectional) curvature = curvature * 1.5;
+                            }
+                            
+                            const controlX = midX + (normalX / len) * curvature;
+                            const controlY = midY + (normalY / len) * curvature;
+                            
+                            // Quadratic curve path
+                            return `M${source.x},${source.y} Q${controlX},${controlY} ${target.x},${target.y}`;
+                        });
+                        
+                        node.attr("transform", function(d) {
+                            return "translate(" + d.x + "," + d.y + ")";
+                        });
+                        
+                        node.select("text")
+                            .attr("dy", function(d) {
+                                // Check surrounding density
+                                let nearbyNodes = 0;
+                                const threshold = getNodeSize(d) * 3; // Detection radius
+                                
+                                nodes.forEach(other => {
+                                    if (d.id !== other.id) {
+                                        const dx = d.x - other.x;
+                                        const dy = d.y - other.y;
+                                        const distance = Math.sqrt(dx*dx + dy*dy);
+                                        if (distance < threshold) nearbyNodes++;
+                                    }
+                                });
+
+                                // Adaptively position label based on node density and position
+                                const angle = Math.atan2(d.y - centerY, d.x - centerX);
+
+                                // If crowded area, place labels more carefully
+                                if (nearbyNodes > 2) {
+                                    // Place in least crowded direction
+                                    if (angle > -Math.PI/4 && angle < Math.PI/4) {
+                                        return getNodeSize(d) + 5; // Right side
+                                    } else if (angle >= Math.PI/4 && angle < 3*Math.PI/4) {
+                                        return getNodeSize(d) + 15; // Bottom
+                                    } else if (angle >= 3*Math.PI/4 || angle <= -3*Math.PI/4) {
+                                        return -getNodeSize(d) - 5; // Left side
+                                    } else {
+                                        return -getNodeSize(d) - 15; // Top
+                                    }
+                                } else {
+                                    // Standard positioning based on angle from center
+                                    if (angle > -Math.PI/4 && angle < Math.PI/4) {
+                                        return "0.35em"; // Right side, centered vertically
+                                    } else if (angle >= Math.PI/4 && angle < 3*Math.PI/4) {
+                                        return getNodeSize(d) + 15; // Below node
+                                    } else if (angle >= 3*Math.PI/4 || angle <= -3*Math.PI/4) {
+                                        return "0.35em"; // Left side, centered vertically
+                                    } else {
+                                        return -getNodeSize(d) - 5; // Above node
+                                    }
+                                }
+                            })
+                            .attr("dx", function(d) {
+                                // Similar to dy logic, but for horizontal positioning
+                                const angle = Math.atan2(d.y - centerY, d.x - centerX);
+                                
+                                // Use existing dx logic but with more spacing
+                                if (angle > -Math.PI/4 && angle < Math.PI/4) {
+                                    return getNodeSize(d) + 8; // To the right
+                                } else if (angle >= Math.PI/4 && angle < 3*Math.PI/4) {
+                                    return 0; // Centered horizontally
+                                } else if (angle >= 3*Math.PI/4 || angle <= -3*Math.PI/4) {
+                                    return -getNodeSize(d) - 8; // To the left
+                                } else {
+                                    return 0; // Centered horizontally
+                                }
+                            })
+                            .attr("text-anchor", function(d) {
+                                const angle = Math.atan2(d.y - centerY, d.x - centerX);
+
+                                // Set text anchor based on angle
+                                if (angle > -Math.PI/4 && angle < Math.PI/4) {
+                                    return "start"; // Right side
+                                } else if (angle >= Math.PI/4 && angle < 3*Math.PI/4) {
+                                    return "middle"; // Bottom
+                                } else if (angle >= 3*Math.PI/4 || angle <= -3*Math.PI/4) {
+                                    return "end"; // Left side
+                                } else {
+                                    return "middle"; // Top
+                                }
+                            });
+                    }); 
+                    
+                    // Drag functions
+                    function dragstarted(event, d) {
+                        if (d.isCenter) return; // Don't allow dragging center node
+                        if (!event.active) simulation.alphaTarget(0.3).restart();
+                        // Store original position
+                        d._originalX = d.x;
+                        d._originalY = d.y;
+                        
+                        // Always fix position during drag
+                        d.fx = d.x;
+                        d.fy = d.y;
+                    }
+                            
+                    function dragged(event, d) {
+                        if (d.isCenter) return; // Don't allow dragging center node
+                        d.fx = event.x;
+                        d.fy = event.y;
+                    }
+                
+                    function dragended(event, d) {
+                        if (d.isCenter) return; // Don't allow dragging center node
+                        if (!event.active) simulation.alphaTarget(0);
+                        // If this node is pinned, keep it fixed at the new position
+                        if (pinnedNodes.has(d.id)) {
+                            d.fx = d.x;
+                            d.fy = d.y;
+                            console.log("Node remains pinned after drag:", d.id, "at", d.x, d.y);
+                        } else {
+                            // Otherwise, release it
+                            d.fx = null;
+                            d.fy = null;
+                        }
+                    }
+                }
+                
+                function applyFocus(nodeId) {
+                    console.log("Applying focus to node:", nodeId);
+                    
+                    // Get the focused node and its direct connections
+                    const connectedNodeIds = new Set();
+                    connectedNodeIds.add(nodeId); // Add the focused node
+                    
+                    // Find all nodes directly connected to the focused node
+                    g.selectAll(".link").each(function(link) {
+                        const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
+                        const targetId = typeof link.target === 'object' ? link.target.id : link.target;
+
+                        if (sourceId === nodeId) {
+                            connectedNodeIds.add(targetId);
+                        }
+                        if (targetId === nodeId) {
+                            connectedNodeIds.add(sourceId);
+                        }
+                    });
+
+                    console.log("Connected nodes:", Array.from(connectedNodeIds));
+
+                    // Fade out non-connected nodes and links
+                    g.selectAll(".node").classed("faded", function(d) {
+                        return !connectedNodeIds.has(d.id);
+                    });
+
+                    g.selectAll(".link").classed("faded", function(d) {
+                        const sourceId = typeof d.source === 'object' ? d.source.id : d.source;
+                        const targetId = typeof d.target === 'object' ? d.target.id : d.target;
+                        return !(connectedNodeIds.has(sourceId) && connectedNodeIds.has(targetId));
+                    });
+
+                    // Highlight the focused node
+                    g.selectAll(".node").filter(d => d.id === nodeId).classed("focused", true);
+                }
+
+                function resetFocus() {
+                    console.log("Resetting focus");
+                    g.selectAll(".node").classed("faded", false).classed("focused", false);
+                    g.selectAll(".link").classed("faded", false);
+                }
+                
+                // Button click handlers
+                d3.select("#reset-btn").on("click", function() {
+                    expandedNodes.clear();
+                    updateVisualization();
+                    sendMessageToStreamlit([]);
+                });
+                
+                d3.select("#expand-all-btn").on("click", function() {
+                    console.log("Expand All button clicked");
+                    
+                    // First get all nodes with hidden connections
+                    const nodesWithHidden = getAllNodesWithHiddenConnections();
+                    
+                    // Expand them all at once
+                    let expansionsAdded = 0;
+                    nodesWithHidden.forEach(nodeId => {
+                        if (!expandedNodes.has(nodeId)) {
+                            expandedNodes.add(nodeId);
+                            expansionsAdded++;
+                        }
+                    });
+                    
+                    console.log(`Added ${expansionsAdded} nodes to expanded set`);
+                    console.log("Expanded nodes:", Array.from(expandedNodes));
+                    
+                    // Update visualization with the new expanded set
+                    updateVisualization();
+                    
+                    // Try to communicate with Streamlit if available
+                    if (window.Streamlit) {
+                        try {
+                            window.Streamlit.setComponentValue({expandedNodes: Array.from(expandedNodes)});
+                            console.log("Sent expanded nodes to Streamlit");
+                        } catch (e) {
+                            console.error("Error sending to Streamlit:", e);
+                        }
+                    } else {
+                        console.warn("Streamlit object not available");
+                    }
+                });
+                
+                d3.select("#reset-btn").on("click", function() {
+                    console.log("Reset button clicked");
+                    
+                    // Clear expanded nodes
+                    const previousCount = expandedNodes.size;
+                    expandedNodes.clear();
+                    
+                    console.log(`Cleared ${previousCount} expanded nodes`);
+                    
+                    // Update visualization
+                    updateVisualization();
+                    
+                    // Try to communicate with Streamlit if available
+                    if (window.Streamlit) {
+                        try {
+                            window.Streamlit.setComponentValue({expandedNodes: []});
+                            console.log("Sent empty expanded nodes to Streamlit");
+                        } catch (e) {
+                            console.error("Error sending to Streamlit:", e);
+                        }
+                    } else {
+                        console.warn("Streamlit object not available");
+                    }
+                });
+                
+                d3.select("#unpin-btn").on("click", function() {
+                    console.log("Unpin All button clicked");
+                    
+                    if (!currentNodes || !currentSimulation) {
+                        console.error("No active visualization");
+                        return;
+                    }
+                    
+                    // Unpin all nodes
+                    pinnedNodes.forEach(nodeId => {
+                        const node = currentNodes.find(n => n.id === nodeId);
+                        if (node && !node.isCenter) {
+                            console.log("Unpinning node:", nodeId);
+                            node.fx = null;
+                            node.fy = null;
+                        }
+                    });
+                    
+                    // Clear pinned nodes set
+                    pinnedNodes.clear();
+                    
+                    // Remove visual indicators
+                    g.selectAll(".node--pinned").classed("node--pinned", false);
+                    
+                    // Run simulation with low alpha to adjust
+                    currentSimulation.alpha(0.1).restart();
+                });
+                
+                // Function to communicate with Streamlit
+                function safelySendMessageToStreamlit(message) {
+                    console.log("Attempting to send message to Streamlit:", message);
+                    
+                    try {
+                        // Check if Streamlit is available
+                        if (window.Streamlit) {
+                            window.Streamlit.setComponentValue(message);
+                            console.log("Message sent successfully to Streamlit");
+                            return true;
+                        } else {
+                            console.warn("Streamlit object not available yet. Will retry in 500ms");
+                            
+                            // Retry after a short delay
+                            setTimeout(() => {
+                                if (window.Streamlit) {
+                                    window.Streamlit.setComponentValue(message);
+                                    console.log("Message sent successfully to Streamlit on retry");
+                                } else {
+                                    console.error("Streamlit object still not available after retry");
+                                    
+                                    // Fall back to direct update if Streamlit communication fails
+                                    try {
+                                        expandedNodes = new Set(message.expandedNodes || []);
+                                        updateVisualization();
+                                        console.log("Applied changes locally since Streamlit communication failed");
+                                    } catch (localError) {
+                                        console.error("Error applying local changes:", localError);
+                                    }
+                                }
+                            }, 500);
+                            return false;
+                        }
+                    } catch (error) {
+                        console.error("Error sending message to Streamlit:", error);
+                        return false;
+                    }
+                }
+                
+                function sendMessageToStreamlit(message) {
+                    // Only proceed if we're in a Streamlit context
+                    if (window.Streamlit && window.Streamlit.setComponentValue) {
+                        try {
+                            window.Streamlit.setComponentValue(message);
+                            console.log("Message sent to Streamlit:", message);
+                            return true;
+                        } catch (e) {
+                            console.error("Error sending to Streamlit:", e);
+                            // No need to retry - just apply changes locally
+                            console.log("Applying changes locally due to error");
+                            return false;
+                        }
+                    } else {
+                        console.log("Streamlit API not available, applying changes locally");
+                        // No need to worry about it - all changes are already applied locally
+                        return false;
+                    }
+                }
+                
+                svg.on("click", function(event) {
+                    // Ignore if the click was on a node or a control
+                    if (event.target.closest(".node") || event.target.closest(".controls")) 
+                        return;
+                        
+                    focusedNodeId = null;
+                    resetFocus();
+                    
+                    // Unpin all nodes
+                    if (pinnedNodes.size > 0) {
+                        pinnedNodes.forEach(nodeId => {
+                            const node = nodes.find(n => n.id === nodeId);
+                            if (node && !node.isCenter) {
+                                node.fx = null;
+                                node.fy = null;
+                            }
+                        });
+                        
+                        // Clear pinned nodes set
+                        pinnedNodes.clear();
+                        
+                        // Remove visual indicators
+                        g.selectAll(".node--pinned").classed("node--pinned", false);
+                        
+                        // Run simulation with low alpha to adjust
+                        simulation.alpha(0.1).restart();
+                    }
+                });
+                
+                // Initial visualization
+                updateVisualization();
+                
+                document.addEventListener('click', function(event) {
+                    // Check if the click is outside the explanation panel and nodes
+                    const explanationPanel = document.getElementById('explanation-panel');
+                    const isClickOutsidePanel = explanationPanel && 
+                                                !explanationPanel.contains(event.target) && 
+                                                !event.target.closest('.node');
+                    
+                    if (isClickOutsidePanel) {
+                        // Hide the explanation panel
+                        d3.select("#explanation-panel").style("display", "none");
+                    }
+                });
+            });
+            </script>
+        </body>
+        </html>
+        

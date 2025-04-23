@@ -1,0 +1,1228 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="utf-8">
+            <title>P versus NP problem</title>
+            <script src="https://d3js.org/d3.v7.min.js"></script>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    overflow: hidden;
+                }
+                .explanation-panel {
+                    position: absolute;
+                    padding: 15px;
+                    background: white;
+                    border: 1px solid #ccc;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+                    max-width: 300px;
+                    z-index: 1000;
+                    font-size: 14px;
+                    line-height: 1.4;
+                    opacity: 0;
+                    transition: opacity 0.3s;
+                    pointer-events: auto;
+                }
+                
+                .explanation-panel.visible {
+                    opacity: 1;
+                }
+                
+                .explanation-title {
+                    margin-top: 0;
+                    margin-bottom: 10px;
+                    color: #2196F3;
+                    font-size: 16px;
+                    font-weight: bold;
+                }
+                
+                .explanation-content {
+                    margin-bottom: 10px;
+                }
+                
+                .explanation-footer {
+                    display: block;
+                    margin-top: 8px;
+                    font-style: italic;
+                    color: #666;
+                    font-size: 12px;
+                }
+                
+                .close-explanation {
+                    position: absolute;
+                    top: 5px;
+                    right: 5px;
+                    background: none;
+                    border: none;
+                    font-size: 16px;
+                    cursor: pointer;
+                    color: #666;
+                }
+                .node {
+                    cursor: pointer;
+                }
+                .node circle {
+                    stroke-width: 2px;
+                    transition: all 0.3s ease;
+                }
+                .node.has-explanation circle {
+                    stroke-dasharray: 3, 3;
+                }
+                .node--priority circle {
+                    stroke: #7E57C2;
+                }
+                .node--secondary circle {
+                    stroke: #6596B5;
+                }
+                .node--tertiary circle {
+                    stroke: #8FC2B9;
+                }
+                .hidden-connections-highlight {
+                    stroke: #FF8A65 !important;
+                    stroke-width: 3px !important;
+                }
+                .node--expanded circle {
+                    stroke-width: 3px;
+                }
+                .node text {
+                    font: 12px sans-serif;
+                    pointer-events: none;
+                }
+                .link {
+                    fill: none;
+                    stroke-width: 1.5px;
+                    cursor: pointer;
+                    transition: stroke 0.3s ease;
+                }
+                .link:hover {
+                    stroke-width: 2.5px;
+                    stroke-opacity: 0.9 !important;
+                }
+                .link-label {
+                    font-size: 10px;
+                    fill: #666;
+                    pointer-events: none;
+                }
+                .tooltip {
+                    position: absolute;
+                    padding: 8px;
+                    background: rgba(255, 255, 255, 0.95);
+                    color: #333;
+                    border-radius: 4px;
+                    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+                    pointer-events: none;
+                    font-size: 12px;
+                    max-width: 300px;
+                    z-index: 1000;
+                    border: 1px solid #ddd;
+                }
+                .evidence-tooltip {
+                    max-width: 350px;
+                    line-height: 1.4;
+                }
+                .tooltip .right-click-instruction {
+                    display: block;
+                    margin-top: 5px;
+                    font-style: italic;
+                    color: #2196F3;
+                }
+                .legend {
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    background: rgba(255, 255, 255, 0.8);
+                    border-radius: 4px;
+                    padding: 8px;
+                    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+                }
+                .legend-item {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 5px;
+                }
+                .legend-color {
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 50%;
+                    margin-right: 8px;
+                }
+                .priority-color {
+                    background-color: #9575CD;
+                    border: 1.5px solid #7E57C2;
+                }
+                .secondary-color {
+                    background-color: #97C0DB;
+                    border: 1.5px solid #6596B5;
+                }
+                .tertiary-color {
+                    background-color: #D1EDE8;
+                    border: 1.5px solid #ABD9D1;
+                }
+                @keyframes pulse-1741239989512 {
+                    0% { transform: scale(1); opacity: 0.5; }
+                    50% { transform: scale(1.2); opacity: 0.2; }
+                    100% { transform: scale(1); opacity: 0.5; }
+                }
+                .pulse-1741239989512 {
+                    animation: pulse-1741239989512 2s infinite;
+                }
+                .controls {
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    display: flex;
+                    gap: 10px;
+                }
+                button {
+                    background-color: white;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    padding: 5px 10px;
+                    cursor: pointer;
+                    font-size: 12px;
+                }
+                button:hover {
+                    background-color: #f0f0f0;
+                }
+                .center-node circle {
+                    stroke-width: 3px;
+                }
+                .highlight {
+                    font-weight: bold;
+                    color: #006400;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="controls">
+                <button id="reset-btn">Reset</button>
+                <button id="expand-all-btn">Expand All</button>
+                <button id="recenter-btn">Recenter</button>
+            </div>
+
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color priority-color"></div>
+                    <span>Priority Concepts</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color secondary-color"></div>
+                    <span>Secondary Concepts</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color tertiary-color"></div>
+                    <span>Tertiary Concepts</span>
+                </div>
+                <div class="legend-item">
+                    <div style="width:15px; height:15px; margin-right:8px; border:1.5px solid #FF8A65; border-radius:50%; background-color: rgba(255, 0, 0, 0.3);" class="pulse-1741239989512"></div>
+                    <span>Has Hidden Connections</span>
+                </div>
+            </div>
+
+            <svg id="concept-map" width="800" height="600"></svg>
+            <div id="tooltip" class="tooltip" style="display: none;"></div>
+            <div id="evidence-tooltip" class="tooltip evidence-tooltip" style="display: none;"></div>
+
+            <script>
+            // Load the data
+            const networkData = {"nodes": [{"id": "p versus np problem", "name": "p versus np problem", "frequency": 8, "degree": 30, "layer": "priority", "evidence": "The P versus NP problem is a fundamental question in theoretical computer science that explores the relationship between problems that can be solved quickly and those that can be verified quickly. Understanding this problem is crucial as it has implications across various fields, including mathematics and computer science."}, {"id": "polynomial time", "name": "polynomial time", "frequency": 8, "degree": 11, "layer": "priority", "evidence": "Polynomial time refers to the time complexity of an algorithm where the time taken to complete the task is a polynomial function of the size of the input. This concept is essential in classifying problems as 'P' or 'NP' and is a key factor in determining the efficiency of algorithms."}, {"id": "np-complete problems", "name": "np-complete problems", "frequency": 4, "degree": 18, "layer": "priority", "evidence": "NP-complete problems are a subset of NP problems that are at least as difficult as any other problem in NP. They are significant because if any NP-complete problem can be solved quickly (in polynomial time), then all NP problems can be solved quickly, which has profound implications for computer science."}, {"id": "np-completeness", "name": "np-completeness", "frequency": 4, "degree": 9, "layer": "priority", "evidence": "NP-completeness is a classification of problems in computational theory that are as hard as the hardest problems in NP. Understanding NP-completeness is crucial because it helps in identifying which problems can be efficiently solved and which cannot, impacting fields like cryptography and algorithm design."}, {"id": "class p", "name": "class p", "frequency": 3, "degree": 6, "layer": "priority", "evidence": "Class P consists of decision problems for which a solution can be found in polynomial time. This classification is fundamental in computational theory as it helps to identify problems that are efficiently solvable."}, {"id": "class np", "name": "class np", "frequency": 3, "degree": 10, "layer": "priority", "evidence": "Class NP includes decision problems for which a proposed solution can be verified in polynomial time. Understanding NP is crucial for exploring the limits of computational efficiency and the nature of problem-solving."}, {"id": "np", "name": "np", "frequency": 3, "degree": 4, "layer": "priority", "evidence": "NP, or nondeterministic polynomial time, refers to a class of problems for which a proposed solution can be verified quickly (in polynomial time). Understanding that generalized Sudoku is in NP is crucial for recognizing its computational complexity and the challenges in finding efficient algorithms for solving it."}, {"id": "computational complexity theory", "name": "computational complexity theory", "frequency": 3, "degree": 9, "layer": "priority", "evidence": "Computational complexity theory is a branch of computer science that focuses on classifying computational problems based on their inherent difficulty and the resources needed to solve them. It is crucial for understanding the limits of what can be computed efficiently and has implications for fields such as cryptography and algorithm design."}, {"id": "p = np", "name": "p = np", "frequency": 3, "degree": 13, "layer": "priority", "evidence": "P = NP is a major unsolved problem in computer science that questions whether every problem whose solution can be quickly verified can also be solved quickly. Its resolution could revolutionize various fields by providing efficient solutions to complex problems."}, {"id": "p \u2260 np", "name": "p \u2260 np", "frequency": 2, "degree": 6, "layer": "priority", "evidence": "The conjecture that P does not equal NP suggests that there exist problems that can be verified quickly but cannot be solved quickly. This distinction is significant as it impacts the understanding of computational limits and the feasibility of solving complex problems."}, {"id": "millennium prize problems", "name": "millennium prize problems", "frequency": 2, "degree": 4, "layer": "secondary", "evidence": "The Millennium Prize Problems are a set of seven unsolved problems in mathematics, each with a reward for a correct solution. The P versus NP problem is included in this list, highlighting its importance and the challenge it presents to mathematicians and computer scientists."}, {"id": "theoretical computer science", "name": "theoretical computer science", "frequency": 2, "degree": 9, "layer": "secondary", "evidence": "Theoretical computer science is a branch of computer science that deals with the abstract and mathematical aspects of computation. The P versus NP problem is a central issue in this field, influencing both theoretical and practical applications."}, {"id": "co-np-complete", "name": "co-np-complete", "frequency": 2, "degree": 3, "layer": "secondary", "evidence": "Co-NP-complete refers to a class of problems for which a solution can be verified in polynomial time, but finding a solution may be computationally difficult. Understanding co-NP-completeness is essential for grasping the broader implications of the P versus NP problem and its impact on computational theory."}, {"id": "non-deterministic machine", "name": "non-deterministic machine", "frequency": 2, "degree": 2, "layer": "secondary", "evidence": "A non-deterministic machine is a theoretical model that can explore multiple possibilities simultaneously. This concept is crucial for understanding the complexity class NP, where solutions can be verified quickly, even if they cannot be found quickly."}, {"id": "3-sat", "name": "3-sat", "frequency": 2, "degree": 1, "layer": "secondary", "evidence": "3-SAT is a specific version of the Boolean satisfiability problem that is also NP-complete. Its study is important because it helps in understanding the complexity of satisfiability problems and their applications in various fields, including optimization and artificial intelligence."}, {"id": "turing machine", "name": "turing machine", "frequency": 2, "degree": 0, "layer": "secondary", "evidence": "A Turing machine is a theoretical model of computation that defines an abstract machine capable of simulating any algorithm. It is fundamental in computer science for understanding the limits of what can be computed and the complexity of problems."}, {"id": "historical context of np-completeness", "name": "historical context of np-completeness", "frequency": 2, "degree": 5, "layer": "tertiary", "evidence": "The historical context of NP-completeness involves the development of computational theory in the 1970s, which led to the identification of NP-complete problems. Understanding this context is essential for grasping the evolution of algorithms and complexity theory."}, {"id": "big o notation", "name": "big o notation", "frequency": 2, "degree": 2, "layer": "secondary", "evidence": "Big O notation is a mathematical notation used to describe the upper bound of an algorithm's running time or space requirements in terms of input size. It provides a way to classify algorithms according to their performance or efficiency, but it can sometimes obscure important details, such as large constants that affect practical performance."}, {"id": "finite alphabet", "name": "finite alphabet", "frequency": 2, "degree": 2, "layer": "tertiary", "evidence": "A finite alphabet is a limited set of symbols used to construct strings in formal languages. This concept is fundamental in computer science, as it defines the basic building blocks for languages and computational problems."}, {"id": "implications for various fields", "name": "implications for various fields", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "The resolution of the P versus NP problem could significantly impact numerous disciplines by altering the understanding of computational limits and efficiency. This makes it a pivotal issue not only in computer science but across various domains."}, {"id": "algorithm research", "name": "algorithm research", "frequency": 1, "degree": 12, "layer": "secondary", "evidence": "Algorithm research focuses on developing methods for solving computational problems efficiently. The P versus NP question directly influences this field by determining the boundaries of what can be computed in a reasonable timeframe."}, {"id": "clay mathematics institute", "name": "clay mathematics institute", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "The Clay Mathematics Institute is an organization dedicated to the promotion and funding of mathematical research. Their identification of the P versus NP problem as a Millennium Prize Problem underscores its significance in the mathematical community."}, {"id": "generalized sudoku problem", "name": "generalized sudoku problem", "frequency": 1, "degree": 4, "layer": "priority", "evidence": "The generalized Sudoku problem extends the traditional Sudoku puzzle to grids of size n^{2} by n^{2}, requiring that each row, column, and sub-grid contains all integers from 1 to n^{2}. This concept is significant as it highlights the complexity of Sudoku puzzles and sets the stage for discussions about computational complexity."}, {"id": "p", "name": "p", "frequency": 1, "degree": 2, "layer": "priority", "evidence": "P refers to the class of problems that can be solved quickly (in polynomial time). The distinction between P and NP is fundamental in computer science, as it addresses whether every problem whose solution can be quickly verified can also be quickly solved. This is central to understanding the computational limits of algorithms."}, {"id": "finite number of possible grids", "name": "finite number of possible grids", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "The concept of a finite number of possible grids refers to the limited configurations that a traditional Sudoku puzzle can have. This is important because it implies that for fixed-size puzzles, solutions can be precomputed, making them easier to solve compared to generalized versions."}, {"id": "table lookup", "name": "table lookup", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "Table lookup is a method of solving problems by referencing precomputed solutions stored in a table. This approach is efficient for fixed-size Sudoku puzzles, as it allows for quick retrieval of answers without the need for complex calculations."}, {"id": "stephen cook", "name": "stephen cook", "frequency": 1, "degree": 2, "layer": "tertiary", "evidence": "Stephen Cook is a prominent computer scientist known for his foundational work in computational complexity theory. His introduction of the P versus NP problem has had a lasting impact on theoretical computer science and has spurred extensive research into the nature of computational problems."}, {"id": "leonid levin", "name": "leonid levin", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "Leonid Levin is a mathematician and computer scientist who independently formulated the P versus NP problem, contributing to its recognition as a central question in computational complexity. His work emphasizes the collaborative nature of scientific discovery and the importance of diverse perspectives in understanding complex problems."}, {"id": "john nash", "name": "john nash", "frequency": 1, "degree": 2, "layer": "tertiary", "evidence": "John Nash was a mathematician whose work in game theory and complexity has influenced various fields, including economics and computer science. His speculation about the time complexity of code-breaking foreshadowed the P versus NP problem, highlighting the relationship between computational difficulty and cryptography."}, {"id": "kurt g\u00f6del", "name": "kurt g\u00f6del", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "Kurt G\u00f6del was a logician and mathematician known for his incompleteness theorems. His inquiry into the solvability of theorem-proving in polynomial time relates to the P versus NP problem, illustrating early concerns about the limits of computation and the automation of mathematical proofs."}, {"id": "exponential time", "name": "exponential time", "frequency": 1, "degree": 6, "layer": "secondary", "evidence": "Exponential time refers to a class of problems for which the time required to solve them grows exponentially with the size of the input. This concept is significant in the context of the P versus NP problem, as it highlights the potential difficulty of solving certain computational problems."}, {"id": "automation of mathematical proofs", "name": "automation of mathematical proofs", "frequency": 1, "degree": 2, "layer": "secondary", "evidence": "The automation of mathematical proofs refers to the use of algorithms and computational methods to generate or verify proofs without human intervention. This concept is closely tied to the P versus NP problem, as it raises questions about the feasibility of automating complex reasoning processes in mathematics."}, {"id": "complexity classes p and np", "name": "complexity classes p and np", "frequency": 1, "degree": 2, "layer": "priority", "evidence": "The complexity classes P and NP are fundamental concepts in computational complexity theory. Class P includes problems that can be solved quickly (in polynomial time) by a deterministic machine, while class NP includes problems for which solutions can be verified quickly. Understanding the relationship between these classes is central to many open questions in computer science."}, {"id": "deterministic machine", "name": "deterministic machine", "frequency": 1, "degree": 3, "layer": "secondary", "evidence": "A deterministic machine is a theoretical model of computation where the next state of the machine is determined solely by its current state and input. This concept is important because it underpins the definition of the complexity class P, where problems are solved in a predictable manner."}, {"id": "sequential computation", "name": "sequential computation", "frequency": 1, "degree": 2, "layer": "secondary", "evidence": "Sequential computation refers to the execution of operations in a specific order, one after the other. This model is foundational in understanding how algorithms are structured and analyzed in terms of time and space complexity."}, {"id": "p \u2286 np", "name": "p \u2286 np", "frequency": 1, "degree": 0, "layer": "priority", "evidence": "The notation P \u2286 NP indicates that all problems that can be solved in polynomial time (class P) can also be verified in polynomial time (class NP). This relationship is fundamental to the study of computational complexity and raises important questions about the nature of problem-solving in computer science."}, {"id": "william gasarch", "name": "william gasarch", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "William Gasarch is a researcher known for his work on the P vs NP problem, including conducting polls to gauge the opinions of experts in the field. His contributions help to illuminate the current state of belief regarding this major open question in theoretical computer science."}, {"id": "poll results on p vs np", "name": "poll results on p vs np", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "The results of polls conducted by Gasarch show a growing consensus among researchers that P is not equal to NP, reflecting the ongoing debate and uncertainty surrounding this fundamental question in computer science."}, {"id": "np-hard problems", "name": "np-hard problems", "frequency": 1, "degree": 4, "layer": "priority", "evidence": "NP-hard problems are a broader class of problems that include NP-complete problems but do not require that solutions be verifiable in polynomial time. They are important because they represent the upper limit of problem difficulty in computational theory, influencing how we approach problem-solving in various domains."}, {"id": "boolean satisfiability problem", "name": "boolean satisfiability problem", "frequency": 1, "degree": 6, "layer": "priority", "evidence": "The Boolean satisfiability problem (SAT) is the first problem that was proven to be NP-complete. Its significance lies in its foundational role in computational theory, as it serves as a benchmark for proving the NP-completeness of other problems through reductions."}, {"id": "cook\u2013levin theorem", "name": "cook\u2013levin theorem", "frequency": 1, "degree": 6, "layer": "priority", "evidence": "The Cook\u2013Levin theorem establishes that the Boolean satisfiability problem is NP-complete, which was a groundbreaking result in computer science. It provides a method for proving that other problems are NP-complete by showing they can be transformed into SAT."}, {"id": "proof by reduction", "name": "proof by reduction", "frequency": 1, "degree": 3, "layer": "secondary", "evidence": "Proof by reduction is a technique used to demonstrate that one problem can be transformed into another, thereby establishing their relative difficulty. This method is essential in computational theory for categorizing problems and understanding their complexity."}, {"id": "sudoku", "name": "sudoku", "frequency": 1, "degree": 2, "layer": "secondary", "evidence": "Sudoku is an example of an NP-complete problem, which illustrates how a solution to one NP-complete problem can be used to solve others. This highlights the interconnectedness of problems in computational theory and the implications for algorithm design."}, {"id": "exptime", "name": "exptime", "frequency": 1, "degree": 0, "layer": "priority", "evidence": "EXPTIME refers to the class of decision problems that can be solved by a deterministic Turing machine in exponential time. This concept is important in computational complexity theory as it helps categorize problems based on their solvability and the resources required to solve them."}, {"id": "exptime-complete", "name": "exptime-complete", "frequency": 1, "degree": 0, "layer": "priority", "evidence": "EXPTIME-complete problems are the hardest problems in the EXPTIME class, meaning that if any EXPTIME-complete problem can be solved in polynomial time, then all problems in EXPTIME can also be solved in polynomial time. This classification is significant for understanding the limits of efficient computation."}, {"id": "time hierarchy theorem", "name": "time hierarchy theorem", "frequency": 1, "degree": 1, "layer": "priority", "evidence": "The time hierarchy theorem establishes that there are problems that can be solved in exponential time that cannot be solved in polynomial time. This theorem is fundamental in complexity theory as it delineates the boundaries of what can be computed within different time constraints."}, {"id": "presburger arithmetic", "name": "presburger arithmetic", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "Presburger arithmetic is a decidable theory of the natural numbers with addition but without multiplication. It is significant because it represents a class of problems that require more than exponential time to solve, highlighting the complexity of certain mathematical decision problems."}, {"id": "undecidable problems", "name": "undecidable problems", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "Undecidable problems are those for which no algorithm can determine the truth of all instances. The halting problem is a classic example, illustrating fundamental limits of computation and the existence of problems that cannot be solved algorithmically."}, {"id": "#p problems", "name": "#p problems", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "#P problems are a class of counting problems that ask how many solutions exist for a given decision problem. They are significant because they extend the complexity theory framework by differentiating between decision problems and counting problems, with implications for algorithm design and computational limits."}, {"id": "#p-complete", "name": "#p-complete", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "#P-complete problems are the hardest problems in the #P class, meaning that a polynomial-time solution to any one of them would imply a polynomial-time solution for all #P problems. This classification is crucial for understanding the complexity of counting problems and their relationship to decision problems."}, {"id": "fischer and rabin", "name": "fischer and rabin", "frequency": 1, "degree": 0, "layer": "tertiary", "evidence": "Fischer and Rabin are notable for their contributions to computational complexity, particularly in establishing lower bounds for the complexity of Presburger arithmetic. Their work is significant as it provides insights into the limitations of algorithms in solving certain mathematical problems."}, {"id": "chess strategy problem", "name": "chess strategy problem", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "The chess strategy problem is an example of an EXPTIME-complete problem, illustrating the complexity involved in determining optimal moves in games. This example is important for understanding how computational complexity theory applies to real-world scenarios, such as game theory."}, {"id": "np-intermediate problems", "name": "np-intermediate problems", "frequency": 1, "degree": 2, "layer": "priority", "evidence": "NP-intermediate problems are those that exist in NP but are neither in P nor NP-complete, assuming P \u2260 NP. They are significant because they represent a class of problems whose complexity is not fully understood, making them a focal point in computational complexity theory."}, {"id": "graph isomorphism problem", "name": "graph isomorphism problem", "frequency": 1, "degree": 3, "layer": "priority", "evidence": "The graph isomorphism problem involves checking if two graphs can be transformed into each other by relabeling vertices. It is important in complexity theory as its classification (whether it is in P, NP-complete, or NP-intermediate) has implications for the polynomial time hierarchy."}, {"id": "integer factorization problem", "name": "integer factorization problem", "frequency": 1, "degree": 6, "layer": "priority", "evidence": "This problem involves breaking down an integer into its prime components and is crucial for modern cryptography, particularly in systems like RSA. Its complexity status affects the security of these systems, making it a key area of study in computational complexity."}, {"id": "polynomial time hierarchy", "name": "polynomial time hierarchy", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "The polynomial time hierarchy is a framework that classifies problems based on their complexity and the resources required to solve them. Understanding whether certain problems are NP-complete can have profound implications for this hierarchy and computational theory as a whole."}, {"id": "l\u00e1szl\u00f3 babai", "name": "l\u00e1szl\u00f3 babai", "frequency": 1, "degree": 0, "layer": "tertiary", "evidence": "L\u00e1szl\u00f3 Babai is a prominent computer scientist known for his work on algorithms, particularly in relation to the graph isomorphism problem. His contributions are significant as they provide insights into efficient problem-solving techniques in complexity theory."}, {"id": "rsa algorithm", "name": "rsa algorithm", "frequency": 1, "degree": 0, "layer": "tertiary", "evidence": "The RSA algorithm is a widely used encryption method that relies on the difficulty of the integer factorization problem. Its security hinges on the assumption that no efficient algorithm exists for this problem, making it a cornerstone of modern cryptography."}, {"id": "shor's algorithm", "name": "shor's algorithm", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "Shor's algorithm is a quantum computing algorithm that efficiently solves the integer factorization problem, which poses a potential threat to classical cryptographic systems. Its polynomial time complexity highlights the differences between quantum and classical computational capabilities."}, {"id": "cobham's thesis", "name": "cobham's thesis", "frequency": 1, "degree": 1, "layer": "priority", "evidence": "Cobham's thesis is a foundational concept in complexity theory that posits a distinction between problems that can be solved in polynomial time (considered 'easy') and those that cannot (considered 'difficult'). This distinction is crucial for understanding the computational feasibility of algorithms and the classification of problems in computer science."}, {"id": "polynomial algorithm", "name": "polynomial algorithm", "frequency": 1, "degree": 2, "layer": "priority", "evidence": "A polynomial algorithm is one whose running time can be expressed as a polynomial function of the size of the input data. While these algorithms are theoretically efficient, their practical application can be hindered by large constants or exponents, making them less feasible for real-world problems despite their classification as 'easy'."}, {"id": "simplex algorithm", "name": "simplex algorithm", "frequency": 1, "degree": 2, "layer": "secondary", "evidence": "The simplex algorithm is a widely used method for solving linear programming problems. Despite its exponential worst-case time complexity, it often performs efficiently in practice, demonstrating that empirical performance can differ significantly from theoretical worst-case scenarios."}, {"id": "quantum computation", "name": "quantum computation", "frequency": 1, "degree": 6, "layer": "secondary", "evidence": "Quantum computation is a type of computation that leverages the principles of quantum mechanics to process information. It represents a significant departure from classical computation models, such as the Turing machine, and has implications for the complexity classes P and NP, potentially allowing for faster solutions to certain problems."}, {"id": "randomized algorithms", "name": "randomized algorithms", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "Randomized algorithms use random numbers to influence their behavior and can provide solutions to problems more efficiently than deterministic algorithms in some cases. They are important in complexity theory as they expand the understanding of computational limits and capabilities beyond traditional models."}, {"id": "linear time on a multitape turing machine", "name": "linear time on a multitape turing machine", "frequency": 1, "degree": 2, "layer": "priority", "evidence": "Linear time on a multitape Turing machine refers to the computational complexity class where the time taken to solve a problem grows linearly with the size of the input. This concept is significant because it helps define the boundaries of efficient computation and is used to categorize problems based on their solvability within certain time constraints."}, {"id": "classes dlin and nlin", "name": "classes dlin and nlin", "frequency": 1, "degree": 1, "layer": "priority", "evidence": "DLIN and NLIN are complexity classes that arise from the substitution of linear time for polynomial time in the definitions of P and NP. Understanding these classes is important for researchers as they explore the relationships between different computational problems and their solvability."}, {"id": "dlin \u2260 nlin", "name": "dlin \u2260 nlin", "frequency": 1, "degree": 0, "layer": "priority", "evidence": "The statement DLIN \u2260 NLIN indicates that the class of problems solvable in linear time on a multitape Turing machine is not the same as the class of problems that can be solved non-deterministically in linear time. This distinction is significant in theoretical computer science as it suggests different levels of computational complexity and helps in understanding the limits of algorithmic efficiency."}, {"id": "cryptography", "name": "cryptography", "frequency": 1, "degree": 5, "layer": "priority", "evidence": "Cryptography is the practice of securing information by transforming it into an unreadable format. If P = NP, many cryptographic systems would become vulnerable, as the problems they rely on for security would be solvable in polynomial time."}, {"id": "constructive proof", "name": "constructive proof", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "A constructive proof provides a method to actually find a solution, as opposed to merely demonstrating that a solution exists. This is crucial in practical applications, as it directly impacts the feasibility of implementing solutions."}, {"id": "operations research", "name": "operations research", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "Operations research is a discipline that uses advanced analytical methods to help make better decisions. The NP-completeness of many of its problems indicates that finding efficient solutions could significantly enhance logistical and operational efficiencies."}, {"id": "g\u00f6del's thoughts on computational complexity", "name": "g\u00f6del's thoughts on computational complexity", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "G\u00f6del's insights highlight the profound implications of computational methods on mathematics, suggesting that if a machine could solve all problems efficiently, it would fundamentally change how mathematical inquiry is conducted."}, {"id": "fermat's last theorem", "name": "fermat's last theorem", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "Fermat's Last Theorem is a famous problem in number theory that remained unsolved for over 350 years until Andrew Wiles proved it in 1994. This example illustrates the potential impact of efficient proof-finding methods on mathematical research."}, {"id": "donald knuth", "name": "donald knuth", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "Donald Knuth is a prominent computer scientist known for his work in algorithms and typesetting. His views on P = NP reflect a cautious optimism about the implications of such a proof, emphasizing the complexity of the problem."}, {"id": "average-case complexity", "name": "average-case complexity", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "Average-case complexity refers to the expected performance of an algorithm across all possible inputs, rather than just the worst-case scenario. This concept is important because it provides a more realistic assessment of an algorithm's efficiency in practical applications, as many problems may be solvable efficiently on average even if they are hard in the worst case."}, {"id": "russell impagliazzo", "name": "russell impagliazzo", "frequency": 1, "degree": 0, "layer": "tertiary", "evidence": "Russell Impagliazzo is a prominent computer scientist known for his work in computational complexity theory. His exploration of hypothetical 'worlds' provides a framework for understanding the implications of different outcomes regarding the P vs NP question, which can influence future research directions in the field."}, {"id": "algorithmica", "name": "algorithmica", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "'Algorithmica' is one of the hypothetical scenarios proposed by Impagliazzo, where the P = NP conjecture holds true. In this world, problems that are currently believed to be hard, such as the SAT problem, could be solved efficiently, fundamentally changing the landscape of computational problem-solving and algorithm design."}, {"id": "cryptomania", "name": "cryptomania", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "'Cryptomania' is another hypothetical world described by Impagliazzo, where P \u2260 NP is true, and it is easy to generate hard instances of problems. This scenario emphasizes the importance of computational hardness in cryptography and security, as it suggests that secure systems could be built on the assumption that certain problems are difficult to solve."}, {"id": "heuristica", "name": "heuristica", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "'Heuristica' represents a scenario where, despite P \u2260 NP, problems in NP can be solved efficiently on average. This concept is significant as it suggests that while worst-case scenarios may remain intractable, practical solutions could still be found for many instances, impacting algorithm design and application."}, {"id": "princeton university workshop 2009", "name": "princeton university workshop 2009", "frequency": 1, "degree": 0, "layer": "tertiary", "evidence": "The 2009 workshop at Princeton University focused on the implications of the P vs NP question and the various hypothetical worlds proposed by Impagliazzo. This event highlights the ongoing research and discourse surrounding computational complexity, showcasing the academic community's efforts to understand and resolve these fundamental questions."}, {"id": "proof techniques", "name": "proof techniques", "frequency": 1, "degree": 2, "layer": "secondary", "evidence": "Proof techniques in computational complexity theory are methods used to demonstrate the relationships and properties of computational problems. Their insufficiency in proving P \u2260 NP indicates the complexity and depth of the P = NP problem, suggesting that new approaches may be necessary."}, {"id": "independence from axiom systems", "name": "independence from axiom systems", "frequency": 1, "degree": 0, "layer": "secondary", "evidence": "The concept of independence from axiom systems refers to the idea that certain mathematical statements cannot be proven true or false using the axioms of a given system. In the context of the P = NP problem, this suggests that the resolution of the problem may lie outside conventional mathematical frameworks, complicating efforts to find a solution."}, {"id": "zfc", "name": "zfc", "frequency": 1, "degree": 2, "layer": "tertiary", "evidence": "ZFC, or Zermelo-Fraenkel set theory with the Axiom of Choice, is a foundational system for mathematics. Its relevance to the P = NP problem lies in the potential for the problem's resolution to be unprovable within this framework, indicating deep connections between computational theory and mathematical logic."}, {"id": "peano axioms", "name": "peano axioms", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "The Peano axioms are a set of axioms for the natural numbers that form a foundation for arithmetic. Their extension in the context of the P = NP problem suggests that even under simpler assumptions, the complexity of NP problems remains significant, indicating the robustness of the challenges posed by these problems."}, {"id": "current techniques", "name": "current techniques", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "Current techniques refer to the methodologies and approaches used in contemporary research to tackle problems in computational complexity. The statement highlights the limitations of these techniques in resolving fundamental questions about NP problems, emphasizing the need for innovative methods."}, {"id": "p = np problem", "name": "p = np problem", "frequency": 1, "degree": 3, "layer": "priority", "evidence": "The P = NP problem is a major unsolved question in computer science that asks whether every problem whose solution can be quickly verified can also be quickly solved. It is fundamental because it relates to the efficiency of algorithms and the limits of computation."}, {"id": "descriptive complexity", "name": "descriptive complexity", "frequency": 1, "degree": 1, "layer": "priority", "evidence": "Descriptive complexity is a branch of computational complexity theory that characterizes complexity classes in terms of the expressiveness of logical languages. It helps in understanding the relationship between computational problems and the logical statements that can describe them."}, {"id": "first-order logic", "name": "first-order logic", "frequency": 1, "degree": 2, "layer": "priority", "evidence": "First-order logic is a formal logical system used to express statements about objects and their relationships. It is significant in computer science for defining computational problems and understanding their complexity."}, {"id": "least fixed-point combinator", "name": "least fixed-point combinator", "frequency": 1, "degree": 2, "layer": "secondary", "evidence": "A least fixed-point combinator is a mathematical construct that allows for the definition of recursive functions in logic. It is crucial for expressing certain computational problems within first-order logic."}, {"id": "recursive functions", "name": "recursive functions", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "Recursive functions are functions that are defined in terms of themselves, allowing for complex computations to be expressed. They are essential in theoretical computer science for understanding computability and complexity."}, {"id": "existential second-order logic", "name": "existential second-order logic", "frequency": 1, "degree": 2, "layer": "secondary", "evidence": "Existential second-order logic is a logical framework that allows quantification over sets but not over relations or functions. It is important for characterizing the complexity class NP and understanding the expressiveness of logical systems."}, {"id": "polynomial hierarchy (ph)", "name": "polynomial hierarchy (ph)", "frequency": 1, "degree": 1, "layer": "priority", "evidence": "The polynomial hierarchy is a hierarchy of complexity classes that generalizes NP and co-NP. It is significant for understanding the relationships between different complexity classes and the nature of computational problems."}, {"id": "logical statements", "name": "logical statements", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "Logical statements are formal expressions that can represent propositions in logic. They are fundamental in the study of computational complexity as they help in defining and analyzing problems within various complexity classes."}, {"id": "finite structures", "name": "finite structures", "frequency": 1, "degree": 0, "layer": "tertiary", "evidence": "Finite structures are mathematical objects with a finite number of elements, often used in logic and computer science to model various computational problems. They are essential for understanding the expressiveness of different logical systems."}, {"id": "np-complete problem", "name": "np-complete problem", "frequency": 1, "degree": 3, "layer": "priority", "evidence": "NP-complete problems are a class of problems for which no polynomial-time algorithms are known. They are significant in computational theory because they represent some of the most challenging problems in computer science, and understanding them is crucial for advancements in algorithm design."}, {"id": "subset-sum", "name": "subset-sum", "frequency": 1, "degree": 1, "layer": "priority", "evidence": "The SUBSET-SUM problem is a classic NP-complete problem that asks whether a subset of a given set of integers can sum to a specific target value. It is important in theoretical computer science and has practical applications in areas like cryptography and resource allocation."}, {"id": "semi-algorithm", "name": "semi-algorithm", "frequency": 1, "degree": 2, "layer": "secondary", "evidence": "A semi-algorithm is a type of algorithm that may not provide an answer for all inputs, specifically allowing for indefinite running time on certain instances. This concept is relevant in the context of decision problems where a definitive 'no' answer may not be computable in finite time."}, {"id": "algorithm", "name": "algorithm", "frequency": 1, "degree": 4, "layer": "secondary", "evidence": "An algorithm is a step-by-step procedure or formula for solving a problem. In the context of NP-complete problems, algorithms are crucial for exploring potential solutions and understanding the limits of computational feasibility."}, {"id": "levin's algorithm", "name": "levin's algorithm", "frequency": 1, "degree": 3, "layer": "secondary", "evidence": "Levin's algorithm is an example of a theoretical approach to solving NP-complete problems. It illustrates the complexities involved in algorithm design and the implications of the P vs NP question, particularly in relation to the SUBSET-SUM problem."}, {"id": "input", "name": "input", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "In the context of algorithms, an input refers to the data that is fed into the algorithm for processing. Understanding the nature of inputs is essential for analyzing algorithm performance and correctness, especially in problems like SUBSET-SUM."}, {"id": "output", "name": "output", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "Output refers to the result produced by an algorithm after processing the input. In decision problems, outputs are typically binary (yes/no), and understanding the expected output is crucial for evaluating the effectiveness of an algorithm."}, {"id": "decision problem", "name": "decision problem", "frequency": 1, "degree": 1, "layer": "priority", "evidence": "A decision problem is a fundamental concept in computational theory that involves determining a yes or no answer based on input strings. It is crucial for classifying problems based on their solvability and complexity, particularly in relation to algorithm efficiency."}, {"id": "deterministic polynomial-time turing machine", "name": "deterministic polynomial-time turing machine", "frequency": 1, "degree": 0, "layer": "priority", "evidence": "A deterministic polynomial-time Turing machine is a theoretical model of computation that guarantees a solution in polynomial time for all inputs. This concept is foundational in computational theory, as it defines the limits of efficient computation."}, {"id": "verifier", "name": "verifier", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "A verifier is an algorithm that checks whether a given solution (certificate) is valid for a decision problem in NP. This concept is important because it highlights the distinction between finding a solution and verifying one, which is central to the study of computational complexity."}, {"id": "certificate", "name": "certificate", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "A certificate is a piece of information that helps verify whether a particular input belongs to a language in NP. Understanding certificates is essential for grasping how NP problems can be efficiently checked even if finding solutions is hard."}, {"id": "historical context of computational theory", "name": "historical context of computational theory", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "The historical context of computational theory includes the evolution of concepts like NP and P, which have shaped our understanding of algorithm efficiency and problem-solving. Recognizing this context helps in appreciating the significance of current computational models."}, {"id": "polynomial-time reduction", "name": "polynomial-time reduction", "frequency": 1, "degree": 1, "layer": "priority", "evidence": "Polynomial-time reduction is a process that transforms one problem into another in such a way that a solution to the second problem can be used to solve the first problem efficiently. This concept is essential in proving the NP-completeness of problems, as it establishes a relationship between different computational problems."}, {"id": "common proof technique", "name": "common proof technique", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "The common proof technique for establishing NP-completeness involves demonstrating that a known NP-complete problem can be polynomial-time reduced to the new problem. This method is significant as it provides a systematic approach to classifying new problems within the NP-complete framework."}, {"id": "gerhard j. woeginger", "name": "gerhard j. woeginger", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "Gerhard J. Woeginger is a notable researcher in the field of computer science, particularly known for his work on the P versus NP problem. His compilation of purported proofs highlights the ongoing interest and debate surrounding this fundamental question in theoretical computer science."}, {"id": "purported proofs", "name": "purported proofs", "frequency": 1, "degree": 3, "layer": "secondary", "evidence": "Purported proofs refer to claims made by researchers that they have solved the P versus NP problem, either proving P = NP or P \u2260 NP. These proofs are significant as they reflect the ongoing efforts and challenges in resolving one of the most critical questions in computer science."}, {"id": "media attention", "name": "media attention", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "Media attention refers to the coverage and public interest generated by various claims of solutions to the P versus NP problem. This attention can influence public perception and funding for research in theoretical computer science, although many claims have been refuted."}, {"id": "undecidable", "name": "undecidable", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "The term undecidable refers to problems for which no algorithm can be constructed that always leads to a correct yes-or-no answer. In the context of the P versus NP problem, proving it undecidable would imply that it cannot be resolved within the framework of classical computation, which has significant implications for the field."}, {"id": "refuted attempts", "name": "refuted attempts", "frequency": 1, "degree": 2, "layer": "secondary", "evidence": "Refuted attempts refer to the claims made by researchers that have been shown to be incorrect or invalid. This highlights the complexity and difficulty of the P versus NP problem, as many proposed solutions have not withstand scrutiny, emphasizing the need for rigorous proof in theoretical computer science."}, {"id": "mathematicians", "name": "mathematicians", "frequency": 1, "degree": 2, "layer": "secondary", "evidence": "Mathematicians are professionals who specialize in the study of mathematics, including its theories, applications, and problem-solving techniques. In the context of the film, they represent the intellectual effort to tackle one of the most significant challenges in theoretical computer science."}, {"id": "timothy lanzone", "name": "timothy lanzone", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "Timothy Lanzone is the director of the film 'Travelling Salesman', which explores complex mathematical concepts through a narrative. His work contributes to the popularization of mathematical ideas in mainstream media, making them accessible to a broader audience."}, {"id": "the simpsons", "name": "the simpsons", "frequency": 1, "degree": 2, "layer": "tertiary", "evidence": "The Simpsons is an animated television series known for its satirical take on American culture and society. The inclusion of the P = NP equation in an episode highlights the show's engagement with complex scientific and mathematical ideas, often using humor to provoke thought."}, {"id": "elementary", "name": "elementary", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "Elementary is a modern adaptation of Sherlock Holmes that incorporates contemporary themes and issues, including mathematics. The episode 'Solve for X' illustrates how mathematical problems can intersect with crime and mystery, showcasing the relevance of mathematics in various contexts."}, {"id": "treehouse of horror vi", "name": "treehouse of horror vi", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "'Treehouse of Horror VI' is a Halloween-themed episode of The Simpsons that parodies horror and science fiction tropes. Its reference to the P = NP equation serves as an example of how popular media can introduce complex scientific concepts to a general audience."}, {"id": "r vs. re problem", "name": "r vs. re problem", "frequency": 1, "degree": 3, "layer": "priority", "evidence": "The R vs. RE problem is a theoretical concept in computational complexity that compares two classes of problems: R, which is analogous to class P (problems solvable in polynomial time), and RE, which is analogous to class NP (problems verifiable in polynomial time). Understanding this distinction is crucial for exploring the limits of computation and the nature of problem-solving in computer science."}, {"id": "undecidable but verifiable problems", "name": "undecidable but verifiable problems", "frequency": 1, "degree": 1, "layer": "priority", "evidence": "Undecidable but verifiable problems are those for which no algorithm can determine a solution in all cases, yet if a solution is provided, it can be verified as correct. This concept is important in theoretical computer science as it highlights the limitations of algorithmic problem-solving and the existence of problems that challenge our understanding of computation."}, {"id": "hilbert's tenth problem", "name": "hilbert's tenth problem", "frequency": 1, "degree": 1, "layer": "secondary", "evidence": "Hilbert's tenth problem is a famous example in mathematical logic and computer science that asks whether there is an algorithm to determine the solvability of Diophantine equations. It is classified as RE-complete, meaning it is among the hardest problems in the class of recursively enumerable problems, illustrating the complexities of decidability and verification."}, {"id": "vp vs. vnp problem", "name": "vp vs. vnp problem", "frequency": 1, "degree": 2, "layer": "priority", "evidence": "The VP vs. VNP problem is a central question in algebraic complexity theory, analogous to the P vs. NP problem but focused on polynomial functions. It seeks to determine whether the class of polynomial functions that can be computed efficiently (VP) is the same as those for which solutions can be verified efficiently (VNP), highlighting the challenges in understanding computational resources in algebra."}, {"id": "unknown answer", "name": "unknown answer", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "The statement that the answer to the VP vs. VNP problem is currently unknown underscores the ongoing research and debate in theoretical computer science regarding the relationships between different complexity classes. This uncertainty reflects the broader challenges in resolving fundamental questions about computation and efficiency."}, {"id": "incompatible students", "name": "incompatible students", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "In the context of the NP-problem example, incompatible students represent constraints that complicate the selection process. This illustrates how real-world problems can be modeled mathematically, making it easier to analyze and solve complex logistical issues."}, {"id": "housing accommodations", "name": "housing accommodations", "frequency": 1, "degree": 2, "layer": "tertiary", "evidence": "Housing accommodations in this scenario serve as a practical application of the P vs NP Problem, demonstrating how theoretical concepts in computer science can be applied to everyday situations, such as managing limited resources and optimizing choices."}, {"id": "william l. hosch", "name": "william l. hosch", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "William L. Hosch is an author who has contributed to the understanding of the P vs NP Problem through his writings. His work helps disseminate complex mathematical concepts to a broader audience, making them more accessible."}, {"id": "algorithms", "name": "algorithms", "frequency": 1, "degree": 2, "layer": "priority", "evidence": "Algorithms are step-by-step procedures or formulas for solving problems. They are fundamental to computer science and are used in various applications, from data processing to artificial intelligence, making them essential for understanding computational processes."}, {"id": "complexity classes", "name": "complexity classes", "frequency": 1, "degree": 2, "layer": "priority", "evidence": "Complexity classes are categories used to classify computational problems based on their inherent difficulty and the resources required to solve them. They are important for understanding the theoretical limits of computation and the efficiency of algorithms."}, {"id": "algorithm design", "name": "algorithm design", "frequency": 1, "degree": 2, "layer": "secondary", "evidence": "Algorithm design refers to the process of defining a step-by-step procedure for solving a specific problem. It is a critical skill in computer science, as well-designed algorithms can significantly improve the efficiency and effectiveness of computing solutions."}, {"id": "case studies in np-completeness", "name": "case studies in np-completeness", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "Case studies in NP-Completeness illustrate specific problems that are NP-complete, helping to understand the practical implications of these theoretical concepts. They provide concrete examples of how NP-completeness affects real-world problem-solving."}, {"id": "historical development of complexity theory", "name": "historical development of complexity theory", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "The historical development of complexity theory traces the evolution of ideas regarding computational limits and efficiency. Understanding this history is essential for grasping current debates and advancements in the field."}, {"id": "isbn references", "name": "isbn references", "frequency": 1, "degree": 1, "layer": "tertiary", "evidence": "ISBN references provide a standardized way to identify books and publications. They are important for academic referencing and ensuring the credibility of sources in research."}], "links": [{"source": "p versus np problem", "target": "theoretical computer science", "type": "", "evidence": "The P versus NP problem is a major unsolved problem in theoretical computer science."}, {"source": "historical development of complexity theory", "target": "p versus np problem", "type": "", "evidence": "The historical development of complexity theory encompasses significant contributions related to the p versus np problem."}, {"source": "dlin", "target": "nlin", "type": "", "evidence": "It is known that DLIN \u2260 NLIN."}, {"source": "Millennium Prize Problems", "target": "Clay Mathematics Institute", "type": "", "evidence": "It is one of the seven Millennium Prize Problems selected by the Clay Mathematics Institute."}, {"source": "Algorithmica", "target": "P = NP", "type": "", "evidence": "Algorithmica, where P = NP and problems like SAT can be solved efficiently in all instances."}, {"source": "#P problems", "target": "NP problems", "type": "", "evidence": "a #P problem must be at least as hard as the corresponding NP problem, since a count of solutions immediately tells if at least one solution exists."}, {"source": "class NP", "target": "non-deterministic machine", "type": "", "evidence": "or equivalently, whose solution can be found in polynomial time on a non-deterministic machine."}, {"source": "big o notation", "target": "np-complete problems", "type": "", "evidence": "The big O notation hides a constant that depends superexponentially on H."}, {"source": "refuted attempts", "target": "p versus np problem", "type": "", "evidence": "Some attempts at resolving P versus NP have been refuted."}, {"source": "integer factorization problem", "target": "Shor's algorithm", "type": "", "evidence": "The best known quantum algorithm for this problem, Shor's algorithm, runs in polynomial time."}, {"source": "np-intermediate problems", "target": "integer factorization problem", "type": "", "evidence": "The graph isomorphism problem, the discrete logarithm problem, and the integer factorization problem are examples of problems believed to be NP-intermediate."}, {"source": "media attention", "target": "refuted attempts", "type": "", "evidence": "Some attempts at resolving P versus NP have received brief media attention, though these attempts have been refuted."}, {"source": "np-complete problems", "target": "class np", "type": "", "evidence": "NP-complete problems are a specific subset of problems within class NP, representing the most challenging problems in terms of computational complexity."}, {"source": "co-np-complete", "target": "automation of mathematical proofs", "type": "", "evidence": "G\u00f6del pointed out one of the most important consequences\u2014that if so, then the discovery of mathematical proofs could be automated."}, {"source": "p = np", "target": "algorithm research", "type": "", "evidence": "The hypothesis that p equals np has profound implications for algorithm research, as it would mean that problems currently deemed intractable could be solved efficiently."}, {"source": "theoretical computer science", "target": "p versus np problem", "type": "", "evidence": "The P versus NP problem is a major unsolved problem in theoretical computer science."}, {"source": "p versus np problem", "target": "EXPTIME", "type": "", "evidence": "Because it can be shown that P \u2260 EXPTIME, these problems are outside P, and so require more than polynomial time."}, {"source": "average-case complexity", "target": "hard problems in NP", "type": "", "evidence": "P \u2260 NP still leaves open the average-case complexity of hard problems in NP."}, {"source": "historical context of np-completeness", "target": "current techniques in algorithm research", "type": "", "evidence": "Understanding the historical context of NP-completeness helps researchers appreciate the evolution of algorithmic techniques and the ongoing challenges in computational complexity."}, {"source": "polynomial time", "target": "class P", "type": "", "evidence": "If there is an algorithm... that produces the correct answer... in at most cnk steps... then we say that the problem can be solved in polynomial time and we place it in the class P."}, {"source": "timothy lanzone", "target": "p versus np problem", "type": "", "evidence": "The film Travelling Salesman, by director Timothy Lanzone, is the story of four mathematicians hired by the US government to solve the P versus NP problem."}, {"source": "case studies in np-completeness", "target": "algorithms", "type": "", "evidence": "Case studies in NP-completeness illustrate the challenges and strategies in algorithm design."}, {"source": "isbn references", "target": "theoretical computer science", "type": "", "evidence": "ISBN references are provided for key texts in theoretical computer science."}, {"source": "computational complexity theory", "target": "theoretical computer science", "type": "", "evidence": "Computational complexity theory is a key area within theoretical computer science."}, {"source": "the simpsons", "target": "treehouse of horror vi", "type": "", "evidence": "In the sixth episode of The Simpsons' seventh season 'Treehouse of Horror VI', the equation P = NP is seen shortly after Homer accidentally stumbles into the 'third dimension'."}, {"source": "p \u2260 np", "target": "computational complexity theory", "type": "", "evidence": "A proof of P \u2260 NP would represent a great advance in computational complexity theory."}, {"source": "#P-complete", "target": "#P", "type": "", "evidence": "Many of these problems are #P-complete, and hence among the hardest problems in #P."}, {"source": "historical context of computational theory", "target": "class P and class NP", "type": "", "evidence": "The text discusses the definitions and characteristics of class P and class NP, which are foundational concepts in computational theory."}, {"source": "L", "target": "class np", "type": "", "evidence": "L is NP-complete if, and only if, the following two conditions are satisfied: L \u2208 NP"}, {"source": "np-completeness", "target": "P = NP question", "type": "", "evidence": "To attack the P = NP question, the concept of NP-completeness is very useful."}, {"source": "p = np", "target": "polynomial time", "type": "", "evidence": "it runs in polynomial time on accepting instances if P = NP."}, {"source": "p versus np problem", "target": "polynomial time", "type": "", "evidence": "since a proposed key can be verified in polynomial time."}, {"source": "generalized sudoku problem", "target": "np", "type": "", "evidence": "The generalized sudoku problem serves as an example of an NP problem, illustrating the complexity and challenges associated with problems in this class."}, {"source": "algorithm design", "target": "complexity classes", "type": "", "evidence": "The design of algorithms is heavily influenced by the understanding of complexity classes, as it determines the feasibility of solving problems within those classes."}, {"source": "millennium prize problems", "target": "p versus np problem", "type": "", "evidence": "The p versus np problem is one of the seven Millennium Prize Problems established by the Clay Mathematics Institute, highlighting its importance in mathematics and computer science."}, {"source": "p = np", "target": "np-complete problems", "type": "", "evidence": "A proof that P = NP could have stunning practical consequences if the proof leads to efficient methods for solving some of the important problems in NP."}, {"source": "polynomial time", "target": "class P", "type": "", "evidence": "Here, 'quickly' means an algorithm that solves the task and runs in polynomial time."}, {"source": "fixed size Sudoku", "target": "p", "type": "", "evidence": "in this case the problem is in P, as the answer can be found by table lookup"}, {"source": "computational complexity theory", "target": "resources required during computation", "type": "", "evidence": "the part of the theory of computation dealing with the resources required during computation to solve a given problem."}, {"source": "first-order logic", "target": "least fixed-point combinator", "type": "", "evidence": "all such languages in P are expressible in first-order logic with the addition of a suitable least fixed-point combinator."}, {"source": "p \u2260 np", "target": "class NP that are harder to compute than to verify", "type": "", "evidence": "If P \u2260 NP, which is widely believed, it would mean that there are problems in NP that are harder to compute than to verify."}, {"source": "deterministic machine", "target": "time", "type": "", "evidence": "Typically such models assume that the computer is deterministic (given the computer's present state and any inputs, there is only one possible action that the computer might take) and sequential."}, {"source": "3-sat", "target": "np-complete problems", "type": "", "evidence": "A constructive and efficient solution to an NP-complete problem such as 3-SAT would break most existing cryptosystems."}, {"source": "deterministic polynomial-time Turing machine", "target": "halting on all inputs and running in polynomial time", "type": "", "evidence": "a deterministic polynomial-time Turing machine is a deterministic Turing machine M that satisfies two conditions: M halts on all inputs w and there exists k \u2208 N such that T_M(n) \u2208 O(n^k)."}, {"source": "finite alphabet", "target": "class NP", "type": "", "evidence": "NP is the set of languages with a finite alphabet and verifier that runs in polynomial time."}, {"source": "william l. hosch", "target": "p versus np problem", "type": "", "evidence": "Hosch, William L (11 August 2009). 'P versus NP problem mathematics'."}, {"source": "p = np", "target": "algorithm research", "type": "", "evidence": "If p equals np, it would revolutionize algorithm research by providing polynomial-time solutions to many currently intractable problems, impacting various fields such as cryptography and operations research."}, {"source": "r vs. re problem", "target": "class p", "type": "", "evidence": "R is analog of class P"}, {"source": "p \u2260 np", "target": "millennium prize problems", "type": "", "evidence": "The assertion that p does not equal np (p \u2260 np) is one of the millennium prize problems, highlighting its significance in the field of mathematics and computer science."}, {"source": "quantum computation", "target": "integer factorization problem", "type": "", "evidence": "Quantum computation, exemplified by Shor's algorithm, has the potential to efficiently solve the integer factorization problem, which is believed to be hard for classical computers, thus influencing the field of cryptography."}, {"source": "polynomial time", "target": "linear time on a multitape turing machine", "type": "", "evidence": "When one substitutes 'linear time on a multitape Turing machine' for 'polynomial time' in the definitions of P and NP, one obtains the classes DLIN and NLIN."}, {"source": "mathematicians", "target": "p versus np problem", "type": "", "evidence": "The film Travelling Salesman, by director Timothy Lanzone, is the story of four mathematicians hired by the US government to solve the P versus NP problem."}, {"source": "np-complete problems", "target": "simplex algorithm", "type": "", "evidence": "There are algorithms for many NP-complete problems... that can solve to optimality many real-world instances in reasonable time."}, {"source": "class P", "target": "decision problems solvable on a deterministic sequential machine", "type": "", "evidence": "the class P consists of all decision problems... solvable on a deterministic sequential machine in a duration polynomial in the size of the input."}, {"source": "the simpsons", "target": "p versus np problem", "type": "", "evidence": "In the sixth episode of The Simpsons' seventh season 'Treehouse of Horror VI', the equation P = NP is seen shortly after Homer accidentally stumbles into the 'third dimension'."}, {"source": "class p", "target": "class np", "type": "", "evidence": "Class P consists of problems that can be solved in polynomial time, while class NP includes problems for which solutions can be verified in polynomial time, leading to the critical question of whether P equals NP."}, {"source": "class NP", "target": "verifier that runs in polynomial time", "type": "", "evidence": "However, a modern approach uses the concept of certificate and verifier... for L to be in NP, there must be a verifier that runs in polynomial time."}, {"source": "polynomial-time Turing machine", "target": "polynomial-time reduction", "type": "", "evidence": "there exists a polynomial-time Turing machine that halts with f(w) on its tape on any input w"}, {"source": "polynomial hierarchy (ph)", "target": "second-order logic", "type": "", "evidence": "The languages in the polynomial hierarchy, PH, correspond to all of second-order logic."}, {"source": "Presburger arithmetic", "target": "EXPTIME", "type": "", "evidence": "the problem of deciding the truth of a statement in Presburger arithmetic requires even more time."}, {"source": "algorithm research", "target": "implications for various fields", "type": "", "evidence": "Advancements in algorithm research have far-reaching implications across various fields, including cryptography, optimization, and artificial intelligence, as they rely on the efficiency of algorithms."}, {"source": "algorithm research", "target": "complexity classes p and np", "type": "", "evidence": "Research in algorithms is deeply intertwined with the properties of complexity classes p and np, as advancements in understanding these classes can lead to new algorithmic strategies."}, {"source": "current techniques", "target": "proof of independence from PA or ZFC", "type": "", "evidence": "proving independence from PA or ZFC with current techniques is no easier than proving all NP problems have efficient algorithms"}, {"source": "vp vs. vnp problem", "target": "r vs. re problem", "type": "", "evidence": "A similar problem exists in the theory of algebraic complexity"}, {"source": "np-complete problems", "target": "np-completeness", "type": "", "evidence": "NP-complete problems are a subset of NP problems that are as hard as the hardest problems in NP, illustrating the concept of np-completeness."}, {"source": "p \u2260 np", "target": "partial solutions or solutions to other problems", "type": "", "evidence": "It would demonstrate that many common problems cannot be solved efficiently, so that the attention of researchers can be focused on partial solutions or solutions to other problems."}, {"source": "EXPTIME", "target": "EXPTIME-complete", "type": "", "evidence": "A decision problem is EXPTIME-complete if it is in EXPTIME, and every problem in EXPTIME has a polynomial-time many-one reduction to it."}, {"source": "class NP", "target": "polynomial time", "type": "", "evidence": "The class of questions where an answer can be verified in polynomial time is 'NP', standing for 'nondeterministic polynomial time'."}, {"source": "p versus np problem", "target": "algorithm research", "type": "", "evidence": "The p versus np problem is central to algorithm research as it questions the efficiency of algorithms in solving NP-complete problems, influencing the development of new algorithms and computational techniques."}, {"source": "generalized sudoku problem", "target": "np-complete problems", "type": "", "evidence": "The generalized sudoku problem is a specific instance of NP-complete problems, illustrating the complexity involved in solving such combinatorial puzzles."}, {"source": "p versus np problem", "target": "leonid levin", "type": "", "evidence": "and independently by Leonid Levin in 1973."}, {"source": "incompatible students", "target": "housing accommodations", "type": "", "evidence": "the Dean has provided you with a list of pairs of incompatible students, and requested that no pair from this list appear in your final choice."}, {"source": "undecidable but verifiable problems", "target": "hilbert's tenth problem", "type": "", "evidence": "for example, Hilbert's tenth problem which is RE-complete"}, {"source": "linear time on a multitape turing machine", "target": "classes dlin and nlin", "type": "", "evidence": "one obtains the classes DLIN and NLIN."}, {"source": "class NP", "target": "decision problems whose positive solutions are verifiable in polynomial time", "type": "", "evidence": "the class NP consists of all decision problems whose positive solutions are verifiable in polynomial time given the right information."}, {"source": "cryptography", "target": "integer factorization problem", "type": "", "evidence": "Cryptography often relies on the assumption that certain problems, like integer factorization, are hard to solve, which is closely related to discussions around NP problems."}, {"source": "recursive functions", "target": "least fixed-point combinator", "type": "", "evidence": "Recursive functions can be defined with this and the order relation."}, {"source": "exponential time", "target": "p \u2260 np", "type": "", "evidence": "If proved (and Nash was suitably skeptical), this would imply what is now called P \u2260 NP."}, {"source": "algorithm research", "target": "p versus np problem", "type": "", "evidence": "A proof either way would have profound implications for... algorithm research."}, {"source": "np-complete problems", "target": "any other NP problem", "type": "", "evidence": "NP-complete problems are problems that any other NP problem is reducible to in polynomial time."}, {"source": "exponential time", "target": "polynomial time", "type": "", "evidence": "Exponential time algorithms contrast sharply with polynomial time algorithms, highlighting the efficiency differences that are central to the p versus np discussion."}, {"source": "historical context of np-completeness", "target": "theoretical computer science", "type": "", "evidence": "The historical development of NP-completeness provides insights into the evolution of theoretical computer science, highlighting key figures and milestones that shaped the field."}, {"source": "p = np", "target": "cryptography", "type": "", "evidence": "A solution showing P = NP could upend the field of cryptography, which relies on certain problems being difficult."}, {"source": "input", "target": "levin's algorithm", "type": "", "evidence": "Input: S = a finite set of integers."}, {"source": "quantum computation", "target": "p versus np problem", "type": "", "evidence": "Quantum computation introduces new paradigms that may alter our understanding of the p versus np problem, suggesting that certain problems could be solved more efficiently than previously thought."}, {"source": "np-complete problems", "target": "class np", "type": "", "evidence": "By definition, np-complete problems are the hardest problems in the class np, meaning that if any np-complete problem can be solved in polynomial time, then all problems in np can be solved in polynomial time."}, {"source": "cobham's thesis", "target": "np-complete problems", "type": "", "evidence": "All of the above discussion has assumed that P means 'easy' and 'not in P' means 'difficult', an assumption known as Cobham's thesis."}, {"source": "p versus np problem", "target": "various fields", "type": "", "evidence": "A proof either way would have profound implications for mathematics, cryptography, algorithm research, artificial intelligence, game theory, multimedia processing, philosophy, economics and many other fields."}, {"source": "class np", "target": "class p", "type": "", "evidence": "These classes are not equal"}, {"source": "boolean satisfiability problem", "target": "np-complete problems", "type": "", "evidence": "The boolean satisfiability problem is a classic example of an NP-complete problem, illustrating the challenges of determining satisfiability in logical expressions."}, {"source": "subset-sum", "target": "np-complete problem", "type": "", "evidence": "It correctly accepts the NP-complete language SUBSET-SUM."}, {"source": "quantum computation", "target": "p versus np problem", "type": "", "evidence": "Quantum computation introduces new paradigms that could potentially alter our understanding of the p versus np problem, suggesting that quantum algorithms might solve certain NP problems more efficiently."}, {"source": "cook\u2013levin theorem", "target": "np-complete problems", "type": "", "evidence": "The cook\u2013levin theorem demonstrates that the boolean satisfiability problem is NP-complete, providing a foundational result in the theory of NP-completeness."}, {"source": "algorithm", "target": "np-complete problem", "type": "", "evidence": "However, there are algorithms known for NP-complete problems."}, {"source": "algorithm research", "target": "np-completeness", "type": "", "evidence": "The study of NP-complete problems motivates algorithm research, as finding efficient solutions to these problems has significant implications across various fields."}, {"source": "algorithm design", "target": "np-completeness", "type": "", "evidence": "Algorithm design often takes into account the implications of NP-completeness."}, {"source": "p versus np problem", "target": "co-np-complete", "type": "", "evidence": "G\u00f6del asked whether theorem-proving (now known to be co-NP-complete) could be solved in quadratic or linear time."}, {"source": "cook\u2013levin theorem", "target": "boolean satisfiability problem", "type": "", "evidence": "The cook\u2013levin theorem demonstrates that the boolean satisfiability problem is np-complete, serving as a foundational result that links various computational problems."}, {"source": "cook\u2013levin theorem", "target": "np-completeness", "type": "", "evidence": "The cook\u2013levin theorem established the first NP-complete problem, providing a foundational framework for understanding the concept of NP-completeness and its implications in computational complexity theory."}, {"source": "class p", "target": "class np", "type": "", "evidence": "Class P consists of problems that can be solved in polynomial time, which is a subset of the broader class NP that includes problems verifiable in polynomial time."}, {"source": "cook\u2013levin theorem", "target": "boolean satisfiability problem and np-complete problems", "type": "", "evidence": "The cook\u2013levin theorem demonstrates that the boolean satisfiability problem is NP-complete, serving as a foundational result that connects various NP-complete problems."}, {"source": "cryptography", "target": "p versus np problem", "type": "", "evidence": "The resolution of the p versus np problem has significant implications for cryptography, particularly regarding the security of encryption algorithms that rely on the difficulty of certain NP problems."}, {"source": "fixed size Sudoku", "target": "finite number of possible grids", "type": "", "evidence": "any fixed size Sudoku has only a finite number of possible grids"}, {"source": "donald knuth", "target": "p = np", "type": "", "evidence": "Donald Knuth has stated that he has come to believe that P = NP, but is reserved about the impact of a possible proof."}, {"source": "algorithms", "target": "complexity classes", "type": "", "evidence": "Algorithms are designed to address problems categorized within various complexity classes."}, {"source": "Cryptomania", "target": "P \u2260 NP", "type": "", "evidence": "Cryptomania, where P \u2260 NP and generating hard instances of problems outside P is easy."}, {"source": "cryptography", "target": "p versus np problem", "type": "", "evidence": "The security of many cryptographic systems relies on the assumption that certain problems are hard to solve, which is directly tied to the unresolved p versus np question."}, {"source": "sudoku", "target": "satisfiability", "type": "", "evidence": "a polynomial-time solution to Sudoku leads, by a series of mechanical transformations, to a polynomial time solution of satisfiability."}, {"source": "Russell Impagliazzo", "target": "five hypothetical 'worlds'", "type": "", "evidence": "Russell Impagliazzo has described five hypothetical 'worlds' that could result from different possible resolutions to the average-case complexity question."}, {"source": "class P", "target": "polynomial time", "type": "", "evidence": "The general class of questions that some algorithm can answer in polynomial time is 'P' or 'class P'."}, {"source": "purported proofs", "target": "proofs of P \u2260 NP", "type": "", "evidence": "49 were proofs of P \u2260 NP."}, {"source": "proof techniques", "target": "np-completeness", "type": "", "evidence": "Various proof techniques, such as proof by reduction, are crucial for establishing the np-completeness of problems, thereby enhancing our understanding of computational complexity."}, {"source": "np-completeness", "target": "computational complexity theory", "type": "", "evidence": "NP-completeness is a central concept in computational complexity theory."}, {"source": "finite alphabet", "target": "language L", "type": "", "evidence": "Let L be a language over a finite alphabet \u03a3"}, {"source": "p = np", "target": "computational complexity theory", "type": "", "evidence": "A proof that P = NP would lack the practical computational benefits of a proof that P \u2260 NP."}, {"source": "historical context of np-completeness", "target": "algorithm research", "type": "", "evidence": "Understanding the historical context of NP-completeness helps frame current algorithm research and the challenges posed by NP-complete problems."}, {"source": "complexity classes p and np", "target": "computational complexity theory", "type": "", "evidence": "The relation between the complexity classes P and NP is studied in computational complexity theory."}, {"source": "L'", "target": "L", "type": "", "evidence": "any L' in NP is polynomial-time-reducible to L"}, {"source": "np", "target": "p versus np problem", "type": "", "evidence": "This problem concerns the issue of whether questions that are easy to verify (a class of queries called NP) also have solutions that are easy to find (a class called P)."}, {"source": "Heuristica", "target": "P \u2260 NP but all problems in NP are tractable in the average case", "type": "", "evidence": "The 'world' where P \u2260 NP but all problems in NP are tractable in the average case is called 'Heuristica' in the paper."}, {"source": "Fischer and Rabin", "target": "runtime of Presburger statements", "type": "", "evidence": "Fischer and Rabin proved in 1974 that every algorithm that decides the truth of Presburger statements of length n has a runtime of at least 2^{2^{cn}} for some constant c."}, {"source": "p = np problem", "target": "logical statements", "type": "", "evidence": "The P = NP problem can be restated as certain classes of logical statements, as a result of work in descriptive complexity."}, {"source": "p versus np problem", "target": "computational complexity theory", "type": "", "evidence": "The p versus np problem is a fundamental question that explores the relationship between the complexity classes P and NP, which are central to the field of computational complexity theory."}, {"source": "big O notation", "target": "polynomial time complexity", "type": "", "evidence": "where O refers to the big O notation."}, {"source": "p versus np problem", "target": "undecidable", "type": "", "evidence": "6 proved other results, e.g. that the problem is undecidable."}, {"source": "housing accommodations", "target": "np", "type": "", "evidence": "To complicate matters, the Dean has provided you with a list of pairs of incompatible students, and requested that no pair from this list appear in your final choice. This is an example of what computer scientists call an NP-problem."}, {"source": "p versus np problem", "target": "Millennium Prize Problems", "type": "", "evidence": "It is one of the seven Millennium Prize Problems selected by the Clay Mathematics Institute."}, {"source": "np-complete problem", "target": "polynomial time", "type": "", "evidence": "No known algorithm for a NP-complete problem runs in polynomial time."}, {"source": "graph isomorphism problem", "target": "polynomial time hierarchy", "type": "", "evidence": "If graph isomorphism is NP-complete, the polynomial time hierarchy collapses to its second level."}, {"source": "L\u00e1szl\u00f3 Babai", "target": "algorithm for graph isomorphism problem", "type": "", "evidence": "The best algorithm for this problem, due to L\u00e1szl\u00f3 Babai, runs in quasi-polynomial time."}, {"source": "L", "target": "another NP-complete problem", "type": "", "evidence": "if L \u2208 NP, and there is another NP-complete problem that can be polynomial-time reduced to L, then L is NP-complete"}, {"source": "P", "target": "NP", "type": "", "evidence": "Clearly, P \u2286 NP."}, {"source": "p = np", "target": "np-complete problems", "type": "", "evidence": "if a polynomial-time algorithm can be demonstrated for an NP-complete problem, this would solve the P = NP problem"}, {"source": "peano axioms", "target": "zfc", "type": "", "evidence": "if the problem is undecidable even with much weaker assumptions extending the Peano axioms"}, {"source": "class P", "target": "deterministic polynomial-time Turing machine", "type": "", "evidence": "Formally, P is the set of languages that can be decided by a deterministic polynomial-time Turing machine."}, {"source": "proof by reduction", "target": "establishing np-completeness", "type": "", "evidence": "Proof by reduction is a fundamental technique in computational complexity that is used to show that one problem is at least as hard as another, which is essential for proving that a problem is NP-complete."}, {"source": "np-hard problems", "target": "NP problems", "type": "", "evidence": "NP-hard problems are those at least as hard as NP problems."}, {"source": "sudoku", "target": "Latin squares", "type": "", "evidence": "the proof shows that a solution of Sudoku in polynomial time could also be used to complete Latin squares in polynomial time."}, {"source": "elementary", "target": "mathematicians", "type": "", "evidence": "In the second episode of season 2 of Elementary, 'Solve for X' Sherlock and Watson investigate the murders of mathematicians who were attempting to solve P versus NP."}, {"source": "np-complete problems", "target": "operations research", "type": "", "evidence": "There are also enormous benefits that would follow from rendering tractable many currently mathematically intractable problems. For instance, many problems in operations research are NP-complete."}, {"source": "kurt g\u00f6del", "target": "automation of mathematical proofs", "type": "", "evidence": "Kurt G\u00f6del's work on incompleteness has influenced the field of automation of mathematical proofs, as it raises questions about the limits of formal systems."}, {"source": "boolean satisfiability problem", "target": "NP-complete problems", "type": "", "evidence": "The Boolean satisfiability problem is one of many NP-complete problems."}, {"source": "resources required during computation", "target": "time", "type": "", "evidence": "The most common resources are time (how many steps it takes to solve a problem) and space (how much memory it takes to solve a problem)."}, {"source": "sequential computation", "target": "deterministic machine", "type": "", "evidence": "Typically such models assume that the computer is deterministic and sequential (it performs actions one after the other)."}, {"source": "output", "target": "levin's algorithm", "type": "", "evidence": "Output: 'yes' if any subset of S adds up to 0."}, {"source": "algorithm", "target": "computational complexity theory", "type": "", "evidence": "Algorithms are central to computational complexity theory as they define the methods by which problems are solved and classified based on their time and space requirements."}, {"source": "deterministic machine", "target": "sequential computation", "type": "", "evidence": "Deterministic machines operate under a model of sequential computation, which is a fundamental concept in understanding how algorithms are executed."}, {"source": "verifier", "target": "certificate", "type": "", "evidence": "A Turing machine that decides LR is called a verifier for L and a y such that (x, y) \u2208 R is called a certificate of membership of x in L."}, {"source": "cook\u2013levin theorem", "target": "boolean satisfiability problem", "type": "", "evidence": "The cook\u2013levin theorem demonstrates that the boolean satisfiability problem is NP-complete, serving as a cornerstone for proving the NP-completeness of other problems through reductions."}, {"source": "simplex algorithm", "target": "polynomial algorithm", "type": "", "evidence": "The simplex algorithm in linear programming... despite having exponential worst-case time complexity, it runs on par with the best known polynomial-time algorithms."}, {"source": "p = np", "target": "axiom systems", "type": "", "evidence": "some computer scientists to suggest the P versus NP problem may be independent of standard axiom systems like ZFC"}, {"source": "np-completeness", "target": "cook\u2013levin theorem", "type": "", "evidence": "The cook\u2013levin theorem established the first NP-complete problem, which is foundational to the concept of NP-completeness and its implications in theoretical computer science."}, {"source": "g\u00f6del's thoughts on computational complexity", "target": "p = np", "type": "", "evidence": "G\u00f6del, in his early thoughts on computational complexity, noted that a mechanical method that could solve any problem would revolutionize mathematics."}, {"source": "historical context of np-completeness", "target": "theoretical computer science", "type": "", "evidence": "Understanding the historical context of NP-completeness provides insights into the evolution of theoretical computer science and the development of complexity classes."}, {"source": "john nash", "target": "algorithm research", "type": "", "evidence": "John Nash's contributions to game theory have implications for algorithm research, particularly in developing algorithms for strategic decision-making."}, {"source": "graph isomorphism problem", "target": "not NP-complete", "type": "", "evidence": "It is believed that the problem is at least not NP-complete."}, {"source": "decision problem", "target": "problem that takes as input some string w over an alphabet \u03a3, and outputs 'yes' or 'no'", "type": "", "evidence": "A decision problem is a problem that takes as input some string w over an alphabet \u03a3, and outputs 'yes' or 'no'."}, {"source": "p \u2260 np", "target": "algorithm research", "type": "", "evidence": "If p is not equal to np, it would imply that certain problems cannot be solved efficiently, thus shaping the direction of algorithm research and development."}, {"source": "descriptive complexity", "target": "first-order logic", "type": "", "evidence": "all such languages in P are expressible in first-order logic with the addition of a suitable least fixed-point combinator."}, {"source": "integer factorization problem", "target": "NP", "type": "", "evidence": "The integer factorization problem is in NP and in co-NP."}, {"source": "poll results on p vs np", "target": "P \u2260 NP", "type": "", "evidence": "Confidence that P \u2260 NP has been increasing \u2013 in 2019, 88% believed P \u2260 NP."}, {"source": "p = np", "target": "algorithm research", "type": "", "evidence": "The hypothesis that p equals np has profound implications for algorithm research, as it would suggest that many problems currently believed to be intractable could be solved efficiently."}, {"source": "class NP", "target": "nondeterministic Turing machines", "type": "", "evidence": "NP can be defined similarly using nondeterministic Turing machines (the traditional way)."}, {"source": "semi-algorithm", "target": "algorithm", "type": "", "evidence": "Accepting means it gives 'yes' answers in polynomial time, but is allowed to run forever when the answer is 'no'."}, {"source": "zfc", "target": "axiom systems", "type": "", "evidence": "independent of standard axiom systems like ZFC"}, {"source": "quantum computation", "target": "p versus np problem", "type": "", "evidence": "Quantum computation introduces new paradigms that could potentially resolve the p versus np problem, as seen with algorithms like Shor's algorithm that efficiently solve problems believed to be hard for classical computers."}, {"source": "exponential time", "target": "polynomial time", "type": "", "evidence": "Exponential time algorithms are often contrasted with polynomial time algorithms, as they represent a significant increase in computational resources required to solve problems."}, {"source": "boolean satisfiability problem", "target": "Cook\u2013Levin theorem", "type": "", "evidence": "the Boolean satisfiability problem is NP-complete by the Cook\u2013Levin theorem."}, {"source": "np-intermediate problems", "target": "graph isomorphism problem", "type": "", "evidence": "The graph isomorphism problem, the discrete logarithm problem, and the integer factorization problem are examples of problems believed to be NP-intermediate."}, {"source": "integer factorization problem", "target": "RSA algorithm", "type": "", "evidence": "No efficient integer factorization algorithm is known, and this fact forms the basis of several modern cryptographic systems, such as the RSA algorithm."}, {"source": "resources required during computation", "target": "space", "type": "", "evidence": "The most common resources are time (how many steps it takes to solve a problem) and space (how much memory it takes to solve a problem)."}, {"source": "fermat's last theorem", "target": "theorems that are hard to prove", "type": "", "evidence": "Research mathematicians spend their careers trying to prove theorems, and some proofs have taken decades or even centuries to find after problems have been stated\u2014for instance, Fermat's Last Theorem took over three centuries to prove."}, {"source": "undecidable problems", "target": "EXPTIME", "type": "", "evidence": "Even more difficult are the undecidable problems, such as the halting problem."}, {"source": "p versus np problem", "target": "stephen cook", "type": "", "evidence": "The precise statement of the P versus NP problem was introduced in 1971 by Stephen Cook in his seminal paper."}, {"source": "p versus np problem", "target": "algorithm research", "type": "", "evidence": "The p versus np problem is a central question in theoretical computer science that directly influences algorithm research, as it determines the feasibility of solving problems efficiently."}, {"source": "class p", "target": "class np", "type": "", "evidence": "Class P is a subset of Class NP, indicating that all problems that can be solved in polynomial time can also be verified in polynomial time, which is a foundational concept in computational complexity."}, {"source": "quantum computation", "target": "classical computational problems", "type": "", "evidence": "Quantum computation introduces new paradigms for solving problems, potentially affecting the classification of problems within complexity classes such as P and NP."}, {"source": "clay mathematics institute", "target": "millennium prize problems", "type": "", "evidence": "The Clay Mathematics Institute sponsors the millennium prize problems, including the p versus np problem, emphasizing its importance in the mathematical community."}, {"source": "william gasarch", "target": "p versus np problem", "type": "", "evidence": "Since 2002, William Gasarch has conducted three polls of researchers concerning this and related questions."}, {"source": "boolean satisfiability problem", "target": "np-complete problems", "type": "", "evidence": "The boolean satisfiability problem (SAT) is the first problem that was proven to be NP-complete, serving as a benchmark for other NP-complete problems."}, {"source": "generalized sudoku problem", "target": "np", "type": "", "evidence": "generalized Sudoku is in NP (quickly verifiable)"}, {"source": "time hierarchy theorem", "target": "EXPTIME", "type": "", "evidence": "by the time hierarchy theorem, they cannot be solved in significantly less than exponential time."}, {"source": "exponential time", "target": "np-hard problems", "type": "", "evidence": "NP-hard problems are often characterized by their requirement for exponential time solutions, highlighting the complexity and difficulty of these problems."}, {"source": "purported proofs", "target": "proofs of P = NP", "type": "", "evidence": "of which 61 were proofs of P = NP."}, {"source": "p = np", "target": "efficient algorithms", "type": "", "evidence": "Even if the proof is constructive, showing an explicit bounding polynomial and algorithmic details, if the polynomial is not very low-order the algorithm might not be sufficiently efficient in practice."}, {"source": "Turing machine", "target": "NP-complete problems", "type": "", "evidence": "it is NP-complete because the verifier for any particular instance of a problem in NP can be encoded as a polynomial-time machine M."}, {"source": "table lookup", "target": "solving fixed size Sudoku", "type": "", "evidence": "the answer can be found by table lookup"}, {"source": "p versus np problem", "target": "theoretical computer science", "type": "", "evidence": "The p versus np problem is a fundamental question in theoretical computer science."}, {"source": "exponential time", "target": "np-hard problems", "type": "", "evidence": "NP-hard problems are characterized by their requirement for exponential time to solve, indicating their complexity and the challenges they pose in computational theory."}, {"source": "generalized sudoku problem", "target": "p", "type": "", "evidence": "it is not known whether there is a polynomial-time algorithm that can correctly answer 'yes' or 'no' to all instances of this problem"}, {"source": "proof techniques", "target": "p = np", "type": "", "evidence": "existing proof techniques are insufficient for answering the question"}, {"source": "levin's algorithm", "target": "semi-algorithm", "type": "", "evidence": "This is a polynomial-time algorithm accepting an NP-complete language only if P = NP."}, {"source": "3-SAT", "target": "Boolean satisfiability", "type": "", "evidence": "which could then be used to find solutions for the special case of SAT known as 3-SAT."}, {"source": "proof by reduction", "target": "np-completeness", "type": "", "evidence": "Proof by reduction is a fundamental method used to demonstrate the NP-completeness of various problems, establishing their computational difficulty relative to known NP-complete problems."}, {"source": "gerhard j. woeginger", "target": "purported proofs", "type": "", "evidence": "Gerhard J. Woeginger compiled a list of 116 purported proofs from 1986 to 2016."}, {"source": "p = np problem", "target": "p = ph", "type": "", "evidence": "P = NP if and only if P = PH."}, {"source": "randomized algorithms", "target": "np-complete problems", "type": "", "evidence": "there are types of computations which do not conform to the Turing machine model on which P and NP are defined, such as randomized algorithms."}, {"source": "john nash", "target": "exponential time", "type": "", "evidence": "In 1955, mathematician John Nash wrote a letter to the NSA, speculating that cracking a sufficiently complex code would require time exponential in the length of the key."}, {"source": "proof by reduction", "target": "other problems are NP-complete", "type": "", "evidence": "proof by reduction provided a simpler way to show that many other problems are also NP-complete."}, {"source": "polynomial algorithm", "target": "big o notation", "type": "", "evidence": "A theoretical polynomial algorithm may have extremely large constant factors or exponents, rendering it impractical."}, {"source": "vp vs. vnp problem", "target": "unknown answer", "type": "", "evidence": "Like P vs. NP, the answer is currently unknown"}, {"source": "polynomial time", "target": "class p", "type": "", "evidence": "Class P consists of problems that can be solved in polynomial time, which is a key characteristic that differentiates it from NP problems."}, {"source": "np-complete problems", "target": "any other problem in NP", "type": "", "evidence": "an NP-complete problem is an NP problem that is at least as 'tough' as any other problem in NP."}, {"source": "NP-completeness", "target": "common proof technique", "type": "", "evidence": "this is a common way of proving some new problem is NP-complete"}, {"source": "co-np-complete", "target": "class np", "type": "", "evidence": "Co-np-complete problems are closely related to class NP, as they involve the complement of NP problems, further enriching the understanding of computational complexity."}, {"source": "algorithm", "target": "computational complexity theory", "type": "", "evidence": "Algorithms are the primary focus of computational complexity theory, as they define the methods for solving problems and are evaluated based on their efficiency and resource requirements."}, {"source": "non-deterministic machine", "target": "class np", "type": "", "evidence": "Non-deterministic machines are used to define class NP, where solutions can be verified in polynomial time, highlighting the difference from deterministic machines."}, {"source": "Princeton University workshop 2009", "target": "status of the five worlds", "type": "", "evidence": "A Princeton University workshop in 2009 studied the status of the five worlds."}, {"source": "p versus np problem", "target": "millennium prize problems", "type": "", "evidence": "This problem concerns the issue of whether questions that are easy to verify (a class of queries called NP) also have solutions that are easy to find (a class called P)."}, {"source": "p = np problem", "target": "existential second-order logic", "type": "", "evidence": "the question 'is P a proper subset of NP' can be reformulated as 'is existential second-order logic able to describe languages...'"}, {"source": "cryptography", "target": "np-hard problems", "type": "", "evidence": "Many cryptographic systems are based on the assumption that certain NP-hard problems, such as integer factorization, are difficult to solve, which is crucial for their security."}, {"source": "NP", "target": "existential second-order logic", "type": "", "evidence": "Similarly, NP is the set of languages expressible in existential second-order logic."}, {"source": "r vs. re problem", "target": "class np", "type": "", "evidence": "RE is analog class NP"}, {"source": "historical context of np-completeness", "target": "theoretical computer science", "type": "", "evidence": "Understanding the historical development of np-completeness helps contextualize current research and the evolution of theoretical computer science."}, {"source": "chess strategy problem", "target": "EXPTIME-complete", "type": "", "evidence": "Examples include finding a perfect strategy for chess positions on an N \u00d7 N board and similar problems for other board games."}, {"source": "quantum computation", "target": "np-complete problems", "type": "", "evidence": "there are types of computations which do not conform to the Turing machine model on which P and NP are defined, such as quantum computation."}, {"source": "stephen cook", "target": "theoretical computer science", "type": "", "evidence": "Stephen Cook is a pivotal figure in theoretical computer science, known for formulating the p versus np problem, which is foundational to the field."}, {"source": "NP", "target": "co-NP", "type": "", "evidence": "the former would establish that NP = co-NP."}], "expandedNodes": []};
+
+            document.addEventListener('DOMContentLoaded', function() {
+                // Set up variables
+                let expandedNodes = new Set(networkData.expandedNodes || []);
+                const width = 800;
+                const height = 600;
+                const centerX = width / 2;
+                const centerY = height / 2;
+                
+                let simulation;
+
+                // Color scheme - shades of green from lightest to darkest
+                const colorScheme = [
+                    "#D1EDE8", "#ABD9D1", "#97C0DB", "#6596B5", "#9C82DE", "#9575CD"
+                ];
+
+                // Set up SVG and tooltips
+                const svg = d3.select("#concept-map");
+                const tooltip = d3.select("#tooltip");
+                const evidenceTooltip = d3.select("#evidence-tooltip");
+
+                // Create a group for zooming
+                const g = svg.append("g");
+
+                // Set up zoom behavior
+                const zoom = d3.zoom()
+                    .scaleExtent([0.5, 5])
+                    .on("zoom", function(event) {
+                        g.attr("transform", event.transform);
+                    });
+
+                svg.call(zoom);
+
+                // Ensure nodes have string IDs and links reference those IDs
+                networkData.nodes.forEach(node => {
+                    node.id = String(node.id);
+                });
+
+                networkData.links.forEach(link => {
+                    link.source = String(link.source);
+                    link.target = String(link.target);
+                });
+
+                // Validate links - only keep links where both source and target nodes exist
+                const validNodeIds = new Set(networkData.nodes.map(node => node.id));
+                networkData.links = networkData.links.filter(link => 
+                    validNodeIds.has(link.source) && validNodeIds.has(link.target)
+                );
+
+                // Function to highlight terms in evidence text
+                function highlightTermsInEvidence(evidence, source, target, relation) {
+                    if (!evidence) return "No evidence available";
+                    
+                    try {
+                        // Simple HTML display without attempting to highlight terms
+                        return evidence;
+                    } catch(e) {
+                        console.error("Error in evidence:", e);
+                        return "No evidence available";
+                    }
+                }
+
+                // Function to calculate importance score
+                function calculateImportanceScore(node) {
+                    const frequencyWeight = 0.6;
+                    const maxFrequency = Math.max(...networkData.nodes.map(n => n.frequency || 0), 1);
+                    const maxDegree = Math.max(...networkData.nodes.map(n => n.degree || 0), 1);
+                    const normalizedFrequency = (node.frequency || 0) / maxFrequency;
+                    const normalizedDegree = (node.degree || 0) / maxDegree;
+                    return (normalizedFrequency * frequencyWeight) + (normalizedDegree * (1 - frequencyWeight));
+                }
+
+                // Find the most important concept to place at the center
+                function findCentralNode(nodes) {
+                    return nodes.reduce((max, node) => {
+                        const score = calculateImportanceScore(node);
+                        return (score > calculateImportanceScore(max)) ? node : max;
+                    }, nodes[0]);
+                }
+
+                // Function to get node size based on importance
+                function getNodeSize(node) {
+                    const score = calculateImportanceScore(node);
+                    return 10 + (score * 30);  // Min 10, max 40
+                }
+
+                // Function to get node color based on layer
+                function getNodeColor(node) {
+                    let baseIntensity;
+                    switch(node.layer) {
+                        case 'priority':
+                            baseIntensity = 5; // Darkest shade
+                            break;
+                        case 'secondary':
+                            baseIntensity = 2; // Medium shade
+                            break;
+                        case 'tertiary':
+                        default:
+                            baseIntensity = 0; // Lightest shade
+                    }
+
+                    const score = calculateImportanceScore(node);
+                    const intensityVariation = Math.min(Math.floor(score * 2), 1);
+                    const colorIndex = Math.min(Math.max(baseIntensity - intensityVariation, 0), colorScheme.length - 1);
+
+                    return colorScheme[colorIndex];
+                }
+
+                // Function to get visible data based on expanded nodes
+                function getVisibleData() {
+                    console.log("Getting visible data with expanded nodes:", Array.from(expandedNodes));
+                    
+                    // Priority nodes are always visible
+                    const visibleNodeIds = new Set(
+                        networkData.nodes
+                            .filter(node => node.layer === "priority" || expandedNodes.has(node.id))
+                            .map(node => node.id)
+                    );
+                    
+                    console.log(`Initial visible nodes (priority + expanded): ${visibleNodeIds.size}`);
+                    
+                    // Keep track of how many nodes we add in this expansion pass
+                    let nodesAdded = 0;
+                    
+                    // Find all nodes connected to expanded nodes
+                    expandedNodes.forEach(expandedId => {
+                        networkData.links.forEach(link => {
+                            let sourceId, targetId;
+                            
+                            // Handle both string and object formats
+                            if (typeof link.source === 'object') {
+                                sourceId = link.source.id;
+                            } else {
+                                sourceId = String(link.source);
+                            }
+                            
+                            if (typeof link.target === 'object') {
+                                targetId = link.target.id;
+                            } else {
+                                targetId = String(link.target);
+                            }
+                            
+                            if (sourceId === expandedId && !visibleNodeIds.has(targetId)) {
+                                visibleNodeIds.add(targetId);
+                                nodesAdded++;
+                            }
+                            
+                            if (targetId === expandedId && !visibleNodeIds.has(sourceId)) {
+                                visibleNodeIds.add(sourceId);
+                                nodesAdded++;
+                            }
+                        });
+                    });
+                    
+                    console.log(`Added ${nodesAdded} connected nodes to visible set`);
+                    console.log(`Total visible nodes: ${visibleNodeIds.size}`);
+                    
+                    // Get visible nodes
+                    const visibleNodes = networkData.nodes.filter(node => 
+                        visibleNodeIds.has(node.id)
+                    );
+                    
+                    // Get visible links
+                    const visibleLinks = networkData.links.filter(link => {
+                        let sourceId, targetId;
+                        
+                        // Handle both string and object formats
+                        if (typeof link.source === 'object') {
+                            sourceId = link.source.id;
+                        } else {
+                            sourceId = String(link.source);
+                        }
+                        
+                        if (typeof link.target === 'object') {
+                            targetId = link.target.id;
+                        } else {
+                            targetId = String(link.target);
+                        }
+                        
+                        return visibleNodeIds.has(sourceId) && visibleNodeIds.has(targetId);
+                    });
+                    
+                    console.log(`Visible nodes: ${visibleNodes.length}, Visible links: ${visibleLinks.length}`);
+                    
+                    return { nodes: visibleNodes, links: visibleLinks };
+                }
+
+                // Function to find nodes with hidden connections
+                function getAllNodesWithHiddenConnections() {
+                    // Get all nodes
+                    const allNodeIds = new Set(networkData.nodes.map(n => n.id));
+                    
+                    // Get currently visible nodes
+                    const visibleData = getVisibleData();
+                    const visibleNodeIds = new Set(visibleData.nodes.map(n => n.id));
+                    
+                    // Build a map of all connections
+                    const allConnections = new Map();
+                    
+                    // Initialize map with all nodes
+                    allNodeIds.forEach(nodeId => {
+                        allConnections.set(nodeId, []);
+                    });
+                    
+                    // Add all connections
+                    networkData.links.forEach(link => {
+                        const sourceId = typeof link.source === 'object' ? link.source.id : String(link.source);
+                        const targetId = typeof link.target === 'object' ? link.target.id : String(link.target);
+                        
+                        if (allConnections.has(sourceId)) {
+                            allConnections.get(sourceId).push(targetId);
+                        }
+                        
+                        if (allConnections.has(targetId)) {
+                            allConnections.get(targetId).push(sourceId);
+                        }
+                    });
+                    
+                    // Find all nodes that have hidden connections
+                    const nodesWithHidden = new Set();
+                    
+                    // Check each visible node
+                    visibleNodeIds.forEach(nodeId => {
+                        const connections = allConnections.get(nodeId) || [];
+
+                        // If any connection is to a non-visible node, this node has hidden connections
+                        if (connections.some(connId => !visibleNodeIds.has(connId))) {
+                            nodesWithHidden.add(nodeId);
+                        }
+                    });
+
+                    // Print debug info
+                    console.log(`Found ${nodesWithHidden.size} nodes with hidden connections`);
+                    console.log("Nodes with hidden connections:", Array.from(nodesWithHidden));
+
+                    return nodesWithHidden;
+                }
+
+                // Function to assign initial positions in concentric circles
+                function assignInitialPositions(nodes, centralNodeId) {
+                    // Group nodes by layer
+                    const layerGroups = {"priority": [], "secondary": [], "tertiary": []};
+
+                    nodes.forEach(node => {
+                        if (node.id === centralNodeId) {
+                            // Central node stays at center
+                            node.x = centerX;
+                            node.y = centerY;
+                            node.fx = centerX; // Fix position
+                            node.fy = centerY; // Fix position
+                            node.isCenter = true;
+                        } else {
+                            // Group other nodes by layer
+                            const layer = node.layer || "tertiary";
+                            layerGroups[layer].push(node);
+                            // Clear any fixed positions
+                            node.fx = null;
+                            node.fy = null;
+                            node.isCenter = false;
+                        }
+                    });
+
+                    // Assign positions in concentric circles by layer
+                    // Priority nodes closest to center
+                    positionNodesInCircle(layerGroups["priority"], 120);
+                    positionNodesInCircle(layerGroups["secondary"], 240);
+                    positionNodesInCircle(layerGroups["tertiary"], 360);
+                }
+
+                // Helper function to position nodes in a circle
+                function positionNodesInCircle(nodes, radius) {
+                    const angleStep = (2 * Math.PI) / Math.max(nodes.length, 1);
+
+                    nodes.forEach((node, i) => {
+                        const angle = i * angleStep;
+                        node.x = centerX + radius * Math.cos(angle);
+                        node.y = centerY + radius * Math.sin(angle);
+                    });
+                }
+
+                // Function to update the visualization
+                function updateVisualization() {
+                    // Get current data
+                    const { nodes, links } = getVisibleData();
+                    const nodesWithHidden = getAllNodesWithHiddenConnections();
+
+                    // Find central node
+                    const centralNode = findCentralNode(nodes);
+
+                    // Clear previous elements
+                    g.selectAll("*").remove();
+
+                    // Create a node ID lookup for the simulation
+                    const nodeById = new Map(nodes.map(node => [node.id, node]));
+
+                    // Assign initial positions
+                    assignInitialPositions(nodes, centralNode.id);
+
+                    // Set up the simulation with proper node references and forces
+                     simulation = d3.forceSimulation(nodes)
+                        .force("link", d3.forceLink()
+                            .id(d => d.id)
+                            .links(links.map(link => ({
+                                source: nodeById.get(String(link.source)) || String(link.source),
+                                target: nodeById.get(String(link.target)) || String(link.target),
+                                type: link.type,
+                                evidence: link.evidence
+                            })))
+                            .distance(d => {
+                                // Adjust distance based on layer and node size
+                                const source = typeof d.source === 'object' ? d.source : nodeById.get(String(d.source));
+                                const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
+                        
+                                if (!source || !target) return 120;
+                        
+                                // Get sizes of source and target nodes
+                                const sourceSize = getNodeSize(source);
+                                const targetSize = getNodeSize(target);
+                                
+                                // Base distance on node sizes + a minimum distance
+                                const baseDistance = sourceSize + targetSize + 30;
+                                
+                                // Layer-based adjustments
+                                if (source.layer === "priority" && target.layer === "priority") {
+                                    // Priority-to-priority connections are slightly closer
+                                    return baseDistance * 1.2;
+                                } else if (source.layer === "priority" || target.layer === "priority") {
+                                    // Priority-to-other connections at medium distance
+                                    return baseDistance * 1.5;
+                                }
+                                
+                                // Other connections have more space
+                                return baseDistance * 2.0;
+                            })
+                            .strength(0.3))
+                        .force("charge", d3.forceManyBody().strength(d => {
+                            // Stronger repulsion for larger nodes
+                            return d.isCenter ? -400 : -200;
+                        }))
+                        .force("center", d3.forceCenter(centerX, centerY))
+                        .force("collide", d3.forceCollide().radius(d => getNodeSize(d) + 10))
+                        .force("x", d3.forceX(centerX).strength(d => {
+                            // Layer-based strength to keep priority nodes closer to center
+                            if (d.isCenter) return 1.0;
+                            if (d.layer === "priority") return 0.1;
+                            if (d.layer === "secondary") return 0.05;
+                            return 0.01;
+                        }))
+                        .force("y", d3.forceY(centerY).strength(d => {
+                            // Layer-based strength to keep priority nodes closer to center
+                            if (d.isCenter) return 1.0;
+                            if (d.layer === "priority") return 0.1;
+                            if (d.layer === "secondary") return 0.05;
+                            return 0.01;
+                        }))
+                        .force("link-repulsion", d3.forceManyBody()
+                            .strength(-10)
+                            .distanceMax(150)
+                            .distanceMin(25))
+                        .alphaDecay(0.02);
+
+                    // Create links with hover effects
+                    const link = g.selectAll(".link")
+                        .data(links)
+                        .join("path")
+                        .attr("class", "link")
+                        .attr("stroke", function(d) {
+                            // Get the target node
+                            const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
+                            
+                            if (!target) return "#BDBDBD"; // Default gray
+                            
+                            // Color based on target's layer
+                            switch(target.layer) {
+                                case "priority":
+                                    return "#B39DDB"; // Purple for priority
+                                case "secondary":
+                                    return "#90CAF9"; // Blue for secondary
+                                case "tertiary":
+                                    return "#B2DFDB"; // Light blue/green for tertiary
+                                default:
+                                    return "#BDBDBD"; // Default gray
+                            }
+                        })
+                        .attr("stroke-opacity", 0.6)
+                        .attr("stroke-width", function(d) {
+                            const sourceNode = nodes.find(n => n.id === String(d.source));
+                            const targetNode = nodes.find(n => n.id === String(d.target));
+                            return (sourceNode?.layer === "priority" && targetNode?.layer === "priority") ? 3 : 1.5;
+                        })
+                        .attr("fill", "none")
+                        .on("mouseover", function(event, d) {
+                            // Highlight the line on hover
+                            const currentColor = d3.select(this).attr("stroke");
+                            d3.select(this)
+                                .attr("stroke-opacity", 1)
+                                .attr("stroke-width", function() {
+                                    return parseFloat(d3.select(this).attr("stroke-width")) + 1;
+                                })
+                                .attr("stroke", function() {
+                                    // Darken the current color for hover effect
+                                    const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
+                                    
+                                    if (!target) return "#999";
+                                    
+                                    switch(target.layer) {
+                                        case "priority":
+                                            return "#9575CD"; // Slightly darker purple
+                                        case "secondary":
+                                            return "#64B5F6"; // Slightly darker blue
+                                        case "tertiary":
+                                            return "#80CBC4"; // Slightly darker teal
+                                        default:
+                                            return "#999"; // Darker gray
+                                    }
+                                });
+
+                            // Get source and target node objects
+                            const sourceNode = typeof d.source === 'object' ? d.source : nodeById.get(String(d.source));
+                            const targetNode = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
+
+                            if (sourceNode && targetNode) {
+                                // Prepare evidence with highlighted terms
+                                const evidence = d.evidence || "";
+                                const highlightedEvidence = highlightTermsInEvidence(
+                                    evidence, 
+                                    sourceNode.name || sourceNode.id,
+                                    targetNode.name || targetNode.id,
+                                    d.type
+                                );
+
+                                // Show the evidence tooltip
+                                // When showing the evidence tooltip, just display the evidence as plain text
+                        evidenceTooltip
+                            .style("display", "block")
+                            .style("left", (event.pageX + 10) + "px")
+                            .style("top", (event.pageY - 10) + "px")
+                            .html(`
+                                <strong>${sourceNode.name || sourceNode.id}</strong>
+                                <span style="margin: 0 5px;">→</span>
+                                <strong>${d.type || "relates to"}</strong>
+                                <span style="margin: 0 5px;">→</span>
+                                <strong>${targetNode.name || targetNode.id}</strong>
+                                <hr style="margin: 8px 0;">
+                                <div>${d.evidence || "No evidence available"}</div>
+                            `);
+                            }
+                        })
+                        .on("mouseout", function() {
+                            // Restore original line style                            
+                            d3.select(this)
+                                    .attr("stroke-opacity", 0.6)
+                                    .attr("stroke-width", function(d) {
+                                        const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
+                                        
+                                        if (target && target.layer === "priority") return 2;
+                                        if (target && target.layer === "secondary") return 1.8;
+                                        return 1.5;
+                                    })
+                                    .attr("stroke", function(d) {
+                                        // Restore original color
+                                        const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
+                                        
+                                        if (!target) return "#BDBDBD";
+                                        
+                                        switch(target.layer) {
+                                            case "priority":
+                                                return "#B39DDB"; // Light purple
+                                            case "secondary":
+                                                return "#90CAF9"; // Light blue
+                                            case "tertiary":
+                                                return "#B2DFDB"; // Light teal
+                                            default:
+                                                return "#BDBDBD";
+                                        }
+                                    });
+
+                            // Hide the evidence tooltip
+                            evidenceTooltip.style("display", "none");
+                        });
+
+                    // Create node groups
+                    const node = g.selectAll(".node")
+                        .data(nodes)
+                        .join("g")
+                        .attr("class", function(d) {
+                            return "node node--" + (d.layer || "tertiary") + 
+                                   (expandedNodes.has(d.id) ? " node--expanded" : "") +
+                                   (d.isCenter ? " center-node" : "");
+                        });
+                    
+                    node
+                        // Left-click for expanding/collapsing hidden connections
+                        .on("click", function(event, d) {
+                            event.stopPropagation();
+                        
+                            // Only toggle expansion if the node has hidden connections
+                            if (nodesWithHidden.has(d.id)) {
+                                // Store current positions of all nodes before expanding
+                                const nodePositions = new Map();
+                                nodes.forEach(node => {
+                                    nodePositions.set(node.id, {x: node.x, y: node.y});
+                                });
+
+                                // Toggle expansion state
+                                if (expandedNodes.has(d.id)) {
+                                    expandedNodes.delete(d.id);
+                                } else {
+                                    expandedNodes.add(d.id);
+                                }
+
+                                // Update visualization
+                                updateVisualization();
+
+                                // After updating, fix positions of all previously visible nodes
+                                // We need to wait for the nodes to be created in the DOM
+                                setTimeout(() => {
+                                    g.selectAll(".node").each(function(node) {
+                                        const oldPos = nodePositions.get(node.id);
+                                        if (oldPos) {
+                                            // Fix this node at its previous position
+                                            node.fx = oldPos.x;
+                                            node.fy = oldPos.y;
+
+                                            // For newly added nodes, don't fix position
+                                            // so they can find a good position via simulation
+                                        }
+                                    });
+
+                                    // Run the simulation with low alpha to stabilize new nodes
+                                    simulation.alpha(0.3).restart();
+
+                                    // Release fixed positions after a short time
+                                    // This allows for smooth transitions while maintaining stability
+                                    setTimeout(() => {
+                                        g.selectAll(".node").each(function(node) {
+                                            // Release all nodes except the central node
+                                            if (!node.isCenter) {
+                                                node.fx = null;
+                                                node.fy = null;
+                                            }
+                                        });
+
+                                        // Restart with very low alpha for minimal movement
+                                        simulation.alpha(0.05).restart();
+                                    }, 1500); // 1.5 seconds should be enough for initial positioning
+                                }, 50);
+
+                                sendMessageToStreamlit({
+                                    expandedNodes: Array.from(expandedNodes)
+                                });
+                            }
+                        })
+                        // Right-click (contextmenu) for concept explanation
+                        .on("contextmenu", function(event, d) {
+                            // Prevent the default context menu
+                            event.preventDefault();
+                            
+                            // Get the evidence for this concept
+                            const nodeData = networkData.nodes.find(n => n.id === d.id);
+                            const evidence = nodeData.evidence || "No explanation available for this concept.";
+                                                        
+                            // Create or update the explanation panel
+                            if (!d3.select("#explanation-panel").size()) {
+                                d3.select("body").append("div")
+                                    .attr("id", "explanation-panel")
+                                    .style("position", "absolute")
+                                    .style("padding", "15px")
+                                    .style("background", "white")
+                                    .style("border", "1px solid #ccc")
+                                    .style("border-radius", "8px")
+                                    .style("box-shadow", "0 2px 10px rgba(0,0,0,0.2)")
+                                    .style("max-width", "300px")
+                                    .style("z-index", "1000")
+                                    .style("font-size", "14px")
+                                    .style("line-height", "1.4");
+                                    
+                                // Add close button
+                                d3.select("#explanation-panel")
+                                    .append("button")
+                                    .attr("class", "close-explanation")
+                                    .style("position", "absolute")
+                                    .style("top", "5px")
+                                    .style("right", "5px")
+                                    .style("background", "none")
+                                    .style("border", "none")
+                                    .style("font-size", "16px")
+                                    .style("cursor", "pointer")
+                                    .style("color", "#666")
+                                    .html("&times;")
+                                    .on("click", function() {
+                                        d3.select("#explanation-panel").style("display", "none");
+                                    });
+                            }
+                            
+                            // Update and position the explanation panel
+                            d3.select("#explanation-panel")
+                                .style("display", "block")
+                                .style("left", (event.pageX + 10) + "px")
+                                .style("top", (event.pageY - 10) + "px")
+                                .html(`
+                                    <button class="close-explanation" style="position:absolute;top:5px;right:5px;background:none;border:none;font-size:16px;cursor:pointer;color:#666;">&times;</button>
+                                    <div style="margin-top: 5px;">
+                                        <h3 style="margin-top:0;margin-bottom:10px;color:#2196F3;">${d.name || d.id}</h3>
+                                        <p>${evidence}</p>
+                                        <span style="display:block;margin-top:8px;font-style:italic;color:#666;font-size:12px;">Layer: ${d.layer || "unknown"}</span>
+                                    </div>
+                                `);
+                                
+                            // Handle close button click
+                            d3.select(".close-explanation").on("click", function() {
+                                d3.select("#explanation-panel").style("display", "none");
+                            });
+                                
+                            // Visual feedback for right-click
+                            d3.select(this).select("circle")
+                                .transition()
+                                .duration(200)
+                                .attr("r", function(d) { return getNodeSize(d) * 1.2; })
+                                .transition()
+                                .duration(200)
+                                .attr("r", function(d) { return getNodeSize(d); });
+                        })
+                        .on("mouseover", function(event, d) {
+                            // Show basic node info on hover with updated instructions
+                            tooltip
+                                .style("display", "block")
+                                .style("left", (event.pageX + 10) + "px")
+                                .style("top", (event.pageY - 10) + "px")
+                                .html("<strong>" + (d.name || d.id) + "</strong><br>" +
+                                      "<em>Level: " + (d.layer || "unknown") + "</em><br>" +
+                                      "<em>Frequency: " + (d.frequency || 0) + "</em><br>" +
+                                      "<em>Connections: " + (d.degree || 0) + "</em>" +
+                                      (nodesWithHidden.has(d.id)
+                                          ? "<br><span style='color:#FF8A65'><em>Click to expand connections</em></span>"
+                                          : "") +
+                                      "<br><span style='color:#2196F3'><em>Right-click for explanation</em></span>");
+                        })
+                        .on("mouseout", function() {
+                            tooltip.style("display", "none");
+                        })
+                        .call(d3.drag()
+                            .on("start", dragstarted)
+                            .on("drag", dragged)
+                            .on("end", dragended));
+
+                    // Add circles to nodes with filled colors
+                    const nodeCircles = node.append("circle")
+                        .attr("r", function(d) { return getNodeSize(d); })
+                        .attr("fill", function(d) { return getNodeColor(d); })  // Use color for fill
+                        .attr("stroke", "#7E57C2");  // White stroke by default
+
+                    // Apply RED highlight to nodes with hidden connections
+                    nodeCircles.filter(function(d) { return nodesWithHidden.has(d.id); })
+                        .classed("hidden-connections-highlight", true);
+
+                    // Add pulse animation to nodes with hidden connections
+                    node.filter(function(d) { return nodesWithHidden.has(d.id); })
+                        .append("circle")
+                        .attr("r", function(d) { return getNodeSize(d); })
+                        .attr("fill", "none")
+                        .attr("stroke", "#FF8A65")  // soft coral pulse animation
+                        .attr("stroke-width", 2)
+                        .attr("opacity", 0.5)
+                        .attr("class", "pulse-1741239989512");
+
+                    // Add text labels to nodes
+                    node.append("text")
+                        .attr("class", "node-label")
+                        .attr("text-anchor", "middle")
+                        .attr("font-size", function(d) { 
+                            if (d.isCenter) return "14px";
+                            return d.layer === "priority" ? "12px" : "10px"; 
+                        })
+                        .attr("font-weight", function(d) { 
+                            if (d.isCenter) return "bold";
+                            return d.layer === "priority" ? "bold" : "normal";
+                        })
+                        .attr("fill", "#000000")
+                        .attr("opacity", function(d) {
+                            // Show all labels for priority nodes, but fewer labels for other layers
+                            return d.layer === "priority" ? 1 : 0.7;
+                        })
+                        .text(function(d) {
+                            return d.name || d.id;
+                        })
+                        .each(function(d) {
+                            // Get label width to improve positioning
+                            const bbox = this.getBBox();
+                            d.labelWidth = bbox.width;
+                            d.labelHeight = bbox.height;
+                        });
+                    
+                    simulation.force("label-collision", d3.forceCollide().radius(function(d) {
+                        return getNodeSize(d) + (d.labelWidth ? (d.labelWidth / 2) + 5 : 15);
+                    }).strength(0.5));
+
+                    // Add visual indicator for central node
+                    node.filter(d => d.isCenter)
+                        .append("circle")
+                        .attr("r", function(d) { return getNodeSize(d) + 5; })
+                        .attr("fill", "none")
+                        .attr("stroke", "#5D32A8")
+                        .attr("stroke-width", 1.5)
+                        .attr("opacity", 0.5);
+
+                    // Update simulation
+                    simulation.alpha(1).restart(); // Full restart for better layout
+
+                    simulation.on("tick", function() {
+                        // Keep central node fixed
+                        nodes.forEach(d => {
+                            if (d.isCenter) {
+                                d.x = centerX;
+                                d.y = centerY;
+                            }
+                            
+                            if (!d.isCenter && !d.fx && !d.fy) {
+                                // Calculate distance from center
+                                const dx = d.x - centerX;
+                                const dy = d.y - centerY;
+                                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                                // Target radius based on layer
+                                let targetRadius;
+                                if (d.layer === "priority") targetRadius = 120;
+                                else if (d.layer === "secondary") targetRadius = 240;
+                                else targetRadius = 360; // tertiary
+                
+                                // Strength of the force (reduced from what you had before)
+                                const strength = 0.03; // Lower for less aggressive movement
+                
+                                if (distance > 0) {
+                                    // Push/pull toward the target radius
+                                    const factor = 1 - (targetRadius / distance);
+                                    d.x -= dx * factor * strength;
+                                    d.y -= dy * factor * strength;
+                                }
+                            }
+                        });
+
+                        link.attr("d", function(d) {
+                            const source = typeof d.source === 'object' ? d.source : nodeById.get(String(d.source));
+                            const target = typeof d.target === 'object' ? d.target : nodeById.get(String(d.target));
+                            
+                            if (!source || !target) return "";
+                            
+                            // Calculate midpoint
+                            const midX = (source.x + target.x) / 2;
+                            const midY = (source.y + target.y) / 2;
+                            
+                            // Calculate normal vector for curve control point
+                            const dx = target.x - source.x;
+                            const dy = target.y - source.y;
+                            const normalX = -dy;
+                            const normalY = dx;
+                            
+                            // Normalize and scale for curvature
+                            const len = Math.sqrt(normalX * normalX + normalY * normalY);
+                            let curvature = 0;
+                            
+                            // Determine curvature based on link context
+                            if (len > 0) {
+                                // Add more curvature for links between nodes that have many connections
+                                curvature = 20 + Math.min(source.degree + target.degree, 20);
+                                
+                                // If this is a bidirectional link, curve it more
+                                const isBidirectional = links.some(l => 
+                                    (l.source.id === target.id && l.target.id === source.id) ||
+                                    (l.source === target.id && l.target === source.id)
+                                );
+                                if (isBidirectional) curvature = curvature * 1.5;
+                            }
+                            
+                            const controlX = midX + (normalX / len) * curvature;
+                            const controlY = midY + (normalY / len) * curvature;
+                            
+                            // Quadratic curve path
+                            return `M${source.x},${source.y} Q${controlX},${controlY} ${target.x},${target.y}`;
+                        });
+                        
+                        node.attr("transform", function(d) {
+                            return "translate(" + d.x + "," + d.y + ")";
+                        });
+                        
+                        node.select("text")
+                            .attr("dy", function(d) {
+                                // Position based on node location
+                                const distanceFromCenter = Math.sqrt(
+                                    Math.pow(d.x - centerX, 2) + Math.pow(d.y - centerY, 2)
+                                );
+                                const angle = Math.atan2(d.y - centerY, d.x - centerX);
+                                
+                                // Position label based on angle from center
+                                if (angle > -Math.PI/4 && angle < Math.PI/4) {
+                                    // Right side
+                                    return "0.35em"; // Center vertically
+                                } else if (angle >= Math.PI/4 && angle < 3*Math.PI/4) {
+                                    // Bottom
+                                    return getNodeSize(d) + 15; // Below node
+                                } else if (angle >= 3*Math.PI/4 || angle <= -3*Math.PI/4) {
+                                    // Left side
+                                    return "0.35em"; // Center vertically
+                                } else {
+                                    // Top
+                                    return -getNodeSize(d) - 5; // Above node
+                                }
+                            })
+                            .attr("dx", function(d) {
+                                // Position based on node location
+                                const distanceFromCenter = Math.sqrt(
+                                    Math.pow(d.x - centerX, 2) + Math.pow(d.y - centerY, 2)
+                                );
+                                const angle = Math.atan2(d.y - centerY, d.x - centerX);
+                                
+                                // Position label based on angle from center
+                                if (angle > -Math.PI/4 && angle < Math.PI/4) {
+                                    // Right side
+                                    return getNodeSize(d) + 5; // To the right
+                                } else if (angle >= Math.PI/4 && angle < 3*Math.PI/4) {
+                                    // Bottom
+                                    return 0; // Centered horizontally
+                                } else if (angle >= 3*Math.PI/4 || angle <= -3*Math.PI/4) {
+                                    // Left side
+                                    return -getNodeSize(d) - 5; // To the left
+                                } else {
+                                    // Top
+                                    return 0; // Centered horizontally
+                                }
+                            })
+                            .attr("text-anchor", function(d) {
+                                const angle = Math.atan2(d.y - centerY, d.x - centerX);
+
+                                // Set text anchor based on angle
+                                if (angle > -Math.PI/4 && angle < Math.PI/4) {
+                                    return "start"; // Right side
+                                } else if (angle >= Math.PI/4 && angle < 3*Math.PI/4) {
+                                    return "middle"; // Bottom
+                                } else if (angle >= 3*Math.PI/4 || angle <= -3*Math.PI/4) {
+                                    return "end"; // Left side
+                                } else {
+                                    return "middle"; // Top
+                                }
+                            });
+                    }); 
+                    
+                    // Drag functions
+                    function dragstarted(event, d) {
+                        if (d.isCenter) return; // Don't allow dragging center node
+                        if (!event.active) simulation.alphaTarget(0.3).restart();
+                        d.fx = d.x;
+                        d.fy = d.y;
+                    }
+                    
+                    function dragged(event, d) {
+                        if (d.isCenter) return; // Don't allow dragging center node
+                        d.fx = event.x;
+                        d.fy = event.y;
+                    }
+                
+                    function dragended(event, d) {
+                        if (d.isCenter) return; // Don't allow dragging center node
+                        if (!event.active) simulation.alphaTarget(0);
+                        d.fx = null;
+                        d.fy = null;
+                    }
+                }
+                
+                // Button click handlers
+                d3.select("#reset-btn").on("click", function() {
+                    expandedNodes.clear();
+                    updateVisualization();
+                    sendMessageToStreamlit([]);
+                });
+                
+                d3.select("#expand-all-btn").on("click", function() {
+                    console.log("Expand All button clicked");
+                    
+                    // First get all nodes with hidden connections
+                    const nodesWithHidden = getAllNodesWithHiddenConnections();
+                    
+                    // Expand them all at once
+                    let expansionsAdded = 0;
+                    nodesWithHidden.forEach(nodeId => {
+                        if (!expandedNodes.has(nodeId)) {
+                            expandedNodes.add(nodeId);
+                            expansionsAdded++;
+                        }
+                    });
+                    
+                    console.log(`Added ${expansionsAdded} nodes to expanded set`);
+                    console.log("Expanded nodes:", Array.from(expandedNodes));
+                    
+                    // Update visualization with the new expanded set
+                    updateVisualization();
+                    
+                    // Try to communicate with Streamlit if available
+                    if (window.Streamlit) {
+                        try {
+                            window.Streamlit.setComponentValue({expandedNodes: Array.from(expandedNodes)});
+                            console.log("Sent expanded nodes to Streamlit");
+                        } catch (e) {
+                            console.error("Error sending to Streamlit:", e);
+                        }
+                    } else {
+                        console.warn("Streamlit object not available");
+                    }
+                });
+                
+                d3.select("#reset-btn").on("click", function() {
+                    console.log("Reset button clicked");
+                    
+                    // Clear expanded nodes
+                    const previousCount = expandedNodes.size;
+                    expandedNodes.clear();
+                    
+                    console.log(`Cleared ${previousCount} expanded nodes`);
+                    
+                    // Update visualization
+                    updateVisualization();
+                    
+                    // Try to communicate with Streamlit if available
+                    if (window.Streamlit) {
+                        try {
+                            window.Streamlit.setComponentValue({expandedNodes: []});
+                            console.log("Sent empty expanded nodes to Streamlit");
+                        } catch (e) {
+                            console.error("Error sending to Streamlit:", e);
+                        }
+                    } else {
+                        console.warn("Streamlit object not available");
+                    }
+                });
+                
+                // Function to communicate with Streamlit
+                function safelySendMessageToStreamlit(message) {
+                    console.log("Attempting to send message to Streamlit:", message);
+                    
+                    try {
+                        // Check if Streamlit is available
+                        if (window.Streamlit) {
+                            window.Streamlit.setComponentValue(message);
+                            console.log("Message sent successfully to Streamlit");
+                            return true;
+                        } else {
+                            console.warn("Streamlit object not available yet. Will retry in 500ms");
+                            
+                            // Retry after a short delay
+                            setTimeout(() => {
+                                if (window.Streamlit) {
+                                    window.Streamlit.setComponentValue(message);
+                                    console.log("Message sent successfully to Streamlit on retry");
+                                } else {
+                                    console.error("Streamlit object still not available after retry");
+                                    
+                                    // Fall back to direct update if Streamlit communication fails
+                                    try {
+                                        expandedNodes = new Set(message.expandedNodes || []);
+                                        updateVisualization();
+                                        console.log("Applied changes locally since Streamlit communication failed");
+                                    } catch (localError) {
+                                        console.error("Error applying local changes:", localError);
+                                    }
+                                }
+                            }, 500);
+                            return false;
+                        }
+                    } catch (error) {
+                        console.error("Error sending message to Streamlit:", error);
+                        return false;
+                    }
+                }
+                
+                function sendMessageToStreamlit(message) {
+                    return safelySendMessageToStreamlit(message);
+                }
+                
+                // Initial visualization
+                updateVisualization();
+                
+                document.addEventListener('click', function(event) {
+                    // Check if the click is outside the explanation panel and nodes
+                    const explanationPanel = document.getElementById('explanation-panel');
+                    const isClickOutsidePanel = explanationPanel && 
+                                                !explanationPanel.contains(event.target) && 
+                                                !event.target.closest('.node');
+                    
+                    if (isClickOutsidePanel) {
+                        // Hide the explanation panel
+                        d3.select("#explanation-panel").style("display", "none");
+                    }
+                });
+            });
+            </script>
+        </body>
+        </html>
+        
