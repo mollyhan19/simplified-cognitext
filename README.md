@@ -1,88 +1,131 @@
 # Cognitext: Enhanced Concept Map Generator
 
-Turn Wikipedia into a playground of ideas! We take complex articles and transform them into interactive concept maps that show how ideas connect, bounce off each other, and build deeper understanding.
+Cognitext is an interactive application that transforms Wikipedia articles into explorable concept maps, making complex information more accessible through visual knowledge representation. The tool extracts key concepts and their relationships, then organizes them into an interactive network that helps users understand connections between ideas without requiring linear reading.
 
-## New in This Version
-
-- **User-provided API Keys**: Users now enter their own OpenAI API keys instead of relying on a developer key
-- **Improved security**: API keys are stored only in the browser session and never saved on servers
-- **Better error handling**: Comprehensive validation and feedback for API key issues
+![Concept Map Example](python/pregenerated/sample_networkvis.png)
 
 ## Features
 
-- **Visual Concept Mapping**: Transform complex Wikipedia articles into interactive concept maps
-- **Progressive Disclosure**: Focus on high-level concepts first, then expand to see more details
-- **Intelligent Analysis**: Automatically identifies primary, secondary, and tertiary concepts
-- **Interactive Exploration**: Click, drag, and explore connections between ideas
-- **Conversational Interface**: Ask questions about concepts to deepen understanding
+- **Interactive Network Visualization**: Explore knowledge through an intuitive, force-directed graph layout
+- **Layered Concept Organization**: Concepts are organized into priority, secondary, and tertiary layers
+- **Visual Encoding**:
+  - **Node sizes** represent concept importance (based on frequency and total connections)
+  - **Color coding** distinguishes between concept layers
+  - **Glowing nodes** indicate hidden connections to secondary or tertiary concepts
+- **Progressive Disclosure**: Start with essential concepts and progressively reveal deeper connections
+- **Contextual Chat Interface**: Ask questions about the content and get AI-powered responses
+- **Multiple Processing Modes**: Process articles by section for different levels of detail
 
-## Setup and Running
+## Getting Started
 
 ### Prerequisites
-- Python 3.8+
-- pip
-- OpenAI API key (users will input their own)
+
+- Python 3.8 or higher
+- An OpenAI API key (required for concept extraction and chat functionality)
 
 ### Installation
 
-1. Clone this repository:
-```bash
-git clone https://github.com/your-username/cognitext.git
-cd cognitext
-```
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/mollyhan19/simplified-cognitext
+   cd simplified-cognitext
+   ```
 
 2. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-3. Run the application:
+3. Set up environment variables:
+   - Create a `.env` file in the project root
+   - Add your OpenAI API key: `OPENAI_API_KEY=your_api_key_here`
+
+### Running the Application
+
+Launch the Streamlit app:
 ```bash
 streamlit run python/app.py
 ```
 
-4. Open your browser to the URL provided by Streamlit (usually http://localhost:8501)
-
-### API Key Configuration
-
-The application now requires users to provide their own OpenAI API keys:
-
-1. Create an account on [OpenAI's platform](https://platform.openai.com)
-2. Generate an API key in your account dashboard
-3. Enter the key in the sidebar of the Cognitext application
-4. Click "Validate and Save API Key"
-
-API keys are stored only in the browser session and are not saved on servers.
+This will start a local web server and open the application in your default browser.
 
 ## Using the Application
 
+### API Key Configuration
+
 1. Enter your OpenAI API key in the sidebar
-2. Either:
-   - Select one of the pre-generated Wikipedia articles
-   - Enter a URL to a Wikipedia article you want to analyze
-3. Wait for processing to complete (may take several minutes for new articles)
-4. Explore the interactive concept map:
-   - Click on nodes to expand their connections
-   - Right-click on nodes to see explanations
-   - Drag nodes to reorganize the map
-5. Use the chatbot to ask questions about concepts and their relationships
+2. Click "Validate and Save API Key"
+3. Once validated, you'll have full access to the application features
 
-## Development Notes
+### Exploring Pre-generated Concept Maps
 
-- The application now initializes services only after a valid API key is provided
-- Pre-generated examples are still available for quick demos
-- API key validation includes basic format checking and a test API call
+1. Navigate to the "Pre-generated Concept Maps" tab
+2. Select a topic from the dropdown menu (options include Microchimerism, Quantum Supremacy, Grammaticalization, and P versus NP Problem)
+3. Click "Load Pre-generated Concept Map"
 
-## Privacy and Security
+### Creating Custom Concept Maps
 
-- User API keys are stored only in the browser's session state
-- Keys are never logged, stored in databases, or transmitted beyond the necessary API calls
-- The application runs entirely in the user's browser and their own API account
+1. Navigate to the "Generate Your Own" tab
+2. Enter a Wikipedia URL
+3. Select processing options:
+   - Processing Mode: Choose how the article is processed (section)
+   - Map Type: Select the visualization structure (Network)
+4. Click "Generate from Wikipedia"
+5. Wait for processing to complete (may take 5-10 minutes depending on article length)
 
-## Contributing
+### Exploring the Concept Map
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+The visualization is designed for interactive exploration:
 
-## License
+1. **Overview**: Start with priority concepts (larger nodes) to understand main ideas
+2. **Node Interaction**:
+   - **Left-click** on a node to focus on it and its connections
+   - **Right-click** on a node to view its detailed explanation
+   - **Click on glowing nodes** (with coral outlines) to expand hidden connections
+   - **Drag nodes** to rearrange the visualization
+3. **Link Interaction**: Hover over connections to see relationship details and evidence
+4. **Controls**:
+   - Use the toolbar at the top for resetting, expanding all nodes, recentering, and unpinning
+   - Zoom with mouse wheel or trackpad gestures
+   - Click on empty space to reset focus
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+### Using the Concept Chatbot
+
+The right panel contains an AI chatbot that can answer questions about the loaded concept map:
+
+1. Type your question in the chat input
+2. Receive AI-generated responses based on the concept map content
+3. Ask about specific concepts or relationships for detailed explanations
+4. Use the "Clear Chat History" button to reset the conversation
+
+## Tips for Effective Exploration
+
+1. Begin with high-priority concepts (larger nodes) to understand the main framework before diving into details
+2. Pay attention to relationship types between concepts, which reveal how ideas connect
+3. Use the chatbot to ask for clarification on complex topics or to summarize sections
+4. Look for clusters of related concepts, which often represent important subtopics
+5. Expand glowing nodes to discover hidden knowledge territories
+6. Drag nodes to create more space in crowded areas for better readability
+7. Download the HTML file to share or explore the map locally
+
+## Technical Details
+
+The application uses:
+
+- Streamlit for the web interface
+- OpenAI's API (GPT-4) for concept extraction and chatbot functionality
+- all-MiniLM-L6-v2 transformer model for pruning
+- D3.js for interactive network visualization
+- Wikipedia API for article content retrieval
+
+## Limitations
+
+- Processing new Wikipedia articles requires an OpenAI API key and will incur usage charges
+- Very long or complex articles may take 5-10 minutes to process
+- The visualization may become crowded with very large concept networks
+
+
+## Acknowledgments
+
+- This project builds on research in concept mapping, knowledge visualization, and educational technology
+- Special thanks to Emory NLP lab, and Dr. Jinho Choi
