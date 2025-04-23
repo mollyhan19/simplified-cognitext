@@ -16,11 +16,8 @@ class Entity:
     sections_seen: Set[int] = field(default_factory=set) # track the number of unique sections in which the entity appears
 
     def __post_init__(self):
-        # Normalize the ID
         self.id = self.normalize_term(self.id)
-        # Normalize all variants and remove duplicates
         self.variants = {self.normalize_term(v) for v in self.variants}
-        # Remove variants that are same as ID
         self.variants = {v for v in self.variants if v != self.id}
         valid_layers = {"priority", "secondary", "tertiary"}
         self.layer = self.layer.lower().strip()
@@ -43,7 +40,6 @@ class Entity:
 
         self.variants.add(variant)
         
-        # Update frequency
         self.frequency += 1
 
         # Increment section frequency if it's a new section
@@ -52,17 +48,14 @@ class Entity:
             self.section_count += 1
             self.sections_seen.add(section)
         
-        # Add appearance
         appearance_to_add = {
             **appearance,
             "variant": variant
         }
 
-        # Make sure evidence is included if it exists in the original appearance
         if "evidence" in appearance and appearance["evidence"]:
             appearance_to_add["evidence"] = appearance["evidence"]
 
-        # Add appearance
         self.appearances.append(appearance_to_add)
 
     def get_layer_priority(self, layer: str) -> int:
@@ -76,30 +69,25 @@ class Entity:
 
     def merge_from(self, other: 'Entity'):
         """Merge another entity into this one"""
-        # Merge variants
         self.variants.update(other.variants)
-        # Merge sections seen
         self.sections_seen.update(other.sections_seen)
-        # Update section count
         self.section_count = len(self.sections_seen)
-        # Keep the higher priority layer
         if self.get_layer_priority(other.layer) > self.get_layer_priority(self.layer):
             self.layer = other.layer
-        for app in other.appearances: # Add unique appearances
+        for app in other.appearances:
             self.add_appearance(app, app.get("variant", ""))
-        # Update frequency
         self.frequency = len(self.appearances)
 
 @dataclass
 class TextChunk:
     content: str
     section_name: str
-    heading_level: str  # 'main' or 'sub'
-    section_text: List[str]  # All paragraphs in the section
+    heading_level: str
+    section_text: List[str]
     section_index: int
     paragraph_index: int = 1
-    overlap_prev: Dict = None  # Previous section's content
-    overlap_next: Dict = None  # Next section's content
+    overlap_prev: Dict = None
+    overlap_next: Dict = None
 
     def __post_init__(self):
         self.overlap_prev = self.overlap_prev or {}
@@ -152,9 +140,9 @@ class Relation:
 
 class RelationTracker:
     def __init__(self, periodic_extraction_threshold: int = 3):
-        self.local_relations = []  # All local relations from sections
-        self.global_relations = []  # Relations from global extraction
-        self.master_relations = []  # Merged local and global relations
+        self.local_relations = []
+        self.global_relations = []
+        self.master_relations = []
         self.sections_processed = 0
         self.periodic_extraction_threshold = periodic_extraction_threshold
 
@@ -162,16 +150,15 @@ class RelationTracker:
         """Add relations extracted from a section."""
         self.local_relations.extend(relations)
         self.sections_processed += 1
-        self.merge_relations()  # Update master relations
+        self.merge_relations()
 
     def add_global_relations(self, relations: List[Relation]):
         """Add relations from global extraction."""
         self.global_relations.extend(relations)
-        self.merge_relations()  # Update master relations
+        self.merge_relations()
 
     def merge_relations(self):
         """Merge local and global relations into master list, avoiding duplicates."""
-        # Convert to sets to remove duplicates
         all_relations = set(self.local_relations) | set(self.global_relations)
         self.master_relations = list(all_relations)
     
@@ -179,7 +166,6 @@ class OptimizedEntityExtractor:
     def __init__(self, api_key: str, cache_version: str = "1.0"):
         """Initialize with API key."""
         self.api_key = api_key
-        # Initialize the OpenAI client only if API key is provided
         if api_key:
             try:
                 self.client = OpenAI(api_key=api_key)
@@ -198,7 +184,6 @@ class OptimizedEntityExtractor:
     @lru_cache(maxsize=1000)
     def _cached_api_call(self, prompt: str) -> str:
         """Cache API calls in memory, with error handling for invalid API keys."""
-        # Check if client is initialized
         if not self.client:
             raise ValueError("OpenAI client not initialized. Please provide a valid API key.")
 
@@ -212,7 +197,6 @@ class OptimizedEntityExtractor:
             )
             return response.choices[0].message.content
         except Exception as e:
-            # More detailed error handling
             if "Authentication" in str(e):
                 raise ValueError(f"API key authentication error: {str(e)}")
             else:
@@ -221,27 +205,20 @@ class OptimizedEntityExtractor:
     @staticmethod
     def clean_markdown_json(response: str) -> str:
         """Clean JSON string from markdown formatting."""
-        # Remove markdown code blocks if present
         if '```' in response:
-            # Split by code blocks and get the content
             parts = response.split('```')
-            # Get the part that's between the first and second ``` markers
             if len(parts) >= 3:
                 response = parts[1]
             else:
                 response = parts[-1]
             
-            # Remove any language identifier (e.g., 'json')
             if '\n' in response:
                 response = response.split('\n', 1)[1]
         
-        # Remove any remaining ``` markers
         response = response.replace('```', '')
         
-        # Strip whitespace
         response = response.strip()
         
-        # If the response starts with a newline, remove it
         if response.startswith('\n'):
             response = response[1:]
         
@@ -249,12 +226,10 @@ class OptimizedEntityExtractor:
 
     def extract_entities_from_paragraph(self, paragraph: str, para_num: int, section_name: str, section_index: int, heading_level: str = "main") -> List[Dict]:
         """Extract entities from a paragraph with caching."""
-        # Check memory cache
         if paragraph in self.memory_cache:
             print(f"  [P{para_num}] Using memory cache for entity extraction")
             return self.memory_cache[paragraph]
 
-        # Check file cache
         cached_result = self.cache_manager.get_cached_entities(paragraph)
         if cached_result is not None:
             print(f"  [P{para_num}] Using file cache for entity extraction")
@@ -313,7 +288,6 @@ class OptimizedEntityExtractor:
             response = self._cached_api_call(prompt)
             entities = json.loads(OptimizedEntityExtractor.clean_markdown_json(response))
 
-            # Cache results
             self.memory_cache[paragraph] = entities
             self.cache_manager.cache_entities(paragraph, entities)
 
@@ -324,14 +298,10 @@ class OptimizedEntityExtractor:
 
     def extract_entities_from_section(self, section_content: List[str], section_name: str, section_index: int) -> List[Dict]:
         """Extract entities from a section with caching."""
-        # Combine all text in the section including subheadings
         section_text = []
-
-        # Add main text
         if "text" in section_content:
             section_text.extend(section_content["text"])
 
-        # Add subheading text
         if "subheadings" in section_content:
             for subheading, subcontent in section_content["subheadings"].items():
                 if "text" in subcontent:
@@ -339,12 +309,10 @@ class OptimizedEntityExtractor:
 
         full_section_text = "\n".join(section_text)
 
-        # Check memory cache
         if full_section_text in self.memory_cache:
             print(f"  [S{section_index}] Using memory cache for entity extraction")
             return self.memory_cache[full_section_text]
 
-        # Check file cache
         cached_result = self.cache_manager.get_cached_entities(full_section_text)
         if cached_result is not None:
             print(f"  [S{section_index}] Using file cache for entity extraction")
@@ -401,7 +369,6 @@ class OptimizedEntityExtractor:
             entities = json.loads(OptimizedEntityExtractor.clean_markdown_json(response))
             print(response)
             
-            # Cache results
             self.memory_cache[full_section_text] = entities
             self.cache_manager.cache_entities(full_section_text, entities)
             
@@ -422,7 +389,6 @@ class OptimizedEntityExtractor:
         """Extract relationships between concepts within a section."""
         print(f"  Extracting local relations for section: {section_info['section_name']}")
 
-        # Check memory cache
         if text in self.memory_cache:
             print("  Using memory cache for local relation extraction")
             cached_relations = self.memory_cache.get(text)
@@ -482,7 +448,6 @@ class OptimizedEntityExtractor:
                     section_name=section_info["section_name"]
                 )
                 relations.append(relation)
-            # Cache the results
             self.memory_cache[text] = relations
             self.cache_manager.cache_relations(concepts, text, relations)
             
@@ -504,8 +469,6 @@ class OptimizedEntityExtractor:
             if isinstance(cached_relations, list) and all(isinstance(r, Relation) for r in cached_relations):
                 return cached_relations
 
-            # Check file cache
-            # We're using a dummy text here since global relations don't have section text
         cached_result = self.cache_manager.get_cached_relations(master_concepts, "global_relations")
         if cached_result is not None:
             print("  Using file cache for global relation extraction")
@@ -555,7 +518,6 @@ class OptimizedEntityExtractor:
                 )
                 relations.append(relation)
 
-            # Cache the results
             self.memory_cache[concepts_key] = relations
             self.cache_manager.cache_relations(master_concepts, "global_relations", relations)
 
@@ -603,7 +565,6 @@ class OptimizedEntityExtractor:
 
     def compare_concept_lists(self, list1: List[Dict], list2: List[Dict]) -> Dict[str, str]:
         """Compare two lists of entities with caching."""
-        # Check memory cache
         cache_key = (
             json.dumps(sorted(list1, key=lambda x: x['entity']), sort_keys=True),
             json.dumps(sorted(list2, key=lambda x: x['entity']), sort_keys=True)
@@ -613,7 +574,6 @@ class OptimizedEntityExtractor:
             print("Using memory cache for list comparison")
             return self.memory_cache[cache_key]
 
-        # Check file cache
         cached_result = self.cache_manager.get_cached_comparison(list1, list2)
         if cached_result is not None:
             print("  Using file cache for list comparison")
@@ -622,13 +582,11 @@ class OptimizedEntityExtractor:
 
         print("  Making API call for list comparison")
         
-        # Create a sample output format without f-string
         sample_output = {
             "water bear": "tardigrade",
             "tardigrade species": "tardigrade"
         }
 
-        # Normalize case for comparison
         normalized_list1 = [
             {
                 "entity": ent["entity"].lower(),
@@ -679,15 +637,12 @@ class OptimizedEntityExtractor:
             matches = json.loads(self.clean_markdown_json(response))
             print(f"\nParsed matches: {json.dumps(matches, indent=2)}")
 
-            # Store in memory cache
             self.memory_cache[cache_key] = matches
-            # Store in file cache
             self.cache_manager.cache_comparison(list1, list2, matches)
 
             original_case_matches = {}
             for new_entity in list2:
                 if new_entity["entity"].lower() in matches:
-                    # Find original case in list1
                     for orig_entity in list1:
                         if orig_entity["entity"].lower() == matches[new_entity["entity"].lower()]:
                             original_case_matches[new_entity["entity"]] = orig_entity["entity"]
@@ -706,17 +661,12 @@ class OptimizedEntityExtractor:
                 chunk.section_index
             )
 
-            # Create case-insensitive lookup dictionary
             entities_lookup = {k.lower(): k for k in self.entities.keys()}
 
-            # Always attempt to merge or create entities
             try:
-                # For first section or subsequent sections, follow same logic
                 if not self.entities:
-                    # First section processing
                     existing_entities = []
                 else:
-                    # Get existing entities for comparison
                     existing_entities = [
                         {
                             "entity": ent.id,
@@ -725,18 +675,16 @@ class OptimizedEntityExtractor:
                         for ent in self.entities.values()
                     ]
 
-                # Get semantic matches
                 matches = self.compare_concept_lists(existing_entities, new_entities)
                 print(f"\nFound matches: {json.dumps(matches, indent=2)}")
                 
-                # Process each new entity
                 for new_entity in new_entities:
                     try:
                         entity_id = new_entity["entity"]
-                        # Determine the layer
-                        layer = str(new_entity.get("layer", "tertiary")).lower().strip() # Default to tertiary if missing
+
+                        layer = str(new_entity.get("layer", "tertiary")).lower().strip()
                         if layer not in {"priority", "secondary", "tertiary"}:
-                            layer = "tertiary"  # Default for invalid values
+                            layer = "tertiary"
                         appearance = {
                             "section": chunk.section_name,
                             "section_index": chunk.section_index,
@@ -745,7 +693,6 @@ class OptimizedEntityExtractor:
                             "context": new_entity.get("context", "")
                         }
 
-                        # Add evidence if it exists
                         if "evidence" in new_entity:
                             appearance["evidence"] = new_entity["evidence"]
 
@@ -753,7 +700,6 @@ class OptimizedEntityExtractor:
                             existing_id = matches[entity_id]
                             print(f"\nMerging '{entity_id}' into existing concept '{existing_id}'")
                             
-                            # Look up the actual key using case-insensitive comparison
                             actual_key = entities_lookup.get(existing_id.lower())
                             
                             if actual_key:
@@ -765,7 +711,6 @@ class OptimizedEntityExtractor:
                                     "context": new_entity.get("context", "")
                                 }
 
-                                # Add evidence if it exists
                                 if "evidence" in new_entity:
                                     appearance["evidence"] = new_entity["evidence"]
 
@@ -784,7 +729,6 @@ class OptimizedEntityExtractor:
                                         break
 
                                 if matched_entity:
-                                    # Found it with different casing, use that entity
                                     appearance = {
                                         "section": chunk.section_name,
                                         "section_index": chunk.section_index,
@@ -798,13 +742,11 @@ class OptimizedEntityExtractor:
                                     matched_entity.add_appearance(appearance, entity_id)
                                     print(f"Successfully merged '{entity_id}' after fixing lookup issue")
                                 else:
-                                    # Still couldn't find it, create new
                                     print(f"Creating new entity for '{entity_id}' with layer '{layer}'")
                                     new_entity_obj = Entity(id=entity_id, layer=layer)
                                     new_entity_obj.add_appearance(appearance, entity_id)
                                     self.entities[entity_id] = new_entity_obj
                         else:
-                            # Create new entity
                             print(f"\nCreating new entity '{entity_id}' with layer '{layer}'")
                             new_entity_obj = Entity(id=entity_id, layer=layer)
                             appearance = {
@@ -835,7 +777,7 @@ class OptimizedEntityExtractor:
             ]
 
             section_relations = self.extract_local_relations(
-                chunk.content,  # Use the raw content for relation extraction
+                chunk.content,
                 section_concepts,
                 {
                     "section_index": chunk.section_index,
@@ -843,11 +785,9 @@ class OptimizedEntityExtractor:
                 }
             )
             
-            # Add to relation tracker
             self.relation_tracker.add_local_relations(section_relations)
             
-            # Periodic global relation extraction
-            if (self.relation_tracker.sections_processed % 
+            if (self.relation_tracker.sections_processed %
                 self.relation_tracker.periodic_extraction_threshold == 0):
                 global_relations = self.extract_global_relations(self.get_sorted_entities())
                 self.relation_tracker.add_global_relations(global_relations)
@@ -858,7 +798,6 @@ class OptimizedEntityExtractor:
     def process_paragraph(self, chunk: TextChunk):
         """Process a paragraph and update entity tracking."""
         try:
-            # 1. Extract raw entities from GPT
             new_entities = self.extract_entities_from_paragraph(
                 paragraph=chunk.content,
                 para_num=chunk.paragraph_index,
@@ -872,12 +811,9 @@ class OptimizedEntityExtractor:
 
             # Always attempt to merge or create entities
             try:
-                # For first paragraph or subsequent paragraphs, follow same logic
                 if not self.entities:
-                    # First paragraph processing
                     existing_entities = []
                 else:
-                    # Get existing entities for comparison
                     existing_entities = [
                         {
                             "entity": ent.id,
@@ -886,11 +822,9 @@ class OptimizedEntityExtractor:
                         for ent in self.entities.values()
                     ]
 
-                # Get semantic matches
                 matches = self.compare_concept_lists(existing_entities, new_entities)
                 print(f"\nFound matches: {json.dumps(matches, indent=2)}")
 
-                # Process each new entity
                 for new_entity in new_entities:
                     try:
                         entity_id = new_entity["entity"]
@@ -920,13 +854,11 @@ class OptimizedEntityExtractor:
                                     self.entities[actual_key].layer = layer
                                 print(f"Successfully merged '{entity_id}' as variant")
                             else:
-                                # If no match found, create new entity
                                 print(f"No case-insensitive match found for '{existing_id}', creating new entity")
                                 new_entity_obj = Entity(id=entity_id, layer=layer)
                                 new_entity_obj.add_appearance(appearance, entity_id)
                                 self.entities[entity_id] = new_entity_obj
                         else:
-                            # Create new entity
                             print(f"\nCreating new entity '{entity_id}'")
                             new_entity_obj = Entity(id=entity_id)
                             new_entity_obj.add_appearance(appearance, entity_id)
@@ -942,7 +874,6 @@ class OptimizedEntityExtractor:
             except Exception as e:
                 print(f"Error processing paragraph: {str(e)}")
 
-            # Extract local relations for this paragraph
             section_concepts = [
                 {"id": ent.id, "variants": list(ent.variants)}
                 for ent in self.entities.values()
@@ -952,7 +883,7 @@ class OptimizedEntityExtractor:
             ]
 
             section_relations = self.extract_local_relations(
-                chunk.content,  # Use the raw content for relation extraction
+                chunk.content,
                 section_concepts,
                 {
                     "section_index": chunk.section_index,
@@ -960,10 +891,8 @@ class OptimizedEntityExtractor:
                 }
             )
 
-            # Add to relation tracker
             self.relation_tracker.add_local_relations(section_relations)
 
-            # Periodic global relation extraction
             if (self.relation_tracker.sections_processed %
                     self.relation_tracker.periodic_extraction_threshold == 0):
                 global_relations = self.extract_global_relations(self.get_sorted_entities())
@@ -982,43 +911,34 @@ class OptimizedEntityExtractor:
         Returns:
             A deduplicated list of entities with merged attributes
         """
-        # Create a dictionary to hold merged entities
         merged_entities = {}
 
-        # First pass: Group entities by ID (case-insensitive)
         for entity in entities_list:
             entity_id = entity.get("id", "").lower()
 
             if entity_id in merged_entities:
-                # Add to existing entity
                 existing_entity = merged_entities[entity_id]
 
-                # Merge variants
                 existing_variants = set(existing_entity.get("variants", []))
                 new_variants = set(entity.get("variants", []))
                 merged_variants = existing_variants.union(new_variants)
 
-                # Add the original ID as a variant if it doesn't match the case of the key
                 if entity.get("id") != existing_entity.get("id"):
                     merged_variants.add(entity.get("id"))
 
-                # Update frequency and section_count
                 existing_entity["frequency"] = existing_entity.get("frequency", 0) + entity.get("frequency", 0)
                 existing_entity["section_count"] = max(
                     existing_entity.get("section_count", 0),
                     entity.get("section_count", 0)
                 )
 
-                # Merge appearances
                 existing_appearances = existing_entity.get("appearances", [])
                 new_appearances = entity.get("appearances", [])
                 merged_appearances = existing_appearances + new_appearances
 
-                # Update with merged data
                 existing_entity["variants"] = list(merged_variants)
                 existing_entity["appearances"] = merged_appearances
 
-                # Choose the layer with the highest priority
                 layer_priority = {"priority": 3, "secondary": 2, "tertiary": 1}
                 existing_layer = existing_entity.get("layer", "tertiary")
                 new_layer = entity.get("layer", "tertiary")
@@ -1026,16 +946,13 @@ class OptimizedEntityExtractor:
                 if layer_priority.get(new_layer, 0) > layer_priority.get(existing_layer, 0):
                     existing_entity["layer"] = new_layer
 
-                # Use the most detailed evidence if available
                 if (len(entity.get("evidence", "")) > len(existing_entity.get("evidence", ""))):
                     existing_entity["evidence"] = entity.get("evidence", "")
 
             else:
-                # Create new entry
                 merged_entities[entity_id] = entity.copy()
                 merged_entities[entity_id]["variants"] = list(set(entity.get("variants", [])))
 
-        # Return as a list
         return list(merged_entities.values())
     
     def get_sorted_entities(self) -> List[Dict]:
@@ -1061,7 +978,6 @@ class OptimizedEntityExtractor:
 
         merged_entities = self.merge_duplicate_entities(entities_list)
 
-        # Sort the merged entities
         sorted_entities = sorted(
             merged_entities,
             key=lambda x: (x.get("section_count", 0), x.get("frequency", 0)),

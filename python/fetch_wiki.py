@@ -11,7 +11,6 @@ def extract_title_from_url(url):
     """Extracts Wikipedia title from a given Wikipedia URL."""
     parsed_url = urlparse(url)
 
-    # Wikipedia article titles are usually after '/wiki/'
     if "/wiki/" in parsed_url.path:
         title = parsed_url.path.split("/wiki/")[-1]
         return unquote(title.replace("_", " "))  # Convert URL encoding & underscores

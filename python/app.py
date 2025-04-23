@@ -11,7 +11,6 @@ import subprocess
 import time
 import io
 
-# Import the needed modules for entity extraction
 from fetch_wiki import fetch_article_content
 from entity_extraction import OptimizedEntityExtractor, TextChunk, RelationTracker
 from entity_linking_main import process_article_by_subsections, save_entity_results, save_relation_results
@@ -19,9 +18,7 @@ from network_generator import NetworkConceptMapGenerator
 
 # Get the directory of the current script
 script_dir = Path(__file__).parent.absolute()
-# Path to .env file (assuming it's in the parent directory)
 env_path = script_dir.parent / '.env'
-# Load the .env file if exists (for default development environment)
 load_dotenv(dotenv_path=env_path)
 
 # Define output directory
@@ -120,13 +117,11 @@ def validate_openai_key(api_key):
     try:
         # Initialize the client with the provided key
         client = openai.OpenAI(api_key=api_key)
-        # Make a simple test request
         response = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[{"role": "user", "content": "Hello"}],
             max_tokens=5
         )
-        # If we got here without exception, the key is valid
         return True
     except Exception as e:
         print(f"API key validation error: {str(e)}")
@@ -143,9 +138,6 @@ def check_url_params():
         # Generate explanation for the selected concept
         explain_concept(concept_name)
 
-        # Clear the URL parameter to prevent repeated explanations
-        # We need to use the new way to manage query parameters
-        # Create a new dict without the 'concept' key
         new_params = {}
         for key in query_params:
             if key != 'concept':
@@ -178,7 +170,6 @@ def load_pregenerated_content(url_data):
                 if url_data['title'] in entity_data:
                     entities = entity_data[url_data['title']].get('entities', [])
                 else:
-                    # Look in different structures (might need adjustment based on your actual file format)
                     entities = []
                     for article_title in entity_data:
                         if isinstance(entity_data[article_title], dict) and 'entities' in entity_data[article_title]:
@@ -256,7 +247,7 @@ def query_llm(question, context):
                 {"role": "user",
                  "content": f"Here is the context information (if available):\n{context}\n\nUser question: {question}"}
             ],
-            temperature=0.2
+            temperature=0.1
         )
         return response.choices[0].message.content
     except Exception as e:
@@ -274,19 +265,12 @@ def explain_concept(concept_name):
     Keep it concise (2-3 sentences) but informative. Your explanation should be suitable for an average undergraduate with moderate prior knowledge. 
     """
 
-    # Add user "question" to chat history
     st.session_state.chat_history.append({
         "role": "user",
         "content": f"What is **{concept_name}**?"
     })
-
-    # Generate context for better explanation
     context = generate_context(concept_name)
-
-    # Get the explanation from LLM
     explanation = query_llm(f"Explain {concept_name}", context)
-
-    # Add assistant response to chat history
     st.session_state.chat_history.append({
         "role": "assistant",
         "content": explanation
@@ -302,21 +286,18 @@ def generate_context(focus_concept=None):
     top_entities = st.session_state.extracted_data["entities"][:20]
 
     if focus_concept:
-        # Get relations relevant to the focus concept
         relevant_relations = [
             r for r in st.session_state.extracted_data["relations"]
             if r.get("source", "").lower() == focus_concept.lower() or
                r.get("target", "").lower() == focus_concept.lower()
         ]
 
-        # Find the entity info for the concept
         focus_entity = None
         for entity in st.session_state.extracted_data["entities"]:
             if entity.get("id", "").lower() == focus_concept.lower():
                 focus_entity = entity
                 break
 
-        # Build focused context
         context = f"""
         Topic: {st.session_state.extracted_data['title']}
         Category: {st.session_state.extracted_data['category']}
@@ -330,7 +311,6 @@ def generate_context(focus_concept=None):
         {json.dumps(relevant_relations[:10], indent=2)}
         """
     else:
-        # Regular context
         top_relations = st.session_state.extracted_data["relations"][:30]
         context = f"""
         Topic: {st.session_state.extracted_data['title']}
@@ -349,21 +329,14 @@ def generate_context(focus_concept=None):
 def init_api_services():
     """Initialize API services with the provided key"""
     if st.session_state.api_key and st.session_state.api_key_valid:
-        # Initialize OpenAI client
         st.session_state.openai_client = openai.OpenAI(api_key=st.session_state.api_key)
-
-        # Initialize extractor
         st.session_state.extractor = OptimizedEntityExtractor(api_key=st.session_state.api_key, cache_version="1.0")
-
-        # Initialize network generator
         st.session_state.network_generator = NetworkConceptMapGenerator(api_key=st.session_state.api_key,
                                                                         output_dir=output_dir)
-
         return True
     return False
 
 
-# Streamlit layout
 st.set_page_config(layout="wide", page_title="Concept Map Generator")
 
 # Sidebar for API key input
@@ -395,7 +368,6 @@ with st.sidebar:
     else:
         st.error("API key status: Not configured or invalid ❌")
 
-    # Add info about API keys
     st.info("""
     **Note:** Your API key is stored only in your browser's session and is not saved on our servers.
     You will need to re-enter it if you refresh the page or close your browser.
@@ -419,7 +391,6 @@ if not st.session_state.api_key_valid:
     3. Enter the key in the sidebar and click "Validate and Save API Key"
     """)
 
-    # Still show example images to give users an idea of what they can do
     st.subheader("Example of what you can create:")
     st.image("python/pregenerated/sample_networkvis.png",
              caption="Example concept map visualization")
@@ -429,7 +400,6 @@ else:
     if not st.session_state.openai_client:
         init_api_services()
 
-    # Normal app content for users with valid API keys
     st.markdown("""
     Turn Wikipedia into a playground of ideas! We take complex articles and transform them into interactive concept maps that show how ideas connect, bounce off each other, and build deeper understanding. Explore knowledge in a whole new way—no linear reading required.
 
@@ -460,7 +430,6 @@ else:
 
             component_value = st.session_state.network_generator.display_network_map(st.session_state.map_data)
 
-            # Provide download link
             buffer = io.StringIO()
             buffer.write(st.session_state.map_data["html_content"])
             html_bytes = buffer.getvalue().encode()
@@ -471,10 +440,7 @@ else:
                 mime="text/html"
             )
 
-        # Add a divider to separate the existing map from the input form
         st.divider()
-
-        # Create tabs for pre-generated vs custom content
         tab1, tab2 = st.tabs(["📚 Pre-generated Concept Maps", "🔍 Generate Your Own"])
 
         # Tab 1: Pre-generated content
@@ -483,7 +449,6 @@ else:
             st.info(
                 "These concept maps are ready to explore! Select one to get started immediately, no waiting required.")
 
-            # Create a dictionary mapping friendly names to URLs
             pregenerated_options = {
                 "Microchimerism": "https://en.wikipedia.org/wiki/Microchimerism",
                 "Quantum Supremacy": "https://en.wikipedia.org/wiki/Quantum_supremacy",
@@ -491,7 +456,6 @@ else:
                 "P versus NP Problem": "https://en.wikipedia.org/wiki/P_versus_NP_problem"
             }
 
-            # Create a selection dropdown
             selected_pregenerated = st.selectbox(
                 "Select a pre-generated concept map to explore:",
                 options=list(pregenerated_options.keys()),
@@ -499,7 +463,6 @@ else:
                 help="Choose from these pre-generated concept maps for instant exploration"
             )
 
-            # Button to load selected pre-generated content
             if st.button("Load Pre-generated Concept Map", key="load_pregenerated"):
                 url = pregenerated_options[selected_pregenerated]
                 url_data = PREGENERATED_CONTENT[url]
@@ -512,7 +475,7 @@ else:
                     else:
                         st.error("Failed to load pre-generated content. Please try another option.")
 
-        # Tab 2: Custom content (your existing code)
+        # Tab 2: Custom content
         with tab2:
             st.header("Generate Your Own Concept Map")
             st.warning("""
@@ -537,7 +500,6 @@ else:
                     st.error("Please enter a Wikipedia URL.")
                     st.stop()
 
-                # Check if this is a pre-generated URL
                 is_pregenerated = False
                 for pregenerated_url, url_data in PREGENERATED_CONTENT.items():
                     if pregenerated_url == url:
@@ -553,9 +515,7 @@ else:
                             is_pregenerated = False
                             break
 
-                # If not pre-generated or loading failed, process in real-time
                 if not is_pregenerated:
-                    # Keep all of your existing processing code here unchanged
                     status_placeholder = st.empty()
                     status_placeholder.info("Fetching article...")
 
@@ -572,21 +532,16 @@ else:
                         title = article_data.get("title", "Untitled")
                         category = article_data.get("category", "General")
 
-                        # Update status message to success
                         status_placeholder.success(f"Successfully fetched article: {title}")
 
-                        # Create a new placeholder for processing status
                         process_placeholder = st.empty()
 
-                        # Create progress bar
                         progress_bar = st.progress(0)
 
-                        # Reset extractor for new article
                         st.session_state.extractor.reset_tracking()
                         st.session_state.extractor.relation_tracker = RelationTracker()
                         st.session_state.extractor.relation_tracker.periodic_extraction_threshold = 3
 
-                        # Section processing with progress updates
                         sections = article_data.get('sections', [])
                         sections_to_skip = {"See also", "Notes", "References", "Works cited", "External links"}
 
@@ -598,31 +553,24 @@ else:
 
                             subsections = section.get('subsections', [])
                             if not subsections:
-                                # Count section with no subsections as one unit
                                 total_units += 1
                             else:
-                                # Count each subsection as one unit
                                 total_units += len(subsections)
 
-                        # Track processed units
                         processed_units = 0
 
-                        # Process using subsection approach
                         with st.spinner("Processing article..."):
                             units_label = st.empty()
 
-                            # Process each section/subsection
                             for section_idx, section in enumerate(sections, 1):
                                 section_title = section.get('section_title', '')
 
                                 if section_title in sections_to_skip:
                                     continue
 
-                                # Get subsections
                                 subsections = section.get('subsections', [])
 
                                 if not subsections:
-                                    # Process section as a single unit if it has no subsections
                                     processed_units += 1
                                     progress_bar.progress(processed_units / total_units)
                                     units_label.info(
@@ -674,7 +622,6 @@ else:
                             st.session_state.extractor.relation_tracker.add_global_relations(final_global_relations)
                             st.session_state.extractor.relation_tracker.merge_relations()
 
-                        # Format relations for use in the app
                         relations = [
                             {
                                 "source": rel.source,
@@ -692,15 +639,12 @@ else:
                         entity_file = os.path.join(output_dir, f"entity_analysis_{title}_{timestamp}.json")
                         relation_file = os.path.join(output_dir, f"relations_{title}_{timestamp}.json")
 
-                        # Save entity results
                         save_entity_results(entities, entity_file, processing_mode, title, category)
 
-                        # Get and save relation results
                         all_relations = {
                             title: st.session_state.extractor.get_all_relations()
                         }
 
-                        # Format article data for relation saving
                         articles_data = {
                             title: {
                                 "category": category
@@ -722,17 +666,14 @@ else:
                         # Generate concept map based on selected type
                         with st.spinner("Generating network concept map..."):
 
-                            # Get detail level
                             detail_level = processing_mode.split()[
                                 0].lower() if "pruned" not in processing_mode else "intermediate"
-                            # Generate the network map
                             map_data = st.session_state.network_generator.generate_network_map(
                                 title=title,
                                 entities=entities,
                                 relations=relations,
                                 detail_level=detail_level
                             )
-                            # Store map data in session state
                             st.session_state.map_data = {
                                 "map_type": "network",
                                 "title": title,
@@ -741,10 +682,8 @@ else:
                                 "detail_level": detail_level,
                                 "html_content": map_data["html_content"]
                             }
-                            # Display the network map
                             st.subheader(f"Network Concept Map: {title}")
                             st.session_state.network_generator.display_network_map(map_data)
-                            # Provide download link for HTML
                             buffer = io.StringIO()
                             buffer.write(map_data["html_content"])
                             html_bytes = buffer.getvalue().encode()
@@ -757,10 +696,8 @@ else:
 
                         # Display concepts and relations in expandable sections
                         with st.expander("View Extracted Concepts", expanded=False):
-                            # Show top concepts
                             st.subheader("Top Concepts")
 
-                            # Get top concepts by frequency
                             top_concepts = sorted(
                                 entities,
                                 key=lambda x: x.get("frequency", 0),
@@ -782,7 +719,6 @@ else:
                         with st.expander("View Extracted Relations", expanded=False):
                             st.subheader("Key Relations")
 
-                            # Create a DataFrame for relations
                             relations_df = pd.DataFrame([
                                 {
                                     "Source": rel.get("source", ""),
@@ -790,12 +726,11 @@ else:
                                     "Target": rel.get("target", ""),
                                     "Section": rel.get("section_name", "")
                                 }
-                                for rel in relations[:20]  # Display top 20 relations
+                                for rel in relations[:20]
                             ])
 
                             st.dataframe(relations_df)
 
-                        # Provide download links for raw entity and relation data
                         st.subheader("Download Results")
                         col_download1, col_download2 = st.columns(2)
 
@@ -829,42 +764,33 @@ else:
     with col2:
         st.header("Concept Chatbot")
 
-        # Show information about extracted data if available
         if st.session_state.extracted_data["entities"]:
             st.success(f"Currently loaded: {st.session_state.extracted_data['title']}")
         elif not st.session_state.api_key_valid:
             st.warning("Enter your OpenAI API key in the sidebar to use the chatbot")
 
-        # Simple chatbot interface that's always available
         if st.session_state.api_key_valid:
             st.markdown("Ask me anything!")
 
-            # Display chat history
             for message in st.session_state.chat_history:
                 with st.chat_message(message["role"]):
                     st.markdown(message["content"])
 
-            # Get user input
             user_question = st.chat_input("Ask a question")
             if user_question:
-                # Display user message
                 with st.chat_message("user"):
                     st.markdown(user_question)
 
-                # Add to chat history
                 st.session_state.chat_history.append({"role": "user", "content": user_question})
 
-                # Generate response
                 with st.chat_message("assistant"):
                     with st.spinner("Thinking..."):
                         context = generate_context()
                         response = query_llm(user_question, context)
                         st.markdown(response)
 
-                # Add assistant response to chat history
                 st.session_state.chat_history.append({"role": "assistant", "content": response})
 
-            # Option to clear chat history
             if st.button("Clear Chat History"):
                 st.session_state.chat_history = []
                 st.rerun()

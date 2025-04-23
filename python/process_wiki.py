@@ -19,10 +19,8 @@ class ConceptMapProcessor:
         self.output_dir = output_dir
         self.entity_extractor = OptimizedEntityExtractor(api_key=api_key, cache_version="14.0")
 
-        # Ensure output directory exists
         Path(output_dir).mkdir(parents=True, exist_ok=True)
 
-        # Set up temporary directory for intermediate files
         self.temp_dir = tempfile.mkdtemp()
 
     def process_article(self, url: str, processing_mode: str = "section", map_type: str = "hierarchical",
@@ -85,19 +83,14 @@ class ConceptMapProcessor:
     def _extract_concepts_and_relations(self, title: str, article_data: Dict,
                                         processing_mode: str) -> Tuple[List[Dict], List[Dict]]:
         """Extract concepts and relations from article data."""
-        # Reset entity tracking for new article
         self.entity_extractor.reset_tracking()
         self.entity_extractor.relation_tracker = RelationTracker()
 
-        # Process by section or paragraph based on mode
         if processing_mode == "section":
-            # Process sections
             entities = process_article_by_sections(title, article_data, self.entity_extractor)
         else:
-            # Process paragraphs
             entities = process_article_by_paragraphs(title, article_data, self.entity_extractor)
 
-        # Final global relation extraction
         final_global_relations = self.entity_extractor.extract_global_relations(entities)
         self.entity_extractor.relation_tracker.add_global_relations(final_global_relations)
 
@@ -254,30 +247,25 @@ class ConceptMapProcessor:
             if G.has_node(rel["source"]) and G.has_node(rel["target"]):
                 G.add_edge(rel["source"], rel["target"], relation=rel["relation_type"])
 
-        # Create figure for visualization
         fig, ax = plt.subplots(figsize=(12, 8))
 
-        # Try to find cycles
         try:
             cycles = list(nx.simple_cycles(G))
             if cycles:
                 # Use kamada_kawai_layout for better cycle visualization
                 pos = nx.kamada_kawai_layout(G)
 
-                # Highlight cycle edges
                 cycle_edges = set()
                 for cycle in cycles:
                     for i in range(len(cycle)):
                         cycle_edges.add((cycle[i], cycle[(i + 1) % len(cycle)]))
             else:
-                # Fallback to spring layout
                 pos = nx.spring_layout(G)
                 cycle_edges = set()
         except:
             pos = nx.spring_layout(G)
             cycle_edges = set()
 
-        # Colors based on layer
         colors = {
             "priority": "lightcoral",
             "secondary": "lightblue",
@@ -286,39 +274,30 @@ class ConceptMapProcessor:
 
         node_colors = [colors.get(G.nodes[node].get('layer', 'tertiary'), 'lightgray') for node in G.nodes()]
 
-        # Size nodes by frequency
         node_sizes = [G.nodes[node].get('weight', 1) * 100 + 300 for node in G.nodes()]
 
-        # Draw regular edges
         regular_edges = [(u, v) for u, v in G.edges() if (u, v) not in cycle_edges]
         nx.draw_networkx_edges(G, pos, edgelist=regular_edges, arrows=True, edge_color='gray')
 
-        # Draw cycle edges with different color if any
         if cycle_edges:
             nx.draw_networkx_edges(G, pos, edgelist=cycle_edges, arrows=True,
                                    edge_color='red', width=2.0)
 
-        # Draw nodes
         nx.draw_networkx_nodes(G, pos, node_color=node_colors, node_size=node_sizes)
 
-        # Draw labels
         nx.draw_networkx_labels(G, pos, font_size=8, font_weight="bold")
 
-        # Draw edge labels
         edge_labels = {(u, v): d['relation'] for u, v, d in G.edges(data=True)}
         nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_size=6)
 
-        # Set plot title
         plt.title(f"Cyclic Concept Map: {title}")
 
-        # Save figure
         output_path = os.path.join(self.output_dir, f"cyclic_{title}_{timestamp}.png")
         plt.savefig(output_path, dpi=300, bbox_inches='tight')
         plt.close()
 
         return output_path
 
-    # Method to get the generated graph for direct use in Streamlit
     def get_graph_for_streamlit(self, title: str, entities: List[Dict],
                                 relations: List[Dict], map_type: str):
         """
@@ -327,32 +306,25 @@ class ConceptMapProcessor:
         """
         map_type = map_type.lower()
 
-        # Create a NetworkX graph
         G = nx.DiGraph()
 
-        # Add nodes with attributes based on entity properties
         for entity in entities[:30]:  # Limit to top 30 for clarity
             G.add_node(entity["id"],
                        weight=entity["frequency"],
                        layer=entity["layer"])
 
-        # Add edges from relations
         for rel in relations:
             if G.has_node(rel["source"]) and G.has_node(rel["target"]):
                 G.add_edge(rel["source"], rel["target"], relation=rel["relation_type"])
 
-        # Create figure for visualization
         fig, ax = plt.subplots(figsize=(12, 8))
 
-        # Use appropriate layout based on map type
         if map_type == "hierarchical":
-            # For hierarchical, we'll use a specialized tree layout if possible
             try:
                 pos = nx.nx_agraph.graphviz_layout(G, prog="dot")
             except:
                 pos = nx.spring_layout(G)
         elif map_type == "cyclic":
-            # For cyclic, try to highlight cycles
             try:
                 cycles = list(nx.simple_cycles(G))
                 if cycles:
@@ -364,11 +336,9 @@ class ConceptMapProcessor:
                         for i in range(len(cycle)):
                             cycle_edges.add((cycle[i], cycle[(i + 1) % len(cycle)]))
 
-                    # Draw regular edges
                     regular_edges = [(u, v) for u, v in G.edges() if (u, v) not in cycle_edges]
                     nx.draw_networkx_edges(G, pos, edgelist=regular_edges, arrows=True, edge_color='gray')
 
-                    # Draw cycle edges with different color
                     nx.draw_networkx_edges(G, pos, edgelist=cycle_edges, arrows=True,
                                            edge_color='red', width=2.0)
                 else:
@@ -378,11 +348,9 @@ class ConceptMapProcessor:
                 pos = nx.spring_layout(G)
                 nx.draw_networkx_edges(G, pos, arrows=True)
         else:
-            # Default to spring layout for network
             pos = nx.spring_layout(G)
             nx.draw_networkx_edges(G, pos, arrows=True)
 
-        # Colors based on layer
         colors = {
             "priority": "lightcoral",
             "secondary": "lightblue",
@@ -391,24 +359,19 @@ class ConceptMapProcessor:
 
         node_colors = [colors.get(G.nodes[node].get('layer', 'tertiary'), 'lightgray') for node in G.nodes()]
 
-        # Size nodes by frequency
         node_sizes = [G.nodes[node].get('weight', 1) * 100 + 300 for node in G.nodes()]
 
-        # Draw nodes if not already drawn
         if map_type != "cyclic" or not any(cycles):
             nx.draw(G, pos, with_labels=True, node_color=node_colors, node_size=node_sizes,
                     font_size=8, font_weight="bold", ax=ax, arrows=True)
         else:
-            # Draw nodes and labels separately for cyclic (since edges are already drawn)
             nx.draw_networkx_nodes(G, pos, node_color=node_colors, node_size=node_sizes)
             nx.draw_networkx_labels(G, pos, font_size=8, font_weight="bold")
 
-        # Draw edge labels if not too many edges
         if len(G.edges()) <= 50:
             edge_labels = {(u, v): d['relation'] for u, v, d in G.edges(data=True)}
             nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_size=6)
 
-        # Set plot title
         plt.title(f"{map_type.capitalize()} Concept Map: {title}")
 
         return G, fig
@@ -440,10 +403,8 @@ if __name__ == "__main__":
     import argparse
     from dotenv import load_dotenv
 
-    # Load environment variables from .env file
     load_dotenv()
 
-    # Get API key from environment
     api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
         raise ValueError("OPENAI API key not found. Please set OPENAI_API_KEY environment variable.")
@@ -460,7 +421,6 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    # Process the article
     result = process_article(
         url=args.url,
         api_key=api_key,
@@ -470,7 +430,6 @@ if __name__ == "__main__":
         output_dir=args.output_dir
     )
 
-    # Print results
     print("\nProcessing complete!")
     print(f"Title: {result['title']}")
     print(f"Category: {result['category']}")

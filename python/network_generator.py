@@ -31,7 +31,6 @@ class NetworkConceptMapGenerator:
         self.api_key = api_key
         self.output_dir = output_dir
 
-        # Initialize OpenAI client only if API key is provided
         if api_key:
             try:
                 self.client = OpenAI(api_key=api_key)
@@ -41,7 +40,6 @@ class NetworkConceptMapGenerator:
         else:
             self.client = None
 
-        # Ensure output directory exists
         os.makedirs(output_dir, exist_ok=True)
 
     def update_api_key(self, new_api_key: str):
@@ -75,11 +73,9 @@ class NetworkConceptMapGenerator:
         Returns:
             Dictionary with map data and HTML content
         """
-        # Format entities and relations for the network map
         formatted_entities = self._format_entities(entities)
         formatted_relations = self._format_relations(relations)
 
-        # Apply detail level filtering
         if detail_level == "summary":
             # Keep only priority concepts and their direct connections
             formatted_entities, formatted_relations = self._filter_for_summary(
@@ -95,13 +91,10 @@ class NetworkConceptMapGenerator:
         for entity in formatted_entities:
             entity_id = entity.get("id", "")
             if entity_id in entity_degrees:
-                # Make sure the degree is set in the entity
                 entity["degree"] = entity_degrees[entity_id]
 
-        # Generate HTML for the D3 visualization
         html_content = self._generate_html(title, formatted_entities, formatted_relations)
 
-        # Prepare result
         timestamp = title.replace(" ", "_").lower() + "_" + detail_level
 
         result = {
@@ -128,15 +121,12 @@ class NetworkConceptMapGenerator:
         Returns:
             Component value with expanded nodes information
         """
-        # Set up session state for tracking expanded nodes if not exists
         if "network_expanded_nodes" not in st.session_state:
             st.session_state.network_expanded_nodes = []
 
-        # Show control panel
         col1, col2 = st.columns([3, 1])
 
         with col1:
-            # Show expanded nodes information if any
             if st.session_state.network_expanded_nodes:
                 expanded_text = ", ".join(st.session_state.network_expanded_nodes[:3])
                 if len(st.session_state.network_expanded_nodes) > 3:
@@ -146,7 +136,6 @@ class NetworkConceptMapGenerator:
                 st.info("Click on nodes with coral outlines to expand hidden connections")
 
         with col2:
-            # Reset button
             if st.button("Reset View", key="network_reset"):
                 st.session_state.network_expanded_nodes = []
                 st.rerun()
@@ -156,14 +145,12 @@ class NetworkConceptMapGenerator:
             st.session_state.network_expanded_nodes
         )
 
-        # Use our custom HTML component instead of the standard one
         component_value = components.html(
             updated_html,
             height=height,
             scrolling=True
         )
 
-        # Update expanded nodes based on component value
         if component_value and isinstance(component_value, dict) and "expandedNodes" in component_value:
             st.session_state.network_expanded_nodes = component_value["expandedNodes"]
             st.rerun()
@@ -181,10 +168,8 @@ class NetworkConceptMapGenerator:
         Returns:
             Updated HTML with expanded nodes injected
         """
-        # Convert expanded nodes to JSON
         expanded_json = json.dumps(expanded_nodes)
 
-        # Replace the placeholder in the HTML
         updated_html = html.replace('"expandedNodes": []', f'"expandedNodes": {expanded_json}')
 
         return updated_html
@@ -196,7 +181,6 @@ class NetworkConceptMapGenerator:
         formatted_entities = []
 
         for entity in entities:
-            # Extract key attributes
             entity_id = entity.get("id", "")
             frequency = entity.get("frequency", 0)
             section_count = entity.get("section_count", 0)
@@ -205,12 +189,10 @@ class NetworkConceptMapGenerator:
             evidence = ""
             if entity.get("appearances"):
                 for appearance in entity.get("appearances"):
-                    # First try evidence field
                     if "evidence" in appearance and appearance["evidence"]:
                         evidence = appearance["evidence"]
                         break
 
-                # If no evidence found, fall back to context
                 if not evidence:
                     for appearance in entity.get("appearances"):
                         if "context" in appearance and appearance["context"]:
@@ -243,15 +225,12 @@ class NetworkConceptMapGenerator:
         formatted_relations = []
 
         for relation in relations:
-            # Extract key attributes
             source = relation.get("source", "")
             target = relation.get("target", "")
             relation_type = relation.get("relation_type", "")
             evidence = relation.get("evidence", "")
 
-            # Only add if source and target are non-empty
             if source and target:
-                # Format for network map
                 formatted_relation = {
                     "source": source,
                     "target": target,
@@ -276,12 +255,10 @@ class NetworkConceptMapGenerator:
         """
         degrees = {}
 
-        # Initialize degrees for all entities
         for entity in entities:
             entity_id = entity.get("id", "")
             degrees[entity_id] = 0
 
-        # Count connections in relations
         for relation in relations:
             source = relation.get("source", "")
             target = relation.get("target", "")
@@ -292,7 +269,6 @@ class NetworkConceptMapGenerator:
             if target in degrees:
                 degrees[target] += 1
 
-        # Update entity objects with accurate degrees
         for entity in entities:
             entity_id = entity.get("id", "")
             if entity_id in degrees:
@@ -311,11 +287,9 @@ class NetworkConceptMapGenerator:
         Returns:
             Tuple of (filtered_entities, filtered_relations)
         """
-        # Keep only priority entities
         priority_entities = [e for e in entities if e.get("layer") == "priority"]
         priority_ids = {e.get("id") for e in priority_entities}
 
-        # Keep relations between priority entities
         filtered_relations = [
             r for r in relations
             if r.get("source") in priority_ids and r.get("target") in priority_ids
@@ -334,14 +308,12 @@ class NetworkConceptMapGenerator:
         Returns:
             Tuple of (filtered_entities, filtered_relations)
         """
-        # Keep priority and secondary entities
         filtered_entities = [
             e for e in entities
             if e.get("layer") in ("priority", "secondary")
         ]
         filtered_ids = {e.get("id") for e in filtered_entities}
 
-        # Keep relations between these entities
         filtered_relations = [
             r for r in relations
             if r.get("source") in filtered_ids and r.get("target") in filtered_ids
@@ -353,14 +325,13 @@ class NetworkConceptMapGenerator:
         """
         Generate HTML with D3.js visualization for the network concept map.
         """
-        # Create the initial data dictionary with properly formatted links
         formatted_links = []
         for relation in relations:
             formatted_links.append({
                 "source": relation.get("source"),
                 "target": relation.get("target"),
                 "type": relation.get("type", ""),
-                "evidence": relation.get("evidence", "")  # Make sure this is correct
+                "evidence": relation.get("evidence", "")
             })
 
         data_dict = {
@@ -369,13 +340,10 @@ class NetworkConceptMapGenerator:
             "expandedNodes": []
         }
 
-        # Convert to JSON for embedding
         data_json = json.dumps(data_dict)
 
-        # Generate unique ID for this visualization to avoid caching issues
         unique_id = int(time.time() * 1000)
 
-        # HTML template with D3 visualization
         html = f"""
         <!DOCTYPE html>
         <html>
@@ -1836,13 +1804,10 @@ class NetworkConceptMapGenerator:
                         }}
                     }});
                     
-                    // Clear pinned nodes set
                     pinnedNodes.clear();
                     
-                    // Remove visual indicators
                     g.selectAll(".node--pinned").classed("node--pinned", false);
                     
-                    // Reset focus as well
                     focusedNodeId = null;
                     resetFocus();
                     
@@ -1862,20 +1827,16 @@ class NetworkConceptMapGenerator:
                             else if (node.layer === "secondary") targetRadius = 240;
                             else targetRadius = 360; // tertiary
                             
-                            // Get original position
                             const origPos = originalPositions.get(node.id);
                             if (!origPos) return;
                             
-                            // Calculate angle from center
                             const dx = origPos.x - centerX;
                             const dy = origPos.y - centerY;
                             const currentAngle = Math.atan2(dy, dx);
                             
-                            // Calculate new position based on layer radius
                             const newX = centerX + targetRadius * Math.cos(currentAngle);
                             const newY = centerY + targetRadius * Math.sin(currentAngle);
                             
-                            // Apply a gentle pull toward the target position
                             const pullStrength = 0.1;
                             node.vx = (newX - node.x) * pullStrength;
                             node.vy = (newY - node.y) * pullStrength;
@@ -1976,21 +1937,16 @@ class NetworkConceptMapGenerator:
                             }}
                         }});
                         
-                        // Clear pinned nodes set
                         pinnedNodes.clear();
                         
-                        // Remove visual indicators
                         g.selectAll(".node--pinned").classed("node--pinned", false);
                         
-                        // Run simulation with low alpha to adjust
                         if (currentSimulation) {{
                             currentSimulation.alpha(0.1).restart();
                         }}
                     }}
                 }});
 
-                
-                // Initial visualization
                 updateVisualization();
                 
                 document.addEventListener('click', function(event) {{
@@ -2001,7 +1957,6 @@ class NetworkConceptMapGenerator:
                                                 !event.target.closest('.node');
                     
                     if (isClickOutsidePanel) {{
-                        // Hide the explanation panel
                         d3.select("#explanation-panel").style("display", "none");
                     }}
                 }});

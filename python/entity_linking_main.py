@@ -20,18 +20,15 @@ def process_article_by_paragraphs(title: str, article: Dict, extractor: Optimize
         if section_title in sections_to_skip: 
             continue
         
-        # Count main content paragraphs
         main_content = section.get('content', [])
         total_paragraphs += len(main_content)
         
-        # Count subsection paragraphs
         for subsection in section.get('subsections', []):
             subsection_content = subsection.get('content', [])
             total_paragraphs += len(subsection_content)
     
     print(f"Total paragraphs to process: {total_paragraphs}")
     
-    # Reset entity tracking for new article
     extractor.reset_tracking()
 
     for section_idx, section in enumerate(sections, 1):
@@ -91,7 +88,6 @@ def process_article_by_sections(title, article, extractor):
     sections = article.get('sections', [])
     print(f"Total sections to process: {len(sections)}")
 
-    # Reset entity tracking for new article
     extractor.reset_tracking()
 
     sections_to_skip = {"See also", "Notes", "References", "Works cited", "External links"}
@@ -104,11 +100,9 @@ def process_article_by_sections(title, article, extractor):
             if section_title in sections_to_skip:  # Skip specified sections
                 continue
 
-            # Get section data
             main_content = section.get('content', [])
             section_text.extend(main_content)
-            
-            # Add subsection content
+
             for subsection in section.get('subsections', []):
                 section_text.extend(subsection.get('content', []))
             
@@ -138,15 +132,13 @@ def process_article_by_subsections(title: str, article: Dict, extractor: Optimiz
     sections = article.get('sections', [])
     print(f"Total sections to process: {len(sections)}")
 
-    # Reset entity tracking for new article
     extractor.reset_tracking()
 
     sections_to_skip = {"See also", "Notes", "References", "Works cited", "External links"}
 
     processed_units = 0
-    total_units = 0  # Will be calculated by counting sections and subsections
+    total_units = 0
 
-    # Count total processing units (sections without subsections + individual subsections)
     for section in sections:
         section_title = section.get('section_title', '')
         if section_title in sections_to_skip:
@@ -154,10 +146,8 @@ def process_article_by_subsections(title: str, article: Dict, extractor: Optimiz
 
         subsections = section.get('subsections', [])
         if not subsections:
-            # Count section with no subsections as one unit
             total_units += 1
         else:
-            # Count each subsection as one unit
             total_units += len(subsections)
 
     print(f"Total processing units: {total_units}")
@@ -168,15 +158,12 @@ def process_article_by_subsections(title: str, article: Dict, extractor: Optimiz
             if section_title in sections_to_skip:
                 continue
 
-            # Get subsections
             subsections = section.get('subsections', [])
 
             if not subsections:
-                # Process section as a single unit if it has no subsections
                 processed_units += 1
                 print(f"\nProcessing unit {processed_units}/{total_units}: Section '{section_title}'")
 
-                # Get section content
                 section_text = section.get('content', [])
                 if section_text:
                     combined_text = "\n".join(section_text)
@@ -189,7 +176,6 @@ def process_article_by_subsections(title: str, article: Dict, extractor: Optimiz
                     )
                     extractor.process_section(chunk)
             else:
-                # Process each subsection separately
                 for subsection_idx, subsection in enumerate(subsections, 1):
                     processed_units += 1
                     subsection_title = subsection.get('section_title', '')
@@ -197,7 +183,6 @@ def process_article_by_subsections(title: str, article: Dict, extractor: Optimiz
 
                     print(f"\nProcessing unit {processed_units}/{total_units}: Subsection '{full_title}'")
 
-                    # Get subsection content
                     subsection_text = subsection.get('content', [])
                     if subsection_text:
                         combined_text = "\n".join(subsection_text)
@@ -237,21 +222,18 @@ def save_relations(self, output_path: str, processing_mode: str, title: str):
 
 def save_entity_results(results: List[Dict], output_path: str, processing_mode: str, article_title: str, category: str):
     """Save results to file and print summary."""
-    # Load existing results if the file already exists
     if os.path.exists(output_path):
         with open(output_path, 'r', encoding='utf-8') as f:
             existing_data = json.load(f)
     else:
         existing_data = {'metadata': {'processing_mode': processing_mode, 'timestamp': datetime.now().isoformat()}}
 
-    # Update existing data with the new article results
     existing_data[article_title] = {
         'category': category, 
         'total_entities': len(results),
         'entities': results
     }
 
-    # Save updated results to file
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(existing_data, f, indent=4, ensure_ascii=False)
 
@@ -288,7 +270,6 @@ def save_relation_results(all_articles_relations: Dict[str, Dict], articles_data
         for title, article_relations in all_articles_relations.items()
     }
 
-    # Save local relations
     local_path = os.path.join(base_path, f"local_relations_{processing_mode}_sample.json")
     with open(local_path, 'w', encoding='utf-8') as f:
         json.dump({
@@ -300,7 +281,6 @@ def save_relation_results(all_articles_relations: Dict[str, Dict], articles_data
             'articles': local_relations
         }, f, indent=4)
 
-    # Save global relations
     global_path = os.path.join(base_path, f"global_relations_{processing_mode}_sample.json")
     with open(global_path, 'w', encoding='utf-8') as f:
         json.dump({
@@ -312,7 +292,6 @@ def save_relation_results(all_articles_relations: Dict[str, Dict], articles_data
             'articles': global_relations
         }, f, indent=4)
 
-    # Save master relations
     master_path = os.path.join(base_path, f"master_relations_{processing_mode}_sample.json")
     with open(master_path, 'w', encoding='utf-8') as f:
         json.dump({
@@ -331,53 +310,46 @@ def save_relation_results(all_articles_relations: Dict[str, Dict], articles_data
 
 
 def main(processing_mode='section'):
-    # Initialize the entity extractor
     load_dotenv()
     api_key = os.getenv('OPENAI_API_KEY')
     if not api_key:
         raise ValueError("OPENAI API key not found. Please set OPENAI_API_KEY environment variable.")
     
-    # Initialize the entity extractor with your actual API key
     extractor = OptimizedEntityExtractor(
         api_key=api_key,
         cache_version="1.0"
     )
     
-    # Load your articles
     with open('/Users/mollyhan/PycharmProjects/Cognitext/data/text_sample2.json', 'r', encoding='utf-8') as f:
-        data = json.load(f)  # Load the entire JSON
-        articles = data.get('articles', {})  # Access the 'articles' key
+        data = json.load(f)
+        articles = data.get('articles', {})
 
     output_path = f"/Users/mollyhan/Desktop/simplified-cognitext-chatbot/python/data/entity_analysis_{processing_mode}_results.json"  # Define output path
 
     all_relation_results = {}
     articles_data = {}
 
-    for title, article in articles.items():  # Iterate over the items in the articles dictionary
+    for title, article in articles.items():
         print(f"\nProcessing article: {title}")
-        
-        # Reset entity tracking for new article
+
         extractor.reset_tracking()
         extractor.relation_tracker = RelationTracker()
 
         category = article.get('category', 'Uncategorized')
         
-        # Store article data for later use
         articles_data[title] = {
             "category": category
         }
         
         if processing_mode == 'section':
             entities = process_article_by_sections(title, article, extractor)
-        else:  # paragraph mode
+        else:
             entities = process_article_by_paragraphs(title, article, extractor)
             
-        # Final global relation extraction
         final_global_relations = extractor.extract_global_relations(entities)
         extractor.relation_tracker.add_global_relations(final_global_relations)
         extractor.relation_tracker.merge_relations()
         
-        # Store results for this article
         all_relation_results[title] = extractor.get_all_relations()
         save_entity_results(entities, output_path, processing_mode, title, category)  # Save after each article
 
